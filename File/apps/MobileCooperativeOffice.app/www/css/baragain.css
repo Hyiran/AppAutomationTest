@@ -1,0 +1,83 @@
+
+/*>>>>>>>>>>>>row类型样式<<<<<<<<<<<<<<<<<<<<*/
+.EvenRowClass{
+/*    偶数行的类*/
+    background: #F6F6F6;
+}
+.oddRowClass{
+/*    奇数行的类 */
+    background: #FCFCFC;
+}
+.rowDiv p{
+    
+    min-height: 40px;
+    width:100%;
+    font-family: "微软雅黑";
+    font-size: 15px;
+    height:auto;
+    line-height:50px;
+    display:inline-block;
+}
+.rowDiv p span{
+    width:30%;
+    color: #515151;
+    text-align: left;
+    font-size: 13px;
+    height:auto;
+    line-height:1.5;
+    font-family: "微软雅黑";
+    float:left;
+    border-right:0px solid #e1e1e1;
+}
+.rowDiv p i{
+    width:70%;
+    text-align: right;
+    font-size: 13px;
+    word-break:break-all;
+    line-height:1.5;
+    color: #999999;
+    font-family: "微软雅黑";
+    display:inline-block;
+}
+
+.keyClass{
+    margin-top:10px;
+    margin-left:20px ;
+    float: left;
+}
+.valueClass{
+    margin-top:10px;
+    margin-right: 20px;
+    float: right;
+}
+
+
+
+
+/*>>>>>>>>>>>>row类型样式<<<<<<<<<<<<<<<<<<<<*/
+
+
+.tableDiv{
+    width: 100%;
+}
+.tableElement{
+    font-size: 12px;
+}
+
+/*table类型的样式*/
+
+
+#SegmentationBlock{
+    width:100%;
+    height:10px;
+    background:#f2f2f2;
+}
+
+a{
+    text-decoration:none;
+    color: #3d73de;
+    font-size: 14px;
+}
+
+
+

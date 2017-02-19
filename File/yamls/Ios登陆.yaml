@@ -1,0 +1,18 @@
+INusernameDE:
+  type: xpath
+  value: "//UIAStaticText[contains(@name,'账号')]"
+INpassswordDE:
+  type: xpath
+  value: "//UIAStaticText[contains(@name,'密码')]"
+INsubmitDE:
+  type: xpath
+  value: "//UIAButton[contains(@name,'登录')]"
+INusernameDA:
+  type: xpath
+  value: "//UIATextField[contains(@value,'请输入用户名')]"
+INpassswordDA:
+  type: xpath
+  value: "//UIASecureTextField[contains(@value,'请输入密码')]"
+expetData:
+  type: xpath
+  value: "//UIAStaticText[contains(@name,'%s')]"

@@ -1,0 +1,37 @@
+a{
+    text-decoration:none;
+    color: #3d73de;
+    font-size: 14px;
+}
+
+.biaotititle
+{
+    line-height:40px;
+    margin-left: 20px;
+    text-align:left;
+    color:#666;
+    font-size: 15px;
+    font-family: "微软雅黑";
+}
+
+
+.tableList01{ width: 15%; }
+.tableList02{ width: 20%; }
+.tableList03{ width: 20%; }
+.tableList04{ width: 12%; }
+.tableList05{ width: 33%; }
+
+.tableList1{ width: 16%; }
+.tableList2{ width: 16%; }
+.tableList3{ width: 15%; }
+.tableList4{ width: 15%; }
+.tableList5{ width: 20%; }
+.tableList6{ width: 15%; }
+
+.tableList002{ width: 30%; }
+.tableList003{ width: 15%; }
+.tableList004{ width: 35%; }
+.tableList005{ width: 20%; }
+
+
+

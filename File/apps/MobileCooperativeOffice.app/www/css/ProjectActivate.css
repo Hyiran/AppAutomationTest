@@ -1,0 +1,67 @@
+
+
+.money{
+    color:#FF0073;
+}
+
+#zixiangmuxinxi_BH  { width: 23%; }
+#zixiangmuxinxi_MC  { width: 18%; }
+#zixiangmuxinxi_JL  { width: 10%; }
+#zixiangmuxinxi_BM  { width:  9%; }
+#zixiangmuxinxi_XSSR{ width: 12%; }
+#zixiangmuxinxi_JHSR{ width: 12%; }
+#zixiangmuxinxi_ZYS { width: 16%; }
+
+#xiangmucaigou_BH  	 { width: 23%; }
+#xiangmucaigou_KM  	 { width: 14%; }
+#xiangmucaigou_SJYS  { width: 21%; }
+#xiangmucaigou_CGSJ  { width: 14%; }
+#xiangmucaigou_GYS   { width: 14%; }
+#xiangmucaigou_BZ	 { width: 14%; }
+
+
+#jinduzhiliang_BH  	 { width: 24%; }
+#jinduzhiliang_MC  	 { width: 18%; }
+#jinduzhiliang_LCB   { width: 13%; }
+#jinduzhiliang_WCSJ  { width: 14%; }
+#jinduzhiliang_JFW   { width: 13%; }
+#jinduzhiliang_SR	 { width: 18%; }
+
+#shenpiyijian_BM  	 { width: 27%; }
+#shenpiyijian_SPR    { width: 21%; }
+#shenpiyijian_YJ     { width: 17%; }
+#shenpiyijian_SJ	 { width: 23%; }
+#shenpiyijian_ZT     { width: 12%; }
+
+iframe{
+	border: 0px;  
+	height: 250px;
+    
+}
+.iframe_div_class{    border: 0px;  
+    height: 298px;
+    border-bottom:.5px solid #e1e1e1;
+}
+
+.Chart_Control_Selected,
+.Chart_Control_Normal{
+    float: left;
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    background-color: #FBFCFD;
+    display: block;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.Chart_Control_Selected{
+	color: #3d72de;
+	border-bottom: 0.5px solid #3d72de;
+}
+.Chart_Control_Normal{
+	color:#666666;
+	border-bottom: 0.5px solid #ccc;
+}
+
+
+

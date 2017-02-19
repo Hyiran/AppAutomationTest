@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC"-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"/>
+    <html xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>测试表单</title>
+    <script type="text/javascript">
+
+        function JavacallHtml(params1,params2,params3,params4){
+            document.getElementById("employeeCode").value = params1;
+            document.getElementById("token").value =params2;
+            document.getElementById("EndorsementID").value =params3;
+            document.getElementById("CostCenter1").value =params4;
+            document.getElementById("form").submit();
+            
+        }
+
+
+		function showAndroidToast(toast) {
+			Android.showToast(toast);
+		}
+	</script>
+    </head>
+    <body>
+        <form action="https://ct.ctrip.com/m/SingleSignOn/H5SignInfo" method="post" id="form">
+            <input type="hidden" name="accessUserId" value="obk_yingk" />
+            <input id="employeeCode"  name="employeeId" value="" />
+            <input type="hidden" name="initPage" value="Home"/>
+            <input type="hidden" name="appid" value="yingk" />
+            <input type="hidden" name="onError" value="ErrorCode" />
+            <input id="token"  name="token" value=""/>
+            <input type="hidden" id="EndorsementID" name="EndorsementID" value="" />
+            <input type="hidden" id="CostCenter1" name="CostCenter1" value="" />
+            <input type="hidden" id="Callback" name="Callback" value="http://ct.ctrip.com/m/" />
+        </form>
+    </body>
+</html>

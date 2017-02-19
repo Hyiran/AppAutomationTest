@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <!--  设置页面自适应      -->
+    <meta name="viewport" content="width=screen.width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link rel="stylesheet" href="../css/Common.css" />
+    <link rel="stylesheet" href="../css/CustomerApply.css" />
+    <script type="text/javascript" src="../js/Common.js"></script>
+    <script type="text/javascript" src="../js/CustomerApply.js"></script>
+    <div class="lianxiren" id="lianxirenTemplate" style="display: none;">
+        <div class="customRowClass">
+            <div class="customRowLeftClass" style="padding-top:10px;">姓名</div>
+            <div class="customRowRightInputClass" style="padding-bottom:3px;">
+                <input type="text" class="rightInputClass" placeholder="请输入信息" id="lxrInputNameTemplate" name="Dict_name">
+            </div>
+        </div>
+        <div class="customRowClass">
+            <div class="customRowLeftClass" style="padding-top:10px;">部门</div>
+            <div class="customRowRightInputClass" style="padding-bottom:3px;">
+                <input type="text" class="rightInputClass" placeholder="请输入信息" id="lxrInputDepDepTemplate" name="Dict_dept">
+            </div>
+        </div>
+        <div class="customRowClass">
+            <div class="customRowLeftClass" style="padding-top:10px;">职务</div>
+            <div class="customRowRightInputClass" style="padding-bottom:3px;">
+                <input type="text" class="rightInputClass" placeholder="请输入信息" id="lxrInputJobTemplate" name="Dict_post">
+            </div>
+        </div>
+        <div class="customRowClass">
+            <div class="customRowLeftClass" style="padding-top:10px;">邮件</div>
+            <div class="customRowRightInputClass" style="padding-bottom:3px;">
+                <input type="text" class="rightInputClass" placeholder="请输入信息" id="lxrInputMailTemplate" name="Dict_email">
+            </div>
+        </div>
+        <div class="customRowClass">
+            <div class="customRowLeftClass" style="padding-top:10px;">座机</div>
+            <div class="customRowRightInputClass" style="padding-bottom:3px;">
+                <input type="text" class="rightInputClass" placeholder="请输入信息" id="lxrInputBusphoneTemplate" name="Dict_busphone">
+            </div>
+        </div>
+        <div class="customRowClass">
+            <div class="customRowLeftClass" style="padding-top:10px;">手机</div>
+            <div class="customRowRightInputClass" style="padding-bottom:3px;">
+                <input type="text" class="rightInputClass" placeholder="请输入信息" id="lxrInputPhoneTemplate" name="Dict_phone">
+            </div>
+        </div>
+    </div>
+</head>
+
+<body>
+    <div class="mainBox">
+        <!--空行,给紧急图片让出位置-->
+        <div id="emergencyDiv" style="height:50px; display:none;"> </div>
+        <!-- 申请单标题 -->
+        <dl class="Title_Dl" id="keHuXinXi">
+            <dt>
+                <font class="titleClass">客户信息</font>
+            </dt>
+            <dd>
+                <a href="###"><img id="Control_keHuXinXi" /></a>
+            </dd>
+        </dl>
+        <!-- 申请单详情 1-->
+        <div class="Applicant_informationList" id="Applicant_informationList2" style="display: block;">
+            <div class="customRowClass">
+                <div class="customRowLeftClass" style="padding-top:10px;">客户全称</div>
+                <div class="customRowRightInputClass" style="padding-bottom:3px;">
+                    <input type="text" class="rightInputClass" placeholder="请输入信息" id="Cstm_name" name="Cstm_name">
+                </div>
+            </div>
+            <div class="customRowClass">
+                <div class="customRowLeftClass" style="padding-top:10px;">集团客户</div>
+                <div class="customRowRightSelectClass" id="selectIsGroup" style="padding-bottom:3px;">请选择<b class="jiantou"></b></div>
+            </div>
+            <div class="customRowClass">
+                <div class="customRowLeftClass" style="padding-top:10px;">上级单位</div>
+                <div class="customRowRightSelectClass" id="selectUpperUnit" style="padding-bottom:3px;">请选择<b class="jiantou"></b></div>
+            </div>
+            <div class="customRowClass">
+                <div class="huise" style="padding-top:10px;">大客户经理</div>
+                <div class="customRowRightSelectClass" id="Group_manager" style="padding-bottom:3px;"></div>
+            </div>
+            <div class="customRowClass" style="padding-bottom:10px;border-bottom: 0.5px solid #ccc;">
+                <div class="huise" style="padding-top:10px;">所在部门</div>
+                <div class="customRowRightSelectClass" id="Cstm_Mandept" style="padding-bottom:3px;"></div>
+            </div>
+            <div class="breakLine">
+            </div>
+            <div class="inputCardClass">
+                <div class="inputCardTitleClass">客户背景</div>
+                <div class="inputCardValueClass">
+                    <textarea id="Cstm_backgrd" rows="2" class="shyfxfx" placeholder="请输入信息" name="Cstm_backgrd"></textarea>
+                </div>
+            </div>
+            <div class="breakLine">
+            </div>
+            <div class="customRowClass">
+                <div class="customRowLeftClass" style="padding-top:10px;">国家</div>
+                <div class="customRowRightSelectClass" id="selectCountry" style="padding-bottom:3px;">请选择<b class="jiantou"></b></div>
+            </div>
+            <div class="customRowClass">
+                <div class="customRowLeftClass" style="padding-top:10px;">地区</div>
+                <div class="customRowRightSelectClass" id="selectDiQu" style="padding-bottom:3px;">请选择<b class="jiantou"></b></div>
+            </div>
+            <div class="customRowClass">
+                <div class="customRowLeftClass" style="padding-top:10px;">行业</div>
+                <div class="customRowRightSelectClass" id="selectIndustry" style="padding-bottom:3px;">请选择<b class="jiantou"></b></div>
+            </div>
+            <div class="customRowClass" style="padding-bottom:20px;border-bottom: 0.5px solid #ccc;">
+                <div class="customRowLeftClass" style="padding-top:10px;">地址</div>
+                <div class="customRowRightInputClass" style="padding-bottom:3px;">
+                    <input type="text" class="rightInputClass" placeholder="请输入信息" id="Cstm_address" name="Cstm_address">
+                </div>
+            </div>
+            <div class="breakLine">
+            </div>
+            <div class="customRowClass">
+                <div class="customRowLeftClass" style="padding-top:10px;">年营业收入</div>
+                <div class="customRowRightInputMoneyClass">
+                    <input type="number" class="rightInputMoneyClass" placeholder="请输入金额" id="Cstm_yearin" name="Cstm_yearin">
+                </div>
+            </div>
+            <div class="customRowClass">
+                <div class="customRowLeftClass" style="padding-top:15px;">市场类别</div>
+                <div class="customRowRightSelectClass" id="selectRelaType" style="padding-bottom:3px;">请选择<b class="jiantou"></b></div>
+            </div>
+            <div class="customRowClass" style="padding-bottom:10px;border-bottom: 0.5px solid #ccc;">
+                <div class="customRowLeftClass" style="padding-top:10px;">重要性</div>
+                <div class="customRowRightSelectClass" id="selectCate" style="padding-bottom:3px;">请选择<b class="jiantou"></b></div>
+            </div>
+            <div class="breakLine">
+            </div>
+            <div class="inputCardClass">
+                <div class="inputCardTitleClass">潜在需求</div>
+                <div class="inputCardValueClass">
+                    <textarea id="Cstm_statusquo" rows="2" class="shyfxfx" placeholder="请输入信息" name="Cstm_statusquo"></textarea>
+                </div>
+            </div>
+            <div class="breakLine">
+            </div>
+        </div>
+        <dl class="Title_Dl" id="lxyXinXi">
+            <dt>
+                <font class="titleClass">联系人信息</font>
+            </dt>
+            <dd>
+                <a href="###"><img id="Control_lxyXinXi" /></a>
+            </dd>
+        </dl>
+        <!-- 商机信息详情 1-->
+        <div class="Applicant_informationList" id="Row_lxyXinXi" style="display: block;">
+            <div class="lianxiren">
+                <div class="customRowClass">
+                    <div class="customRowLeftClass" style="padding-top:10px;">姓名</div>
+                    <div class="customRowRightInputClass" style="padding-bottom:3px;">
+                        <input type="text" class="rightInputClass" placeholder="请输入信息" id="lxrInputName0" name="Dict_name">
+                    </div>
+                </div>
+                <div class="customRowClass">
+                    <div class="customRowLeftClass" style="padding-top:10px;">部门</div>
+                    <div class="customRowRightInputClass" style="padding-bottom:3px;">
+                        <input type="text" class="rightInputClass" placeholder="请输入信息" id="lxrInputDep0" name="Dict_dept">
+                    </div>
+                </div>
+                <div class="customRowClass">
+                    <div class="customRowLeftClass" style="padding-top:10px;">职务</div>
+                    <div class="customRowRightInputClass" style="padding-bottom:3px;">
+                        <input type="text" class="rightInputClass" placeholder="请输入信息" id="lxrInputJob0" name="Dict_post">
+                    </div>
+                </div>
+                <div class="customRowClass">
+                    <div class="customRowLeftClass" style="padding-top:10px;">邮件</div>
+                    <div class="customRowRightInputClass" style="padding-bottom:3px;">
+                        <input type="text" class="rightInputClass" placeholder="请输入信息" id="lxrInputMail0" name="Dict_email">
+                    </div>
+                </div>
+                <div class="customRowClass">
+                    <div class="customRowLeftClass" style="padding-top:10px;">座机</div>
+                    <div class="customRowRightInputClass" style="padding-bottom:3px;">
+                        <input type="text" class="rightInputClass" placeholder="请输入信息" id="lxrInputBusphone0" name="Dict_busphone">
+                    </div>
+                </div>
+                <div class="customRowClass">
+                    <div class="customRowLeftClass" style="padding-top:10px;">手机</div>
+                    <div class="customRowRightInputClass" style="padding-bottom:3px;">
+                        <input type="text" class="rightInputClass" placeholder="请输入信息" id="lxrInputPhone0" name="Dict_phone">
+                    </div>
+                </div>
+            </div>
+            <div class="customRowButtonClass" style="border-bottom: 0.5px solid #ccc;">
+                <div></div>
+                <div></div>
+                <div id="removeLianXiRen" style="display: none;"><img src="../img/删除.png" /> <i style="vertical-align:top;color: #999;">删除</i></div>
+                <div id="addLianXiRen"><img src="../img/添加.png" /> <i style="vertical-align:top;color: #999;">添加</i> </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

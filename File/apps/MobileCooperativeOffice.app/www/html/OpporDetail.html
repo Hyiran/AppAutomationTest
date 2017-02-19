@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <!--  设置页面自适应      -->
+    <meta name="viewport" content="width=screen.width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link rel="stylesheet" href="../css/Common.css" />
+    <link rel="stylesheet" href="../css/OpporDetail.css" />
+    <script type="text/javascript" src="../js/Common.js"></script>
+    <script type="text/javascript" src="../js/OpporDetail.js"></script>
+</head>
+
+<body>
+    <div class="mainBox">
+        <!--空行,给紧急图片让出位置-->
+        <div id="emergencyDiv" style="height:50px; display:none;"> </div>
+
+        <!-- 申请单标题 -->
+        <dl class="Title_Dl" id="keHuXinXi">
+            <dt>
+                <font class="titleClass">客户信息</font>
+            </dt>
+            <dd>
+                <a href="###"><img id="Control_keHuXinXi" /></a>
+            </dd>
+        </dl>
+        <!-- 申请单详情 1-->
+        <div class="Applicant_informationList" id="Applicant_informationList2" style="display: block;">
+            <p class="shangmian"><span><font class="mingcheng">客户名称</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+            <p><span><font class="mingcheng">客户经理</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+            <p class="bottomClass"><span><font class="mingcheng">集团客户</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+            <b class="xian"></b>
+            <p class="topClass"><span><font class="mingcheng">行业</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+            <p><span><font class="mingcheng">地区</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+            <p><span><font class="mingcheng">区域</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+            <p class="xiamianxian"><span><font class="mingcheng">市场类别</font></span><i class="fenpei
+                    "><font class="neirong"></font></i></p>
+            <div class="breakLine">
+                <!--                分割线-->
+            </div>
+        </div>
+        <dl class="Title_Dl" id="shangJiXinXi">
+            <dt>
+                <font class="titleClass">商机信息</font>
+            </dt>
+            <dd>
+                <a href="###"><img id="Control_shangJiXinXi" /></a>
+            </dd>
+        </dl>
+        <!-- 商机信息详情 1-->
+        <div class="Applicant_informationList" id="Applicant_informationList3" style="display: block;">
+            <p class="shangmian"><span><font class="mingcheng">商机名称</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+            <p><span><font class="mingcheng">新客户</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+            <p class="bottomClass"><span><font class="mingcheng">销售负责人</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+            <b class="xian"></b>
+            <p class="topClass"><span><font class="mingcheng">商机状态</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+            <p><span><font class="mingcheng">商机类型</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+            <p><span><font class="mingcheng">商机阶段</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+            <p class="bottomClass"><span><font class="mingcheng">商机来源</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+            <table id="maoliTable">
+                <tbody>
+                    <tr>
+                        <th class="tableList0002">金额(万元)</th>
+                        <th class="tableList0003">年收入(万元)</th>
+                        <th class="tableList0004">税率(%)</th>
+                        <th class="tableList0005">毛利金额(万元)</th>
+                        <th class="tableList0006">毛利率(%)</th>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="selectTimeClass" style="padding-top:10px;">
+                <div>签约日期</div>
+                <div class="time" id="oppStartTime">2016-10-10</div>
+                <div style="text-align:right;">关单日期</div>
+                <div class="time" style="text-align:right;" id="oppEndTime">2017-10-10</div>
+            </div>
+            <p class="topClass"><span><font class="mingcheng">关单季度</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+            <p><span><font class="mingcheng">销售周期</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+            <p class="bottomClass"><span><font class="mingcheng">商机胜算</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+            <b class="xian"></b>
+            <p class="topClass"><span><font class="mingcheng">产品或方案</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+            <p><span><font class="mingcheng">机会与风险分析</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+            <p class="bottomClass"><span><font class="mingcheng">目前跟进情况</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+            <b class="xian"></b>
+            <p class="topClass"><span><font class="mingcheng">下一步行动计划</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+            <p><span><font class="mingcheng">项目描述</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+            <p class="bottomClass"><span><font class="mingcheng">备注</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+            <div class="breakLine">
+                <!--                分割线-->
+            </div>
+        </div>
+
+		<!--            审批意见标题-->
+		<dl class="Title_Dl" id="fujiaxinxi">
+			<dt><font class="titleClass">审批意见</font></dt>
+			<dd>
+				<a href="###"><img id="Control_fujiaxinxi" /></a>
+			</dd>
+		</dl>
+		<div id="table_informationList9" style="display: block;">
+			<table>
+				<tbody>
+					<tr>
+						<th class="tableList002">审批人</th>
+						<th class="tableList003">状态</th>
+						<th class="tableList004">意见</th>
+						<th class="tableList005">时间</th>
+					</tr>
+				</tbody>
+			</table>
+
+			<div class="breakLine">
+			</div>
+		</div>
+    </div>
+</body>
+
+</html>

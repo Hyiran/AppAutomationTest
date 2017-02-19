@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<!-- 测试环境 -->
+	<ceshi>
+	<!-- 工时 -->
+		    <gongshiL1User>yuchao.cheng</gongshiL1User>
+		    <gongshiL1Password>123</gongshiL1Password>
+		    <gongshiL2User>vivian.zhao</gongshiL2User>
+		    <gongshiL2Password>123</gongshiL2Password>
+		    <gongshiL3User>yuchao.cheng</gongshiL3User>
+		    <gongshiL3Password>123</gongshiL3Password>
+    <!-- 差旅申请 -->
+		    <chailvshenqingL1User>xl.liu</chailvshenqingL1User>
+		    <chailvshenqingL1Password>123</chailvshenqingL1Password>
+	<!-- 费用报销 -->
+		    <feiyongbaoxiaoL1User>yuchao.cheng</feiyongbaoxiaoL1User>
+		    <feiyongbaoxiaoL1Password>123</feiyongbaoxiaoL1Password>
+		    <feiyongbaoxiaoL2User>vivian.zhao</feiyongbaoxiaoL2User>
+		    <feiyongbaoxiaoL2Password>123</feiyongbaoxiaoL2Password>
+		    <feiyongbaoxiaoL3User>yuchao.cheng</feiyongbaoxiaoL3User>ß
+		    <feiyongbaoxiaoL3Password>123</feiyongbaoxiaoL3Password>
+		    <feiyongbaoxiaoL4User>vivian.zhao</feiyongbaoxiaoL4User>
+		    <feiyongbaoxiaoL4Password>123</feiyongbaoxiaoL4Password>	    
+	</ceshi>
+	<zhengshi>
+	    <!-- 工时 -->
+		    <gongshiL1User>ying.jing</gongshiL1User>
+		    <gongshiL1Password>ying.jing</gongshiL1Password>
+		    <gongshiL2User>xl.liu</gongshiL2User>
+		    <gongshiL2Password>xl890820</gongshiL2Password>
+		    <gongshiL3User>ying.jing</gongshiL3User>
+		    <gongshiL3Password>ying.jing</gongshiL3Password>
+    <!-- 差旅申请 -->
+		    <chailvshenqingL1User>ying.jing</chailvshenqingL1User>
+		    <chailvshenqingL1Password>ying.jing</chailvshenqingL1Password>
+	<!-- 费用报销 -->
+		    <feiyongbaoxiaoL1User>ying.jing</feiyongbaoxiaoL1User>
+		    <feiyongbaoxiaoL1Password>ying.jing</feiyongbaoxiaoL1Password>
+		    <feiyongbaoxiaoL2User>xl.liu</feiyongbaoxiaoL2User>
+		    <feiyongbaoxiaoL2Password>xl890820</feiyongbaoxiaoL2Password>
+	</zhengshi>
+</config>

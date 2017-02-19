@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <!--  设置页面自适应      -->
+    <meta name="viewport" content="width=screen.width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link rel="stylesheet" href="../css/Common.css" />
+    <link rel="stylesheet" href="../css/RecruitInterviewScore.css" />
+    <script type="text/javascript" src="../js/Common.js"></script>
+    <script type="text/javascript" src="../js/RecruitInterviewScore.js"></script>
+</head>
+
+<body>
+    <div class="mainBox">
+        <!--空行,给紧急图片让出位置-->
+        <div id="emergencyDiv" style="height:50px; display:none;"></div>
+        <!-- 基本信息标题 -->
+        <dl class="Title_Dl" id="jibenxinxi">
+            <dt>
+                <font class="titleClass">基本情况</font>
+            </dt>
+            <dd>
+                <a href="###"><img id="Control_jibenxinxi" /></a>
+            </dd>
+        </dl>
+        <!-- 基本信息详情 1-->
+        <div class="Applicant_informationList" id="Applicant_informationList2" style="display: block;">
+            <p class="shangmian"><span><font class="mingcheng">姓名</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+            <p><span><font class="mingcheng">性别</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+            <p><span><font class="mingcheng">所属部门</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+            <p><span><font class="mingcheng">应聘职位</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+            <p class="xiamianxian"><span><font class="mingcheng">教育背景</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+            <div class="breakLine">
+            </div>
+        </div>
+        <!-- 背景调查标题 -->
+        <dl class="Title_Dl" id="beijingdiaocha">
+            <dt>
+                <font class="titleClass">评定要素</font>
+            </dt>
+            <dd>
+                <a href="###"><img id="Control_beijingdiaocha" /></a>
+            </dd>
+        </dl>
+        <!-- 背景调查详情 1-->
+        <div class="Applicant_informationList" id="Applicant_informationList3" style="display: block;">
+            <div class="w-title" style="border-top:none;">整体形象</div>
+            <div class="choiceContainer" id="OverallImage">
+                <div class="choice"><img class="selectpic" src="../img/quan.png">
+                    <label>杰出</label>
+                </div>
+                <div class="choice" style="margin-left:5%;"><img class="selectpic" src="../img/quan.png">
+                    <label>良好</label>
+                </div>
+                <div class="choice" style="margin-left:5%;"><img class="selectpic" src="../img/quan.png">
+                    <label>满意</label>
+                </div>
+                <div class="choice"><img class="selectpic" src="../img/quan.png">
+                    <label>一般</label>
+                </div>
+                <div class="choice" style="margin-left:5%;"><img class="selectpic" src="../img/quan.png">
+                    <label>较差</label>
+                </div>
+            </div>
+            <div class="breakLine"></div>
+            <div class="w-title">表达阐述能力</div>
+            <div class="choiceContainer" id="ExpressionAbility">
+                <div class="choice"><img class="selectpic" src="../img/quan.png">
+                    <label>杰出</label>
+                </div>
+                <div class="choice" style="margin-left:5%;"><img class="selectpic" src="../img/quan.png">
+                    <label>良好</label>
+                </div>
+                <div class="choice" style="margin-left:5%;"><img class="selectpic" src="../img/quan.png">
+                    <label>满意</label>
+                </div>
+                <div class="choice"><img class="selectpic" src="../img/quan.png">
+                    <label>一般</label>
+                </div>
+                <div class="choice" style="margin-left:5%;"><img class="selectpic" src="../img/quan.png">
+                    <label>较差</label>
+                </div>
+            </div>
+            <div class="breakLine"></div>
+            <div class="w-title">专业技能匹配程度</div>
+            <div class="choiceContainer" id="SkillMatchingDegree">
+                <div class="choice"><img class="selectpic" src="../img/quan.png">
+                    <label>杰出</label>
+                </div>
+                <div class="choice" style="margin-left:5%;"><img class="selectpic" src="../img/quan.png">
+                    <label>良好</label>
+                </div>
+                <div class="choice" style="margin-left:5%;"><img class="selectpic" src="../img/quan.png">
+                    <label>满意</label>
+                </div>
+                <div class="choice"><img class="selectpic" src="../img/quan.png">
+                    <label>一般</label>
+                </div>
+                <div class="choice" style="margin-left:5%;"><img class="selectpic" src="../img/quan.png">
+                    <label>较差</label>
+                </div>
+            </div>
+            <div class="breakLine"></div>
+            <div class="w-title">工作经验匹配程度</div>
+            <div class="choiceContainer" id="WorkMatchingDegree">
+                <div class="choice"><img class="selectpic" src="../img/quan.png">
+                    <label>杰出</label>
+                </div>
+                <div class="choice" style="margin-left:5%;"><img class="selectpic" src="../img/quan.png">
+                    <label>良好</label>
+                </div>
+                <div class="choice" style="margin-left:5%;"><img class="selectpic" src="../img/quan.png">
+                    <label>满意</label>
+                </div>
+                <div class="choice"><img class="selectpic" src="../img/quan.png">
+                    <label>一般</label>
+                </div>
+                <div class="choice" style="margin-left:5%;"><img class="selectpic" src="../img/quan.png">
+                    <label>较差</label>
+                </div>
+            </div>
+            <div class="breakLine"></div>
+            <div class="w-title">培训/资格证书匹配程度</div>
+            <div class="choiceContainer" id="CertificateMatchingDegree">
+                <div class="choice"><img class="selectpic" src="../img/quan.png">
+                    <label>杰出</label>
+                </div>
+                <div class="choice" style="margin-left:5%;"><img class="selectpic" src="../img/quan.png">
+                    <label>良好</label>
+                </div>
+                <div class="choice" style="margin-left:5%;"><img class="selectpic" src="../img/quan.png">
+                    <label>满意</label>
+                </div>
+                <div class="choice"><img class="selectpic" src="../img/quan.png">
+                    <label>一般</label>
+                </div>
+                <div class="choice" style="margin-left:5%;"><img class="selectpic" src="../img/quan.png">
+                    <label>较差</label>
+                </div>
+            </div>
+            <div class="breakLine"></div>
+            <div class="w-title">对公司情况/业务了解程度</div>
+            <div class="choiceContainer" id="UnderstandingDegree">
+                <div class="choice"><img class="selectpic" src="../img/quan.png">
+                    <label>杰出</label>
+                </div>
+                <div class="choice" style="margin-left:5%;"><img class="selectpic" src="../img/quan.png">
+                    <label>良好</label>
+                </div>
+                <div class="choice" style="margin-left:5%;"><img class="selectpic" src="../img/quan.png">
+                    <label>满意</label>
+                </div>
+                <div class="choice"><img class="selectpic" src="../img/quan.png">
+                    <label>一般</label>
+                </div>
+                <div class="choice" style="margin-left:5%;"><img class="selectpic" src="../img/quan.png">
+                    <label>较差</label>
+                </div>
+            </div>
+            <div class="breakLine"></div>
+        </div>
+        <!-- 第三方测评结果标题 -->
+        <dl class="Title_Dl" id="disanfangcepingjieguo">
+            <dt>
+                <font class="titleClass">面试记录</font>
+            </dt>
+            <dd>
+                <a href="###"><img id="Control_disanfangcepingjieguo" /></a>
+            </dd>
+        </dl>
+        <!-- 第三方测评结果详情 1-->
+        <div class="Applicant_informationList" id="Applicant_informationList4" style="display: block;">
+            <div class="w-title" style="border-top:none;">总体评价</div>
+            <div class="choiceContainer" id="OverallEvaluation">
+                <div class="choice"><img class="selectpic" src="../img/quan.png">
+                    <label>优秀</label>
+                </div>
+                <div class="choice" style="margin-left:5%;"><img class="selectpic" src="../img/quan.png">
+                    <label>良好</label>
+                </div>
+                <div class="choice"><img class="selectpic" src="../img/quan.png">
+                    <label>一般</label>
+                </div>
+                <div class="choice"><img class="selectpic" src="../img/quan.png">
+                    <label>差</label>
+                </div>
+            </div>
+            <div class="breakLine">
+            </div>
+
+            <div class="w-title">面试结果</div>
+            <div class="choiceContainer" id="InterviewResults">
+                <div class="choice" style="width: 50%;"><img class="selectpic" src="../img/quan.png">
+                    <label>建议录用</label>
+                </div>
+                <div class="choice" style="width: 50%"><img class="selectpic" src="../img/quan.png">
+                    <label>进一步面试</label>
+                </div>
+                <div class="choice" style="width: 50%"><img class="selectpic" src="../img/quan.png">
+                    <label>尚可,平衡时可考虑</label>
+                </div>
+                <div class="choice" style="width: 50%;"><img class="selectpic" src="../img/quan.png">
+                    <label>表现不佳,不予录用</label>
+                </div>
+            </div>
+            <div class="breakLine">
+            </div>
+            <div class="customRowClass" style="padding-top:15px;">
+                <div class="customRowLeftClass">优势</div>
+                <div class="customRowRightInputClass">
+                    <input type="text" class="rightInputClass" placeholder="请输入信息" id="Advantage" name="Advantage">
+                </div>
+            </div>
+            <div class="customRowClass">
+                <div class="customRowLeftClass">劣势</div>
+                <div class="customRowRightInputClass">
+                    <input type="text" class="rightInputClass" placeholder="请输入信息" id="Inferiority" name="Inferiority">
+                </div>
+            </div>
+            <div class="selectTimeClass" >
+                <div style="padding-top:5px;color:#666;">面试日期</div>
+                <div id="selectInterviewDate" class="time" style="text-align:right;padding-bottom:10px;"> 请选择<b class="jiantou"></b></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

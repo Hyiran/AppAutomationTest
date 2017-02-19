@@ -1,0 +1,24 @@
+
+.money
+{
+    float: right;
+    margin-right: 20px;
+    font-size: 14px;
+    font-family: "微软雅黑";
+}
+
+.tableList1,
+.tableList2,
+.tableList3,
+.tableList4{
+    width: 25%;
+}
+
+.tableList01{ width: 20%; }
+.tableList02{ width: 10%; }
+.tableList03{ width: 10%; }
+.tableList04{ width: 45%; }
+.tableList05{ width: 15%; }
+
+
+

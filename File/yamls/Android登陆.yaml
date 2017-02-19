@@ -1,0 +1,87 @@
+INusernameDE:
+  type: id
+  value: "cn.cooperative:id/userpormpt"
+INpassswordDE:
+  type: id
+  value: "cn.cooperative:id/passpormpt"
+INsubmitDE:
+  type: id
+  value: "cn.cooperative:id/loginbutton"
+INusernameDA:
+  type: id
+  value: "cn.cooperative:id/username"
+INpassswordDA:
+  type: id
+  value: "cn.cooperative:id/password"
+expetData:
+  type: xpath
+  value: "//android.widget.TextView[(@text='%s')]"
+TextView_qualText:
+  type: xpath
+  value: "//android.widget.TextView[(@text='%s')]"
+TextView_Ptext:
+  type: xpath
+  value: "//android.widget.TextView[starts-with(@text,'%s')]"
+TextView_Ptext_Pindex:
+  type: xpath
+  value: "//android.widget.TextView[starts-with(@text,'%s')][%s]"
+EditText_Ptext:
+  type: xpath
+  value: "//android.widget.EditText[starts-with(@text,'%s')]"
+EditText_Pindex:
+  type: xpath
+  value: "//android.widget.EditText[(@index='%s')]"
+Button_Ptext:
+  type: xpath
+  value: "//android.widget.Button[starts-with(@text,'%s')]"
+Button_Pindex:
+  type: xpath
+  value: "//android.widget.Button[%s]"
+id:
+  type: id
+  value: "%s"
+ImageView_Pindex:
+  type: xpath
+  value: "//android.widget.ImageView[%s]"
+TableRow_Ptext:
+  type: xpath
+  value: "//android.widget.TableRow/*[starts-with(@text,'%s')]"
+TableRow_Pindex:
+  type: xpath
+  value: "//android.widget.TableRow/*[%s]"
+TextView_Ptext_preceding-siblingTextView_Pindex:
+  type: xpath
+  value: "//android.widget.TextView[starts-with(@text,'%s')]/preceding-sibling::android.widget.TextView[%s]"
+TextView_Ptext_following-siblingTextView_Pindex:
+  type: xpath
+  value: "//android.widget.TextView[starts-with(@text,'%s')]/following-sibling::android.widget.TextView[%s]"
+TextView_Ptext_following-siblingEditView_Pindex:
+  type: xpath
+  value: "//android.widget.TextView[starts-with(@text,'%s')]/following-sibling::android.widget.EditText[%s]"
+CheckedTextView_Ptext:
+  type: xpath
+  value: "//android.widget.CheckedTextView[starts-with(@text,'%s')]"
+CheckedTextView_Pindex:
+  type: xpath
+  value: "//android.widget.CheckedTextView[%s]"
+ListViewTextView_Pindex:
+  type: xpath
+  value: "//android.widget.ListView['%s']//android.widget.TextView"
+ListViewCheckedTextView_Pindex:
+  type: xpath
+  value: "//android.widget.ListView[%s]/android.widget.CheckedTextView"
+ListViewTextView_Pindex_TextView_Ptext:
+  type: xpath
+  value: "//android.widget.ListView[%s]//android.widget.TextView[starts-with(@text,'%s')]"
+CheckBox_following-siblingTextView:
+  type: xpath
+  value: "//android.widget.TextView[starts-with(@text,'%s')]/preceding-sibling::android.widget.CheckBox"
+TextView_Ptext_following-siblingTextView:
+  type: xpath
+  value: "//android.widget.TextView[starts-with(@text,'%s')]/following-sibling::android.widget.TextView"
+NumberPickerButten_Index:
+  type: xpath
+  value: "//android.widget.NumberPicker[(@index='%s')]/android.widget.Button[(@index='%s')]"
+NumberPickerText_Text:
+  type: xpath
+  value: "//android.widget.NumberPicker['%s']/android.widget.EditText[starts-with(@text,'%s')]"

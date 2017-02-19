@@ -1,0 +1,63 @@
+TextView_qualText:
+  type: xpath
+  value: "//android.widget.TextView[(@text='%s')]"
+id:
+  type: id
+  value: "%s" 
+TextView_Ptext:
+  type: xpath
+  value: "//android.widget.TextView[starts-with(@text,'%s')]"
+TextView_Ptext_Pindex:
+  type: xpath
+  value: "//android.widget.TextView[starts-with(@text,'%s')][%s]"
+TextView_Ptext_preceding-siblingTextView_Pindex:
+  type: xpath
+  value: "//android.widget.TextView[starts-with(@text,'%s')]/preceding-sibling::android.widget.TextView[%s]"
+TextView_Ptext_following-siblingTextView_Pindex:
+  type: xpath
+  value: "//android.widget.TextView[starts-with(@text,'%s')]/following-sibling::android.widget.TextView[%s]"
+Button_Ptext:
+  type: xpath
+  value: "//android.widget.Button[starts-with(@text,'%s')]"
+Button_Pindex:
+  type: xpath
+  value: "//android.widget.Button[%s]"
+ImageView_Pindex:
+  type: xpath
+  value: "//android.widget.ImageView[%s]"
+EditText_Ptext:
+  type: xpath
+  value: "//android.widget.EditText[starts-with(@text,'%s')]"
+EditText_Pindex:
+  type: xpath
+  value: "//android.widget.EditText[%s]"
+ListViewTextView_Pindex:
+  type: xpath
+  value: "//android.widget.ListView['%s']//android.widget.TextView"
+CheckedTextView_Ptext:
+  type: xpath
+  value: "//android.widget.CheckedTextView[starts-with(@text,'%s')]"
+rowLink:
+  type: id
+  value: "cn.cooperative:id/tv_power"
+emTypeLink:
+  type: id
+  value: "cn.cooperative:id/tv_staff"
+group:
+  type: xpath
+  value: "//android.widget.ListView[1]//android.widget.TextView[starts-with(@text,'项目小组长')]"
+manga:
+  type: xpath
+  value: "//android.widget.ListView[1]//android.widget.TextView[starts-with(@text,'项目经理')]"
+lead:
+  type: xpath
+  value: "//android.widget.ListView[1]//android.widget.TextView[starts-with(@text,'项目领导')]"
+bigmana:
+  type: xpath
+  value: "//android.widget.ListView[1]//android.widget.TextView[starts-with(@text,'大项目经理')]"
+pro:
+  type: xpath
+  value: "//android.widget.ListView[1]//android.widget.TextView[starts-with(@text,'正式员工')]"
+nopro:
+  type: xpath
+  value: "//android.widget.ListView[1]//android.widget.TextView[starts-with(@text,'外协员工')]"

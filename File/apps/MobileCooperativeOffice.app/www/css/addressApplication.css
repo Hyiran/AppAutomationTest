@@ -1,0 +1,19 @@
+
+a{
+    text-decoration:none;
+    color: #3d72de;
+    font-size: 14px;
+}
+
+
+.tableList1,
+.tableList2,
+.tableList3,
+.tableList4{
+    width: 25%;
+}
+
+.tableList02{ width: 30%; }
+.tableList03{ width: 12%; }
+.tableList04{ width: 42%; }
+.tableList05{ width: 16%; }

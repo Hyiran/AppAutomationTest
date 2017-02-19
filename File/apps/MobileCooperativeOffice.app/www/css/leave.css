@@ -1,0 +1,111 @@
+.mingcheng,
+.mingcheng2,
+.mingcheng3,
+.mingcheng4{
+    margin-left:20px ;
+    float: left;
+    color:#333333;
+    font-size: 15px;
+}
+
+.mingcheng{
+    margin-top: 8.5px;
+}
+.mingcheng2{
+    margin-top: 7.5px;
+}
+.mingcheng3{
+    margin-top: 7.5px;
+}
+.mingcheng4{
+    margin-bottom:9px;
+}
+
+
+
+
+.gelixian,
+.gelixian2,
+.xiahuaxian{
+    display:inline-block;
+    width:100%;
+    height:.5px;
+    background-color:#ddd;
+    margin-left:20px;
+    margin-top:7.5px;
+}
+.gelixian2{
+    margin-top:9.5px;
+}
+.xiahuaxian{
+    margin-bottom:18px;
+    margin-top:19px;
+}
+
+
+
+.neirong,
+.neirong2,
+.neirong3,
+.neirong4{
+    margin-right: 20px;
+    margin-top: 8.5px;
+    float: right;
+    color:#999999;
+    font-size: 14px;
+}
+.neirong2{
+    margin-top: 7.5px;
+}
+.neirong4{
+    margin-top: 9px;
+}
+
+.tableList01,
+.tableList02,
+.tableList03,
+.tableList04,
+.tableList05{
+    width: 20%;
+}
+
+#jiaqileixing{
+    font-size:11px;
+}
+#qitaxiangguanfujian{
+    font-size:11px;
+}
+
+a{
+    text-decoration:none;
+    color: #FF4699;
+    font-size: 14px;
+}
+
+.date{
+    color:#ffffff;
+    background-color:#FCC130;
+    border-radius:20%;
+    font-size: 14px;
+    margin-top: 7.5px;
+}
+
+.holidayType
+{
+    color:#ffffff;
+    background-color:#FF4699;
+    border-radius:15px;
+    font-family: "微软雅黑";
+    font-size: 14px;
+    /*    margin-top:10px;*/
+}
+.momojiji
+{
+    font-family: "微软雅黑";
+    font-size: 14px;
+    color:#999999;
+    font-weight:normal;
+}
+
+
+

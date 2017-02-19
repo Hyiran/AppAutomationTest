@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="format-detection" content="telephone=no" />
+		<!--  设置页面自适应      -->
+		<meta name="viewport" content="widht=screen.widht,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+        <title></title>
+        <link rel="stylesheet" href="../css/Common.css" />
+        <link rel="stylesheet" href="../css/generallyExpense.css" />
+        <script type="text/javascript" src="../js/Common.js"></script>
+		<script type="text/javascript" src="../js/generallyExpense.js"></script>
+	</head>
+
+	<body>
+		<div class="mainBox">
+			<!-- 主数据标题 -->
+			<dl class="Title_Dl" id="zhushuju">
+				<dt><font class="titleClass">主数据</font></dt>
+				<dd>
+					<a href="###"><img id="Control_zhushuju" /></a>
+				</dd>
+			</dl>
+			<!-- 主数据详情 -->
+			<div class="Applicant_informationList" id="Applicant_informationList1" style="display: block;">
+				<p class="shangmian"><span><font class="mingcheng">单据编号</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+				<p><span><font class="mingcheng">员工编号</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+				<p class="bottomClass"><span><font class="mingcheng">员工姓名</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+				<b class="xian"></b>
+                <p class="topClass"><span><font class="mingcheng">所属部门</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+				<p><span><font class="mingcheng">所属组织</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+				<p><span><font class="mingcheng">冲销借款</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+				<p class="xiamianxian"><span><font class="mingcheng">费用类型</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+
+				<div class="breakLine">
+				</div>
+			</div>
+
+			<!-- 一般信息标题 -->
+			<dl class="Title_Dl" id="yibanxinxi">
+				<dt><font class="titleClass">一般信息</font></dt>
+				<dd>
+					<a href="###"><img id="Control_yibanxinxi" /></a>
+				</dd>
+			</dl>
+			<!-- 一般信息详情 -->
+			<div class="Applicant_informationList" id="Applicant_informationList2" style="display: block;">
+				<p class="shangmian"><span><font class="mingcheng">报销日期</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+				<p><span><font class="mingcheng">报销事由</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+				<p class="xiamianxian"><span><font class="mingcheng">成本合计</font></span><i class="fenpei"><font class="neirong" id="money" style="color:#FF0073;"></font></i></p>
+				
+				<div class="breakLine">
+				</div>
+			</div>
+
+			<!-- 成本分配标题 -->
+			<dl class="Title_Dl" id="chengbenfenpei">
+				<dt><font class="titleClass">成本分配</font></dt>
+				<dd>
+					<a href="###"><img id="Control_chengbenfenpei" /></a>
+				</dd>
+			</dl>
+
+			<!-- 成本分配详情 -->
+			<div class="Applicant_informationList" id="Applicant_informationList3" style="display: block;">
+				<p class="shangmian"><span><font class="mingcheng">公司代码</font></span><i class="fenpei"><font class="neirong">001222</font></i></p>
+				<p class="xiamianxian"><span><font class="mingcheng" >成本分配</font></span><i class="fenpei" id="chengbenfeipei"><font class="neirong" >误餐费</font></i></p>
+				<div class="breakLine">
+					<!--                分割线-->
+				</div>
+			</div>
+
+			<!--            收据信息标题-->
+
+			<dl class="Title_Dl" id="shoujuxinxi">
+				<dt><font class="titleClass">收据信息</font></dt>
+				<dd>
+					<a href="###"><img id="Control_shoujuxinxi" /></a>
+				</dd>
+			</dl>
+
+			<!--            收据信息详情-->
+			<div id="table_informationList4" style="display: block;">
+				<table>
+					<tbody>
+						<tr>
+							<th class="tableList1">收据类型</th>
+							<th class="tableList2">金额</th>
+							<th class="tableList3">日期</th>
+							<th class="tableList4">信息</th>
+						</tr>
+					</tbody>
+				</table>
+				<div class="breakLine">
+					<!--                分割线-->
+				</div>
+			</div>
+
+			<!--            历史审批意见标题-->
+			<dl class="Title_Dl" id="lishishenpiyijian">
+				<dt><font class="titleClass">审批意见</font></dt>
+				<dd>
+					<a href="###"><img id="Control_lishishenpiyijian" /></a>
+				</dd>
+			</dl>
+			<div id="table_informationList5" style="display: block;">
+				<table>
+					<tbody>
+						<tr>
+							<th class="tableList02">审批人</th>
+							<th class="tableList03">状态</th>
+							<th class="tableList04">意见</th>
+							<th class="tableList05">时间</th>
+						</tr>
+					</tbody>
+				</table>
+				<div class="breakLine">
+					<!--                分割线-->
+				</div>
+			</div>
+		</div>
+
+	</body>
+
+</html>

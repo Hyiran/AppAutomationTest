@@ -1,0 +1,15 @@
+INusernameDE:
+  type: id
+  value: "cn.cooperative:id/userpormpt"
+INpassswordDE:
+  type: id
+  value: "cn.cooperative:id/passpormpt"
+INsubmitDE:
+  type: id
+  value: "cn.cooperative:id/loginbutton"
+INusernameDA:
+  type: id
+  value: "cn.cooperative:id/username"
+INpassswordDA:
+  type: id
+  value: "n.cooperative:id/password"

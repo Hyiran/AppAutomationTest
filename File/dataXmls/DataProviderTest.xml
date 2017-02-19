@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+<!-- 复用数据 -->
+		<common>
+				<inputvalue>inputvalue</inputvalue>
+		</common>
+	<!-- 测试数据二级标签与测试方法同名，调用数据时候用三级标签名 -->
+		<xmldDataprovider1>
+				<a1>test1</a1>
+				<a2>123456</a2>
+		</xmldDataprovider1>
+		
+		<xmldDataprovider1>
+				<a1>test2</a1>
+				<a2>654321</a2>
+		</xmldDataprovider1>
+		
+		<xmldDataprovider2>
+				<a1>AAA</a1>
+				<a2>BBB</a2>
+		</xmldDataprovider2>
+		
+		<xmldDataprovider2>
+				<a1>DDD</a1>
+				<a2>CCC</a2>
+		</xmldDataprovider2>
+</data>

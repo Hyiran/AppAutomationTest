@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="format-detection" content="telephone=no" />
+		<!--  设置页面自适应      -->
+		<meta name="viewport" content="width=screen.width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+        <title></title>
+        <link rel="stylesheet" href="../css/Common.css" />
+		<link rel="stylesheet" href="../css/tender.css" />
+		<script type="text/javascript" src="../js/Common.js"></script>
+		<script type="text/javascript" src="../js/tender.js"></script>
+	</head>
+
+	<body>
+		<div class="mainBox">
+			<!--空行,给紧急图片让出位置-->
+			<div id="emergencyDiv" style="height:50px; display:none;"> </div>
+			<!-- 预付款申请标题 -->
+			<dl class="Title_Dl" id="yufukuanshenqing">
+				<dt><font class="titleClass">投标启动申请</font></dt>
+				<dd>
+					<a href="###"><img id="Control_yufukuanshenqing" /></a>
+				</dd>
+			</dl>
+			<!-- 预付款申请详情 1-->
+			<div class="Applicant_informationList" id="Applicant_informationList2" style="display: block;">
+				<p class="shangmian"><span><font class="mingcheng">项目名称</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+                <p><span><font class="mingcheng">商机名称</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+                <p><span><font class="mingcheng">客户名称</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+				<p class="bottomClass"><span><font class="mingcheng">交标时间</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+				<b class="xian"></b>
+				<p class="topClass"><span><font class="mingcheng">客户类型</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+				<p><span><font class="mingcheng">临时获取</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+				<p class="bottomClass"><span><font class="mingcheng">市场类别</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+                <b class="xian"></b>
+                <div class="customRowClass" id="IsAotoApprSelectDiv" style="padding-bottom:5px;">
+                    <div class="customRowLeftClass">是否自动审批</div>
+                    <div class="customRowRightSelectClass" id="didIsAotoApprSelected">请选择<b class="jiantou"></b></div>
+                </div>
+				<p id="xiangMuJinE"><span><font class="mingcheng">项目金额(万元)</font></span><i class="fenpei"><font class="neirong" style="color:#FF0073;"></font></i></p>
+				<p><span><font class="mingcheng">项目毛利率(%)</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+				<p class="bottomClass"><span><font class="mingcheng">毛利金额(万元)</font></span><i class="fenpei"><font class="neirong" style="color:#FF0073;"></font></i></p>
+				<table id="maoliTable">
+					<tbody>
+						<tr>
+							<th class="tableList0002">名称</th>
+							<th class="tableList0003">价格(万元)</th>
+							<th class="tableList0004">毛利金额(万元)</th>
+							<th class="tableList0005">毛利率(%)</th>
+							<th class="tableList0006">自有/外采</th>
+						</tr>
+					</tbody>
+				</table>
+				<p class="xiamianxian" style="padding-top:10px;"><span><font class="mingcheng">估算赢单机率(%)</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+				<div class="breakLine">
+					<!--                分割线-->
+				</div>
+			</div>
+
+			<!--            审批意见标题-->
+			<dl class="Title_Dl" id="fujiaxinxi">
+				<dt><font class="titleClass">审批意见</font></dt>
+				<dd>
+					<a href="###"><img id="Control_fujiaxinxi" /></a>
+				</dd>
+			</dl>
+			<div id="table_informationList9" style="display: block;">
+				<table>
+					<tbody>
+						<tr>
+							<th class="tableList002">审批人</th>
+							<th class="tableList003">状态</th>
+							<th class="tableList004">意见</th>
+							<th class="tableList005">时间</th>
+						</tr>
+					</tbody>
+				</table>
+
+				<div class="breakLine">
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

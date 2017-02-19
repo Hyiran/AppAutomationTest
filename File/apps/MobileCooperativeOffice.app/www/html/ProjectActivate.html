@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <!--  设置页面自适应      -->
+    <meta name="viewport" content="widht=screen.widht,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link rel="stylesheet" href="../css/Common.css" />
+    <link rel="stylesheet" href="../css/ProjectActivate.css" />
+    <script type="text/javascript" src="../js/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="../js/Common.js"></script>
+    <script type="text/javascript" src="../js/ProjectActivate.js"></script>
+</head>
+
+<body>
+    <div class="mainBox">
+        <!-- 基本信息标题 -->
+        <dl class="Title_Dl" id="jibenxinxi">
+            <dt>
+                <font class="titleClass">基本信息</font>
+            </dt>
+            <dd>
+                <a href="###"><img id="Control_jibenxinxi" /></a>
+            </dd>
+        </dl>
+        <!-- 主数据详情 -->
+        <div class="Applicant_informationList" id="Applicant_jibenxinxi" style="display: block;">
+            <p class="shangmian"><span><font class="mingcheng">项目名称</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+            <p><span><font class="mingcheng">项目编号</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+            <p class="xiamianxian"><span><font class="mingcheng">项目经理</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+            <div class="breakLine">
+            </div>
+            <p class="topClass"><span><font class="mingcheng">项目群</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+            <p><span><font class="mingcheng">主导部门</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+            <p><span><font class="mingcheng">项目状态</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+            <p><span><font class="mingcheng">协作部门</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+            <p><span><font class="mingcheng">业务类型</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+            <p><span><font class="mingcheng">客户分类</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+            <p class="xiamianxian"><span><font class="mingcheng">实施省份</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+            <div class="breakLine">
+            </div>
+            <p class="topClass"><span><font class="mingcheng">开始日期</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+            <p><span><font class="mingcheng">结束日期</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+            <p><span><font class="mingcheng">项目类型</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+            <p><span><font class="mingcheng">合同全额(元)</font></span><i class="fenpei"><font class="neirong money"></font></i></p>
+            <p><span><font class="mingcheng">毛利率(%)</font></span><i class="fenpei" ><font class="neirong"></font></i></p>
+            <p class="xiamianxian"><span><font class="mingcheng">毛利(元)</font></span><i class="fenpei"><font class="neirong money"></font></i></p>
+            <div class="breakLine">
+            </div>
+            <p class="topClass"><span><font class="mingcheng">主要内容</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+            <p><span><font class="mingcheng">毛利率说明</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+            <p><span><font class="mingcheng">利润说明</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+            <p><span><font class="mingcheng">成本说明</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+            <p class="xiamianxian"><span><font class="mingcheng">备注</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+            <div class="breakLine">
+            </div>
+        </div>
+        <!--            子项目信息标题-->
+        <dl class="Title_Dl" id="zixiangmuxinxi">
+            <dt>
+                <font class="titleClass">子项目信息</font>
+            </dt>
+            <dd>
+                <a href="###"><img id="Control_zixiangmuxinxi" /></a>
+            </dd>
+        </dl>
+        <!--            未还借款详情-->
+        <div id="Table_zixiangmuxinxi" style="display: block;">
+            <table>
+                <tbody>
+                    <tr>
+                        <th class="thWithoutTopLine" id="zixiangmuxinxi_BH">编号</th>
+                        <th class="thWithoutTopLine" id="zixiangmuxinxi_MC">名称</th>
+                        <th class="thWithoutTopLine" id="zixiangmuxinxi_JL">经理</th>
+                        <th class="thWithoutTopLine" id="zixiangmuxinxi_BM">部门</th>
+                        <th class="thWithoutTopLine" id="zixiangmuxinxi_XSSR">销售收入(万元)</th>
+                        <th class="thWithoutTopLine" id="zixiangmuxinxi_JHSR">计划收入(万元)</th>
+                        <th class="thWithoutTopLine" id="zixiangmuxinxi_ZYS">总预算(万元)</th>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="breakLine">
+                <!--                分割线-->
+            </div>
+        </div>
+        <!--            收入情况标题-->
+        <dl class="Title_Dl" id="shouruqingkuang">
+            <dt>
+                <font class="titleClass">收入情况</font>
+            </dt>
+            <dd>
+                <a href="###"><img id="Control_shouruqingkuang" /></a>
+            </dd>
+        </dl>
+        <!--            收入情况详情-->
+        <div id="Chart_shouruqingkuang" style="display: block;">
+            
+        </div>
+
+                <!--            利润情况标题-->
+        <dl class="Title_Dl" id="lirunqingkuang">
+            <dt>
+                <font class="titleClass">利润情况</font>
+            </dt>
+            <dd>
+                <a href="###"><img id="Control_lirunqingkuang" /></a>
+            </dd>
+        </dl>
+        <!--            利润情况详情-->
+        <div id="Chart_lirunqingkuang" style="display: block;">
+            
+        </div>
+
+                        <!--  成本情况标题-->
+        <dl class="Title_Dl" id="chengbenqingkuang">
+            <dt>
+                <font class="titleClass">成本情况</font>
+            </dt>
+            <dd>
+                <a href="###"><img id="Control_chengbenqingkuang" /></a>
+            </dd>
+        </dl>
+        <!--            成本情况详情-->
+        <div id="Chart_chengbenqingkuang" style="display: block;">
+            
+        </div>
+
+
+
+
+
+        <!--            项目采购标题-->
+        <dl class="Title_Dl" id="xiangmucaigou">
+            <dt>
+                <font class="titleClass">项目采购</font>
+            </dt>
+            <dd>
+                <a href="###"><img id="Control_xiangmucaigou" /></a>
+            </dd>
+        </dl>
+        <!--            未还借款详情-->
+        <div id="Table_xiangmucaigou" style="display: block;">
+            <table>
+                <tbody>
+                    <tr>
+                        <th class="thWithoutTopLine" id="xiangmucaigou_BH">编号</th>
+                        <th class="thWithoutTopLine" id="xiangmucaigou_KM">科目</th>
+                        <th class="thWithoutTopLine" id="xiangmucaigou_SJYS">实际预算(万元)</th>
+                        <th class="thWithoutTopLine" id="xiangmucaigou_CGSJ">采购时间</th>
+                        <th class="thWithoutTopLine" id="xiangmucaigou_GYS">供应商</th>
+                        <th class="thWithoutTopLine" id="xiangmucaigou_BZ">备注</th>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="breakLine">
+                <!--                分割线-->
+            </div>
+        </div>
+        <!--            进度质量标题-->
+        <dl class="Title_Dl" id="jinduzhiliang">
+            <dt>
+                <font class="titleClass">进度质量</font>
+            </dt>
+            <dd>
+                <a href="###"><img id="Control_jinduzhiliang" /></a>
+            </dd>
+        </dl>
+        <!--            进度质量详情-->
+        <div id="Table_jinduzhiliang" style="display: block;">
+            <table>
+                <tbody>
+                    <tr>
+                        <th class="thWithoutTopLine" id="jinduzhiliang_BH">编号</th>
+                        <th class="thWithoutTopLine" id="jinduzhiliang_MC">名称</th>
+                        <th class="thWithoutTopLine" id="jinduzhiliang_LCB">里程碑</th>
+                        <th class="thWithoutTopLine" id="jinduzhiliang_WCSJ">完成时间</th>
+                        <th class="thWithoutTopLine" id="jinduzhiliang_JFW">交付物</th>
+                        <th  class="thWithoutTopLine"id="jinduzhiliang_SR">收入(万元)</th>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="breakLine">
+                <!--                分割线-->
+            </div>
+        </div>
+        <!--            审批意见标题-->
+        <dl class="Title_Dl" id="shenpiyijian">
+            <dt>
+                <font class="titleClass">审批意见</font>
+            </dt>
+            <dd>
+                <a href="###"><img id="Control_shenpiyijian" /></a>
+            </dd>
+        </dl>
+        <div id="Table_shenpiyijian" style="display: block;">
+            <table>
+                <tbody>
+                    <tr>
+                        <th class="thWithoutTopLine" id="shenpiyijian_BM">部门</th>
+                        <th class="thWithoutTopLine" id="shenpiyijian_SPR">审批人</th>
+                        <th class="thWithoutTopLine" id="shenpiyijian_ZT">状态</th>
+                        <th class="thWithoutTopLine" id="shenpiyijian_YJ">意见</th>
+                        <th class="thWithoutTopLine" id="shenpiyijian_SJ">时间</th>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="breakLine">
+                <!--                分割线-->
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <!--  设置页面自适应      -->
+    <meta name="viewport" content="widht=screen.widht,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link rel="stylesheet" href="../css/Common.css" />
+    <link rel="stylesheet" href="../css/PMS_ProChange.css" />
+    <script type="text/javascript" src="../js/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="../js/Common.js"></script>
+    <script type="text/javascript" src="../js/PMS_ProChange.js"></script>
+    <div id="zxmxx" class="zixiangmu" style="display: none;">
+            <div class="zixiangmuText" id="zxmText">子项目名称</div>
+            <div class="zxmImg"><b class="jiantouLan"></b></div>
+    </div>
+    
+</head>
+
+<body>
+    <div class="mainBox">
+
+        <div id="projectInfo">
+                项目标题
+        </div>
+        <div id="sawtooth"></div>
+        <div class="breakLine"></div>
+        <!-- 基本信息标题 -->
+        <dl class="Title_Dl" id="form1">
+            <dt>
+                <font class="titleClass">变更说明</font>
+            </dt>
+            <dd>
+                <a href="###"><img id="Control_form1" /></a>
+            </dd>
+        </dl>
+        <!-- 主数据详情 -->
+        <div class="Applicant_informationList" id="Applicant_form1" style="display: block;">
+            <div class="singleContent" id="BGSM" style="padding-bottom:3px;">变更说明</div>
+            <div class="breakLine" style="border-top: 0.5px solid #ccc;">
+            </div>
+        </div>
+        <!--            子项目信息标题-->
+        <dl class="Title_Dl" id="form2" >
+            <dt>
+                <font class="titleClass">预算变更</font>
+            </dt>
+            <dd>
+                <a href="###"><img id="Control_form2" /></a>
+            </dd>
+        </dl>
+        <!--            未还借款详情-->
+        <div id="Table_form2" style="display: block;">
+            <table>
+                <tbody>
+                    <tr style="background-color: #FCFCFC;">
+                        <th class="thWithoutTopLine" id="YSBG_MX">明细</th>
+                        <th class="thWithoutTopLine" id="YSBG_JHSR">计划收入(元)</th>
+                        <th class="thWithoutTopLine" id="YSBG_YSJE">预算金额(元)</th>
+                        <th class="thWithoutTopLine" id="YSBG_HTJE">合同金额(元)</th>
+                        <th class="thWithoutTopLine" id="YSBG_YGMLL">预估毛利率(%)</th>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="breakLine"></div>
+        </div>
+        <!--            收入情况标题-->
+        <dl class="Title_Dl" id="form3">
+            <dt>
+                <font class="titleClass">成本变更</font>
+            </dt>
+            <dd>
+                <a href="###"><img id="Control_form3" /></a>
+            </dd>
+        </dl>
+        <!--            收入情况详情-->
+        <div id="Table_form3" style="display: block;">
+            <table>
+                <tbody>
+                    <tr style="background-color: #FCFCFC;">
+                        <th class="thWithoutTopLine" id="CBBG_MX">明细</th>
+                        <th class="thWithoutTopLine" id="CBBG_CG">采购</th>
+                        <th class="thWithoutTopLine" id="CBBG_NBRG">内部人工</th>
+                        <th class="thWithoutTopLine" id="CBBG_WXRG">外协人工</th>
+                        <th class="thWithoutTopLine" id="CBBG_FY">费用(元)</th>
+                        <th class="thWithoutTopLine" id="CBBG_HJ">合计(元)</th>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="breakLine"></div>
+
+        </div>
+
+        <dl class="Title_Dl" id="form4">
+            <dt>
+                <font class="titleClass">计划变更</font>
+            </dt>
+            <dd>
+                <a href="###"><img id="Control_form4" /></a>
+            </dd>
+        </dl>
+        <!--            利润情况详情-->
+        <div id="Table_form4" style="display: block;">
+            <table>
+                <tbody>
+                    <tr style="background-color: #FCFCFC;">
+                        <th class="thWithoutTopLine" id="JHBG_XMJD">项目阶段</th>
+                        <th class="thWithoutTopLine" id="JHBG_JDMC">节点名称</th>
+                        <th class="thWithoutTopLine" id="JHBG_BGQ">变更前</th>
+                        <th class="thWithoutTopLine" id="JHBG_BGH">变更后</th>
+                        <th class="thWithoutTopLine" id="JHBG_BGQK">变更情况(天)</th>
+                        <th class="thWithoutTopLine" id="JHBG_LJBG">累计变更(天)</th>
+                        <th class="thWithoutTopLine" id="JHBG_BGCS">变更次数</th>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="breakLine"></div>
+        </div>
+
+                        <!--  成本情况标题-->
+        <dl class="Title_Dl" id="form5">
+            <dt>
+                <font class="titleClass">子项目变更</font>
+            </dt>
+            <dd>
+                <a href="###"><img id="Control_form5" /></a>
+            </dd>
+        </dl>
+        <!--            成本情况详情-->
+        <div id="Applicant_form5" style="display: block;">
+        <dir id="ZXMXX_List">
+            
+        </dir>
+
+         <div class="breakLine" id="zxmBreakLine"></div>
+        </div>   
+        
+
+        <dl class="Title_Dl" id="shenpiyijian">
+            <dt>
+                <font class="titleClass">审批意见</font>
+            </dt>
+            <dd>
+                <a href="###"><img id="Control_shenpiyijian" /></a>
+            </dd>
+        </dl>
+        <div id="Table_shenpiyijian" style="display: block;">
+            <table>
+                <tbody>
+                    <tr style="background-color: #FCFCFC;">
+                        <th class="thWithoutTopLine" id="shenpiyijian_BM">部门</th>
+                        <th class="thWithoutTopLine" id="shenpiyijian_SPR">审批人</th>
+                        <th class="thWithoutTopLine" id="shenpiyijian_ZT">状态</th>
+                        <th class="thWithoutTopLine" id="shenpiyijian_YJ">意见</th>
+                        <th class="thWithoutTopLine" id="shenpiyijian_SJ">时间</th>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="breakLine">
+                <!--                分割线-->
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

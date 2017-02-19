@@ -1,0 +1,28 @@
+
+a{
+    text-decoration:none;
+    color: #3d72de;
+    font-size: 14px;
+}
+
+.tableList002{ width: 25%; }
+.tableList003{ width: 15%; }
+.tableList004{ width: 30%; }
+.tableList005{ width: 30%; }
+
+
+.tableList0002,
+.tableList0003,
+.tableList0004,
+.tableList0005,
+.tableList0006{
+    background: #fcfcfc;
+}
+
+
+.tableList0002{ width: 15%; }
+.tableList0003{ width: 20%; }
+.tableList0004{ width: 30%; }
+.tableList0005{ width: 20%; }
+.tableList0006{ width: 15%; }
+

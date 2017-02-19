@@ -1,0 +1,111 @@
+
+
+a{
+    text-decoration:none;
+    color: #3d73de;
+    font-size: 14px;
+}
+
+
+.tableList01{ width: 15%; }
+.tableList02{ width: 28%; }
+.tableList03{ width: 22%; }
+.tableList04{ width: 35%; }
+
+
+.rightInputClass {
+    border: none;
+    display: inline-block;
+    width: 100%;
+    text-align: right;
+    background-color: rgba(0, 0, 0, 0);
+    font-size:15px;
+}
+
+#RecordNumberDiv{
+    background-color:#EFFED6;
+    color:#999999;
+    text-align: center;
+    height:40px;
+    line-height:40px;
+}
+
+
+.customRowClass,
+.customHiddenClass,
+.customRowButtonClass {
+    padding-right: 5%;
+    padding-left: 5%;
+    width:90%;
+    min-height: 30px;
+    /*display: flex;
+     display: -webkit-flex;*/
+    display: table;
+    margin: 0 auto;
+    /*align-items: center;
+     justify-content: center;*/
+    font-size: 15px;
+    position: relative;
+    word-break: break-all;
+}
+
+
+.customRowButtonClass div {
+    /*flex: 1;*/
+    display: table-cell;
+    width: 25%;
+    height: 60px;
+    text-align: right;
+    line-height: 60px;
+}
+.customRowButtonClass img {
+    height: 20px;
+    width: 20px;
+    padding-top: 20px;
+}
+.customRowButtonClass i{
+    font-style: normal;
+}
+.customRowRightSelectClass,
+.customRowRightInputClass {
+    /*flex: 3;*/
+    display: table-cell;
+    height:100%
+    width: 75%;
+    /*    	line-height: 20px;*/
+    text-align: right;
+    color:#999;
+    font-size:15px;
+}
+
+.customRowRightBlackSelectClass,
+.customRowRightBlackInputClass {
+    color:#333;
+    font-style:normal;
+}
+.customRowRightInputClass {
+    border-bottom: 0.5px solid #ccc;
+}
+
+.customRowLeftClass {
+    text-align: left;
+    display: table-cell;
+    
+    width:25%;
+    /*flex: 1;*/
+    color:#333;
+}
+
+
+.jiantou {
+    display: inline-block;
+    width: 10px;
+    height: 13px;
+    background: url(../img/右箭头.png) no-repeat;
+    background-size: contain;
+    vertical-align: middle;
+    margin-left: 5px;
+    margin-right: -2px;
+}
+
+

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" name="Failed suite [com.Pcitc.AppAutomationTest.pagesHelper.TestInit]">
+  <parameter name="password" value="123456"/>
+  <parameter name="isTestEnvirectory" value="true"/>
+  <parameter name="isAndroid" value="false"/>
+  <parameter name="url" value="Chorme"/>
+  <parameter name="username" value="12020"/>
+  <test name="com.Pcitc.AppAutomationTest.pagesHelper.TestInit(failed)">
+    <parameter name="password" value="123456"/>
+    <parameter name="url" value="Chorme"/>
+    <parameter name="username" value="12020"/>
+    <classes>
+      <class name="com.Pcitc.AppAutomationTest.pagesHelper.TestInit">
+        <methods>
+          <include name="AppPlatform"/>
+          <include name="getAppiumDriver"/>
+          <include name="closeAppiumServer"/>
+          <include name="closeDriver"/>
+        </methods>
+      </class> <!-- com.Pcitc.AppAutomationTest.pagesHelper.TestInit -->
+      <class name="com.Pcitc.AppAutomationTest.testCases.DengLuTest">
+        <methods>
+          <include name="BiguserLogin"/>
+          <include name="wrongUserLogin"/>
+          <include name="rightLogin"/>
+          <include name="getPageElement"/>
+          <include name="wrongPasswordLogin"/>
+        </methods>
+      </class> <!-- com.Pcitc.AppAutomationTest.testCases.DengLuTest -->
+    </classes>
+  </test> <!-- com.Pcitc.AppAutomationTest.pagesHelper.TestInit(failed) -->
+</suite> <!-- Failed suite [com.Pcitc.AppAutomationTest.pagesHelper.TestInit] -->

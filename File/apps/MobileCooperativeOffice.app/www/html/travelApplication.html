@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="format-detection" content="telephone=no" />
+		<!--  设置页面自适应      -->
+		<meta name="viewport" content="width=screen.width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" href="../css/travelApplication.css" />
+		<script type="text/javascript" src="../js/travelApplication.js"></script>
+        
+
+		<div class="expend" id="expendTemplate" style="display: none;">
+			<div class="customRowClass" style="padding-top:10px;">
+				<div class="customRowLeftClass">收据类型</div>
+				<div class="customRowRightSelectClass" id="selectCostCodeTemplate">请选择<b class="jiantou"></b></div>
+			</div>
+            <div class="customRowClass">
+                <div class="customRowLeftClass" style="padding-top:5px;">日期</div>
+                <div id="inputTimeTemplate" class="time"style="text-align: right;padding-top:5px">请选择<b class="jiantou"></b></div>
+            </div>
+			<div class="customHiddenClass" style="padding-top:5px;">
+				<div class="customRowLeftClass">货币</div>
+				<div class="customRowRightSelectClass" id="selectCurrencyTemplate">请选择<b class="jiantou"></b></div>
+			</div>
+			<div class="customRowClass">
+				<div class="customRowLeftClass" style="padding-top:5px;">金额</div>
+                <div class="customRowRightInputMoneyClass"><input type="number" class="rightInputClass" id="inputMoneyTemplate" name="Amount" placeholder = "请输入金额" style="padding-bottom:5px;color:#FF0073;"></div>
+			</div>
+			<div class="customHiddenClass">
+				<div class="customRowLeftClass" style="padding-top:5px;">本位币</div>
+                <div class="customRowRightInputClass" id="inputBaseCurrencyTemplate" style="padding-top:5px;">0</div>
+<!--				<div class="customRowRightInputClass"><input type="text" class="rightInputClass" id="inputBaseCurrencyTemplate" name="RmbAmount"></div>-->
+			</div>
+			<div class="customHiddenClass">
+				<div class="customRowLeftClass" style="padding-top:5px;">汇率</div>
+				<div class="customRowRightInputClass"><input type="text" class="rightInputClass" id="inputParitiesTemplate" name="Rate" value="1.000000" style="padding-top:5px;"></div>
+			</div>
+
+			<div class="customRowClass">
+				<div class="customRowLeftClass" style="padding-top:5px;">信息</div>
+				<div class="customRowRightInputClass"><input type="text" class="rightInputClass" id="inputMessageTemplate" name="Remark" style="padding-bottom:5px;" placeholder="请输入信息" ></div>
+			</div>
+
+		</div>
+
+		<div class="destination" id="destinationTemplate" style="display: none;">
+
+			<div class="selectTimeClass" style="padding-top:10px;">
+				<div>出发日期</div>
+				<div id="destinationStartTimeTemplate" class="time">请选择</div>
+				<div style="text-align:right;">到达日期</div>
+				<div id="destinationEndTimeTemplate" class="time" style="text-align:right;">请选择</div>
+			</div>
+			<div class="selectCityClass">
+				<div style="padding-top:15px;">出差地区</div>
+				<div id="destinationCoutryTemplate" style="padding-top:15px;">中国</div>
+				<div><input type="text" class="rightInputClass" placeholder="请输入城市" id="destinationInputCityTemplate" name="Target" style="padding-top:15px;"></div>
+			</div>
+
+			<div class="customRowClass">
+				<div class="customRowLeftClass" style="padding-top:15px;">出差事由</div>
+				<div class="customRowRightInputClass" style="padding-top:15px;"><input type="text" class="rightInputClass" id="destinationInputReasonTemplate" name="Reason"></div>
+			</div>
+		</div>
+        
+        
+        
+        
+        
+        
+        
+        
+
+	</head>
+
+	<body>
+
+		<!-- 主数据标题 -->
+		<dl class="Title_Dl" id="zhushuju">
+			<dt><font class="titleClass">主数据</font></dt>
+			<dd>
+				<a href="###"><img id="Control_Zhushuju" /></a>
+			</dd>
+		</dl>
+
+		<!-- 主数据详情 1-->
+		<div class="RowDivClass" id="Row_Zhushuju">
+
+			<div class="customRowClass">
+                <div class="huise" style="padding-top:10px;">员工编号</div>
+				<div class="customRowRightSelectClass" id="employeeCode" style="padding-top:10px;">111111</div>
+			</div>
+			<div class="customRowClass">
+				<div class="huise" style="padding-top:3px;">员工姓名</div>
+				<div class="customRowRightSelectClass" id="employeeName" style="padding-top:3px;">1111111</div>
+			</div>
+			<div class="customRowClass">
+				<div class="huise" style="padding-bottom:3px;">费用类型</div>
+				<div class="customRowRightSelectClass" style="padding-bottom:3px;">差旅申请</div>
+			</div>
+			<div class="customRowClass">
+				<div class="customRowLeftClass" style="padding-bottom:3px;">差旅类型</div>
+				<div class="customRowRightSelectClass" id="selectTravelType" style="padding-bottom:3px;">请选择<b class="jiantou"></b></div>
+			</div>
+            <div class="customRowClass">
+                <div class="customRowLeftClass" style="padding-bottom:10px;">是否借款</div>
+                <div class="customRowRightSelectClass" id="selectIsBrrowing" style="padding-bottom:10px;">请选择<b class="jiantou"></b></div>
+            </div>
+			<div class="breakLine">
+			</div>
+		</div>
+
+		<!-- 差旅申请标题 -->
+		<dl class="Title_Dl" id="chailvshenqing">
+			<dt><font class="titleClass">差旅申请</font></dt>
+			<dd>
+				<a href="###"><img id="Control_Chailvshenqing" /></a>
+			</dd>
+		</dl>
+
+		<!-- 差旅申请详情 1-->
+		<div class="RowDivClass" id="Row_Chailvshenqing">
+			<div class="selectTimeClass">
+				<div style="padding-bottom:15px">开始时间</div>
+				<div id="selectTravelStartTime" class="time" style="padding-bottom:15px;"><b class = "seletedStatus"> 请选择</b></div>
+                <div style="padding-bottom:15px;text-align:right;">结束时间</div>
+				<div id="selectTravelEndTime" class="time" style="padding-bottom:15px;">请选择</div>
+			</div>
+			<div class="selectCityClass">
+				<div>出差地区</div>
+				<div id="selectConutyOfChailvshenqing">中国</div>
+                <div style="border-bottom:0.5px solid #ccc;"><input type="text" class="rightInputClass" placeholder="请输入城市" id="cityOfChailvshenqing" name="CityCode"></div>
+			</div>
+			<div class="customRowClass">
+				<div class="customRowLeftClass" style="padding-top:15px;">预计费用</div>
+                <div style="display: table-cell;height:100%;width: 75%;text-align: right;font-size:15px;color:#FF0073;" id="totalPreConst">￥0.00</div>
+			</div>
+            
+            
+			<div class="customRowClass"style="padding-bottom:20px;">
+				<div class="customRowLeftClass" style="padding-top:15px;">出差事由</div>
+				<div class="customRowRightInputClass"  style="padding-top:15px;"><input type="text" class="rightInputClass" placeholder="请输入事由" id="reasonOfEvection" name="Reason"></div>
+			</div>
+
+			<div class="breakLine">
+			</div>
+
+		</div>
+
+		<!-- 成本分配详情 1-->
+		<dl class="Title_Dl" id="chengbenfenpei">
+			<dt><font class="titleClass">成本分配</font></dt>
+			<dd>
+				<a href="###"><img id="Control_Chengbenfenpei" /></a>
+			</dd>
+		</dl>
+		<!-- 授权申请表信息详情 1-->
+		<div class="RowDivClass" id="Row_Chengbenfenpei">
+			<div class="customRowClass">
+				<div class="customRowLeftClass" style="padding-top:10px;">成本类型</div>
+				<div class="customRowRightSelectClass" id="selectCostType" style="padding-top:10px;">请选择<b class="jiantou"></b></div>
+			</div>
+
+			<div class="customRowClass" style="padding-bottom:10px;">
+				<div class="customRowLeftClass" style="padding-top:10px;">分配编号</div>
+				<div class="customRowRightSelectClass" id="selectCostCode" style="padding-top:10px;">请选择<b class="jiantou"></b></div>
+			</div>
+
+			<div class="breakLine">
+			</div>
+
+		</div>
+
+		<!-- 支出计划标题 -->
+		<dl class="Title_Dl" id="zhichujihua">
+			<dt><font class="titleClass">支出计划</font></dt>
+			<dd>
+				<a href="###"><img id="Control_Zhichujihua" /></a>
+			</dd>
+		</dl>
+		<!-- 支出计划详情 1-->
+		<div class="RowDivClass" id="Row_Zhichujihua">
+
+			<div class="expend" id="expendBlock0">
+				<div class="customRowClass" style="padding-top:10px;">
+					<div class="customRowLeftClass">收据类型</div>
+					<div class="customRowRightSelectClass" id="selectCostCode0">请选择<b class="jiantou"></b></div>
+				</div>
+                <div class="customRowClass">
+                    <div class="customRowLeftClass">日期</div>
+                    <div id="inputTime0" name="ReceiptDate" class="time"style="text-align: right;padding-top:5px">请选择<b class="jiantou"></b></div>
+                </div>
+				<div class="customHiddenClass"  style="padding-top:10px;">
+					<div class="customRowLeftClass">货币</div>
+					<div class="customRowRightSelectClass" id="selectCurrency0">请选择<b class="jiantou"></b></div>
+				</div>
+                <div class="customRowClass" >
+					<div class="customRowLeftClass"style="padding-top:10px;">金额</div>
+					<div class="customRowRightInputMoneyClass"><input type="number" class="rightInputClass" name="Amount"  id="inputMoney0"style="padding-bottom:5px;color:#FF0073;" placeholder = "请输入金额"></div>
+				</div>
+				
+				<div class="customHiddenClass"style="padding-top:5px;">
+					<div class="customRowLeftClass"style="padding-top:5px;">本位币</div>
+                    <div class="customRowRightInputClass" id="inputBaseCurrency0" style="padding-top:5px;">0</div>
+				</div>
+				
+				<div class="customHiddenClass"style="padding-top:5px;">
+					<div class="customRowLeftClass"style="padding-top:5px;">汇率</div>
+					<div class="customRowRightInputClass"><input type="text" class="rightInputClass" name="Rate"  id="inputParities0" value="1.000000" style="padding-top:5px;"></div>
+				</div>
+				
+
+				<div class="customRowClass"style="padding-top:10px;">
+					<div class="customRowLeftClass"  style="padding-top:5px;">信息</div>
+					<div class="customRowRightInputClass" ><input type="text" class="rightInputClass" name="Remark" placeholder="请输入信息" id="inputMessage0"style="padding-bottom:5px;"></div>
+				</div>
+			</div>
+
+			<div class="customRowButtonClass">
+				<div></div>
+				<div></div>
+				<div id="removeZhichuJiHua" style="display: none;"><img src="../img/删除.png" /> <i style="vertical-align:top">删除</i></div>
+				<div id="addZhichuJiHua"><img src="../img/添加.png" /> <i style="vertical-align:top">添加</i> </div>
+			</div>
+		</div>
+
+
+		<!-- 附加目的地标题 -->
+		<dl class="Title_Dl" id="fujiamudidi">
+			<dt><font class="titleClass">附加目的地</font></dt>
+			<dd>
+				<a href="###"><img id="Control_Fujiamudidi" /></a>
+			</dd>
+		</dl>
+		<!-- 附加目的地详情 1-->
+		<div class="RowDivClass" id="Row_Fujiamudidi">
+            
+            <div id="kindlyRemind">
+                温馨提示:附加目的地如填写请填写完整~
+            </div>
+            
+			<div class="destination">
+				<div class="selectTimeClass" style="padding-top:10px;">
+					<div>出发日期</div>
+                    <div id="destinationStartTime0" class="time">请选择</div>
+					<div style="text-align:right;">到达日期</div>
+					<div id="destinationEndTime0" class="time" style="text-align:right;">请选择</div>
+				</div>
+				<div class="selectCityClass">
+					<div style="padding-top:15px;">出差地区</div>
+					<div id="destinationCountry0" style="padding-top:15px;">中国</div>
+					<div style="border-bottom:0.5px solid #ccc;"><input type="text" class="rightInputClass" placeholder="请输入城市" id="destinationInputCity0" name="Target" style="padding-top:15px;"></div>
+				</div>
+				<div class="customRowClass" >
+					<div class="customRowLeftClass" style="padding-top:15px;">出差事由</div>
+					<div class="customRowRightInputClass"  style="padding-top:15px;"><input type="text" class="rightInputClass"placeholder = "请输入事由" id="destinationInputReason0" name="Reason"></div>
+				</div>
+			</div>
+
+			<div class="customRowButtonClass" style="padding-bottom:10px;border-bottom: 0.5px solid #ccc;">
+				<div></div>
+				<div></div>
+				<div id="removeFujiaMuDiDi" style="display: none;"><img src="../img/删除.png" /> <i style="vertical-align:top">删除</i></div>
+				<div id="addFijiaMuDiDi"><img src="../img/添加.png" /> <i style="vertical-align:top">添加</i> </div>
+			</div>
+		</div>
+
+	</body>
+
+</html>

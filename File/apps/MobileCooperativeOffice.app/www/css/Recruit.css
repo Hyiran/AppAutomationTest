@@ -1,0 +1,76 @@
+
+a{
+    text-decoration:none;
+    color: #3d72de;
+    font-size: 14px;
+}
+.tableList001{ width: 20%; }
+.tableList002{ width: 20%; }
+.tableList003{ width: 15%; }
+.tableList004{ width: 15%; }
+.tableList005{ width: 30%; }
+
+
+.tableList0002,
+.tableList0003,
+.tableList0004,
+.tableList0005,
+.tableList0006{
+    background: #fcfcfc;
+}
+
+
+.tableList0002{ width: 15%; }
+.tableList0003{ width: 20%; }
+.tableList0004{ width: 30%; }
+.tableList0005{ width: 20%; }
+.tableList0006{ width: 15%; }
+.customRowClass{
+    padding-right: 5%;
+    padding-left: 5%;
+    width:90%;
+    min-height: 30px;
+    /*display: flex;
+     display: -webkit-flex;*/
+    display: table;
+    margin: 0 auto;
+    /*align-items: center;
+     justify-content: center;*/
+    font-size: 15px;
+    position: relative;
+    word-break: break-all;
+}
+.customRowLeftClass {
+    text-align: left;
+    display: table-cell;
+    
+    width:25%;
+    /*flex: 1;*/
+    color:#333;
+}
+.customRowRightSelectClass{
+    /*flex: 3;*/
+    display: table-cell;
+    height:100%
+    width: 75%;
+    /*    	line-height: 20px;*/
+    text-align: right;
+    color:#999;
+    font-size:15px;
+}
+
+.jiantou {
+    display: inline-block;
+    width: 10px;
+    height: 13px;
+    background: url(../img/右箭头.png) no-repeat;
+    background-size: contain;
+    vertical-align: middle;
+    margin-left: 5px;
+    margin-right: -2px;
+}
+
+#IsAotoApprSelectDiv{
+/*    display: none;*/
+    padding-top:10px;
+}

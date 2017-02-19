@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="format-detection" content="telephone=no" />
+		<!--  设置页面自适应      -->
+		<meta name="viewport" content="width=screen.width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+        <title></title>
+        <link rel="stylesheet" href="../css/Common.css" />
+		<link rel="stylesheet" href="../css/AssetsBorrow.css" />
+		<script type="text/javascript" src="../js/Common.js"></script>
+		<script type="text/javascript" src="../js/AssetsBorrow.js"></script>
+	</head>
+
+	<body>
+		<div class="mainBox">
+			<!--空行,给紧急图片让出位置-->
+			<div id="emergencyDiv" style="height:50px; display:none;"> </div>
+			<!-- 预付款申请标题 -->
+			<dl class="Title_Dl" id="yufukuanshenqing">
+				<dt><font class="titleClass">资产借用申请表</font></dt>
+				<dd>
+					<a href="###"><img id="Control_yufukuanshenqing" /></a>
+				</dd>
+			</dl>
+			<!-- 预付款申请详情 1-->
+			<div class="Applicant_informationList" id="Applicant_informationList2" style="display: block;">
+				<p class="shangmian"><span><font class="mingcheng">申请人姓名</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+				<p><span><font class="mingcheng">归属部门</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+				<p class="bottomClass"><span><font class="mingcheng">被借用资产名称</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+				<b class="xian"></b>
+				<p class="topClass"><span><font class="mingcheng">申请时间</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+				<p><span><font class="mingcheng">借用开始时间</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+				<p class="bottomClass"><span><font class="mingcheng">借用结束时间</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+				<b class="xian"></b>
+				<p class="topClass"><span><font class="mingcheng">借用时长</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+				<p><span><font class="mingcheng">借用数量</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+                <p><span><font class="mingcheng">用途</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+				<p class="bottomClass"><span><font class="mingcheng">附件</font></span><i class="fenpei"><font class="neirong" style="color:#FF0073;"></font></i></p>
+                <table id="t_usersInfo">
+					<tbody>
+						<tr>
+							<th class="tableList01">序号</th>
+							<th class="tableList02">使用人</th>
+							<th class="tableList03">使用人电话</th>
+						</tr>
+					</tbody>
+				</table>
+
+                <div style="color:#999;font-size: 12px;font-family:'微软雅黑';padding:10px 20px;display:flex;">
+                    <div style="width:50px;float:left;line-height:15px;">
+                        说明:
+                    </div>
+                    <div style="flex:1;">
+                        <div style="margin-bottom:5px;line-height:15px;">借用时长最多不能超过180天;</div>
+                        <div style="margin-bottom:5px;line-height:15px;">资产被借用期间，借用人有义务保证该资产及其配件的完好无损不丢失，如有此类情况发生需依照公司资产管理的有关规定;</div>
+                        <div style="margin-bottom:5px;line-height:15px;">资产被借用期间，借用人不得私自转借他人;</div>
+                        <div style="margin-bottom:5px;line-height:15px;">如果借用资产逾期不能归还时，需向总裁办说明情况并补办续借手续;</div>
+                        <div style="margin-bottom:5px;line-height:15px;">资产被借用期间，如借用人离（辞）职或其他原因不能继续使用，需要退还所借资产并被核查完好无损后，再行办理相关离（辞）职等其他手续;</div>
+                    </div>
+
+                </div>
+				<div class="breakLine">
+					<!--                分割线-->
+				</div>
+			</div>
+            
+            <!-- 总裁办资产管理员确认资产已下发标题 -->
+            <dl class="Title_Dl" id="zongcaiban">
+                <dt><font class="titleClass">确认资产已下发</font></dt>
+                <dd>
+                    <a href="###"><img id="Control_zongcaiban" /></a>
+                </dd>
+            </dl>
+            <!-- 总裁办资产管理员确认资产已下发详情 -->
+            <div class="Applicant_informationList" id="Applicant_informationList5" style="display: block;">
+            
+            <p class="topClass"><span><font class="mingcheng">确认人</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+            <p><span><font class="mingcheng">确认时间</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+            <p class="bottomClass"><span><font class="mingcheng">确认意见</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+            <table>
+                <tbody>
+                    <tr>
+                        <th class="tableList1">序列号</th>
+                        <th class="tableList2">规格型号</th>
+                        <th class="tableList3">固定资产编号</th>
+                        <th class="tableList4">使用人姓名:电话</th>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="breakLine">
+                <!--                分割线-->
+            </div>
+            </div>
+
+			<!--            审批意见标题-->
+			<dl class="Title_Dl" id="fujiaxinxi">
+				<dt><font class="titleClass">审批意见</font></dt>
+				<dd>
+					<a href="###"><img id="Control_fujiaxinxi" /></a>
+				</dd>
+			</dl>
+			<div id="table_informationList9" style="display: block;">
+				<table>
+					<tbody>
+						<tr>
+							<th class="tableList001">审批人</th>
+							<th class="tableList002">状态</th>
+							<th class="tableList003">意见</th>
+							<th class="tableList004">时间</th>
+						</tr>
+					</tbody>
+				</table>
+				<div class="breakLine">
+				</div>
+			</div>
+            <!-- 总裁办资产管理员确认资产已下发标题 -->
+            <dl class="Title_Dl" id="shenqingren">
+                <dt><font class="titleClass">确认资产已下发</font></dt>
+                <dd>
+                    <a href="###"><img id="Control_shenqingren" /></a>
+                </dd>
+            </dl>
+            <!-- 总裁办资产管理员确认资产已下发详情-->
+            <div class="Applicant_informationList" id="Applicant_informationList6" style="display: block;">
+                
+                <div class="customRowClass" style="padding-top:10px;">
+                    
+                    <div class="customRowLeftClass" style="padding-bottom:10px;">库存状态</div>
+                    <div class="customRowRightSelectClass" style="padding-bottom:10px;" id="didInventoryStatusSelected">请选择<b class="jiantou"></b></div>
+                </div>
+
+		</div>
+	</body>
+
+</html>

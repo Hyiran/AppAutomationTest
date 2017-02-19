@@ -1,0 +1,67 @@
+#yujifeiyong{
+    color:#FF0073;
+}
+.tabchange{
+    width: 100%;
+    height: 28px;
+}
+#shijifeiyong{
+    color:#FF0073;
+}
+#chae{
+    color:#FF0073;
+}
+
+.tabchange1,
+.tabchange2{
+    float: left;
+    width: 50%;
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.tabchange1{
+    color: #3d72de;
+}
+
+.tabchange2{
+    color:#666666;
+}
+
+.tabchange1Div,
+.tabchange2Div{
+    width: 100%;
+}
+
+.tableChage02{ width: 15%; }
+.tableChage03{ width: 17%; }
+.tableChage04{ width: 16%; }
+.tableChage05{ width: 12%; }
+.tableChage06{ width: 11%; }
+.tableChage07{ width: 17%; }
+.tableChage08{ width: 14%; }
+
+.tableChage1_01{ width:16%; }
+.tableChage1_02{ width:16%; }
+.tableChage1_03{ width:25%; }
+.tableChage1_05{ width:43%; }
+
+.tableList02{ width: 15%; }
+.tableList03{ width: 30%; }
+.tableList04{ width: 12%; }
+.tableList05{ width: 27%; }
+.tableList06{ width: 16%; }
+
+
+
+
+
+
+
+
+
+
+
+

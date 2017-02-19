@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <!--  设置页面自适应      -->
+    <meta name="viewport" content="width=screen.width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link rel="stylesheet" href="../css/Common.css" />
+    <link rel="stylesheet" href="../css/OpporApply.css" />
+    <script type="text/javascript" src="../js/Common.js"></script>
+    <script type="text/javascript" src="../js/OpporApply.js"></script>
+</head>
+
+<body>
+    <div class="mainBox">
+        <!--空行,给紧急图片让出位置-->
+        <div id="emergencyDiv" style="height:50px; display:none;"> </div>
+        <!-- 申请单标题 -->
+        <dl class="Title_Dl" id="keHuXinXi">
+            <dt>
+                <font class="titleClass">客户信息</font>
+            </dt>
+            <dd>
+                <a href="###"><img id="Control_keHuXinXi" /></a>
+            </dd>
+        </dl>
+        <!-- 申请单详情 1-->
+        <div class="Applicant_informationList" id="Applicant_informationList2" style="display: block;">
+            <div class="customRowClass">
+                <div class="customRowLeftClass" style="padding-top:10px;">客户名称</div>
+                <div class="customRowRightSelectClass" id="selectCustomerName" style="padding-bottom:3px;">请选择<b class="jiantou"></b></div>
+            </div>
+            <div class="customRowClass" style="padding-top:10px;">
+                <div class="huise" style="padding-bottom:3px;">客户经理</div>
+                <div class="customRowRightSelectClass" id="CSTM_MANAGER_Name" style="padding-bottom:3px;"></div>
+            </div>
+            <div class="customRowClass">
+                <div class="huise" style="padding-bottom:3px;">集团客户</div>
+                <div class="customRowRightSelectClass" style="padding-bottom:3px;" id="Is_group"></div>
+            </div>
+            <div class="customRowClass">
+                <div class="huise" style="padding-bottom:3px;">行业</div>
+                <div class="customRowRightSelectClass" style="padding-bottom:3px;" id="Cstm_industry_Name"></div>
+            </div>
+            <div class="customRowClass">
+                <div class="huise" style="padding-bottom:3px;">地区</div>
+                <div class="customRowRightSelectClass" style="padding-bottom:3px;" id="Cstm_city_Name"></div>
+            </div>
+            <div class="customRowClass">
+                <div class="huise" style="padding-bottom:3px;">区域</div>
+                <div class="customRowRightSelectClass" style="padding-bottom:3px;" id="Area_Name"></div>
+            </div>
+            <div class="customRowClass">
+                <div class="huise" style="padding-bottom:3px;">市场类别</div>
+                <div class="customRowRightSelectClass" style="padding-bottom:3px;" id="Cstm_relatype_Name"></div>
+            </div>
+            <div class="breakLine">
+            </div>
+        </div>
+        <dl class="Title_Dl" id="shangJiXinXi">
+            <dt>
+                <font class="titleClass">商机信息</font>
+            </dt>
+            <dd>
+                <a href="###"><img id="Control_shangJiXinXi" /></a>
+            </dd>
+        </dl>
+        <!-- 商机信息详情 1-->
+        <div class="Applicant_informationList" id="Row_shangJiXinXi" style="display: block;">
+            <div class="customRowClass">
+                <div class="customRowLeftClass" style="padding-top:10px;">商机简称</div>
+                <div class="customRowRightInputClass"  style="padding-bottom:3px;"><input type="text" class="rightInputClass" placeholder="请输入信息" id="OPP_NAME" name="OPP_NAME"></div>
+            </div>
+            <div class="customRowClass">
+                <div class="customRowLeftClass" style="padding-top:10px;">商机名称</div>
+                <div class="customRowRightSelectClass" style="padding-bottom:3px;" id="sjmc" name="sjmc" ></div>
+            </div>
+            <div class="customRowClass" style="padding-top:12px;">
+                <div class="customRowLeftClass" style="padding-bottom:10px;">新客户</div>
+                <div class="customRowRightSelectClass" id="selectIsNewCustomer" style="padding-bottom:10px;">请选择<b class="jiantou"></b></div>
+            </div>
+            <div class="customRowClass">
+                <div class="customRowLeftClass" style="padding-bottom:10px;">销售负责人</div>
+                <div class="customRowRightSelectClass" id="selectSalesPerson" style="padding-bottom:10px;">请选择<b class="jiantou"></b></div>
+            </div>
+            
+            <div class="breakLine">
+            </div>
+
+            <div class="customRowClass" >
+                <div class="customRowLeftClass" style="padding-top:10px;">商机状态</div>
+                <div class="customRowRightSelectClass" id="selectSJZT" style="padding-bottom:3px;">请选择<b class="jiantou"></b></div>
+            </div>            
+            <div class="customRowClass" style="padding-top:12px;">
+                <div class="customRowLeftClass" style="padding-bottom:10px;">商机类型</div>
+                <div class="customRowRightSelectClass" id="selectOppType" style="padding-bottom:10px;">请选择<b class="jiantou"></b></div>
+            </div>
+            <div class="customRowClass">
+                <div class="customRowLeftClass" style="padding-bottom:10px;">商机阶段</div>
+                <div class="customRowRightSelectClass" id="selectOppStage" style="padding-bottom:10px;">请选择<b class="jiantou"></b></div>
+            </div>
+            <div class="customRowClass">
+                <div class="customRowLeftClass" style="padding-bottom:10px;">商机来源</div>
+                <div class="customRowRightSelectClass" id="selectOppSource" style="padding-bottom:10px;">请选择<b class="jiantou"></b></div>
+            </div>
+            <div class="breakLine">
+            </div>
+
+            <div class="customRowClass">
+                <div class="customRowLeftClass" style="padding-top:10px;">金额(万元)</div>
+                <div class="customRowRightInputMoneyClass"><input type="number" class="rightInputMoneyClass" placeholder="请输入信息" id="OPP_ESTIMATEDAMOUNT" name="OPP_ESTIMATEDAMOUNT"></div>
+            </div>
+            <div class="customRowClass">
+                <div class="customRowLeftClass" style="padding-top:10px;">年收入(万元)</div>
+                <div class="customRowRightInputMoneyClass"><input type="number" class="rightInputMoneyClass" placeholder="请输入信息" id="OPP_REVENUEAMOUNT" name="OPP_REVENUEAMOUNT"></div>
+            </div>
+            <div class="customRowClass" style="padding-top:10px;">
+                <div class="customRowLeftClass" >税率(%)</div>
+                <div class="customRowRightSelectClass" id="selectTaxRate">请选择<b class="jiantou"></b></div>
+            </div>
+            <div class="customRowClass">
+                <div class="customRowLeftClass">毛利金额(万元)</div>
+                <div class="customRowRightSelectClass" ><input readonly="readonly" class="rightInputMoneyClass" id="OPP_GROSSPROJECT" name="OPP_GROSSPROJECT"></div>
+            </div>
+            <div class="customRowClass">
+                <div class="customRowLeftClass">毛利率(%)</div>
+                <div class="customRowRightInputClass" ><input type="number" class="rightInputClass" placeholder="请输入信息" id="OPP_GROSSMARGIN" name="OPP_GROSSMARGIN"></div>
+            </div>
+            <div class="breakLine">
+            </div>
+
+
+            <div class="selectTimeClass" style="padding-top:4px;">
+                <div style="padding-top:10px;">签约日期</div>
+                <div id="selectOppStartTime" class="time" style="padding-bottom:10px;">请选择<b class="jiantou"></b></div>
+                <div style="text-align:right;padding-top:10px;">关单日期</div>
+                <div id="selectOppEndTime" class="time" style="text-align:right;padding-bottom:10px;"> 请选择<b class="jiantou"></b></div>
+            </div>
+            <div class="customRowClass" style="padding-top:10px;">
+                <div class="customRowLeftClass" style="padding-bottom:10px;">关单季度</div>
+                <div class="customRowRightSelectClass" id="selectSingleQuarter" style="padding-bottom:10px;">请选择<b class="jiantou"></b></div>
+            </div>
+            <div class="customRowClass">
+                <div class="customRowLeftClass" style="padding-bottom:10px;">销售周期</div>
+                <div class="customRowRightSelectClass" id="selectSalesCycle" style="padding-bottom:10px;">请选择<b class="jiantou"></b></div>
+            </div>
+            <div class="customRowClass">
+                <div class="customRowLeftClass" style="padding-bottom:10px;">商机胜算</div>
+                <div class="customRowRightSelectClass" id="selectChancesWinning" style="padding-bottom:10px;">请选择<b class="jiantou"></b></div>
+            </div>
+            <div class="breakLine">
+            </div>
+            <div class="inputCardClass">
+                    <div class="inputCardTitleClass">产品或方案</div>
+                    <div class="inputCardValueClass">
+                            <textarea id="OPP_PRODUCT" rows="2" name="OPP_PRODUCT" class="cphfa" placeholder="请输入信息" ></textarea>
+                    </div>
+            </div>
+            
+            <div class="breakLine">
+            </div>
+            <div class="inputCardClass">
+            	    <div class="inputCardTitleClass">机会与风险分析</div>
+            	    <div class="inputCardValueClass">
+            	    		<textarea id="OPP_COMPETITOR" rows="2" class="shyfxfx" placeholder="请输入信息" name="OPP_COMPETITOR"></textarea>
+            	    </div>
+            </div>
+            
+            <div class="breakLine">
+            </div>
+            <div class="inputCardClass">
+            	    <div class="inputCardTitleClass">目前跟进情况</div>
+            	    <div class="inputCardValueClass">
+            	    		<textarea id="OPP_FOLLOWWEEK" rows="2" class="mqgjqk" placeholder="请输入信息" name="OPP_FOLLOWWEEK"></textarea>
+            	    </div>
+            </div>
+            
+            <div class="breakLine">
+            </div>
+            
+            <div class="inputCardClass">
+                    <div class="inputCardTitleClass">下一步行动计划</div>
+                    <div class="inputCardValueClass">
+                            <textarea id="OPP_NEXTPLAN" rows="2" class="xybxdjh" placeholder="请输入信息" name="OPP_NEXTPLAN"></textarea>
+                    </div>
+            </div>
+            
+            <div class="breakLine">
+            </div>
+
+
+            <div class="inputCardClass">
+                    <div class="inputCardTitleClass">项目描述</div>
+                    <div class="inputCardValueClass">
+                            <textarea id="OPP_DESCRIPTION" rows="2" class="xmms" placeholder="请输入信息" name="OPP_DESCRIPTION"></textarea>
+                    </div>
+            </div>
+            
+            <div class="breakLine">
+            </div>
+
+
+            <div class="inputCardClass">
+                    <div class="inputCardTitleClass">备注</div>
+                    <div class="inputCardValueClass">
+                            <textarea id="Note" rows="2" class="bz" placeholder="请输入信息" name="Note"></textarea>
+                    </div>
+            </div>
+            
+            <div class="breakLine">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

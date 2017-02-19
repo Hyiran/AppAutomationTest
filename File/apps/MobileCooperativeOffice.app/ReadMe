@@ -1,0 +1,5 @@
+> 小盈办公发正式版注意事项
+ * 将MainStacticValue.h 文件  TEST_PRIN_MODEL 为 1   ARCHIVEMODEL 为 1
+ * 将发布的Build 更改为现服务器上的+1
+ * 若版本更新更改为域名,一定要测试是否能够正常安装应用
+ * 若有新特性页面,则需更改GGCONST.m文件中的currentVersion 的值,与上次的值不一样即可,这次发版可以使用(v16.0)

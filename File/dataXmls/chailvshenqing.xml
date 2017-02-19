@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+     <wbs>YKKYZB160151</wbs>
+	 <wbsname>2016年协同工作平台提升项目-移动办公平台</wbsname>
+    <chailvleixing>
+        <columnName>差旅类型</columnName>
+        <wantSele>境外</wantSele>
+        <dataSize>2</dataSize>
+    </chailvleixing>
+    <shifoujiekuan>
+        <columnName>是否借款</columnName>
+        <wantSele>否</wantSele>
+        <dataSize>2</dataSize>
+    </shifoujiekuan>
+    <chengbenleixing>
+         <columnName>成本类型</columnName>
+        <wantSele>项目编号</wantSele>
+        <dataSize>2</dataSize>
+    </chengbenleixing>
+     <shoujuleixing>
+         <columnName>收据类型</columnName>
+        <wantSele>差旅费-差旅补助</wantSele>
+        <dataSize>6</dataSize>
+    </shoujuleixing>
+     <chuchaidiqu>
+         <columnName>出差地区</columnName>
+        <wantSele>德国</wantSele>
+        <dataSize>10</dataSize>
+    </chuchaidiqu>
+     <huobi>
+         <columnName>货币</columnName>
+        <wantSele>美元</wantSele>
+        <dataSize>9</dataSize>
+    </huobi>
+</data>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="format-detection" content="telephone=no" />
+		<!--  设置页面自适应      -->
+		<meta name="viewport" content="width=screen.width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+        <title></title>
+        <link rel="stylesheet" href="../css/Common.css" />
+		<link rel="stylesheet" href="../css/travelDetail.css" />
+		<script type="text/javascript" src="../js/Common.js"></script>
+		<script type="text/javascript" src="../js/travelDetail.js"></script>
+	</head>
+
+	<body>
+		<div class="mainBox">
+			<!--空行,给紧急图片让出位置-->
+			<div id="emergencyDiv" style="height:50px; display:none;"> </div>
+			<!-- 主数据标题 -->
+			<dl class="Title_Dl" id="zhushuju">
+                <dt><font class="titleClass">主数据</font></dt>
+                <dd>
+                    <a href="###"><img id="Control_zhushuju" /></a>
+                </dd>
+            </dl>
+			
+			<!-- 主数据详情 1-->
+			<div class="Applicant_informationList" id="Applicant_informationList2" style="display: block;">
+				<p class="shangmian"><span><font class="mingcheng">员工编号</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+				<p><span><font class="mingcheng">员工姓名</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+                <p><span><font class="mingcheng">费用类型</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+                <p><span><font class="mingcheng">差旅类型</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+				<p class="xiamianxian"><span><font class="mingcheng">是否借款</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+				<div class="breakLine">
+					<!--                分割线-->
+				</div>
+			</div>
+			<!-- 差旅申请标题 -->
+			<dl class="Title_Dl" id="chailvshenqing">
+                <dt><font class="titleClass">差旅申请</font></dt>
+                <dd>
+                    <a href="###"><img id="Control_chailvshenqing" /></a>
+                </dd>
+            </dl>
+			
+			<!-- 差旅申请详情 1-->
+			<div class="Applicant_informationList" id="Applicant_informationList5" style="display: block;">
+				<p class="topClass"><span><font class="mingcheng">开始时间</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+				<p><span><font class="mingcheng">结束时间</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+				<p><span><font class="mingcheng">出差地区</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+				<p><span><font class="mingcheng">预计费用</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+				<p class="xiamianxian"><span><font class="mingcheng">出差事由</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+				<div class="breakLine">
+					<!--                分割线-->
+				</div>
+			</div>
+
+			<!-- 成本分配详情 1-->
+			<dl class="Title_Dl" id="chengbenfenpei">
+                <dt><font class="titleClass">成本分配</font></dt>
+                <dd>
+                    <a href="###"><img id="Control_chengbenfenpei" /></a>
+                </dd>
+            </dl>
+			
+			
+			<!-- 授权申请表信息详情 1-->
+			<div class="Applicant_informationList" id="Applicant_informationList6" style="display: block;">
+				<p class="topClass"><span><font class="mingcheng">成本类型</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+				<p class="xiamianxian"><span><font class="mingcheng">分配编号</font></span><i class="fenpei"><font class="neirong"></font></i></p>
+				<div class="breakLine">
+					<!--                分割线-->
+				</div>
+			</div>
+
+			<!-- 支出计划标题 -->
+			
+			<dl class="Title_Dl" id="zhichujihua">
+                <dt><font class="titleClass">支出计划</font></dt>
+                <dd>
+                    <a href="###"><img id="Control_zhichujihua" /></a>
+                </dd>
+            </dl>
+			
+			<!-- 支出计划详情 1-->
+			<div id="table_informationList4" style="display: block;">
+				<table>
+					<tbody>
+						<tr>
+							<th class="tableList1">收据类型</th>
+							<th class="tableList2">金额</th>
+							<th class="tableList3">货币</th>
+							<th class="tableList4">汇率</th>
+							<th class="tableList5">本位币</th>
+							<th class="tableList6">日期</th>
+							<th class="tableList7">信息</th>
+						</tr>
+					</tbody>
+				</table>
+				<div class="breakLine">
+				</div>
+			</div>
+
+			<!-- 附加目的地标题 -->
+			
+			<dl class="Title_Dl" id="fujiamudidi">
+                <dt><font class="titleClass">附加目的地</font></dt>
+                <dd>
+                    <a href="###"><img id="Control_fujiamudidi" /></a>
+                </dd>
+            </dl>
+			
+			<!-- 附加目的地详情 1-->
+			<div id="table_informationList5" style="display: block;">
+				<table>
+					<tbody>
+						<tr>
+							<th class="tableList02">出发日期</th>
+							<th class="tableList03">到达日期</th>
+							<th class="tableList04">目的地</th>
+							<th class="tableList05">出差事由</th>
+						</tr>
+					</tbody>
+				</table>
+
+				<div class="breakLine">
+					<!--                分割线-->
+				</div>
+			</div>
+
+			<!--            历史审批意见标题-->
+			
+			<dl class="Title_Dl" id="lishishenpiyijian">
+                <dt><font class="titleClass">审批意见</font></dt>
+                <dd>
+                    <a href="###"><img id="Control_lishishenpiyijian" /></a>
+                </dd>
+            </dl>
+			
+			
+			<div id="table_informationList9" style="display: block;">
+				<table>
+					<tbody>
+						<tr>
+							<th class="tableList002">审批人</th>
+							<th class="tableList003">状态</th>
+							<th class="tableList004">意见</th>
+							<th class="tableList005">时间</th>
+						</tr>
+					</tbody>
+				</table>
+
+				<div class="breakLine">
+				</div>
+
+			</div>
+
+		</div>
+
+	</body>
+
+</html>
