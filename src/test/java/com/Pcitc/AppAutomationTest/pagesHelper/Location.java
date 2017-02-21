@@ -7,12 +7,12 @@ import io.appium.java_client.android.AndroidKeyCode;
 
 public  class Location 
 {	 
-
-	  public  static final String TextView_Ptext="TextView_Ptext";
 	/**
-	 * 使用text属性定位TextView控件
-	 * 
+	 * TextView 对象，参数值为text属性
 	 */
+	 public  static final String TextView_Ptext="TextView_Ptext";
+	 
+	
 	  public  static final String TextView_qualText="TextView_qualText";
 	  /**
 	   * text＋索引 方式定位TextView，用于同名出现多次的

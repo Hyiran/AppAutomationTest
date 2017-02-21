@@ -205,7 +205,7 @@
                         </property>
                     </properties>
                     <suiteXmlFiles>
-        				<suiteXmlFile>.\runTestCaseXML\登陆测试.xml</suiteXmlFile>
+        				<suiteXmlFile>.\runTestCaseXML\差旅申请.xml</suiteXmlFile>
       				</suiteXmlFiles>
                 <forkMode>once</forkMode> 
                 <argLine>-Dfile.encoding=UTF-8</argLine> 

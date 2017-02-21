@@ -32,8 +32,8 @@ public class DengLuTest extends  DengLu
 			}
 	
 		Log.logInfo("yaml文件已加载",GetClassMethodName());
-		PageDataExcle=getExcle("登陆.xls", PageDataExcleSheet);
-		FixDataExcle=getExcle( "登陆.xls", FixDataExcleSheet);
+		PageDataExcle=getExcle("登陆", "默认数据");
+		FixDataExcle=getExcle( "登陆", "选择数据");
 
 	}
 	@BeforeClass

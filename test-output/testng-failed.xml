@@ -1,34 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="1" name="Failed suite [com.Pcitc.AppAutomationTest.pagesHelper.TestInit]">
-  <parameter name="password" value="123456"/>
-  <parameter name="isTestEnvirectory" value="true"/>
-  <parameter name="isAndroid" value="true"/>
-  <parameter name="url" value="Chorme"/>
-  <parameter name="username" value="12020"/>
-  <listeners>
-    <listener class-name="com.Pcitc.AppAutomationTest.plugins.TestResultListener"/>
-    <listener class-name="com.Pcitc.AppAutomationTest.plugins.ExcelReporter"/>
-  </listeners>
-  <test name="com.Pcitc.AppAutomationTest.pagesHelper.TestInit(failed)">
-    <parameter name="password" value="123456"/>
-    <parameter name="url" value="Chorme"/>
-    <parameter name="username" value="12020"/>
+<suite name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
     <classes>
-      <class name="com.Pcitc.AppAutomationTest.testCases.DengLuTest">
+      <class name="com.Pcitc.AppAutomationTest.utils.ExcelHandle">
         <methods>
-          <include name="logIn_rightLogin"/>
-          <include name="getPageElement"/>
+          <include name="testUpdateExcle"/>
         </methods>
-      </class> <!-- com.Pcitc.AppAutomationTest.testCases.DengLuTest -->
-      <class name="com.Pcitc.AppAutomationTest.pagesHelper.TestInit">
-        <methods>
-          <include name="AppPlatform"/>
-          <include name="getAppiumDriver"/>
-          <include name="closeAppiumServer"/>
-          <include name="closeDriver"/>
-        </methods>
-      </class> <!-- com.Pcitc.AppAutomationTest.pagesHelper.TestInit -->
+      </class> <!-- com.Pcitc.AppAutomationTest.utils.ExcelHandle -->
     </classes>
-  </test> <!-- com.Pcitc.AppAutomationTest.pagesHelper.TestInit(failed) -->
-</suite> <!-- Failed suite [com.Pcitc.AppAutomationTest.pagesHelper.TestInit] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

@@ -2,44 +2,16 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="com.Pcitc.AppAutomationTest.pagesHelper.TestInit" duration-ms="9015" started-at="2017-02-21T05:01:24Z" finished-at="2017-02-21T05:01:33Z">
+  <suite name="Default suite" duration-ms="338" started-at="2017-02-21T15:02:32Z" finished-at="2017-02-21T15:02:33Z">
     <groups>
     </groups>
-    <test name="com.Pcitc.AppAutomationTest.pagesHelper.TestInit" duration-ms="9015" started-at="2017-02-21T05:01:24Z" finished-at="2017-02-21T05:01:33Z">
-      <class name="com.Pcitc.AppAutomationTest.pagesHelper.TestInit">
-        <test-method status="PASS" signature="AppPlatform(java.lang.Boolean, java.lang.Boolean)[pri:0, instance:com.Pcitc.AppAutomationTest.pagesHelper.TestInit@56ac3a89]" name="AppPlatform" is-config="true" duration-ms="75" started-at="2017-02-21T13:01:24Z" description="获得平台类型" finished-at="2017-02-21T13:01:24Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[true]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[true]]>
-              </value>
-            </param>
-          </params>
+    <test name="Default test" duration-ms="338" started-at="2017-02-21T15:02:32Z" finished-at="2017-02-21T15:02:33Z">
+      <class name="com.Pcitc.AppAutomationTest.utils.ExcelHandle">
+        <test-method status="PASS" signature="testUpdateExcle()[pri:0, instance:com.Pcitc.AppAutomationTest.utils.ExcelHandle@1e397ed7]" name="testUpdateExcle" duration-ms="320" started-at="2017-02-21T23:02:32Z" description="测试更新数据" finished-at="2017-02-21T23:02:33Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- AppPlatform -->
-        <test-method status="PASS" signature="getAppiumDriver()[pri:0, instance:com.Pcitc.AppAutomationTest.pagesHelper.TestInit@56ac3a89]" name="getAppiumDriver" is-config="true" duration-ms="7210" started-at="2017-02-21T13:01:24Z" finished-at="2017-02-21T13:01:31Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getAppiumDriver -->
-        <test-method status="PASS" signature="autoTest()[pri:0, instance:com.Pcitc.AppAutomationTest.pagesHelper.TestInit@56ac3a89]" name="autoTest" duration-ms="10" started-at="2017-02-21T13:01:31Z" description="开始执行测试" finished-at="2017-02-21T13:01:31Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- autoTest -->
-        <test-method status="PASS" signature="closeDriver()[pri:0, instance:com.Pcitc.AppAutomationTest.pagesHelper.TestInit@56ac3a89]" name="closeDriver" is-config="true" duration-ms="1758" started-at="2017-02-21T13:01:31Z" finished-at="2017-02-21T13:01:33Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- closeDriver -->
-        <test-method status="PASS" signature="closeAppiumServer()[pri:0, instance:com.Pcitc.AppAutomationTest.pagesHelper.TestInit@56ac3a89]" name="closeAppiumServer" is-config="true" duration-ms="62" started-at="2017-02-21T13:01:38Z" finished-at="2017-02-21T13:01:38Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- closeAppiumServer -->
-      </class> <!-- com.Pcitc.AppAutomationTest.pagesHelper.TestInit -->
-    </test> <!-- com.Pcitc.AppAutomationTest.pagesHelper.TestInit -->
-  </suite> <!-- com.Pcitc.AppAutomationTest.pagesHelper.TestInit -->
+        </test-method> <!-- testUpdateExcle -->
+      </class> <!-- com.Pcitc.AppAutomationTest.utils.ExcelHandle -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

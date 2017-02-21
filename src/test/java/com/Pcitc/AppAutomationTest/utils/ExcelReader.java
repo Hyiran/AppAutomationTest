@@ -45,7 +45,7 @@ public class ExcelReader extends GetClassMethodName {
 	public ExcelReader(String fileName, String sheetName) 
 	{
 		try {
-			this.filePath = filePath+fileName;
+			this.filePath = filePath+fileName+".xls";
 			this.sheetName = sheetName;
 			this.flag = false;
 			this.load();			

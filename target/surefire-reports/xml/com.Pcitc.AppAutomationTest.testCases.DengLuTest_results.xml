@@ -4,14 +4,14 @@
            failures="0"
            errors="0"
            skipped="0"
-           time="132.245">
+           time="143.128">
   <properties />
   
   
-            <testcase name="logIn_Biguser" time="24.222" classname="com.Pcitc.AppAutomationTest.testCases.DengLuTest" />
-                <testcase name="logIn_PassWordBig" time="28.636" classname="com.Pcitc.AppAutomationTest.testCases.DengLuTest" />
-                <testcase name="logIn_userNameNull" time="26.664" classname="com.Pcitc.AppAutomationTest.testCases.DengLuTest" />
-                <testcase name="logIn_rightLogin" time="25.347" classname="com.Pcitc.AppAutomationTest.testCases.DengLuTest" />
-                <testcase name="noPassWordLogin" time="27.376" classname="com.Pcitc.AppAutomationTest.testCases.DengLuTest" />
+            <testcase name="logIn_Biguser" time="23.946" classname="com.Pcitc.AppAutomationTest.testCases.DengLuTest" />
+                <testcase name="noPassWordLogin" time="27.612" classname="com.Pcitc.AppAutomationTest.testCases.DengLuTest" />
+                <testcase name="logIn_userNameNull" time="26.377" classname="com.Pcitc.AppAutomationTest.testCases.DengLuTest" />
+                <testcase name="logIn_rightLogin" time="36.754" classname="com.Pcitc.AppAutomationTest.testCases.DengLuTest" />
+                <testcase name="logIn_PassWordBig" time="28.439" classname="com.Pcitc.AppAutomationTest.testCases.DengLuTest" />
       
 </testsuite>

@@ -1,0 +1,6 @@
+#surefire
+#Tue Feb 21 23:20:55 CST 2017
+user.dir=/project/eclipse/AppAutomationTest
+net.sourceforge.cobertura.datafile=target/cobertura/cobertura.ser
+localRepository=/project/apache-maven-3.3.9/localRepository
+basedir=/project/eclipse/AppAutomationTest

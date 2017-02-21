@@ -47,6 +47,7 @@ import sun.util.logging.resources.logging;
  */
 public class TestBase  extends  GetClassMethodName
 {
+	public static String caseNo="";
 //	测试报告文件
 	 public static  ExcelHandle reportExcleExcelHandle=null;
 	 public static  int reportExcleExcelRow=1;
@@ -79,11 +80,8 @@ public class TestBase  extends  GetClassMethodName
 	protected 		 ExcelReader PageDataExcle=null ;
 //	读取页面定位 修改页面 的-excle文件 页面弹窗对象，在testcase中初始化
 	protected 		 ExcelReader AlertDataExcle=null ;
-//	读取页面定位 修改页面 的-excle文件 数据驱动 填充表单信息
+//	读取页面定位 修改页面 的-excle文件 数据驱动 	 testcase填充表单信息
 	protected 		 ExcelReader FixDataExcle=null ;
-	protected final String  FixDataExcleSheet="选择数据";
-	protected final String  PageDataExcleSheet="默认页面";
-	protected final String  AlertDataExcleSheet="弹出页面";
 //	读取测试数据唯一标识文件
 	protected static ExcelHandle eh=null;
 	
@@ -133,13 +131,15 @@ public class TestBase  extends  GetClassMethodName
 	//获得用户名
 	protected String getUserName(String modeName,String leavle)
 	{
-		
+//		读取AppUser.xml 文件的配置用户名 密码
+		xml=new XMLParase(Config.xmlLib+"AppUser.xml");
 		String useNameString=""; 
 			if (TestInit.IsTestEnvirectory) {
-				 useNameString =Config.xm.getElementText("/*/ceshi/"+modeName+"L"+leavle+"User");
+				
+				 useNameString =xml.getElementText("/*/ceshi/"+modeName+"L"+leavle+"User");
 			}
 			else {
-				 useNameString =Config.xm.getElementText("/*/zhengshi/"+modeName+"L"+leavle+"User");
+				 useNameString =xml.getElementText("/*/zhengshi/"+modeName+"L"+leavle+"User");
 			}
 		
 		Log.logInfo("登陆用户名为："+useNameString,GetClassMethodName());
@@ -156,10 +156,10 @@ public class TestBase  extends  GetClassMethodName
 
 			String passWord=""; 
 				if (TestInit.IsTestEnvirectory) {
-					passWord =Config.xm.getElementText("/*/ceshi/"+modeName+"L"+leavle+"Password");
+					passWord =xml.getElementText("/*/ceshi/"+modeName+"L"+leavle+"Password");
 				}
 				else {
-					passWord =Config.xm.getElementText("/*/zhengshi/"+modeName+"L"+leavle+"Password");
+					passWord =xml.getElementText("/*/zhengshi/"+modeName+"L"+leavle+"Password");
 				}
 			
 			Log.logInfo("登陆密码为："+passWord,GetClassMethodName());
@@ -228,11 +228,11 @@ public class TestBase  extends  GetClassMethodName
 //		判断环境指定sheetname
 		if (TestInit.IsTestEnvirectory) 
 		{
-			GenDataExcle =getExcle("测试数据.xls", "测试环境");
+			GenDataExcle =getExcle("测试数据", "测试环境");
 	
 		}
 		else {
-			GenDataExcle =getExcle("测试数据.xls", "正式环境");
+			GenDataExcle =getExcle("测试数据", "正式环境");
 			
 		}
 	

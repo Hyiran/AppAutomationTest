@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="6" failures="0" name="TestSuite" time="150.403" errors="0" skipped="0">
+<testsuite tests="2" failures="0" name="TestSuite" time="40.49" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib"/>
@@ -20,7 +20,7 @@
     <property name="basedir" value="/project/eclipse/AppAutomationTest"/>
     <property name="java.endorsed.dirs" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/endorsed"/>
     <property name="os.arch" value="x86_64"/>
-    <property name="surefire.real.class.path" value="/project/eclipse/AppAutomationTest/target/surefire/surefirebooter4398442913125183771.jar"/>
+    <property name="surefire.real.class.path" value="/project/eclipse/AppAutomationTest/target/surefire/surefirebooter2750046052490382452.jar"/>
     <property name="java.io.tmpdir" value="/var/folders/5h/l2sbx1696rg_nyc9h256n1yw0000gn/T/"/>
     <property name="line.separator" value="
 "/>
@@ -45,7 +45,7 @@
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre"/>
-    <property name="sun.java.command" value="/project/eclipse/AppAutomationTest/target/surefire/surefirebooter4398442913125183771.jar /project/eclipse/AppAutomationTest/target/surefire/surefire6948881568985385281tmp /project/eclipse/AppAutomationTest/target/surefire/surefire6072524806392881699tmp"/>
+    <property name="sun.java.command" value="/project/eclipse/AppAutomationTest/target/surefire/surefirebooter2750046052490382452.jar /project/eclipse/AppAutomationTest/target/surefire/surefire4632567376644040832tmp /project/eclipse/AppAutomationTest/target/surefire/surefire6122719990827307125tmp"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="zh"/>
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
@@ -54,7 +54,6 @@
     <property name="java.ext.dirs" value="/Users/fujiaxi/Library/Java/Extensions:/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/ext:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java"/>
     <property name="sun.boot.class.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/classes"/>
     <property name="java.vendor" value="Oracle Corporation"/>
-    <property name="org.uncommons.reportng.escape-output" value="false"/>
     <property name="localRepository" value="/project/apache-maven-3.3.9/localRepository"/>
     <property name="file.separator" value="/"/>
     <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
@@ -65,10 +64,6 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="com.Pcitc.AppAutomationTest.pagesHelper.TestInit" name="autoTest" time="0.005"/>
-  <testcase classname="com.Pcitc.AppAutomationTest.testCases.DengLuTest" name="logIn_rightLogin" time="25.347"/>
-  <testcase classname="com.Pcitc.AppAutomationTest.testCases.DengLuTest" name="logIn_Biguser" time="24.222"/>
-  <testcase classname="com.Pcitc.AppAutomationTest.testCases.DengLuTest" name="logIn_PassWordBig" time="28.636"/>
-  <testcase classname="com.Pcitc.AppAutomationTest.testCases.DengLuTest" name="logIn_userNameNull" time="26.664"/>
-  <testcase classname="com.Pcitc.AppAutomationTest.testCases.DengLuTest" name="noPassWordLogin" time="27.375"/>
+  <testcase classname="com.Pcitc.AppAutomationTest.pagesHelper.TestInit" name="autoTest" time="0.002"/>
+  <testcase classname="com.Pcitc.AppAutomationTest.testCases.ESSP_ChaiLvShenQing_Test" name="logIn_rightLogin" time="25.349"/>
 </testsuite>

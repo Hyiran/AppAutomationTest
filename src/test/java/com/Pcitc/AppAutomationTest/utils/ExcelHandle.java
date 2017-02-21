@@ -162,7 +162,7 @@ public static void addCellDataWithColor(int x,int y,String Data,String Wordcolor
 		wcfFC.setBackground(Colour.WHITE);
 	}
 
-	Label labelCF = new Label(x,y,Data,wcfFC);   
+	Label labelCF = new Label(y,x,Data,wcfFC);   
 	ws.addCell(labelCF); 
 	} 
 catch (Exception e) 
@@ -200,7 +200,7 @@ public static void addCellData(int x,int y,String Data)
 {  
 try {
 //	参数依次 ：格式 字体 加粗 斜体
-	WritableFont wf = new WritableFont(WritableFont.TIMES,12,WritableFont.BOLD,false);   
+	WritableFont wf = new WritableFont(WritableFont.TIMES,13,WritableFont.NO_BOLD,false);   
 	WritableCellFormat wcf = new WritableCellFormat(wf);   
 	Label labelcf = new Label(y,x,Data,wcf);   
 	ws.addCell(labelcf);   
@@ -365,20 +365,21 @@ try {
 	// TODO: handle exception
 }
 }
-//@Test(description="测试更新数据",priority = 2)
+@Test(description="测试更新数据",priority = 2)
 public void testUpdateExcle()
 {
 	try {
 		
-		updateFile(Config.excleLib+"jurry0003.xls", Config.excleLib+"jurry0003.xls");
+		updateFile(Config.excleLib+"首页.xls", Config.excleLib+"首页.xls");
 		//如果两个参数不一致，执行后会生成一个新文件为参数二，与参数1文件相同；如修改cell值只对新生成的附件起作用
-		updateSheet("test1");
-		
+		updateSheet("首页");
 		addCellData(0,1, "新增1");
 		addCellData(0,2, "新增2");
 		addCellDataWithLink(0, 5,  "t1");
 		addCellDataWithLink(0, 6, "t1Cut");
-		addCellDataWithColor(0, 7, "样式", "YELLOW","RED");
+		addCellDataWithColor(0, 7, "样式1", "YELLOW","RED");
+		addCellDataWithColor(0, 8, "样式2", "RED","YELLOW");
+		addCellDataWithColor(0, 9, "样式3", "BLACK","RED");
 //		保存生效配置
 		afterExcle();
 	} catch (Exception e) {
