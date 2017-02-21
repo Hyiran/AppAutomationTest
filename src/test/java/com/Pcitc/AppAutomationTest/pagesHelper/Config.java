@@ -1,15 +1,10 @@
 package com.Pcitc.AppAutomationTest.pagesHelper;
 
 
-import java.security.PublicKey;
 
-import org.apache.xmlbeans.impl.xb.xsdschema.Public;
-import org.testng.annotations.Test;
-
-import com.Pcitc.AppAutomationTest.base.TestBase;
 import com.Pcitc.AppAutomationTest.utils.GetClassMethodName;
-import com.Pcitc.AppAutomationTest.utils.Log;
 import com.Pcitc.AppAutomationTest.utils.XMLParase;
+
 
 /**
  * 解析各页面对象定位文件 及等待时间 
@@ -23,6 +18,8 @@ public class Config  extends GetClassMethodName
 	public static String xmlLib;
 	public static String excleLib;
 	public static String yamlLib;
+	public static String SnapshotLib;
+	public static String AppFileLib;
 	
 	public static String platformName;
 	public static String URL;
@@ -31,7 +28,7 @@ public class Config  extends GetClassMethodName
 	public static int ElementWaitTime;//显示等待时间--20秒
 	public static String ignoreUnimportantViews;
 	public static String newCommandTimeout;
-	public static String AppPath;
+
 	
 //	ios
 	public static String platformVersion;
@@ -64,8 +61,9 @@ public class Config  extends GetClassMethodName
 		xmlLib="./File/dataXmls/";
 		excleLib="./File/dataExcles/";
 		yamlLib="./File/yamls/";
+		SnapshotLib="./File/Screenshots/";		
+		AppFileLib="./File/Screenshots/apps/";
 		
-		AppPath=xm.getElementText("/*/AppPath");
 		Browser=xm.getElementText("/*/Browser");
 		URL=xm.getElementText("/*/URL");
 		ElementWaitTime=Integer.valueOf(xm.getElementText("/*/ElementWaitTime"));

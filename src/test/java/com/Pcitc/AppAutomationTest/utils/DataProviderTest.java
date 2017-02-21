@@ -64,8 +64,8 @@ public class DataProviderTest  extends TestBase
 public void testExcel() throws Exception
 {
 	ExcelReader Excelreader = new ExcelReader("数据驱动文件","数据驱动文件数据");
-	Log.logInfo(Excelreader.getCellData(1, 1)); //  第一行第一列的值
-	Log.logInfo(Excelreader.getCellData(1, "密码")); 
+	Log.logInfo(Excelreader.getCellData(1, 1),GetClassMethodName()); //  第一行第一列的值
+	Log.logInfo(Excelreader.getCellData(1, "密码"),GetClassMethodName()); 
 //	Object [][] aObjects=Excelreader.getMapData;
 	// 数据预期结果列第一行数据
 //	System.out.println("size=="+Excelreader.getMapData.size());  //获得行数

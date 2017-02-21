@@ -3,14 +3,24 @@
 <suite thread-count="1" name="Failed suite [com.Pcitc.AppAutomationTest.pagesHelper.TestInit]">
   <parameter name="password" value="123456"/>
   <parameter name="isTestEnvirectory" value="true"/>
-  <parameter name="isAndroid" value="false"/>
+  <parameter name="isAndroid" value="true"/>
   <parameter name="url" value="Chorme"/>
   <parameter name="username" value="12020"/>
+  <listeners>
+    <listener class-name="com.Pcitc.AppAutomationTest.plugins.TestResultListener"/>
+    <listener class-name="com.Pcitc.AppAutomationTest.plugins.ExcelReporter"/>
+  </listeners>
   <test name="com.Pcitc.AppAutomationTest.pagesHelper.TestInit(failed)">
     <parameter name="password" value="123456"/>
     <parameter name="url" value="Chorme"/>
     <parameter name="username" value="12020"/>
     <classes>
+      <class name="com.Pcitc.AppAutomationTest.testCases.DengLuTest">
+        <methods>
+          <include name="logIn_rightLogin"/>
+          <include name="getPageElement"/>
+        </methods>
+      </class> <!-- com.Pcitc.AppAutomationTest.testCases.DengLuTest -->
       <class name="com.Pcitc.AppAutomationTest.pagesHelper.TestInit">
         <methods>
           <include name="AppPlatform"/>
@@ -19,15 +29,6 @@
           <include name="closeDriver"/>
         </methods>
       </class> <!-- com.Pcitc.AppAutomationTest.pagesHelper.TestInit -->
-      <class name="com.Pcitc.AppAutomationTest.testCases.DengLuTest">
-        <methods>
-          <include name="BiguserLogin"/>
-          <include name="wrongUserLogin"/>
-          <include name="rightLogin"/>
-          <include name="getPageElement"/>
-          <include name="wrongPasswordLogin"/>
-        </methods>
-      </class> <!-- com.Pcitc.AppAutomationTest.testCases.DengLuTest -->
     </classes>
   </test> <!-- com.Pcitc.AppAutomationTest.pagesHelper.TestInit(failed) -->
 </suite> <!-- Failed suite [com.Pcitc.AppAutomationTest.pagesHelper.TestInit] -->

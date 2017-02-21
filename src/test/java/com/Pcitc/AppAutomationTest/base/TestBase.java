@@ -25,7 +25,7 @@ import com.Pcitc.AppAutomationTest.utils.Action;
 import com.Pcitc.AppAutomationTest.utils.Assertion;
 import com.Pcitc.AppAutomationTest.utils.ConnectMySQL;
 import com.Pcitc.AppAutomationTest.utils.Driver;
-import com.Pcitc.AppAutomationTest.utils.ErrorLog;
+import com.Pcitc.AppAutomationTest.utils.Log;
 import com.Pcitc.AppAutomationTest.utils.ExcelHandle;
 import com.Pcitc.AppAutomationTest.utils.ExcelReader;
 import com.Pcitc.AppAutomationTest.utils.GetClassMethodName;
@@ -47,6 +47,9 @@ import sun.util.logging.resources.logging;
  */
 public class TestBase  extends  GetClassMethodName
 {
+//	测试报告文件
+	 public static  ExcelHandle reportExcleExcelHandle=null;
+	 public static  int reportExcleExcelRow=1;
 //	判断当前是否已经获取yaml
 	 public static Boolean isGetyamlpath=false;
 //	截图
@@ -69,7 +72,7 @@ public class TestBase  extends  GetClassMethodName
 //	封装yaml文件对象
 	protected static   ParseYamlFile parseYamlFile=null;
 //	点击服务按钮
-	protected static   Screen screen ;
+//	protected static   Screen screen ;
 //	读取生成测试数据的-excle文件 全局的初始化执行一次
 	protected static ExcelReader GenDataExcle=null ;
 //	读取页面定位 修改页面 的-excle文件 page类中初始化
@@ -92,12 +95,14 @@ public class TestBase  extends  GetClassMethodName
 	 * @param driveType  
 	 */
  public void  getDriver() 
- {
+ { 
 //	 获得driver对象
 	 Driver  driver = new 	Driver();
 	 driver.getDriver();
-	 appiumDriver=driver.getDriver2();
-
+	 appiumDriver=driver.driver;
+//	 创建action 对象
+	 action=new Action();
+	 Log.logInfo("action创建成功",GetClassMethodName());
 //	 获得截图对象
 	 assertion=new Assertion();
 //	 获得屏幕截图对象
@@ -106,20 +111,13 @@ public class TestBase  extends  GetClassMethodName
 	 parseYamlFile=new ParseYamlFile(appiumDriver);
 	 if (parseYamlFile!=null)
 	 {
-		Log.logInfo("parseYamlFile创建成功"+GetClassMethodName());
+		Log.logInfo("parseYamlFile创建成功",GetClassMethodName());
 	}
-//	 创建action 对象
-	 action=new Action();
-	 Log.logInfo("action创建成功"+GetClassMethodName());
-	
-	 eh=new ExcelHandle();
-	 Log.logInfo("测试生成数据ExcelHandle初始化成功"+GetClassMethodName());
+	 eh=new ExcelHandle();	
+	 initGenDataExcle();
 	 
-//		判断环境指定sheetname
-		initGenDataExcle();
-	
-		 
-	
+	 reportExcleExcelHandle=new ExcelHandle();
+	 initReportExcle();
 //		 链接数据库
 //		 mySql= new ConnectMySQL();			
 //		 mySql.connect("localhost:3306/XY", "root", "fu~123");
@@ -144,7 +142,7 @@ public class TestBase  extends  GetClassMethodName
 				 useNameString =Config.xm.getElementText("/*/zhengshi/"+modeName+"L"+leavle+"User");
 			}
 		
-		Log.logInfo("登陆用户名为："+useNameString);
+		Log.logInfo("登陆用户名为："+useNameString,GetClassMethodName());
 		return useNameString;
 	}
 	/**
@@ -164,7 +162,7 @@ public class TestBase  extends  GetClassMethodName
 					passWord =Config.xm.getElementText("/*/zhengshi/"+modeName+"L"+leavle+"Password");
 				}
 			
-			Log.logInfo("登陆密码为："+passWord);
+			Log.logInfo("登陆密码为："+passWord,GetClassMethodName());
 			return passWord;
 					
 		}
@@ -191,10 +189,9 @@ public class TestBase  extends  GetClassMethodName
 		
 //		保存生效配置
 	
-			eh.afterExcle();
-
-		
-		Log.logInfo("安卓-差旅申请生成数据："+GenData+"已存入文件：./ExcelData/测试数据.xls");
+				eh.afterExcle();
+			
+		Log.logInfo("安卓-差旅申请生成数据："+GenData+"已存入文件：./ExcelData/测试数据.xls",GetClassMethodName());
 	
 		
 	}
@@ -210,6 +207,12 @@ public class TestBase  extends  GetClassMethodName
 
 //		返回测试数据
 		return GenDataExcle.getCellData(row, columnName);
+	}
+	protected  void initReportExcle() 
+	{
+		reportExcleExcelHandle.updateFile("./target/surefire-reports/html/测试报告.xls", "./target/surefire-reports/html/测试报告.xls");
+		reportExcleExcelHandle.updateSheet("测试报告");
+		Log.logInfo("Excle报告文件已载入！",GetClassMethodName());
 	}
 	/**初始化测试数据excle文件,
 	 * 
@@ -316,7 +319,7 @@ public class TestBase  extends  GetClassMethodName
 //		 @Test(description="测试路径写法")
 		 public void t2()
 		 {
-			Log.logInfo(this.getYamlPath("class")); 
+			Log.logInfo(this.getYamlPath("class"),GetClassMethodName()); 
 		 }
 	 
 	/**
@@ -331,7 +334,7 @@ public class TestBase  extends  GetClassMethodName
 			isGetyamlpath=true;
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
-			Log.logError("yaml 文件没找到");
+			Log.logError("yaml 文件没找到",GetClassMethodName());
 			e.printStackTrace();
 		}
 	}
@@ -406,7 +409,7 @@ public class TestBase  extends  GetClassMethodName
 				}
 				catch(Exception e)
 				{
-					ErrorLog.logError(e.toString(), GetClassMethodName());
+					Log.logError(e.toString(), GetClassMethodName());
 //					Log.logError("class：testbase－method：initialPx：XML文件不存在，请检查路径！" +path);
 					
 				}
@@ -500,7 +503,7 @@ public class TestBase  extends  GetClassMethodName
 				 try {
 					 xmlparase=new XMLParase(Class);	
 				} catch (Exception e) {
-					ErrorLog.logError("mysqlxml文件配置错误请检查");
+					Log.logError("mysqlxml文件配置错误请检查",GetClassMethodName());
 				}
 				 
 					
@@ -564,7 +567,7 @@ public class TestBase  extends  GetClassMethodName
 			return object;
 		} catch (Exception e) {
 			e.printStackTrace();
-			ErrorLog.logError(e.toString());
+			Log.logError(e.toString(),GetClassMethodName());
 			return null;
 		}
 		  

@@ -73,18 +73,18 @@ try {
             + host + "?useUnicode=true&characterEncoding=UTF8", user,
             pwd);
 } catch (InstantiationException e) {
-	Log.logError("error:calss:ConnectMySQL,Method:connectMySQL"+e.toString());
+	Log.logError("error:calss:ConnectMySQL,Method:connectMySQL"+e.toString(),GetClassMethodName());
     e.printStackTrace();
 } catch (IllegalAccessException e) {
-	Log.logError("error:calss:ConnectMySQL,Method:connectMySQL"+e.toString());
+	Log.logError("error:calss:ConnectMySQL,Method:connectMySQL"+e.toString(),GetClassMethodName());
 
     e.printStackTrace();
 } catch (ClassNotFoundException e) {
-	Log.logError("error:calss:ConnectMySQL,Method:connectMySQL"+e.toString());
+	Log.logError("error:calss:ConnectMySQL,Method:connectMySQL"+e.toString(),GetClassMethodName());
 
     e.printStackTrace();
 } catch (SQLException e) {
-	Log.logError("error:calss:ConnectMySQL,Method:connectMySQL"+e.toString());
+	Log.logError("error:calss:ConnectMySQL,Method:connectMySQL"+e.toString(),GetClassMethodName());
 
     e.printStackTrace();
 }
@@ -100,7 +100,7 @@ try {
     stmt = (Statement) conn.createStatement();
 } catch (SQLException e) 
 {
-	Log.logError("error:calss:ConnectMySQL,Method:statement"+e.toString());
+	Log.logError("error:calss:ConnectMySQL,Method:statement"+e.toString(),GetClassMethodName());
     e.printStackTrace();
 }
 }
@@ -185,7 +185,7 @@ try {
 	  rs = ConnectMySQL.resultSet(sql);
 	} catch (Exception e)
 {
-		ErrorLog.logError("执行查询语句失败！");
+		Log.logError("执行查询语句失败！",GetClassMethodName());
 	}
 
 

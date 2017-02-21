@@ -205,7 +205,7 @@
                         </property>
                     </properties>
                     <suiteXmlFiles>
-        				<suiteXmlFile>.\TestngXml\综合测试用例.xml</suiteXmlFile>
+        				<suiteXmlFile>.\runTestCaseXML\登陆测试.xml</suiteXmlFile>
       				</suiteXmlFiles>
                 <forkMode>once</forkMode> 
                 <argLine>-Dfile.encoding=UTF-8</argLine> 

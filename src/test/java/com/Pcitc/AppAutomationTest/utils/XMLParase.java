@@ -42,7 +42,7 @@ public void Load(String filePath)
 try {
 	file =new File(filePath);
 } catch (Exception e) {
-	ErrorLog.logError("xml路径错误，路径地址:"+filePath,GetClassMethodName());
+	Log.logError("xml路径错误，路径地址:"+filePath,GetClassMethodName());
 }
 
 	if(file.exists())
@@ -53,7 +53,7 @@ try {
 				  document =saxReader.read(file);
 			} catch (DocumentException e)
 			{
-				ErrorLog.logError("xml 标签解析错误！请检查文件，文件为："+filePath,GetClassMethodName());		
+				Log.logError("xml 标签解析错误！请检查文件，文件为："+filePath,GetClassMethodName());		
 			}
 	}
 	
@@ -70,7 +70,7 @@ public Element getElementObject(String elementPath)
 	}
 	catch(Exception e)
 		{
-		ErrorLog.logError("节点获取异常请检查文件："+elementPath,GetClassMethodName());
+		Log.logError("节点获取异常请检查文件："+elementPath,GetClassMethodName());
 //		Log.logError(this.getClass().getSimpleName()+".getElementObject：common节点获取异常请检查文件");
 		return null;
 		}
@@ -88,7 +88,7 @@ public String getElementText(String elementPath)
 	    }
     else
 	    {
-    		ErrorLog.logError("XMLParase.getElementText-"+elementPath+"找不到定位元素",GetClassMethodName());
+    		Log.logError("XMLParase.getElementText-"+elementPath+"找不到定位元素",GetClassMethodName());
     		String message="找不到元素";
 	    	return message;
 	    }
@@ -108,7 +108,7 @@ public List<Element> getElementObjects(String elementPath)
 	catch(Error e )
 	{
 		
-		ErrorLog.logError(this.getClass().getSimpleName()+".getElementObjects:获得与函数同名节点数据错误，请检查文件",GetClassMethodName());
+		Log.logError(this.getClass().getSimpleName()+".getElementObjects:获得与函数同名节点数据错误，请检查文件",GetClassMethodName());
 		return null;
 	}
 }
@@ -132,7 +132,7 @@ public Map<String, String> getChildrenInfoByElement(Element element)
 	catch(Error e)
 	{
 //		Log.logError(e.getMessage());
-		ErrorLog.logError(this.getClass().getSimpleName()+".getChildrenInfoByElement:common子节点对象获取异常请检查文件",GetClassMethodName());
+		Log.logError(this.getClass().getSimpleName()+".getChildrenInfoByElement:common子节点对象获取异常请检查文件",GetClassMethodName());
 		return null;
 	}
 }

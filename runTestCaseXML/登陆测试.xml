@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="com.Pcitc.AppAutomationTest.pagesHelper.TestInit" verbose="1" parallel="false" thread-count="1">
     <!-- 配置创建浏览器的类型，将在类中beforsuit使用 -->
-     <parameter name="isAndroid" value="false"/>
+     <parameter name="isAndroid" value="true"/>
      <parameter name="isTestEnvirectory" value="true"/>
 	<test name="com.Pcitc.AppAutomationTest.pagesHelper.TestInit" preserve-order="true">
 	<!-- 配置需要访问的url，将在类中befortest使用 -->
@@ -15,4 +15,6 @@
 						
 			</classes>
 	</test>
+		
+	
 </suite>

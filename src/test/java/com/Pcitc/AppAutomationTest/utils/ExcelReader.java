@@ -51,7 +51,7 @@ public class ExcelReader extends GetClassMethodName {
 			this.load();			
 			getCellData(0, 0);
 		} catch (Exception e) {
-		ErrorLog.logError("EXCLE文件不存在请检查",GetClassMethodName());
+			Log.logError("EXCLE文件不存在请检查",GetClassMethodName());
 		}
 		
 	}	
@@ -66,8 +66,7 @@ public class ExcelReader extends GetClassMethodName {
 			workBook = WorkbookFactory.create(inStream);
 			sheet = workBook.getSheet(sheetName);			
 		} catch (Exception e) {
-			
-			ErrorLog.logError(e.toString(),GetClassMethodName());
+			Log.logError(e.toString(),GetClassMethodName());
 		
 		}finally{
 			try {
@@ -75,7 +74,7 @@ public class ExcelReader extends GetClassMethodName {
 					inStream.close();
 				}				
 			} catch (IOException e) {			
-				ErrorLog.logError(e.toString());
+				Log.logError(e.toString(),GetClassMethodName());
 			}
 		}
 	}
@@ -135,7 +134,7 @@ public class ExcelReader extends GetClassMethodName {
 		try {
 			 numOfRows = sheet.getLastRowNum() + 1;
 		} catch (Exception e) {
-		ErrorLog.logError("excle文件"+filePath+"sheet名字错误，请检查");
+		Log.logError("excle文件"+filePath+"sheet名字错误，请检查",GetClassMethodName());
 		}
 		
 		for (int i = 0; i < numOfRows; i++) {
@@ -143,7 +142,7 @@ public class ExcelReader extends GetClassMethodName {
 			try {
 				 row = sheet.getRow(i);
 			} catch (Exception e) {
-				ErrorLog.logError("sheetname："+sheetName+"不存在请检查文件！",GetClassMethodName());
+			Log.logError("sheetname："+sheetName+"不存在请检查文件！",GetClassMethodName());
 			}
 			
 			Map<String, String> map = new HashMap<String, String>();
@@ -224,7 +223,7 @@ public static void t133()
 {
 	ExcelReader excelreader1 = new ExcelReader("登陆.xlsx","选择数据");
 //	获得第一行 第一列的值
-	Log.logInfo(excelreader1.getCellData(1, 1)); 
+	Log.logInfo(excelreader1.getCellData(1, 1),GetClassMethodName()); 
 ////	获得测试列2列第一行值
 //	Log.logInfo(excelreader.getCellData(1, "测试列2"));
 ////	得到数据的行数大小（总行数－1）

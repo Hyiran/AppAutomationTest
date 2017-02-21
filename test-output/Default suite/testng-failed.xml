@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.Pcitc.AppAutomationTest.utils.ExcelReader">
+      <class name="com.Pcitc.AppAutomationTest.Test.assertTest">
         <methods>
-          <include name="t133"/>
+          <include name="DDI2V"/>
         </methods>
-      </class> <!-- com.Pcitc.AppAutomationTest.utils.ExcelReader -->
+      </class> <!-- com.Pcitc.AppAutomationTest.Test.assertTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

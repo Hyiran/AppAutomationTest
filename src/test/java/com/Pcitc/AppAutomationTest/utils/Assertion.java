@@ -5,13 +5,49 @@ import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+
+import com.Pcitc.AppAutomationTest.base.TestBase;
+import com.Pcitc.AppAutomationTest.pagesHelper.Config;
+
+import sun.util.logging.resources.logging;
 public class Assertion extends GetClassMethodName
 {
     public static boolean flag = true;
-    public static String caseNO="";
-    public static int step=0;
+    public  String caseNO="";
+    public  int step=1;
     public static List<Error> errors = new ArrayList<Error>();
-   
+    private  String outPutinfor="";
+    private  String snapShootPath="";
+    private  String testResault="";
+    private String  getOutputStr(String message ) 
+    {
+    	 outPutinfor="测试用例："+caseNO+"-步骤:"+step+"-"+message;
+    	 return outPutinfor;
+	}
+    private String  getSnapFileName( boolean pinString) 
+    {
+    	if (pinString) {
+    		snapShootPath="；截图文件："+caseNO+"-步骤"+step;
+        	return snapShootPath;
+		}
+    	else {
+    		snapShootPath= caseNO+"-步骤"+step;
+        	return snapShootPath;
+		}
+    
+	}
+    private String  getRes(boolean right,Object  expected, WebElement actual) 
+    {
+    	if (right) 
+    	{
+    		testResault="测试结果:测试成功!预期结果："+expected+"；实际结果："+DataHandle.getElementText(actual);
+			return testResault;
+		}
+    	else {
+    		testResault="测试结果:测试失败!预期结果："+expected+"；实际结果："+DataHandle.getElementText(actual);
+			return testResault;
+		}
+	}
     /**
      * 测试2个对象是否不相同
      * @param mycaseNo  测试用例编号
@@ -20,8 +56,9 @@ public class Assertion extends GetClassMethodName
      * @param message   打印到log信息
      * @param driver   驱动
      */
-    public  void verifyNotEquals(String mycaseNo,Object  expected, Object actual,String message,WebDriver driver){
-        try{
+    public  void verifyNotEquals(String mycaseNo,Object  expected, WebElement actual,String message,WebDriver driver){
+        
+    	try{
         	   if (caseNO.equals(mycaseNo))
         	   { 
 //        		   如果传入的用例编号与当前一致，增加步骤不改用例编号
@@ -33,22 +70,21 @@ public class Assertion extends GetClassMethodName
             	   caseNO=mycaseNo;
                 	step=0;
    			}
-        	   Log.logInfo("测试用例："+caseNO+"步骤:"+step+"-"+message+"；测试结果:测试成功!预期结果："+expected+"；实际结果："+actual, GetClassMethodName());
- 
+        	  
+        	   Log.logInfo(getOutputStr(message)+getRes(true, expected, actual), GetClassMethodName());
+
      
         }catch(Error e){
         	 errors.add(e);
         	 flag = false;
         	    Assert.assertNotEquals(expected, actual);         
-        	  
-//    			定义截图文件名变量
-    			String screenShotsfileName;
-//    			创建截图对象实例
-    			ScreenShots myScreenShots=new ScreenShots(driver);		
-//    			执行截图操作。得到截图文件名
-    			screenShotsfileName=myScreenShots.takeScreenshot(caseNO+":"+step);		
-//    			使用log体系输出:预期结果+实际结果+文件名称
-    			ErrorLog.logError("测试用例："+caseNO+"步骤:"+step+"-"+message+"；测试结果:测试失败!预期结果："+expected+"；实际结果："+actual+";失败截图名："+screenShotsfileName, GetClassMethodName()); 		
+
+//    			执行截图操作			
+    			TestBase.screenShots.takeScreenshots(actual, getSnapFileName(false));			
+//    			使用log写入report级log文件中：
+//    			体系输出:预期结果+实际结果+文件名称		
+    			Log.logWarn(getOutputStr(message)+getRes(false, expected, actual), caseNO, getSnapFileName(false));
+//    			
         }
     } 
    
@@ -59,7 +95,7 @@ public class Assertion extends GetClassMethodName
      * @param message 判断内容
      * @param dw webdriver 对象
      */
-    public  void verifyEquals(String caseNo,Object  expected, Object actual,String message,WebDriver driver){
+    public  void verifyEquals(String caseNo,Object  expected, WebElement actual,String message,WebDriver driver){
         try{
 
      	   if (caseNo==caseNO)
@@ -74,19 +110,18 @@ public class Assertion extends GetClassMethodName
             	step=0;
             }
             Assert.assertEquals(actual, expected);
-            Log.logInfo("测试用例："+caseNO+"步骤:"+step+"-"+message+"；测试结果:测试成功!预期结果："+expected+"；实际结果："+actual, GetClassMethodName());
+
+     	   Log.logInfo(getOutputStr(message)+getRes(true, expected, actual), GetClassMethodName());
+//            Log.logInfo("测试用例："+caseNO+"步骤:"+step+"-"+message+"；测试结果:测试成功!预期结果："+expected+"；实际结果："+actual, GetClassMethodName());
         }catch(Error e){
             errors.add(e);
-//			定义截图文件名变量
-			String screenShotsfileName;
-//			创建截图对象实例
-			ScreenShots myScreenShots=new ScreenShots(driver);		
-//			执行截图操作。得到截图文件名
-			screenShotsfileName=myScreenShots.takeScreenshot(caseNO+":"+step);	;		
-//			使用log体系输出:预期结果+实际结果+文件名称
-            String message1="";
-			ErrorLog.logError("测试用例："+caseNO+"步骤:"+step+"-"+message+"；测试结果:测试失败!预期结果："+expected+"；实际结果："+actual+";失败截图名："+screenShotsfileName, GetClassMethodName()); 		
-			flag = false;
+        	flag = false;
+//			执行截图操作			
+			TestBase.screenShots.takeScreenshots(actual, getSnapFileName(false));			
+//			使用log写入report级log文件中：
+//			体系输出:预期结果+实际结果+文件名称
+			Log.logWarn(getOutputStr(message)+getRes(false, expected, actual), caseNO, getSnapFileName(false));
+		
         }
     }
  /**
@@ -132,10 +167,10 @@ public class Assertion extends GetClassMethodName
 //			创建截图对象实例
 			ScreenShots myScreenShots=new ScreenShots(driver);		
 //			执行截图操作。得到截图文件名
-			screenShotsfileName=myScreenShots.takeScreenshot(caseNO+":"+step);	
+//			screenShotsfileName=myScreenShots.takeScreenshot(caseNO+":"+step);	
 //			使用log体系输出:预期结果+实际结果+文件名称
             String message1="";
-			ErrorLog.logError("测试用例："+caseNO+"步骤:"+step+"-测试"+name+elementName+"是否与预期结果一致"+"；测试结果:测试失败!预期结果："+expected+"；实际结果："+actual+";失败截图名："+screenShotsfileName, GetClassMethodName()); 		
+//			ErrorLog.logError("测试用例："+caseNO+"步骤:"+step+"-测试"+name+elementName+"是否与预期结果一致"+"；测试结果:测试失败!预期结果："+expected+"；实际结果："+actual+";失败截图名："+screenShotsfileName, GetClassMethodName()); 		
 			flag = false;
         }
     }
@@ -175,10 +210,10 @@ public class Assertion extends GetClassMethodName
 //			创建截图对象实例
 			ScreenShots myScreenShots=new ScreenShots(driver);		
 //			执行截图操作。得到截图文件名
-			screenShotsfileName="测试用例："+caseNO+"步骤:"+step+"-"+message+myScreenShots.takeScreenshot(caseNO+":"+step);		
+//			screenShotsfileName="测试用例："+caseNO+"步骤:"+step+"-"+message+myScreenShots.takeScreenshot(caseNO+":"+step);		
 			
 //			使用log体系输出:预期结果+实际结果+文件名称
-        	ErrorLog.logError("测试用例："+caseNO+"步骤:"+step+"-"+message+"；测试结果:测试失败！元素没有被找到！失败截图名："+screenShotsfileName, GetClassMethodName()); 
+//        	ErrorLog.logError("测试用例："+caseNO+"步骤:"+step+"-"+message+"；测试结果:测试失败！元素没有被找到！失败截图名："+screenShotsfileName, GetClassMethodName()); 
         	flag = false;
         }
     }
@@ -211,9 +246,9 @@ public class Assertion extends GetClassMethodName
 //			创建截图对象实例
 			ScreenShots myScreenShots=new ScreenShots(driver);		
 //			执行截图操作。得到截图文件名
-			screenShotsfileName="测试用例编号："+caseNO+":"+myScreenShots.takeScreenshot(caseNO+":"+step);			
+//			screenShotsfileName="测试用例编号："+caseNO+":"+myScreenShots.takeScreenshot(caseNO+":"+step);			
 //			使用log体系输出:预期结果+实际结果+文件名称
-        	ErrorLog.logError("测试用例："+caseNO+"步骤:"+step+"-"+message+"；测试结果:测试失败！元素依然在页面上！失败截图名："+screenShotsfileName, GetClassMethodName()); 
+//        	ErrorLog.logError("测试用例："+caseNO+"步骤:"+step+"-"+message+"；测试结果:测试失败！元素依然在页面上！失败截图名："+screenShotsfileName, GetClassMethodName()); 
         	flag = false;
         }
     }  
@@ -244,9 +279,9 @@ public class Assertion extends GetClassMethodName
 //				创建截图对象实例
 				ScreenShots myScreenShots=new ScreenShots(driver);		
 ////				执行截图操作。得到截图文件名
-				screenShotsfileName="测试用例编号："+caseNO+":"+myScreenShots.takeScreenshot(caseNO+":"+step);	
+//				screenShotsfileName="测试用例编号："+caseNO+":"+myScreenShots.takeScreenshot(caseNO+":"+step);	
 //				使用log体系输出:预期结果+实际结果+文件名称
-			 ErrorLog.logError("测试用例："+caseNO+"步骤:"+step+"-"+message+"；测试结果:测试失败！按钮可被点击！失败截图名："+screenShotsfileName, GetClassMethodName()); 
+//			 ErrorLog.logError("测试用例："+caseNO+"步骤:"+step+"-"+message+"；测试结果:测试失败！按钮可被点击！失败截图名："+screenShotsfileName, GetClassMethodName()); 
 			 flag = false;
 		}
 		
@@ -279,9 +314,9 @@ public class Assertion extends GetClassMethodName
 //				创建截图对象实例
 				ScreenShots myScreenShots=new ScreenShots(driver);		
 //			执行截图操作。得到截图文件名
-				screenShotsfileName="测试用例编号："+caseNO+":"+myScreenShots.takeScreenshot(caseNO+":"+step);	
+//				screenShotsfileName="测试用例编号："+caseNO+":"+myScreenShots.takeScreenshot(caseNO+":"+step);	
 //				使用log体系输出:预期结果+实际结果+文件名称
-			 ErrorLog.logError("测试用例："+caseNO+"步骤:"+step+"-"+message+"；测试结果:测试失败！对象为假！失败截图名："+screenShotsfileName, GetClassMethodName()); 
+//			 ErrorLog.logError("测试用例："+caseNO+"步骤:"+step+"-"+message+"；测试结果:测试失败！对象为假！失败截图名："+screenShotsfileName, GetClassMethodName()); 
 			 flag = false;
 		}
 		

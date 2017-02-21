@@ -83,7 +83,7 @@ public  void getYamlFile(String fileAbsolutePath) throws FileNotFoundException
 		{
 		//找不到文件时捕获异常
 //			Log.logError(".Yaml文件配置错误请检查！"+fileAbsolutePath);
-			ErrorLog.logError( fileAbsolutePath+"文件不存在"+e.toString(),GetClassMethodName());
+			Log.logError( fileAbsolutePath+"文件不存在"+e.toString(),GetClassMethodName());
 		}
 }
 /**
@@ -142,11 +142,11 @@ public WebElement waitForElement(final By by)
 		{
 			if (needFound) 
 			{
-				Log.logInfo("需要定位元素"+GetClassMethodName());
-				ErrorLog.logError("Class:ParseYamlFile-Metohd:waitForElement:无法用定位方式："+by.toString()+ "找到页面对象!超时时间:"+waitTime,GetClassMethodName());
+				Log.logInfo("需要定位元素",GetClassMethodName());
+				Log.logError("Class:ParseYamlFile-Metohd:waitForElement:无法用定位方式："+by.toString()+ "找到页面对象!超时时间:"+waitTime,GetClassMethodName());
 			}
 			else {
-				Log.logInfo("不需要定位元素"+GetClassMethodName());
+				Log.logInfo("不需要定位元素",GetClassMethodName());
 				}	
 		}
 		return element;
@@ -176,7 +176,7 @@ private boolean waitForElementToDisplayed(final WebElement element)
 			}
 		catch (Exception e)
 		{
-			ErrorLog.logError("ParseYamlFile.waitForElementToDisplayed:"+e.toString()+"is not displayed",GetClassMethodName());
+			Log.logError("ParseYamlFile.waitForElementToDisplayed:"+e.toString()+"is not displayed",GetClassMethodName());
 		}
 		return wait;
 	}
@@ -313,7 +313,7 @@ private List<WebElement>  getLocators(String key ,String a,String b)
 		try {
 			elements =driver.findElements(by);
 		} catch (Exception e) {
-			ErrorLog.logError("五法定位webelements"+value+"，请检查定位方式",GetClassMethodName());
+			Log.logError("五法定位webelements"+value+"，请检查定位方式",GetClassMethodName());
 		return null;
 		}
 	
@@ -343,7 +343,7 @@ private String getLocaterString(String locatorString,String p1,String p2)
 		}
 	} catch (Exception e) {
 	
-		ErrorLog.logError("Class:ParseYamlFile,Method:getLocaterString:传入与yaml配置的定位占位符个数不等："+locatorString+"--"+p1+"--"+p2,GetClassMethodName());
+		Log.logError("Class:ParseYamlFile,Method:getLocaterString:传入与yaml配置的定位占位符个数不等："+locatorString+"--"+p1+"--"+p2,GetClassMethodName());
 		return null;
 	
 	

@@ -1,5 +1,6 @@
 package com.Pcitc.AppAutomationTest.pagesHelper;
 
+import org.testng.Reporter;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
@@ -8,7 +9,6 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.Pcitc.AppAutomationTest.base.TestBase;
-import com.Pcitc.AppAutomationTest.utils.ErrorLog;
 import com.Pcitc.AppAutomationTest.utils.ExcelHandle;
 import com.Pcitc.AppAutomationTest.utils.Log;
 import com.Pcitc.AppAutomationTest.utils.XMLParase;
@@ -32,7 +32,7 @@ public class TestInit extends TestBase
 	@BeforeSuite(groups="AppPlatform",description="获得平台类型")
 	public void  AppPlatform (Boolean isAndroid,Boolean isTestEnvirectory) 
 		{
-//		Log.logInfo("222:"+isAndroid);
+	
 //		获得测试环境
 //		获得测试平台
 		IsAndroid=isAndroid;
@@ -56,10 +56,10 @@ public class TestInit extends TestBase
 //			TestBase.	screen.wait(PictureLib+"begin.png",5);
 //			TestBase.	screen.click();
 //			Thread.sleep(3000);
-			Log.logInfo("已启动appium服务");
+			Log.logInfo("已启动appium服务",GetClassMethodName());
 		} catch (Exception e) {
 			
-			ErrorLog.logError("启动appiun服务异常");
+		Log.logError("启动appiun服务异常",GetClassMethodName());
 		}
 		
 		}
@@ -67,14 +67,17 @@ public class TestInit extends TestBase
 	@AfterSuite
 	public void closeAppiumServer()
 	{
-		Log.logInfo("已关闭appium服务");
+
+		TestBase.reportExcleExcelHandle.afterExcle();	
+		Log.logInfo("测试报告已生成",GetClassMethodName());
+		Log.logInfo("已关闭appium服务",GetClassMethodName());
 	}
 //	初始化action driver等对象
 	@BeforeTest
 	public void getAppiumDriver()
 	{
 		getDriver();
-		Log.logInfo("测试初始化成功");
+		Log.logInfo("测试初始化成功",GetClassMethodName());
 	}
 //	关闭driver
 	@AfterTest
@@ -84,10 +87,12 @@ public class TestInit extends TestBase
 		appiumDriver=null;
 		Log.logInfo("driver 释放成功",GetClassMethodName());
 	}
-	@Test()
+	@Test(description="开始执行测试")
 	public void autoTest()
 	{
-		Log.logInfo("小盈办公-开始自动化测试");
+		Log.logInfo("小盈办公-开始自动化测试",GetClassMethodName());
+
+		
 	}
 	
 }

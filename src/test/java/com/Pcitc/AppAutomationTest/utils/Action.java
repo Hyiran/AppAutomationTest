@@ -1,29 +1,18 @@
 package com.Pcitc.AppAutomationTest.utils;
 
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+
 import java.util.concurrent.TimeUnit;
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.TouchAction;
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidKeyCode;
-import io.appium.java_client.ios.IOSDriver;
-import net.sf.saxon.expr.flwor.ReturnClauseIterator;
 
-import org.apache.poi.hssf.record.PageBreakRecord.Break;
-import org.hamcrest.core.IsNot;
+import io.appium.java_client.android.AndroidDriver;
+
+import io.appium.java_client.ios.IOSDriver;
+
 import org.openqa.selenium.By;
-import org.openqa.selenium.Point;
-import org.openqa.selenium.WebDriver;
+
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
+
 
 import com.Pcitc.AppAutomationTest.base.TestBase;
 import com.Pcitc.AppAutomationTest.pagesHelper.Config;
@@ -37,9 +26,9 @@ public class Action extends GetClassMethodName {
 //	创建driver的驱动
 	public IOSDriver iosDriver;
 //	获得横坐标长度，x轴
-	int  Width;
+	public int  Width;
 //	获得横坐标长度，y轴
-	int Height;
+	public int Height;
 //	滑动次数
 	int  Times;
 WebElement EndElement;
@@ -71,7 +60,7 @@ WebElement EndElement;
 //		获得屏幕宽高
 		Width=driver.manage().window().getSize().width;
 		Height=driver.manage().window().getSize().height;
-		Log.logInfo("获取屏幕宽高成功",  GetClassMethodName());
+		Log.logInfo("获取屏幕宽高成功,高："+Height+"宽："+Width,  GetClassMethodName());
 	}
 	/**
 	 * 锁屏s
@@ -118,7 +107,7 @@ WebElement EndElement;
 		public static void elementSedKey(WebElement element,String Key)
 		{
 		if (element.equals(null)) {
-			ErrorLog.logError(element.toString()+"没有定位到无法填入值！");
+		Log.logError(element.toString()+"没有定位到无法填入值！",GetClassMethodName());
 		}
 		else {
 			element.sendKeys(Key);
@@ -244,7 +233,7 @@ WebElement EndElement;
 				Thread.sleep(2000);
 			} catch (InterruptedException e1) {
 				// TODO Auto-generated catch block
-				ErrorLog.logError("class:Action-Method:click-"+e1.toString());
+				Log.logError("class:Action-Method:click-"+e1.toString(),GetClassMethodName());
 			
 			}
 			element.click();
@@ -261,7 +250,7 @@ WebElement EndElement;
 			driver.tap(1, element, Millisecond);
 		}
 		else {
-			ErrorLog.logError("WebElement:"+element.toString()+"未被定位无法点击！");
+			Log.logError("WebElement:"+element.toString()+"未被定位无法点击！",GetClassMethodName());
 		}
 			
 	}
@@ -275,7 +264,7 @@ WebElement EndElement;
 			element.sendKeys(string);
 		}
 		else {
-			ErrorLog.logError("WebElement:"+element.toString()+"未被定位无法输入字符串！");
+			Log.logError("WebElement:"+element.toString()+"未被定位无法输入字符串！",GetClassMethodName());
 		}
 	}
 	/**
@@ -289,7 +278,7 @@ WebElement EndElement;
 				driver.tap(1, x, y, Millisecond);
 				
 			} catch (Exception e) {
-				ErrorLog.logError("class:Action-Method:tap-"+e.toString());
+				Log.logError("class:Action-Method:tap-"+e.toString(),GetClassMethodName());
 			}
 	
 
@@ -310,7 +299,7 @@ WebElement EndElement;
 		try {
 			 	EndElement=driver.findElement(by);		
 			 	findElement=true;
-			 	Log.logWarn("action.swip:数据默认存在,无需滑动");
+			 	Log.logInfo("action.swip:数据默认存在,无需滑动",GetClassMethodName());
 			 	return EndElement;			
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -318,7 +307,7 @@ WebElement EndElement;
 					
 				 if(direction=="up")
 					{
-					 Log.logInfo("页面开始向上滑动");
+					 Log.logInfo("页面开始向上滑动",GetClassMethodName());
 //						滑动页面,向上滑动，根据动times次
 						for(int i=0;i<=Times;i++)
 						{
@@ -332,7 +321,7 @@ WebElement EndElement;
 //								    	 EndElement=driver.findElement(by);	
 //									}
 								    findElement=true;
-									Log.logInfo("第："+i+" 次滑动已找到元素对象！");
+									Log.logInfo("第："+i+" 次滑动已找到元素对象！",GetClassMethodName());
 									driver.manage().timeouts().implicitlyWait(Config.implicitlyWaitTime, TimeUnit.SECONDS);				
 																
 									break;					
@@ -358,12 +347,12 @@ WebElement EndElement;
 								
 								driver.swipe((int)(0.5*Width), (int)(0.3*Height), (int)0.5*Width, (int)(0.5*Height), 1500);					
 								EndElement=driver.findElement(by);
-								Log.logWarn("第："+i+" 次滑动已找到元素对象！");
+								Log.logInfo("第："+i+" 次滑动已找到元素对象！",GetClassMethodName());
 								findElement=true;
 								driver.manage().timeouts().implicitlyWait(Config.implicitlyWaitTime, TimeUnit.SECONDS);
 								break;
 							} catch (Exception e) {
-								Log.logWarn("第："+i+" 次滑动没有找到元素对象！");
+								Log.logInfo("第："+i+" 次滑动没有找到元素对象！",GetClassMethodName());
 										
 							}
 						
@@ -382,12 +371,12 @@ WebElement EndElement;
 //								driver.swipe(startx, starty, endx, endy, duration);
 								driver.swipe((int) (0.8*Width), (int)(0.5*Height),(int) (0.05*Width), (int)(0.5*Height),1000);		
 								EndElement=driver.findElement(by);
-								Log.logWarn("第："+i+" 次滑动已找到元素对象！");
+								Log.logInfo("第："+i+" 次滑动已找到元素对象！",GetClassMethodName());
 								findElement=true;
 								driver.manage().timeouts().implicitlyWait(Config.implicitlyWaitTime, TimeUnit.SECONDS);
 								break;
 							} catch (Exception e) {
-								Log.logWarn("第："+i+" 次滑动没有找到元素对象！");
+								Log.logInfo("第："+i+" 次滑动没有找到元素对象！",GetClassMethodName());
 											
 							}
 						
@@ -404,12 +393,12 @@ WebElement EndElement;
 //								向左动每次划区屏幕宽度的40%，最多滑动20次
 								driver.swipe((int) (0.05*Width), (int)(0.5*Height),(int) (0.8*Width), (int)(0.5*Height), 1000);		
 								EndElement=driver.findElement(by);
-								Log.logWarn("第："+i+" 次滑动已找到元素对象！");
+								Log.logInfo("第："+i+" 次滑动已找到元素对象！",GetClassMethodName());
 								findElement=true;
 								driver.manage().timeouts().implicitlyWait(Config.implicitlyWaitTime, TimeUnit.SECONDS);
 								break;
 							} catch (Exception e) {
-								Log.logWarn("第："+i+" 次滑动没有找到元素对象！");
+								Log.logInfo("第："+i+" 次滑动没有找到元素对象！",GetClassMethodName());
 								i++;				
 							}
 						
@@ -419,7 +408,7 @@ WebElement EndElement;
 					else 
 					{
 						driver.manage().timeouts().implicitlyWait(Config.implicitlyWaitTime, TimeUnit.SECONDS);
-						ErrorLog.logError("Class:Action-Method:swipe:滑动方向传入错误 请检查！");
+						Log.logError("Class:Action-Method:swipe:滑动方向传入错误 请检查！",GetClassMethodName());
 						return EndElement;
 					}
 		

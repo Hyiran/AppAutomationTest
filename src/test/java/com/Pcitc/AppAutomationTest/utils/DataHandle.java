@@ -112,7 +112,7 @@ public class DataHandle extends GetClassMethodName
 				df = new DecimalFormat("#.000000");
 				break;
 			default:
-				ErrorLog.logError("传入的double类型精确位数不合法，请检查！");
+				Log.logError("传入的double类型精确位数不合法，请检查！",GetClassMethodName());
 				break;
 			}
 			 s=df.format(d);
@@ -145,7 +145,7 @@ public void  testGetArryList()
 //	获得第一行 第一列的值
 //	Excelreader.getCellData(1, 1);
 	ArrayList<String>  arrayList=getArryList(Excelreader,7,"审批性质");
-	Log.logInfo("list数据："+arrayList.get(2));
+	Log.logInfo("list数据："+arrayList.get(2),GetClassMethodName());
 }
 		/**
 		 * 获得页面标题列表
@@ -199,7 +199,7 @@ public void  testGetArryList()
 			public static void elementSedKey(WebElement element,String Key)
 			{
 			if (element.equals(null)) {
-				ErrorLog.logError(element.toString()+"没有定位到无法填入值！");
+				Log.logError(element.toString()+"没有定位到无法填入值！",GetClassMethodName());
 			}
 			else {
 				element.sendKeys(Key);

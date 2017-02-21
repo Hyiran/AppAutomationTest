@@ -1,16 +1,21 @@
 package com.Pcitc.AppAutomationTest.utils;
 
 
+
 import org.testng.annotations.Test;
+
+import com.Pcitc.AppAutomationTest.pagesHelper.Config;
+import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
 
 import jxl.*;   
 import jxl.format.UnderlineStyle;   
 import jxl.write.*;   
-import jxl.write.Number;   
+import jxl.write.Number;
+
 import jxl.write.Boolean;
 
-import java.awt.List;
-import java.io.*;   
+import java.io.*;
+import java.net.URL;   
   
 /**  
 * Created by IntelliJ IDEA.  
@@ -51,18 +56,18 @@ static File fileAfter =null;
  * @param sheetNo     索引
  * @param sheetName    名称
  */
-public  void addExcleFile(String FilePath)   
+public static void addExcleFile(String FilePath)   
 {   
 	try {
 		
-	 	 fileWrite =new File(FilePath);
+		fileWrite =new File(FilePath);
 //			创建 OutputStream对象
 			 os = new FileOutputStream(fileWrite);   
 			 wwb = Workbook.createWorkbook(os); 
 			fileWrite.createNewFile(); 
 		
 	} catch (Exception e) {
-		ErrorLog.logError("ExcelHandle-excle文件新建错误错误：--"+e.toString(),GetClassMethodName());
+		Log.logError("ExcelHandle-excle文件新建错误错误：--"+e.toString(),GetClassMethodName());
 	}
 }
 
@@ -71,14 +76,14 @@ public  void addExcleFile(String FilePath)
  * @param sheetNo    对第几个sheet 操作
  * @param sheetName  Sheet 名字
  */
-public  void addSheet(int sheetNo, String sheetName)   
+public static void addSheet(int sheetNo, String sheetName)   
 {  
 try {
 	//创建Excel工作表 指定名称和位置   
 	 ws = wwb.createSheet(sheetName,sheetNo);   
 
 } catch (Exception e) {
-	ErrorLog.logError("ExcelHandle-sheet新建错误错误：--"+e.toString(),GetClassMethodName());
+Log.logError("ExcelHandle-sheet新建错误错误：--"+e.toString(),GetClassMethodName());
 }
 }
 
@@ -89,17 +94,15 @@ try {
  * @param oldFilePath
  * @param newFilePath
  */
-public  static String excleFilePath="";
-public static String exclesheetName="";
 public static void updateFile(String oldFilePath,String newFilePath)   
 { 
 	try {
-		excleFilePath=newFilePath;
 		fileBefore =new File(oldFilePath);
 		fileAfter =new File(newFilePath);
 		rwb = Workbook.getWorkbook(fileBefore); 
 	    wwb = Workbook.createWorkbook(fileAfter,rwb);//copy  复制文件
 	} catch (Exception e) {
+		Log.logError(e.toString(), GetClassMethodName());
 		// TODO: handle exception
 	}	
 }
@@ -107,36 +110,103 @@ public static void updateFile(String oldFilePath,String newFilePath)
  * 跟新文件的sheet名字在updateFile执行后执行
  * @param sheetName sheet 明子
  */
-
 public static void updateSheet(String sheetName)   
 { 
 	try {
-		exclesheetName=sheetName;
 //		指定sheet
 		 ws = wwb.getSheet(sheetName);   
 	} catch (Exception e) {
+		Log.logError(e.toString(), GetClassMethodName());
 		// TODO: handle exception
 	}
 }
 
+ /**
+  * 修改字体颜色
+  * @param x
+  * @param y
+  * @param Data 修改的数据
+  */
+public static void addCellDataWithColor(int x,int y,String Data,String Wordcolor,String backGroundColor)   
+{  	//添加带有字体颜色的Formatting对象   
+	WritableFont wfc =null;
+	try {
+		  //给第二行设置背景、字体颜色、对齐方式等等;  
+        WritableFont font2 = new WritableFont(WritableFont.ARIAL,12,WritableFont.NO_BOLD,false,UnderlineStyle.NO_UNDERLINE,Colour.BLUE2);  
+        WritableCellFormat cellFormat2 = new WritableCellFormat(font2);  
+  
+		if(Wordcolor.equals("YELLOW"))
+		{
+			 wfc = new WritableFont(WritableFont.ARIAL,15,WritableFont.NO_BOLD,false, UnderlineStyle.NO_UNDERLINE,jxl.format.Colour.YELLOW);   	
+		}	
+		else if (Wordcolor.equals("RED"))
+		{
+			 wfc = new WritableFont(WritableFont.ARIAL,15,WritableFont.NO_BOLD,false, UnderlineStyle.NO_UNDERLINE,jxl.format.Colour.RED);   
+			 
+		}
+		else {
+			 wfc = new WritableFont(WritableFont.ARIAL,15,WritableFont.NO_BOLD,false, UnderlineStyle.NO_UNDERLINE,jxl.format.Colour.BLACK);  
+		}
+
+	WritableCellFormat wcfFC = new WritableCellFormat(wfc);  
+	if(backGroundColor.equals("YELLOW"))
+	{
+		wcfFC.setBackground(Colour.YELLOW);
+	}	
+	else if (backGroundColor.equals("RED"))
+	{
+		wcfFC.setBackground(Colour.RED);
+	}
+	else 
+	{
+		wcfFC.setBackground(Colour.WHITE);
+	}
+
+	Label labelCF = new Label(x,y,Data,wcfFC);   
+	ws.addCell(labelCF); 
+	} 
+catch (Exception e) 
+	{
+	Log.logError("ExcelHandle-addCell插入或更新错误：--"+e.toString(),GetClassMethodName());
+	}
+}
 /**
- * 新增或者更新cell数据，在addExcleFile或updateSheet 执行后执行
- * @param x
+ * 添加超链接（本地链接）
+ * @param x 
  * @param y
- * @param Data 输入数据
+ * @param fileName 文件名称（不包含路径和拓展名）
  */
-public static String excleCell="";
-public  void addCellData(int x,int y,String Data)   
+public static void addCellDataWithLink(int x,int y,String fileName)   
 {  
 try {
-	excleCell=Data;
-	WritableFont wf = new WritableFont(WritableFont.TIMES,18,WritableFont.BOLD,true);   
+//	获取图片相对路径
+	String filePath=Config.SnapshotLib+fileName+".png";
+	File linkFile=new File(filePath);
+//	获取绝对路径
+	filePath=linkFile.getAbsolutePath();
+//	在指定单元格进行超链接
+     ws.addHyperlink(new WritableHyperlink(y,x,new File(filePath)));
+} catch (Exception e) {
+Log.logError("ExcelHandle-addCell插入或更新错误：--"+e.toString(),GetClassMethodName());
+}
+}
+/**
+ * 默认格式 新增或者更新cell数据，在addExcleFile或updateSheet 执行后执行
+ * @param x 行号 初始0
+ * @param y 列号 初始0
+ * @param Data 输入数据
+ */
+public static void addCellData(int x,int y,String Data)   
+{  
+try {
+//	参数依次 ：格式 字体 加粗 斜体
+	WritableFont wf = new WritableFont(WritableFont.TIMES,12,WritableFont.BOLD,false);   
 	WritableCellFormat wcf = new WritableCellFormat(wf);   
 	Label labelcf = new Label(y,x,Data,wcf);   
 	ws.addCell(labelcf);   
 //	afterExcle();
 } catch (Exception e) {
-	ErrorLog.logError("ExcelHandle-addCell插入或更新错误：--"+e.toString(),GetClassMethodName());
+Log.logError("ExcelHandle-addCell插入或更新错误：--"+e.toString(),GetClassMethodName());
 }
 }
 
@@ -144,17 +214,17 @@ try {
  * 保存生成的数据，addCellData执行后执行
  * @throws WriteException
  */
-public static void afterExcle()
+public static void afterExcle() 
 {
 	//写入工作表   
 			try {
 				wwb.write();
 				wwb.close(); 
 				rwb.close();
-			} catch (Exception e) 
-			{
-				ErrorLog.logError(excleFilePath+"文件-"+exclesheetName+"sheet-"+excleCell+"-s保存excel失败,详情为："+e.toString());
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
+				Log.logError(e.toString(), GetClassMethodName());
 			}   
 
 }
@@ -209,7 +279,9 @@ ws.addCell(labelNF);
 //3.添加Boolean对象   
 Boolean labelB = new jxl.write.Boolean(0,2,false);   
 ws.addCell(labelB);   
-  
+//Range mergeCells(int col1,int row1,int col2,int row2) throws WriteException,jxl.write.biff.RowsExceededException  
+//合并单元格，(col1,row1)是合并单元格左上角的单元格，(col2,row2)是右下角单元格  
+//Range range = wSheet.mergeCells(0, 0, 2, 2);  
 //4.添加DateTime对象   
 jxl.write.DateTime labelDT = new jxl.write.DateTime(0,3,new java.util.Date());   
 ws.addCell(labelDT);   
@@ -229,10 +301,10 @@ ws.addCell(labelDTF);
 wwb.write();   
 wwb.close();   
 }   
-catch(Exception e)   
-{   
-e.printStackTrace();   
-}   
+	catch(Exception e)   
+	{   
+	Log.logError(e.toString(), GetClassMethodName());
+	}   
 }   
   
 
@@ -264,7 +336,7 @@ rwb.close();
 }   
 catch(Exception e)   
 {   
-e.printStackTrace();   
+	Log.logError(e.toString(), GetClassMethodName());
 }   
 }   
   
@@ -276,7 +348,7 @@ public void testWriteExcle()
 {
 try {
 	//	添加一个文件
-	addExcleFile("/project/eclipse/AndroidTest/ExcelData/jurry0001.xls");
+	addExcleFile("/project/eclipse/AppAutomationTest/File/dataExcles/jurry0003.xls");
 	
 //	添加三个sheet页 并依次赋值
 	addSheet(0, "test1");
@@ -293,16 +365,20 @@ try {
 	// TODO: handle exception
 }
 }
-@Test(description="测试更新数据",priority = 2)
+//@Test(description="测试更新数据",priority = 2)
 public void testUpdateExcle()
 {
 	try {
 		
-		updateFile("/project/eclipse/AndroidTest/ExcelData/jurry0001.xls", "/project/eclipse/AndroidTest/ExcelData/jurry0001.xls");
+		updateFile(Config.excleLib+"jurry0003.xls", Config.excleLib+"jurry0003.xls");
 		//如果两个参数不一致，执行后会生成一个新文件为参数二，与参数1文件相同；如修改cell值只对新生成的附件起作用
 		updateSheet("test1");
 		
-		addCellData(0, 4, "新增测试");
+		addCellData(0,1, "新增1");
+		addCellData(0,2, "新增2");
+		addCellDataWithLink(0, 5,  "t1");
+		addCellDataWithLink(0, 6, "t1Cut");
+		addCellDataWithColor(0, 7, "样式", "YELLOW","RED");
 //		保存生效配置
 		afterExcle();
 	} catch (Exception e) {

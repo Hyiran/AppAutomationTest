@@ -1,28 +1,22 @@
 package com.Pcitc.AppAutomationTest.utils;
 
 import java.io.File;
-import java.io.IOException;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
-import org.openqa.selenium.WebDriver;
+
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxProfile;
-import org.openqa.selenium.firefox.internal.ProfilesIni;
-import org.openqa.selenium.ie.InternetExplorerDriver;
+
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import com.Pcitc.AppAutomationTest.pagesHelper.Config;
 import com.Pcitc.AppAutomationTest.pagesHelper.TestInit;
 
-import bsh.This;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
-import sun.util.logging.resources.logging;
+
 /**
  * 创建web'driver对象
  * @author Administrator
@@ -38,38 +32,10 @@ public  class Driver extends GetClassMethodName
 	 public  void getDriver() 
 	 {
 		 initDriver();
-		 installApp();
+//		 installApp();
 	 }
-	 public  AppiumDriver<WebElement> getDriver2 ()
-		{
-			return  driver;
-		}
-	 public  void installApp()
-	 {
-		if (TestInit.IsAndroid) 
-		{
-//			判断当前应用是否安装
-			Boolean isInstall=driver.isAppInstalled(Config.appPackage);
-//			如果没安装则安装应用
-				if (isInstall == false) 
-				{
-					try {
-						Log.logInfo("开始安装应用",GetClassMethodName());
-						driver.installApp(Config.AppPath+"xy.apk");
-						Log.logInfo("应用安装成功",GetClassMethodName());
-						} catch (Exception e) 
-						{
-							// TODO: handle exception
-							ErrorLog.logError("无法安装应用，请检查安装文件路径！");
-						}
 
-				}
-				else {
-					Log.logInfo("应用已存在，无需安装",GetClassMethodName());
-				}
-		}
-
-	 }
+	
  public  void initDriver() 
 	{
 	  capabilities = new DesiredCapabilities();
@@ -93,8 +59,30 @@ public  class Driver extends GetClassMethodName
 					} 
 				catch (MalformedURLException e) 
 				{
-					ErrorLog.logError("Driver-initDriver:创建driver读取配置文件错误，请检查！" +e.toString());
+					Log.logError("Driver-initDriver:创建driver读取配置文件错误，请检查！" +e.toString(),GetClassMethodName());
 				}
+//				判断当前应用是否安装
+				Boolean isInstall=driver.isAppInstalled("cn.cooperative");
+//				如果没安装则安装应用
+					if (isInstall == false) 
+					{
+						try {
+							Log.logInfo("开始安装应用",GetClassMethodName());
+							driver.installApp(Config.AppFileLib+"xy.apk");
+							
+							Log.logInfo("应用安装成功",GetClassMethodName());
+						
+							} catch (Exception e) 
+							{
+								// TODO: handle exception
+								Log.logError("无法安装应用，请检查安装文件路径！",GetClassMethodName());
+							}
+	
+					}
+					else {
+						Log.logInfo("应用已存在，无需安装",GetClassMethodName());
+					}
+
 	 }
 	 else 
 	 {
