@@ -4,10 +4,10 @@
            failures="0"
            errors="0"
            skipped="0"
-           time="25.350">
+           time="37.341">
   <properties />
   
   
-            <testcase name="logIn_rightLogin" time="25.350" classname="com.Pcitc.AppAutomationTest.testCases.ESSP_ChaiLvShenQing_Test" />
+            <testcase name="ESSP_ChaiLvShenQing_ListPage" time="37.341" classname="com.Pcitc.AppAutomationTest.testCases.ESSP_ChaiLvShenQing_Test" />
       
 </testsuite>

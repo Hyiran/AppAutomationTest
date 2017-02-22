@@ -52,11 +52,14 @@ public class Log   extends GetClassMethodName
 //	第一列 信息列插入
 	TestBase.reportExcleExcelHandle.addCellData(TestBase.reportExcleExcelRow, 0, (String) message);
 //	第二列 状态列
-	TestBase.reportExcleExcelHandle.addCellDataWithColor(TestBase.reportExcleExcelRow, 1, "断言失败", "", "YELLOW");
-//	第三列 截图列
-	TestBase.reportExcleExcelHandle.addCellDataWithLink(TestBase.reportExcleExcelRow, 2, snapShootName);
-//	第四列 精确定位对象
-	TestBase.reportExcleExcelHandle.addCellDataWithLink(TestBase.reportExcleExcelRow, 3, snapShootName+"Cut");
+	TestBase.reportExcleExcelHandle.addCellDataWithColor(TestBase.reportExcleExcelRow, 1, "警告", "", "YELLOW");
+	if (snapShootName!="")
+	{
+//		第三列 截图列
+		TestBase.reportExcleExcelHandle.addCellDataWithLink(TestBase.reportExcleExcelRow, 2, snapShootName);
+//		第四列 精确定位对象
+		TestBase.reportExcleExcelHandle.addCellDataWithLink(TestBase.reportExcleExcelRow, 3, snapShootName+"Cut");
+	}
 	TestBase.reportExcleExcelRow++;
 	} 
 //	错误 用于 程序异常捕获到到异常
@@ -67,7 +70,7 @@ public class Log   extends GetClassMethodName
 //	第一列 信息列插入
 	TestBase.reportExcleExcelHandle.addCellData(TestBase.reportExcleExcelRow, 0, (String) message);
 //	第二列 状态列
-	TestBase.reportExcleExcelHandle.addCellDataWithColor(TestBase.reportExcleExcelRow, 1, "执行错误", "", "YELLOW");
+	TestBase.reportExcleExcelHandle.addCellDataWithColor(TestBase.reportExcleExcelRow, 1, "错误", "", "RED");
 	TestBase.reportExcleExcelRow++;
 	}
 	

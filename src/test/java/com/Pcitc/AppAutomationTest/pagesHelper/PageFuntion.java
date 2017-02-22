@@ -61,7 +61,7 @@ public  class  PageFuntion extends TestBase
 		 if (TestInit.IsAndroid) 
 		 {
 				//点击设置
-				WebElement button_seting=getElemnt(Location.id, true, true, "cn.cooperative:id/iv_setting", "");			
+				WebElement button_seting=getElemntByYaml(Location.id, true, true, "cn.cooperative:id/iv_setting", "");			
 				action.tap(button_seting, 1000);
 						
 				try {
@@ -70,12 +70,12 @@ public  class  PageFuntion extends TestBase
 					// TODO: handle exception
 				}					
 //					点击注销帐户
-						WebElement button_Louout=getElemnt(Location.Button_Ptext, true, true, "注销账户", "");			
+						WebElement button_Louout=getElemntByYaml(Location.Button_Ptext, true, true, "注销账户", "");			
 //						button_Louout.click();
 						appiumDriver.tap(1, button_Louout, 1000);
 						
 //						点击确定
-						WebElement button_ConfirmLouout=getElemnt(Location.Button_Ptext, true, true, "确定", "");			
+						WebElement button_ConfirmLouout=getElemntByYaml(Location.Button_Ptext, true, true, "确定", "");			
 						action.tap(button_ConfirmLouout, 1000); 
 		}
 		 else {
@@ -100,9 +100,9 @@ public  class  PageFuntion extends TestBase
 public   static void piShen(String caseNo,ExcelReader e,String col,int size) throws InterruptedException 
 	{
 //	获得批审按钮
-	 manyApp=getElemnt(manyAppLocalType, true, true, manyAppLocalData,"");
+	 manyApp=getElemntByYaml(manyAppLocalType, true, true, manyAppLocalData,"");
 //	断言批审按钮是否存在
-	TestBase.assertion.webElementIsNotNull(caseNo, manyApp,"批审按钮是否存在", appiumDriver);
+	TestBase.assertion.webElementIsNotNull( manyApp,"批审按钮是否存在", appiumDriver);
 
 //如果批审被定位点击按钮
 if (manyApp!=null)
@@ -116,7 +116,7 @@ if (manyApp!=null)
 			try 
 			{
 	//			处理所在数据列的第一条数据
-				WebElement data=getElemnt(Location.TextView_Ptext, true, true, e.getCellData(1, col), "");
+				WebElement data=getElemntByYaml(Location.TextView_Ptext, true, true, e.getCellData(1, col), "");
 				data.click();
 				Log.logInfo(caseNo+"批审1条数据:"+DataHandle.getElementText(Data)+"已经被选中",GetClassMethodName());
 			} catch (Exception e1) 
@@ -136,7 +136,7 @@ if (manyApp!=null)
 				try {
 				//勾选数据
 				
-					Data=getElemnt(Location.TextView_Ptext, true, true, e.getCellData(i, col), "");
+					Data=getElemntByYaml(Location.TextView_Ptext, true, true, e.getCellData(i, col), "");
 					Data.click();
 					Log.logInfo(caseNo+"批审-第"+i+"条数据:"+DataHandle.getElementText(Data)+"已经被选中",GetClassMethodName());
 					}
@@ -152,7 +152,7 @@ if (manyApp!=null)
 //	点击审批按钮
 	try {
 
-		WebElement app=getElemnt(Location.Button_Ptext, true, true, "审批", "");
+		WebElement app=getElemntByYaml(Location.Button_Ptext, true, true, "审批", "");
 		action.tap(app, 300);
 		} catch (Exception e4)
 		{
@@ -162,7 +162,7 @@ if (manyApp!=null)
 // 点确定按钮
 	try 
 		{
-		WebElement sure=getElemnt(Location.Button_Ptext, true, true, "确定", "");
+		WebElement sure=getElemntByYaml(Location.Button_Ptext, true, true, "确定", "");
 //		action.tap(sure, 300);
 		} catch (Exception e5)
 		{
@@ -189,25 +189,25 @@ public static void  shenPiGongshi(String caseNo,boolean isAgree,String options)
 	WebElement  defaultOptions=null;
 	WebElement  submit=null;
 	try {
-		  agree=getElemnt(Location.TextView_Ptext, true, true, "同意", "");
-		  disAgree=getElemnt(Location.TextView_Ptext, true, true, "拒绝", "");
-		  defaultOptions=getElemnt(Location.EditText_Pindex, true, true, "1", "");
-		  submit=getElemnt(Location.Button_Ptext, true, true, "提交", "");
+		  agree=getElemntByYaml(Location.TextView_Ptext, true, true, "同意", "");
+		  disAgree=getElemntByYaml(Location.TextView_Ptext, true, true, "拒绝", "");
+		  defaultOptions=getElemntByYaml(Location.EditText_Pindex, true, true, "1", "");
+		  submit=getElemntByYaml(Location.Button_Ptext, true, true, "提交", "");
 	} catch (Exception e) {
 		// TODO: handle exception
 	}
 		
-		 TestBase.assertion.webElementIsNotNull(caseNo, agree, "审批-同意按钮是否存在", appiumDriver);
-		 TestBase.assertion.webElementIsNotNull(caseNo, disAgree, "审批-拒绝按钮是否存在", appiumDriver);
-		 TestBase.assertion.webElementIsNotNull(caseNo, submit, "审批-默认意见是否为空", appiumDriver);
-		 TestBase.assertion.webElementIsNotNull(caseNo, defaultOptions, "审批-提交按钮是否存在", appiumDriver);
+		 TestBase.assertion.webElementIsNotNull( agree, "审批-同意按钮是否存在", appiumDriver);
+		 TestBase.assertion.webElementIsNotNull( disAgree, "审批-拒绝按钮是否存在", appiumDriver);
+		 TestBase.assertion.webElementIsNotNull( submit, "审批-默认意见是否为空", appiumDriver);
+		 TestBase.assertion.webElementIsNotNull( defaultOptions, "审批-提交按钮是否存在", appiumDriver);
 		 
 //		 判断是否要拒绝
 		 if (isAgree!=true) 
 		 
 		 {
 			 
-			 WebElement  disAgre=getElemnt(Location.ImageView_Pindex, true, true, "1", "");
+			 WebElement  disAgre=getElemntByYaml(Location.ImageView_Pindex, true, true, "1", "");
 			 action.tap(disAgre, 1000);
 		}
 		 
@@ -229,7 +229,7 @@ public static void yiBanChaKan(String caseNo,String Data,String appMan,String st
 {
 	try {
 //		进入已办列表
-		WebElement alreadyApp=getElemnt(Location.TextView_Ptext, true, true, "已办", "");
+		WebElement alreadyApp=getElemntByYaml(Location.TextView_Ptext, true, true, "已办", "");
 		action.tap(alreadyApp, 1000);
 		Log.logInfo(caseNo+"：已进入已办列表",GetClassMethodName());
 		
@@ -348,7 +348,7 @@ public void  riQiXuanZe(String  No,String date) throws InterruptedException{
 //		获得缺省的日期
 		WebElement title  =appiumDriver.findElement(By.id("android:id/alertTitle"));			
 		String textTitle=title.getText();	
-		TestBase.assertion.webElementIsNotNull(No, textTitle,"判断日期控件标题是否为空",this.appiumDriver);
+		TestBase.assertion.webElementIsNotNull(title ,"判断日期控件标题是否为空",this.appiumDriver);
 //		Log.logInfo("默认日期控件的标题为"+textTitle);
 		
 //		获得当前的日期的年月日  分别存储在三个变量中
@@ -402,7 +402,7 @@ public void  riQiXuanZe(String  No,String date) throws InterruptedException{
 			}
 			
 //			点击完成按钮
-			WebElement  complete =super.getElemnt(Location.Button_Ptext, true, true, "完成", "");
+			WebElement  complete =super.getElemntByYaml(Location.Button_Ptext, true, true, "完成", "");
 		action.tap(complete, 500);
 							
 	}
@@ -432,7 +432,7 @@ public void  getDate(String index,String UpDown,String toYear,int times)
 	
 	
 		//根据参数选择上翻还是下翻日期
-		WebElement cliceElement=super.getElemnt(Location.NumberPickerButten_Index, true, true, index, UpDown);
+		WebElement cliceElement=super.getElemntByYaml(Location.NumberPickerButten_Index, true, true, index, UpDown);
 
 
 //				修改等待时间
@@ -499,14 +499,14 @@ public  static void  xialLaKuang(String caseNo,String ListName,XMLParase xml,Exc
 
 	Log.logInfo(dataList.get(0)+"下拉列表数据需要数据的个数为："+dataList.size(),GetClassMethodName());
 //	   获得标题
-	WebElement 	title=getElemnt(Location.TextView_Ptext, true, true, dataList.get(0),"");
+	WebElement 	title=getElemntByYaml(Location.TextView_Ptext, true, true, dataList.get(0),"");
 //	TestBase.assertion.verifyEquals(caseNo, dataList.get(0), DataHandle.getElementText(title), "下拉框标题是否正确", appiumDriver);
 //	   获得确定按钮
-	WebElement  sure=getElemnt(Location.Button_Ptext, true, true, "确定","");
+	WebElement  sure=getElemntByYaml(Location.Button_Ptext, true, true, "确定","");
 //	TestBase.assertion.webElementIsNotNull(caseNo, sure,DataHandle.getElementText(title)+ "下拉框确认按钮是否存在", appiumDriver);
 
 //	  获得取消按钮
-	WebElement  canle=getElemnt(Location.Button_Ptext, true, true, "确定","");
+	WebElement  canle=getElemntByYaml(Location.Button_Ptext, true, true, "确定","");
 //	TestBase.assertion.webElementIsNotNull(caseNo, canle,DataHandle.getElementText(title)+ "下拉框取消按钮是否存在", appiumDriver);
 	
 
@@ -538,7 +538,7 @@ public  static void  xialLaKuang(String caseNo,String ListName,XMLParase xml,Exc
 		}
 	
 //	找到要选择的数据
-	seletData =  getElemnt(Location.CheckedTextView_Ptext, true, true, wantSele,"");	
+	seletData =  getElemntByYaml(Location.CheckedTextView_Ptext, true, true, wantSele,"");	
 	if (seletData !=null) 
 		{
 			action.tap(seletData, 1000);
@@ -574,10 +574,10 @@ public  static void shuRuChaXun(String caseNo,boolean isAssert,String title,Stri
 
 
 //获得标题列
-	WebElement titles=getElemnt(Location.TextView_Ptext, true, true, title,"");
+	WebElement titles=getElemntByYaml(Location.TextView_Ptext, true, true, title,"");
 
 	//获得输入文本框
-	WebElement inputText=getElemnt(Location.EditText_Ptext, true, true, deafultString,"");
+	WebElement inputText=getElemntByYaml(Location.EditText_Ptext, true, true, deafultString,"");
 	if (isAssert) 
 	{
 //		TestBase.assertion.verifyEquals(caseNo,title,DataHandle.getElementText(titles), "判断"+title+"：筛选列表标题－", appiumDriver);
@@ -591,21 +591,21 @@ public  static void shuRuChaXun(String caseNo,boolean isAssert,String title,Stri
 	}
 	
 	//获得搜索按钮
-	WebElement search=getElemnt(Location.TextView_Ptext, true, true, "搜索","");
+	WebElement search=getElemntByYaml(Location.TextView_Ptext, true, true, "搜索","");
 	if (search!=null)
 	{
 		search.click();
 	}
 	//获得搜索结果
-	WebElement resaust=getElemnt(Location.TextView_Ptext, true, true, wangSelectName,"");
+	WebElement resaust=getElemntByYaml(Location.TextView_Ptext, true, true, wangSelectName,"");
 	
 	if (DataHandle.getElementText(resaust)!="无法定位元素") 
 	{
 		resaust.click();
 	}
 if (isAssert) {
-	TestBase.assertion.webElementIsNotNull(caseNo, search, "判断搜索按钮是否存在", appiumDriver);
-	TestBase.assertion.webElementIsNotNull(caseNo, resaust, "判断搜索数据是否被搜索到", appiumDriver);
+	TestBase.assertion.webElementIsNotNull(search, "判断搜索按钮是否存在", appiumDriver);
+	TestBase.assertion.webElementIsNotNull( resaust, "判断搜索数据是否被搜索到", appiumDriver);
 }	
 }
 
@@ -622,25 +622,25 @@ public void  taChuanChuLi(String NO,Map<String, String> param,String selectName 
 {
  ArrayList<String> Object =DataHandle.changeToArry(param);
  
-WebElement title=super.getElemnt(Location.TextView_Ptext, true, true, Object.get(0),"");
+WebElement title=super.getElemntByYaml(Location.TextView_Ptext, true, true, Object.get(0),"");
 
 //TestBase.assertion.verifyEquals(NO,Object.get(0), title.getText(), "判断"+selectName+"：单选框标题－标题", appiumDriver);
 
-WebElement agree=super.getElemnt(Location.TextView_Ptext, true, true, Object.get(1),"");
-WebElement agreeImage=super.getElemnt(Location.TextView_Ptext, true, true, "4","");
+WebElement agree=super.getElemntByYaml(Location.TextView_Ptext, true, true, Object.get(1),"");
+WebElement agreeImage=super.getElemntByYaml(Location.TextView_Ptext, true, true, "4","");
 //TestBase.assertion.verifyEquals(NO,Object.get(1), agree.getText(), "判断"+selectName+"：同意按钮标题－", appiumDriver);
-TestBase.assertion.webElementIsNotNull(NO, agreeImage, "同意按钮图标", appiumDriver);
+TestBase.assertion.webElementIsNotNull( agreeImage, "同意按钮图标", appiumDriver);
 
-WebElement disAgree=super.getElemnt(Location.TextView_Ptext, true, true, Object.get(2),"");
-WebElement disagreeImage=super.getElemnt(Location.TextView_Ptext, true, true, "6","");
+WebElement disAgree=super.getElemntByYaml(Location.TextView_Ptext, true, true, Object.get(2),"");
+WebElement disagreeImage=super.getElemntByYaml(Location.TextView_Ptext, true, true, "6","");
 //TestBase.assertion.verifyEquals(NO,Object.get(1), disagreeImage.getText(), "判断"+selectName+"：拒绝按钮标题－", appiumDriver);
 //TestBase.assertion.verifyEquals(NO,Object.get(2), disAgree.getText(), "判断"+selectName+"：拒绝按钮－", appiumDriver);
 
-WebElement oppions=super.getElemnt(Location.TextView_Ptext, true, true, Object.get(3),"");
+WebElement oppions=super.getElemntByYaml(Location.TextView_Ptext, true, true, Object.get(3),"");
 //TestBase.assertion.verifyEquals(NO,Object.get(3), oppions.getText(), "判断"+selectName+"：审批意见文本框－", appiumDriver);
 
 
-WebElement commit=super.getElemnt(Location.Button_Ptext, true, true, Object.get(4),"");
+WebElement commit=super.getElemntByYaml(Location.Button_Ptext, true, true, Object.get(4),"");
 //TestBase.assertion.verifyEquals(NO,Object.get(4), oppions.getText(), "判断"+selectName+"：提交按钮－", appiumDriver);
 //返回
 action.pressKeyCode(KeyEvent.fanHui);
@@ -656,25 +656,25 @@ public static void  shenPiTongYong(String caseNo,Boolean agree,String message)
 {
 if (agree) 
 {
-	WebElement agreeButten=getElemnt(Location.TextView_Ptext, true, true, "同意","");
+	WebElement agreeButten=getElemntByYaml(Location.TextView_Ptext, true, true, "同意","");
 //	TestBase.assertion.verifyEquals(caseNo,  "同意", DataHandle.getElementText(agreeButten),"同意按钮是否存在", appiumDriver);
 	action.tap(agreeButten, 300);	
 }
 else
 {
 //	退回按钮
-	WebElement disAgre=getElemnt(Location.TextView_Ptext, true, true, "退回", "");
+	WebElement disAgre=getElemntByYaml(Location.TextView_Ptext, true, true, "退回", "");
 	action.tap(disAgre, 300);
 	
-	WebElement title=getElemnt(Location.TextView_Ptext, true, true, "请输入审批意见", "");
-	WebElement options=getElemnt(Location.id, true, true, "cn.cooperative:id/et_opinion", "");
-	WebElement sure=getElemnt(Location.Button_Ptext, true, true, "确定", "");
-	WebElement cancle=getElemnt(Location.Button_Ptext, true, true, "取消", "");
+	WebElement title=getElemntByYaml(Location.TextView_Ptext, true, true, "请输入审批意见", "");
+	WebElement options=getElemntByYaml(Location.id, true, true, "cn.cooperative:id/et_opinion", "");
+	WebElement sure=getElemntByYaml(Location.Button_Ptext, true, true, "确定", "");
+	WebElement cancle=getElemntByYaml(Location.Button_Ptext, true, true, "取消", "");
 	
-	TestBase.assertion.webElementIsNotNull(caseNo, title, "判断退回弹窗标题存在", appiumDriver);
-	TestBase.assertion.webElementIsNotNull(caseNo, options, "判断退回原因存在", appiumDriver);
-	TestBase.assertion.webElementIsNotNull(caseNo, sure, "判断确定按钮是否存在", appiumDriver);
-	TestBase.assertion.webElementIsNotNull(caseNo, cancle, "判断取消按钮是否存在", appiumDriver);
+	TestBase.assertion.webElementIsNotNull( title, "判断退回弹窗标题存在", appiumDriver);
+	TestBase.assertion.webElementIsNotNull( options, "判断退回原因存在", appiumDriver);
+	TestBase.assertion.webElementIsNotNull( sure, "判断确定按钮是否存在", appiumDriver);
+	TestBase.assertion.webElementIsNotNull( cancle, "判断取消按钮是否存在", appiumDriver);
 	
 	action.sendKey(options, message);
 	action.tap(sure, 1000);

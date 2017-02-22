@@ -1,0 +1,54 @@
+jjijid:
+  type: xpath
+  value: "//android.widget.TextView[(@text='%s')]"
+TextView_qualText:
+  type: xpath
+  value: "//android.widget.TextView[(@text='%s')]"
+TextView_Ptext:
+  type: xpath
+  value: "//android.widget.TextView[starts-with(@text,'%s')]"
+TextView_Ptext_Pindex:
+  type: xpath
+  value: "//android.widget.TextView[starts-with(@text,'%s')][%s]"
+EditText_Ptext:
+  type: xpath
+  value: "//android.widget.EditText[starts-with(@text,'%s')]"
+EditText_Pindex:
+  type: xpath
+  value: "//android.widget.EditText[(@index='%s')]"
+Button_Ptext:
+  type: xpath
+  value: "//android.widget.Button[starts-with(@text,'%s')]"
+Button_Pindex:
+  type: xpath
+  value: "//android.widget.Button[%s]"
+id:
+  type: id
+  value: "%s"
+ImageView_Pindex:
+  type: xpath
+  value: "//android.widget.ImageView[%s]"
+TextView_Ptext_preceding-siblingTextView_Pindex:
+  type: xpath
+  value: "//android.widget.TextView[starts-with(@text,'%s')]/preceding-sibling::android.widget.TextView[%s]"
+TextView_Ptext_following-siblingTextView_Pindex:
+  type: xpath
+  value: "//android.widget.TextView[starts-with(@text,'%s')]/following-sibling::android.widget.TextView[%s]"
+TextView_Ptext_following-siblingEditView_Pindex:
+  type: xpath
+  value: "//android.widget.TextView[starts-with(@text,'%s')]/following-sibling::android.widget.EditText[%s]"
+TextView_Ptext_Allfollowing-sibling_TextView_Pindex:
+  type: xpath
+  value: "//android.widget.TextView[starts-with(@text,'%s')]/following-sibling::*//android.widget.TextView[%s]"
+CheckedTextView_Ptext:
+  type: xpath
+  value: "//android.widget.CheckedTextView[starts-with(@text,'%s')]"
+CheckedTextView_Pindex:
+  type: xpath
+  value: "//android.widget.CheckedTextView[%s]"
+ListViewTextView_Pindex:
+  type: xpath
+  value: "//android.widget.ListView['%s']//android.widget.TextView"
+ListViewCheckedTextView_Pindex:
+  type: xpath
+  value: "//android.widget.ListView[%s]/android.widget.CheckedTextView"

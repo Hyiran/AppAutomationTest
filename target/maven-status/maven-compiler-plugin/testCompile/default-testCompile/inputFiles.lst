@@ -8,6 +8,7 @@
 /project/eclipse/AppAutomationTest/src/test/java/com/Pcitc/AppAutomationTest/pages/PORTAL_ZiChanJieYong.java
 /project/eclipse/AppAutomationTest/src/test/java/com/Pcitc/AppAutomationTest/base/TestBase.java
 /project/eclipse/AppAutomationTest/src/test/java/com/Pcitc/AppAutomationTest/pages/ESSP_GongShi.java
+/project/eclipse/AppAutomationTest/src/test/java/com/Pcitc/AppAutomationTest/utils/FindWebElement.java
 /project/eclipse/AppAutomationTest/src/test/java/com/Pcitc/AppAutomationTest/utils/Action.java
 /project/eclipse/AppAutomationTest/src/test/java/com/Pcitc/AppAutomationTest/utils/ExcelHandle.java
 /project/eclipse/AppAutomationTest/src/test/java/com/Pcitc/AppAutomationTest/testCases/DengLuTest.java

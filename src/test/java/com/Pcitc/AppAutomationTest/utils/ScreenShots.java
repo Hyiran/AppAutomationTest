@@ -32,12 +32,19 @@ public class ScreenShots extends GetClassMethodName
 //	被调用截图方法
 	public  void takeScreenshots (WebElement element,String screenFileName) 
 	{
+		
 		try{
 			String fileObPath=Config.SnapshotLib+screenFileName+".png";
 			File screenshotFile =((TakesScreenshot)nsdriver).getScreenshotAs(OutputType.FILE);
 			FileUtils.copyFile(screenshotFile, new File(fileObPath));
-		 	oi.cropImage(fileObPath,fileObPath.replace(".png", "Cut.png"), 0,element.getLocation().getY() , TestBase.action.Width, 100,"png","png");//剪切图片
-	    	Log.logInfo("截图裁剪完毕",GetClassMethodName()); 
+			if (element!=null) 
+			{
+				oi.cropImage(fileObPath,fileObPath.replace(".png", "Cut.png"), 0,element.getLocation().getY() , TestBase.action.Width, 100,"png","png");//剪切图片
+		    	Log.logInfo("截图裁剪完毕",GetClassMethodName()); 
+			}
+			else {
+				Log.logInfo("webelement为null无法精确截图", GetClassMethodName());
+			}
 			
 		}
 		catch(Exception e)

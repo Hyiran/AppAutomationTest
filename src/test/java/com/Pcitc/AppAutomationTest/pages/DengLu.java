@@ -19,12 +19,12 @@ public class DengLu  extends TestBase
 	protected void  findElelment()
 	{	
 		
-		  INusernameDE =getElemnt("INusernameDE", true, false, "", "");
-		  INpassswordDE =getElemnt("INpassswordDE", true, false, "", "");
-		  INsubmitDE =getElemnt("INsubmitDE", true, false, "", "");
-		
-		  INusernameDA =getElemnt("INusernameDA", true, false, "", "");
-		  INpassswordDA =getElemnt("INpassswordDA", true, false, "", "");
+//		  INusernameDE =getElemnt("INusernameDE", true, false, "", "");
+//		  INpassswordDE =getElemnt("INpassswordDE", true, false, "", "");
+//		  INsubmitDE =getElemnt("INsubmitDE", true, false, "", "");
+//		
+//		  INusernameDA =getElemnt("INusernameDA", true, false, "", "");
+//		  INpassswordDA =getElemnt("INpassswordDA", true, false, "", "");
 		
 	}
 

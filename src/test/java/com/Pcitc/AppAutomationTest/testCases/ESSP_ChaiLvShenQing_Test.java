@@ -14,47 +14,80 @@ import com.Pcitc.AppAutomationTest.utils.Log;
 
 public class ESSP_ChaiLvShenQing_Test extends ESSP_ChaiLvShenQing
 {
-	public void ESSP_ChaiLvShenQing_Test() 
-	{
-//		根据平台，获得定位文件
-		if (TestInit.IsAndroid)
-		{
-			getBeforeElement("Android差旅申请");
-		}
-		else {
-			getBeforeElement("Ios差旅申请");
-			}
-		Log.logInfo("yaml文件已加载",GetClassMethodName());
-}
+	
 	@BeforeClass
 	public void getPageElement()
 	{ 	
-		ESSP_ChaiLvShenQing_Test();
+	clasName=this.getClass().getSimpleName();
+//	beforeClass(clasName);
 		
 	}
 
 	@Test(priority='1',description="差旅申请-列表页-测试")
-	public void logIn_rightLogin() throws IOException
+	public void ESSP_ChaiLvShenQing_ListPage() throws IOException
 		{
+		beforeMethod(clasName, "ESSP_ChaiLvShenQing_ListPage");
 		caseNo="差旅申请-列表页-测试";
-		Log.logInfo("测试用例："+caseNo,GetClassMethodName()); 
 		PageFuntion.logIn(getUserName("chailvshenqing", "1"), getUserPassWord("chailvshenqing", "1"));
 		try {
 			Thread.sleep(3000);
 		} catch (Exception e) {
-			// TODO: handle exception
 		}
 //		进入列表页
 		ESSP_ChaiLvShenQingListPage();
-		PageDataExcle =getExcle("差旅申请","列表页" );
-		int i=1;
-	assertion.verifyEquals(caseNo, PageDataExcle.getCellData(i, "字段"), LIchailvshenqingDE,  PageDataExcle.getCellData(i, "断言句"), appiumDriver);
+	
+	int i=2;
+	assertion.verifyEquals(PageElmentExcle.getCellData(i, "字段"), LIchailvshenqingDE,  PageElmentExcle.getCellData(i, "断言句"), appiumDriver);
 	i++;
-	assertion.verifyEquals(caseNo, PageDataExcle.getCellData(i, "字段"), LIxinjianshenqingDE,  PageDataExcle.getCellData(i, "断言句"), appiumDriver);
+	assertion.verifyEquals(PageElmentExcle.getCellData(i, "字段"), LIxinjianshenqingDE,  PageElmentExcle.getCellData(i, "断言句"), appiumDriver);
 	i++;
-	assertion.verifyEquals(caseNo, PageDataExcle.getCellData(i, "字段"), LIshenqingqingdanDE,  PageDataExcle.getCellData(i, "断言句"), appiumDriver);
+	assertion.verifyEquals(PageElmentExcle.getCellData(i, "字段"), LIshenqingqingdanDE,  PageElmentExcle.getCellData(i, "断言句"), appiumDriver);
 	i++;
-//	回到主页
+
+		}
+	
+	/**
+	 * 测试详情页，执行前要在列表页
+	 */
+//	@Test(priority='2',description="差旅申请-详情页-测试")
+	public void ESSP_ChaiLvShenQing_Details() 
+		{
+		beforeMethod(clasName, "ESSP_ChaiLvShenQing_Details");
+		caseNo="差旅申请-详情页-测试";	
+		ESSP_ChaiLvShenQingDetails1();
+	int i=1;
+	assertion.verifyEquals(PageElmentExcle.getCellData(i, "字段"), INxijianchailvshenqingDE,  PageElmentExcle.getCellData(i, "断言句"), appiumDriver);	i++;
+	assertion.verifyEquals(PageElmentExcle.getCellData(i, "字段"), INzhushujuDE,  PageElmentExcle.getCellData(i, "断言句"), appiumDriver);	i++;
+	assertion.verifyEquals(PageElmentExcle.getCellData(i, "字段"), INyuangongbianhaoDE,  PageElmentExcle.getCellData(i, "断言句"), appiumDriver);	i++;
+	assertion.verifyEquals(PageElmentExcle.getCellData(i, "字段"), INyuangongxingmingDE,  PageElmentExcle.getCellData(i, "断言句"), appiumDriver);	i++;
+	assertion.verifyEquals(PageElmentExcle.getCellData(i, "字段"), INfeiyongleixingDE,  PageElmentExcle.getCellData(i, "断言句"), appiumDriver);	i++;
+	assertion.verifyEquals(PageElmentExcle.getCellData(i, "字段"), INchailvleixingDE,  PageElmentExcle.getCellData(i, "断言句"), appiumDriver);	i++;
+	assertion.verifyEquals(PageElmentExcle.getCellData(i, "字段"), INshifoujiekuanDE,  PageElmentExcle.getCellData(i, "断言句"), appiumDriver);	i++;
+	assertion.verifyEquals(PageElmentExcle.getCellData(i, "字段"), INkaishishijianDE,  PageElmentExcle.getCellData(i, "断言句"), appiumDriver);	i++;
+	assertion.verifyEquals(PageElmentExcle.getCellData(i, "字段"), INjieshushijianDE,  PageElmentExcle.getCellData(i, "断言句"), appiumDriver);	i++;
+	assertion.verifyEquals(PageElmentExcle.getCellData(i, "字段"), INchuchaidiquDE,  PageElmentExcle.getCellData(i, "断言句"), appiumDriver);	i++;
+	assertion.verifyEquals(PageElmentExcle.getCellData(i, "字段"), INyujifeiyongDE,  PageElmentExcle.getCellData(i, "断言句"), appiumDriver);	i++;
+	assertion.verifyEquals(PageElmentExcle.getCellData(i, "字段"), INchuchaishiyouDE,  PageElmentExcle.getCellData(i, "断言句"), appiumDriver);	i++;
+	assertion.verifyEquals(PageElmentExcle.getCellData(i, "字段"), INchengbenfenpeiDE,  PageElmentExcle.getCellData(i, "断言句"), appiumDriver);	i++;
+	assertion.verifyEquals(PageElmentExcle.getCellData(i, "字段"), INchenbenleixingDE,  PageElmentExcle.getCellData(i, "断言句"), appiumDriver);	i++;
+	assertion.verifyEquals(PageElmentExcle.getCellData(i, "字段"), INfenpeibianhaoDE,  PageElmentExcle.getCellData(i, "断言句"), appiumDriver);	i=1;
+
+	
+assertion.verifyEquals(PageElmentExcle.getCellData(i, "数据"), INyuangongbianhaoDA,  PageElmentExcle.getCellData(i, "断言句"), appiumDriver);	i++;
+assertion.verifyEquals(PageElmentExcle.getCellData(i, "数据"), INyuangongxingmingDA,  PageElmentExcle.getCellData(i, "断言句"), appiumDriver);	i++;
+assertion.verifyEquals(PageElmentExcle.getCellData(i, "数据"), INfeiyongleixingDA,  PageElmentExcle.getCellData(i, "断言句"), appiumDriver);	i++;
+assertion.verifyEquals(PageElmentExcle.getCellData(i, "数据"), INchailvleixingDA,  PageElmentExcle.getCellData(i, "断言句"), appiumDriver);	i++;
+assertion.verifyEquals(PageElmentExcle.getCellData(i, "数据"), INshifoujiekuanDA,  PageElmentExcle.getCellData(i, "断言句"), appiumDriver);	i++;
+assertion.verifyEquals(PageElmentExcle.getCellData(i, "数据"), INkaishishijianDA,  PageElmentExcle.getCellData(i, "断言句"), appiumDriver);	i++;
+assertion.verifyEquals(PageElmentExcle.getCellData(i, "数据"), INjieshushijianDA,  PageElmentExcle.getCellData(i, "断言句"), appiumDriver);	i++;
+assertion.verifyEquals(PageElmentExcle.getCellData(i, "数据"), INchuchaidiquDA,  PageElmentExcle.getCellData(i, "断言句"), appiumDriver);	i++;
+assertion.verifyEquals(PageElmentExcle.getCellData(i, "数据"), INqingshuruchengshiDA,  PageElmentExcle.getCellData(i, "断言句"), appiumDriver);	i++;
+assertion.verifyEquals(PageElmentExcle.getCellData(i, "数据"), INyujifeiyongDA,  PageElmentExcle.getCellData(i, "断言句"), appiumDriver);	i++;
+assertion.verifyEquals(PageElmentExcle.getCellData(i, "数据"), INchuchaishiyouDA,  PageElmentExcle.getCellData(i, "断言句"), appiumDriver);	i++;
+assertion.verifyEquals(PageElmentExcle.getCellData(i, "数据"), INchenbenleixingDA,  PageElmentExcle.getCellData(i, "断言句"), appiumDriver);	i++;
+assertion.verifyEquals(PageElmentExcle.getCellData(i, "数据"), INfenpeibianhaoDA,  PageElmentExcle.getCellData(i, "断言句"), appiumDriver);	i=1;
+
+	//	回到主页
 		action.pressKeyCode(KeyEvent.fanHui);
 		}
 //	@Test(priority=1,description="差旅申请－主数据")

@@ -16,6 +16,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -28,6 +29,7 @@ import com.Pcitc.AppAutomationTest.utils.Driver;
 import com.Pcitc.AppAutomationTest.utils.Log;
 import com.Pcitc.AppAutomationTest.utils.ExcelHandle;
 import com.Pcitc.AppAutomationTest.utils.ExcelReader;
+import com.Pcitc.AppAutomationTest.utils.FindWebElement;
 import com.Pcitc.AppAutomationTest.utils.GetClassMethodName;
 import com.Pcitc.AppAutomationTest.utils.Log;
 import com.Pcitc.AppAutomationTest.utils.ParseYamlFile;
@@ -47,6 +49,18 @@ import sun.util.logging.resources.logging;
  */
 public class TestBase  extends  GetClassMethodName
 {
+	protected final String AndroidTitleLocatType="Android字段定位方式";
+	protected final String AndroidTitleLocatString="Android字段定位器";
+	protected final String AndroidDataLocatType="Android数据定位方式";
+	protected final String AndroidDataLocatString="Android数据定位器";
+	
+	protected final String IosTitleLocatType="Ios字段定位方式";
+	protected final String IosTitleLocatString="Ios字段定位器";
+	protected final String IosDataLocatType="Ios数据定位方式";
+	protected final String IosDataLocatString="Ios数据定位器";
+	
+	public static  FindWebElement findWebElement=null;
+	
 	public static String caseNo="";
 //	测试报告文件
 	 public static  ExcelHandle reportExcleExcelHandle=null;
@@ -76,12 +90,10 @@ public class TestBase  extends  GetClassMethodName
 //	protected static   Screen screen ;
 //	读取生成测试数据的-excle文件 全局的初始化执行一次
 	protected static ExcelReader GenDataExcle=null ;
-//	读取页面定位 修改页面 的-excle文件 page类中初始化
-	protected 		 ExcelReader PageDataExcle=null ;
-//	读取页面定位 修改页面 的-excle文件 页面弹窗对象，在testcase中初始化
-	protected 		 ExcelReader AlertDataExcle=null ;
-//	读取页面定位 修改页面 的-excle文件 数据驱动 	 testcase填充表单信息
-	protected 		 ExcelReader FixDataExcle=null ;
+//	读取页面定位 修改页面 的-excle文件 testcase类中初始化
+	protected 		 ExcelReader PageElmentExcle=null ;
+//	读取页面定位 修改页面 的-excle文件 testcase类中初始化
+	public static int PageElmentExcleIndex=1 ;
 //	读取测试数据唯一标识文件
 	protected static ExcelHandle eh=null;
 	
@@ -105,6 +117,7 @@ public class TestBase  extends  GetClassMethodName
 	 assertion=new Assertion();
 //	 获得屏幕截图对象
 	 screenShots=new ScreenShots(appiumDriver);
+	 findWebElement=new FindWebElement(appiumDriver);
 //	 获得 parseYamlFile对象
 	 parseYamlFile=new ParseYamlFile(appiumDriver);
 	 if (parseYamlFile!=null)
@@ -121,6 +134,25 @@ public class TestBase  extends  GetClassMethodName
 //		 mySql.connect("localhost:3306/XY", "root", "fu~123");
 }
 
+public void beforeClass(String modeClassName)
+ {
+//	根据平台，获得定位文件
+//	if (TestInit.IsAndroid)
+//	{
+//		getBeforeElement("Android_"+modeClassName);
+//	}
+//	else {
+//		getBeforeElement("Ios_"+modeClassName);
+//		 }
+	getBeforeElement("公共页面元素");
+	Log.logInfo("yaml文件已加载"+modeClassName,GetClassMethodName());
+ }
+ 
+public void beforeMethod(String modeClassName,String modeMethodName)
+{
+	PageElmentExcle = getExcle(modeClassName, modeMethodName);
+	Log.logInfo("PageElmentExcle初始化完毕！file:"+modeClassName+"xls,sheet:"+MethodeName, GetClassMethodName());
+}
    
 	/**
 	 * 获得登陆用户名
@@ -340,6 +372,18 @@ public class TestBase  extends  GetClassMethodName
 	}
 	 
 	
+		protected static    WebElement  getElemntByExcle(ExcelReader ex,boolean wait,String byTypeColumn,String locatStringcolumn)
+		{
+			if (wait) 
+			{
+			return	findWebElement.getElementWait(ex, byTypeColumn, locatStringcolumn);
+			}
+			else
+			{
+			return	findWebElement.getElementNoWait(ex, byTypeColumn, locatStringcolumn);
+			}
+
+		}
 /**
  	* 得到页面WebElement元素
  * @param element：yaml文件元素名称
@@ -349,7 +393,7 @@ public class TestBase  extends  GetClassMethodName
  * @param b 替换后字符
  * @returnc
  */
-	protected static    WebElement  getElemnt(String element,Boolean wait, Boolean replace,String a,String b)
+	protected static    WebElement  getElemntByYaml(String element,Boolean wait, Boolean replace,String a,String b)
 	{
 		if (wait)
 		{

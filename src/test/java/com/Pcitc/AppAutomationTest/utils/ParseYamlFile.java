@@ -82,7 +82,6 @@ public  void getYamlFile(String fileAbsolutePath) throws FileNotFoundException
 	catch(YamlException e)
 		{
 		//找不到文件时捕获异常
-//			Log.logError(".Yaml文件配置错误请检查！"+fileAbsolutePath);
 			Log.logError( fileAbsolutePath+"文件不存在"+e.toString(),GetClassMethodName());
 		}
 }
@@ -110,7 +109,7 @@ private By getBy(String type,String value)
 	else
 // 如果都不是报错
 		{
-			Log.logError(this.getClass().getSimpleName()+".getBy:无法找到:"+type+"定位方式，请检查yaml文件",GetClassMethodName());
+			Log.logError(".getBy:无法找到:"+type+"定位方式，请检查yaml文件",GetClassMethodName());
 			by=null;
 		}
 //	返回封装好的by对象
@@ -143,7 +142,9 @@ public WebElement waitForElement(final By by)
 			if (needFound) 
 			{
 				Log.logInfo("需要定位元素",GetClassMethodName());
-				Log.logError("Class:ParseYamlFile-Metohd:waitForElement:无法用定位方式："+by.toString()+ "找到页面对象!超时时间:"+waitTime,GetClassMethodName());
+					       
+				Log.logWarn("页面元素"+WebElementName+",无法用定位方式："+by.toString()+ "找到!超时时间:"+waitTime,GetClassMethodName(),"");
+				
 			}
 			else {
 				Log.logInfo("不需要定位元素",GetClassMethodName());
@@ -219,6 +220,7 @@ private boolean waitForElementToDisplayed(final WebElement element)
 //  不等待页面元素出现，适用于不会出现的
   public WebElement getElementNoWaitReplace(String key,String a,String b)
   {
+	
 		return this.getLocator(key,false,a,b);
   }
   
@@ -233,22 +235,25 @@ public  WebElement getElementWaitNOReplace(String key)
 //等待获取单个页面元素，替换
 public  WebElement getElementWaitReplace(String key,String p1,String p2)
 {	
+	
 	return this.getLocator(key, true,p1,p2);
 }
 
 //获得webelements
 public  List<WebElement> getElemens(String key,String a,String b)
-{	
+{
 	return this.getLocators(key,a,b);
 }
 	//封装Webelement对象动态替换
 
 	//由于getElementNoWait、getElement两个类相似，先编写测试类 存放相同的方法体，在修改两个方法
+private String WebElementName="";
 private WebElement getLocator(String key ,boolean wait,String a,String b)
 {
 	WebElement element =null;
 	if(hashMap.containsKey(key))
 	{
+		WebElementName=key;
 		HashMap<String, String> m=hashMap.get(key);
 		String type=m.get("type");
 		String value=m.get("value");

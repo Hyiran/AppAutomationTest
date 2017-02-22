@@ -1,18 +1,10 @@
-INchenbenfenpeiDA:
-  type: id
-  value: "cn.cooperative:id/et_Degree_cb"
-INshoujuleixingDA:
-  type: id
-  value: "cn.cooperative:id/tv_receive_type"
-INjineDA:
-  type: id
-  value: "cn.cooperative:id/tv_receive_money"
-INriqiDA:
-  type: id
-  value: "cn.cooperative:id/tv_receive_date"
-INxinxiDA:
-  type: id
-  value: "cn.cooperative:id/tv_receive_marks"
+TextView_Ptext:
+  type: xpath
+  value: "//android.widget.TextView[starts-with(@text,'%s')]"
+TextView_Ptext:
+  type: xpath
+  value: "//android.widget.TextView[starts-with(@text,'%s')]"
+  
 TextView_Ptext:
   type: xpath
   value: "//android.widget.TextView[starts-with(@text,'%s')]"
