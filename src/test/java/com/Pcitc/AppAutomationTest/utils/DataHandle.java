@@ -128,14 +128,15 @@ public class DataHandle extends GetClassMethodName
 		 */
 		public static  ArrayList<String> getArryList(ExcelReader excle,int dataNumber,String columnName) 
 		{
-//			excle.getCellData(1, 1);
+
 			ArrayList<String>  list=new ArrayList<String> ();
 			for (int j = 1; j <=dataNumber+1; j++)
 			{
 //				第一行为列名，数据从第二行开始
 				list.add(excle.getCellData(j, columnName));
+				Log.logInfo("读取excle第"+j+"个数据："+excle.getCellData(j, columnName)+"加入ArrayList成功", GetClassMethodName());
 			}
-			
+			Log.logInfo("ArrayList数据获取完毕，一共："+list.size()+"个数据", GetClassMethodName());
 			return  list;
 		}
 @Test(description="测试Excelreader数据转化arrylist")

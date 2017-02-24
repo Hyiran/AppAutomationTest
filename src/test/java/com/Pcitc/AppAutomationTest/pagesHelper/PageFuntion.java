@@ -22,11 +22,29 @@ import com.Pcitc.AppAutomationTest.utils.KeyEvent;
 import com.Pcitc.AppAutomationTest.utils.Log;
 import com.Pcitc.AppAutomationTest.utils.XMLParase;
 
+import net.sf.saxon.functions.ConstantFunction.True;
+
 
 
 public  class  PageFuntion extends TestBase
 {
 
+	 public static void tiJiao_Android ()	 
+	 {
+		 By	 by=By.xpath(DataHandle.getBy(Location.Button_Ptext, "提交", ""));
+		WebElement submit=null;
+		submit=action.swipe(by, "up", 5,true);
+		
+		if (submit.equals(null)) {
+			Log.logError("提交按钮没找到，无法点击", GetClassMethodName());
+
+		 }
+		else {
+			action.tap(submit, 1000);
+			Log.logInfo("已点击提交按钮", GetClassMethodName());
+		}
+		}
+		
 	 /**
 	  * 登录方法-当前页面必需在登录页面
 	  * @param useName  登录用户名
@@ -242,7 +260,7 @@ public static void yiBanChaKan(String caseNo,String Data,String appMan,String st
 	By by =By.xpath(DataHandle.getBy(Location.TextView_Ptext, Data, ""));
 	Log.logInfo("需要滑动找到的数据为："+Data+",采取的定位器："+DataHandle.getBy(Location.TextView_Ptext, Data, ""),GetClassMethodName());
 	
-	WebElement  getData=action.swipe(by, "up", 10);
+	WebElement  getData=action.swipe(by, "up", 10,false);
 	if (getData==null)
 	{
 		Log.logError(caseNo+":在已办中找不到数据！返回到主页",GetClassMethodName());
@@ -259,7 +277,7 @@ public static void yiBanChaKan(String caseNo,String Data,String appMan,String st
 //	滑动到要定位到数据
 	 by =By.xpath(DataHandle.getBy(Location.TextView_Ptext, appMan, ""));
 	Log.logInfo("需要滑动找到的数据为："+appMan+",采取的定位器："+DataHandle.getBy(Location.TextView_Ptext, appMan, ""),GetClassMethodName());
-	WebElement  getDataAppMan=action.swipe(by, "up", 10);
+	WebElement  getDataAppMan=action.swipe(by, "up", 10,false);
 	if (getDataAppMan==null) 
 	{
 		Log.logError(caseNo+":在已办-数据详情中找不到审批人！请检查参数！返回到主页",GetClassMethodName());
@@ -468,145 +486,143 @@ public void  getDate(String index,String UpDown,String toYear,int times)
 /**
  * 选择下拉列表中的数据
  * @param caseNO  用例编号
- * @param ListName  写在配置文件中的下拉列表节点名，（如jiekuan）
- * @param xml     配置下拉列表信息xml对象，文件为在xmldata下
- * @param excle   配置下拉列表预期结果的字典excle对象，文件为在excelldata下
+ * @param dataNo  下拉列表数据数
+ * @param excle   excle对象
+ * @param selectName   selectName excle列名
+ * @param selectNo    excle行号 （第几组测试数据）
  */
 
-public  static void  xialLaKuang(String caseNo,String ListName,XMLParase xml,ExcelReader excle)
+public  static void  xialLaKuang_Android(String caseNo,int dataNo,ExcelReader excle, String selectName ,int selectNo)
 {	
+
 //	解析excle 后的下拉列表数据-预期结果
 	ArrayList<String> dataList=null;
 //	页面下拉选项集合-实际结果
 	 List<WebElement>  elements=null;
 //	 要选择的数据 对象
 	 WebElement seletData=null;
-//	 excle 的列名
-	String columnName="";
-//	 要选择的数据 名字
-	String wantSele="";
-//	多少条选择数据
-	int dataSize=0;
-
-	
-	columnName=xml.getElementText("/*/"+ListName+"/columnName");
-	wantSele=xml.getElementText("/*/"+ListName+"/wantSele");
-	dataSize=DataHandle.getInt(xml.getElementText("/*/"+ListName+"/dataSize"));
-	
-	
 //	获得excle 指定列的数据 到list对象
-	dataList=DataHandle.getArryList(excle,dataSize,columnName);
-
-	Log.logInfo(dataList.get(0)+"下拉列表数据需要数据的个数为："+dataList.size(),GetClassMethodName());
+	dataList=DataHandle.getArryList(excle,dataNo,selectName);
+//	Log.logInfo(dataList.get(0)+"下拉列表数据需要数据的个数为："+dataList.size(),GetClassMethodName());	
 //	   获得标题
 	WebElement 	title=getElemntByYaml(Location.TextView_Ptext, true, true, dataList.get(0),"");
-//	TestBase.assertion.verifyEquals(caseNo, dataList.get(0), DataHandle.getElementText(title), "下拉框标题是否正确", appiumDriver);
+	assertion.verifyEquals(dataList.get(0), title, "测试"+selectName+"title是否正确", appiumDriver);	
 //	   获得确定按钮
 	WebElement  sure=getElemntByYaml(Location.Button_Ptext, true, true, "确定","");
-//	TestBase.assertion.webElementIsNotNull(caseNo, sure,DataHandle.getElementText(title)+ "下拉框确认按钮是否存在", appiumDriver);
-
-//	  获得取消按钮
-	WebElement  canle=getElemntByYaml(Location.Button_Ptext, true, true, "确定","");
-//	TestBase.assertion.webElementIsNotNull(caseNo, canle,DataHandle.getElementText(title)+ "下拉框取消按钮是否存在", appiumDriver);
-	
-
-	//得到下拉列表数据列表
-	elements	= getElemnts(Location.ListViewCheckedTextViews_Pindex,"1","");
-	
-	
-
-//	如果找到列表元素 遍历子数据，与excle中对比断言
-	if(elements!=null)
+	assertion.webElementIsNotNull(sure, "测试确认按钮是否存在", appiumDriver);
+	if (sure.equals(null))
 	{
-		try {
-
-		int y=0;
-			for (int i = 1; i <dataList.size(); i++) 
-			{
-//				数据从第1个开始	
-//				TestBase.assertion.verifyEquals(caseNo,dataList.get(i), DataHandle.getElementText(elements.get(y)), "判断"+dataList.get(0)+"：下拉列表第"+(y+1)+"个数据", appiumDriver);	
-				y++;
-		 	}
-		} catch (Exception e2) 
-		{
-			Log.logError("下拉列表索引错误，找不到对象！",GetClassMethodName());
-		}
-
-	}
-	else {
-		Log.logError("下拉列表数据没有定位到请检查定位器！",GetClassMethodName());
-		}
-	
-//	找到要选择的数据
-	seletData =  getElemntByYaml(Location.CheckedTextView_Ptext, true, true, wantSele,"");	
-	if (seletData !=null) 
-		{
-			action.tap(seletData, 1000);
-		}
-		else
-		{
-			Log.logError(dataList+":下拉列表-找不到要选择的数据:"+wantSele,GetClassMethodName());
-		}
-
-	if (sure!=null) 
-	{
-		//点击确定按钮
-		action.tap(sure, 500);
+		Log.logError("下拉列表没有确定按钮，已关闭页面", GetClassMethodName());
+		action.pressKeyCode(KeyEvent.fanHui);
 	}
 	else 
 	{
-		Log.logError(dataList+":下拉列表-找不到确认按钮:",GetClassMethodName());
-	}
-				
+//		  获得取消按钮
+		WebElement  cancle=getElemntByYaml(Location.Button_Ptext, true, true, "取消","");
+		assertion.webElementIsNotNull(cancle, "测试取消按钮是否存在", appiumDriver);
+
+		//得到下拉列表数据列表
+		elements	= getElemnts(Location.ListViewCheckedTextViews_Pindex,"1","");
+		
+//		如果找到列表元素 遍历子数据，与excle中对比断言
+		if(elements!=null)
+		{
+			try {
+
+				for (int i = 1; i <dataList.size(); i++) 
+				{
+					assertion.verifyEquals(excle.getCellData(i+1, selectName), elements.get(i-1), "测试"+selectName+"下拉列表第"+i+"个数据是否正确", appiumDriver);			
+			 	}
+			} catch (Exception e2) 
+			{
+				Log.logError("下拉列表索引错误，找不到对象！",GetClassMethodName());
+			}
+
+		}
+		else {
+			Log.logError("下拉列表数据没被有定位到，请检查定位器！",GetClassMethodName());
+			}
+		
+//		找到要选择的数据
+		
+		seletData =  getElemntByYaml(Location.CheckedTextView_Ptext, true, true, excle.getCellData(selectNo, selectName+"选择"),"");	
+		if (seletData !=null) 
+			{
+				action.tap(seletData, 1000);
+			}
+			else
+			{
+				Log.logError(dataList+":下拉列表-找不到要选择的数据:"+excle.getCellData(selectNo, selectName+"选择"),GetClassMethodName());
+			}
+
+
+			action.tap(sure, 500);
+		}
+	
+
+
+	seletData=null;
+	seletData =  appiumDriver.findElement(By.xpath("//android.widget.TextView[starts-with(@text,'"+excle.getCellData(selectNo, selectName+"选择")+"')]"));
+	assertion.webElementIsNotNull(seletData, "下拉列表选择是否成功", appiumDriver);
 }
 
 /**
  * 处理筛选列表控件－差旅申请－分配编号
  * @param caseNo 用例编号
- * @param isAssert  是否要断言
- * @param title  标题名称
- * @param deafultString  搜索框默认文本
- * @param sedKey  输入的编码
- * @param wangSelectName  编码对应的字符串
+ * @param inputData   输入的数据
+ * @param expetData  想要找到的数据
  */
-public  static void shuRuChaXun(String caseNo,boolean isAssert,String title,String deafultString,String sedKey,String wangSelectName)
+public  static void shuRuChaXun(String caseNo ,String inputData,String expetData)
 {
+//找到文本框
+	WebElement editText=null;
+	editText=getElemntByYaml(Location.EditText_Pindex, true, true, "1", "");
+	if (editText.equals(null)) 
+	{
+		Log.logError("输入框无法被定位，关闭当前页面", GetClassMethodName());
+		 action.pressKeyCode(KeyEvent.fanHui);
+	}
+	else 
+	{
+//		输入文本
+		action.sendKey(editText, inputData);
 
+		//获得搜索按钮
+		WebElement search=null;
+		search=	getElemntByYaml(Location.TextView_Ptext, true, true, "搜索","");
+		if (search.equals(null))
+		{
+			Log.logError("输入框无法定位搜索按钮，关闭当前页面", GetClassMethodName());
+			action.pressKeyCode(KeyEvent.fanHui);
+		}
+		else {
+			action.tap(search, 1000);
+			//获得搜索结果
+			WebElement resaust=null;
+			resaust=getElemntByYaml(Location.TextView_Ptext, true, true, expetData,"");	
+			
+			if (resaust.equals(null))
+			{
+				Log.logError("输入框无法定位搜索后的数据，关闭当前页面", GetClassMethodName());
+				action.pressKeyCode(KeyEvent.fanHui);
+			}
+			else
+			{
+				action.tap(resaust, 1000);
+				Log.logInfo("输入筛选框数据已经被定位", GetClassMethodName());
+			}
+		}
 
-//获得标题列
-	WebElement titles=getElemntByYaml(Location.TextView_Ptext, true, true, title,"");
-
-	//获得输入文本框
-	WebElement inputText=getElemntByYaml(Location.EditText_Ptext, true, true, deafultString,"");
-	if (isAssert) 
-	{
-//		TestBase.assertion.verifyEquals(caseNo,title,DataHandle.getElementText(titles), "判断"+title+"：筛选列表标题－", appiumDriver);
-//		TestBase.assertion.verifyEquals(caseNo,deafultString,DataHandle.getElementText(inputText), "判断"+title+"：筛选列文本框默认值－", appiumDriver);
-	
-	
 	}
-	if (DataHandle.getElementText(inputText)!="无法定位元素") 
+	try {
+		Thread.sleep(1500);
+	} catch (InterruptedException e) 
 	{
-		inputText.sendKeys(sedKey);
+		// TODO Auto-generated catch block
+		e.printStackTrace();
 	}
-	
-	//获得搜索按钮
-	WebElement search=getElemntByYaml(Location.TextView_Ptext, true, true, "搜索","");
-	if (search!=null)
-	{
-		search.click();
-	}
-	//获得搜索结果
-	WebElement resaust=getElemntByYaml(Location.TextView_Ptext, true, true, wangSelectName,"");
-	
-	if (DataHandle.getElementText(resaust)!="无法定位元素") 
-	{
-		resaust.click();
-	}
-if (isAssert) {
-	TestBase.assertion.webElementIsNotNull(search, "判断搜索按钮是否存在", appiumDriver);
-	TestBase.assertion.webElementIsNotNull( resaust, "判断搜索数据是否被搜索到", appiumDriver);
-}	
+	WebElement outResaust=getElemntByYaml(Location.TextView_Ptext, true, true, expetData,"");	
+	assertion.verifyEquals(expetData, outResaust, "判断下拉筛选是否成功选择数据", appiumDriver);
 }
 
 

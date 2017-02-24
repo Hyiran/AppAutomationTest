@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="2" passed="2">
+<testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="151" started-at="2017-02-22T01:06:50Z" finished-at="2017-02-22T01:06:50Z">
+  <suite name="Default suite" duration-ms="345" started-at="2017-02-23T12:14:45Z" finished-at="2017-02-23T12:14:45Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="151" started-at="2017-02-22T01:06:50Z" finished-at="2017-02-22T01:06:50Z">
-      <class name="com.Pcitc.AppAutomationTest.Test.ClassNameTest2">
-        <test-method status="PASS" signature="t1()[pri:0, instance:com.Pcitc.AppAutomationTest.Test.ClassNameTest2@13deb50e]" name="t1" duration-ms="118" started-at="2017-02-22T09:06:50Z" description="测试获取当前类及方法" finished-at="2017-02-22T09:06:50Z">
+    <test name="Default test" duration-ms="345" started-at="2017-02-23T12:14:45Z" finished-at="2017-02-23T12:14:45Z">
+      <class name="com.Pcitc.AppAutomationTest.utils.ExcelHandle">
+        <test-method status="PASS" signature="testUpdateExcle()[pri:0, instance:com.Pcitc.AppAutomationTest.utils.ExcelHandle@1e397ed7]" name="testUpdateExcle" duration-ms="329" started-at="2017-02-23T20:14:45Z" description="测试更新数据" finished-at="2017-02-23T20:14:45Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- t1 -->
-        <test-method status="PASS" signature="t2()[pri:0, instance:com.Pcitc.AppAutomationTest.Test.ClassNameTest2@13deb50e]" name="t2" duration-ms="6" started-at="2017-02-22T09:06:50Z" description="测试获取当前类及方法" finished-at="2017-02-22T09:06:50Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- t2 -->
-      </class> <!-- com.Pcitc.AppAutomationTest.Test.ClassNameTest2 -->
+        </test-method> <!-- testUpdateExcle -->
+      </class> <!-- com.Pcitc.AppAutomationTest.utils.ExcelHandle -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

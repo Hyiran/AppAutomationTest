@@ -22,7 +22,7 @@ public class FindWebElement  extends GetClassMethodName
 	private WebDriver FindWebElementDriver =null ;
 	ExcelReader excelReader=null;
 //	元素等待时间
-	public static int waitTime=Config.ElementWaitTime;
+//	public static int waitTime=Config.ElementWaitTime;
 //元素是否能被找到，用于区别正常场景找不到元素 不报错的时候
 	public static boolean needFound=true;
 	//构造函数参数,初始化webdriver对象
@@ -76,7 +76,7 @@ public WebElement waitForElement(final By by)
 	{
 	WebElement element=null;
 		try  {
-			element = new WebDriverWait(FindWebElementDriver, waitTime).until(new ExpectedCondition<WebElement>()
+			element = new WebDriverWait(FindWebElementDriver, Config.ElementWaitTime).until(new ExpectedCondition<WebElement>()
 			
 				 { 
 					public WebElement apply(WebDriver d)
@@ -92,7 +92,7 @@ public WebElement waitForElement(final By by)
 			{
 				Log.logInfo("需要定位元素",GetClassMethodName());
 					       
-				Log.logWarn("页面元素"+WebElementName+",无法用定位方式："+by.toString()+ "找到!超时时间:"+waitTime,GetClassMethodName(),"");
+				Log.logWarn("页面元素"+WebElementName+",无法用定位方式："+by.toString()+ "找到!超时时间:"+Config.ElementWaitTime,GetClassMethodName(),"");
 				
 			}
 			else {
@@ -182,8 +182,10 @@ private WebElement getLocator(ExcelReader e ,boolean wait,String ByTypeColumn,St
 		
 		ByType=excelReader.getCellData(TestBase.PageElmentExcleIndex, ByTypeColumn);
 		locatString=excelReader.getCellData(TestBase.PageElmentExcleIndex, locatStringColumn);	
-		Log.logInfo("对象："+WebElementName+";定位方式："+ByType+";定位器："+locatString, GetClassMethodName());
-		By by=this.getBy(ByType, locatString);	
+		if (ByType!="" && locatString!="")
+		{
+			Log.logInfo("对象："+WebElementName+";定位方式："+ByType+";定位器："+locatString, GetClassMethodName());
+			By by=this.getBy(ByType, locatString);	
 			if(wait)
 			{
 //				如果需要等待，获取页面对象
@@ -205,6 +207,12 @@ private WebElement getLocator(ExcelReader e ,boolean wait,String ByTypeColumn,St
 					Log.logInfo("页面元素没有在页面上发现",GetClassMethodName());									
 					}
 			}
+		}
+		else 
+		{
+			Log.logError("定位器或定位方式在excle中读取失败，无法找到页面元素",GetClassMethodName());
+		}
+		
 	
 	}
 	else

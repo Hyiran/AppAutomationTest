@@ -5,6 +5,7 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
 import com.Pcitc.AppAutomationTest.base.TestBase;
+import com.Pcitc.AppAutomationTest.pagesHelper.TestInit;
 
 import bsh.commands.dir;
 
@@ -49,6 +50,14 @@ public class Log   extends GetClassMethodName
 	{	
 	Log.getFlag();
 	looger1.info("Warn:"+classMethodeName+message);	
+	TestBase.reportExcleExcelHandle.updateFile("./target/surefire-reports/html/测试报告.xls", "./target/surefire-reports/html/测试报告.xls");
+	if (TestInit.IsAndroid) {
+		TestBase.reportExcleExcelHandle.updateSheet("Android");
+	}
+	else {
+		TestBase.reportExcleExcelHandle.updateSheet("Ios报告");
+	}
+	
 //	第一列 信息列插入
 	TestBase.reportExcleExcelHandle.addCellData(TestBase.reportExcleExcelRow, 0, (String) message);
 //	第二列 状态列
@@ -59,7 +68,10 @@ public class Log   extends GetClassMethodName
 		TestBase.reportExcleExcelHandle.addCellDataWithLink(TestBase.reportExcleExcelRow, 2, snapShootName);
 //		第四列 精确定位对象
 		TestBase.reportExcleExcelHandle.addCellDataWithLink(TestBase.reportExcleExcelRow, 3, snapShootName+"Cut");
+		
+		
 	}
+	TestBase.reportExcleExcelHandle.afterExcle();
 	TestBase.reportExcleExcelRow++;
 	} 
 //	错误 用于 程序异常捕获到到异常
@@ -67,10 +79,19 @@ public class Log   extends GetClassMethodName
 	{
 	Log.getFlag();
 	looger1.info("Error:"+classMethodeName+message);
+	TestBase.reportExcleExcelHandle.updateFile("./target/surefire-reports/html/测试报告.xls", "./target/surefire-reports/html/测试报告.xls");
+	if (TestInit.IsAndroid) {
+		TestBase.reportExcleExcelHandle.updateSheet("Android");
+	}
+	else {
+		TestBase.reportExcleExcelHandle.updateSheet("Ios报告");
+	}
 //	第一列 信息列插入
 	TestBase.reportExcleExcelHandle.addCellData(TestBase.reportExcleExcelRow, 0, (String) message);
 //	第二列 状态列
 	TestBase.reportExcleExcelHandle.addCellDataWithColor(TestBase.reportExcleExcelRow, 1, "错误", "", "RED");
+	
+	TestBase.reportExcleExcelHandle.afterExcle();
 	TestBase.reportExcleExcelRow++;
 	}
 	

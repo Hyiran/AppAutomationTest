@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuite name="com.Pcitc.AppAutomationTest.pagesHelper.TestInit"
-           tests="1"
+           tests="2"
            failures="0"
            errors="0"
            skipped="0"
-           time="37.341">
+           time="198.383">
   <properties />
   
   
-            <testcase name="ESSP_ChaiLvShenQing_ListPage" time="37.341" classname="com.Pcitc.AppAutomationTest.testCases.ESSP_ChaiLvShenQing_Test" />
+            <testcase name="ESSP_ChaiLvShenQing_Details" time="175.825" classname="com.Pcitc.AppAutomationTest.testCases.ESSP_ChaiLvShenQing_Test" />
+                <testcase name="ESSP_ChaiLvShenQing_ListPage" time="22.558" classname="com.Pcitc.AppAutomationTest.testCases.ESSP_ChaiLvShenQing_Test" />
       
 </testsuite>

@@ -62,24 +62,24 @@ public  class Driver extends GetClassMethodName
 					Log.logError("Driver-initDriver:创建driver读取配置文件错误，请检查！" +e.toString(),GetClassMethodName());
 				}
 //				判断当前应用是否安装
-				Boolean isInstall=driver.isAppInstalled("cn.cooperative");
+				Boolean isInstall=driver.isAppInstalled(Config.appPackage);
 //				如果没安装则安装应用
-					if (isInstall == false) 
+					if (isInstall.equals(false) ) 
 					{
 						try {
-							Log.logInfo("开始安装应用",GetClassMethodName());
+							Log.logInfo("开始安装xy.apk",GetClassMethodName());
 							driver.installApp(Config.AppFileLib+"xy.apk");
-							
-							Log.logInfo("应用安装成功",GetClassMethodName());
-						
+							Log.logInfo("xy.apk安装成功",GetClassMethodName());
 							} catch (Exception e) 
 							{
 								// TODO: handle exception
-								Log.logError("无法安装应用，请检查安装文件路径！",GetClassMethodName());
+								Log.logError("xy.apk无法安装应用，请检查安装文件路径！",GetClassMethodName());
 							}
 	
 					}
-					else {
+					
+					else 
+					{
 						Log.logInfo("应用已存在，无需安装",GetClassMethodName());
 					}
 

@@ -229,8 +229,27 @@ public static void afterExcle()
 
 }
 
-
-
+public static void afterExcle2(boolean closeFile) 
+{
+		//写入工作表   
+		try {
+			wwb.write();
+//			wwb.close(); 
+			if (closeFile) 
+			{
+				 closeRwb();
+			}
+		} catch (Exception e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			Log.logError(e.toString(), GetClassMethodName());
+		}
+}
+public static void closeRwb()
+{
+	rwb.close();
+}
 /**  已在其他类重写，其中定义输入数据类型可在完善
 * 只能通过API提供的工厂方法来创建Workbook，而不能使用WritableWorkbook的构造函数，  
 * 因为类WritableWorkbook的构造函数为protected类型  
@@ -378,10 +397,13 @@ public void testUpdateExcle()
 		addCellDataWithLink(0, 5,  "t1");
 		addCellDataWithLink(0, 6, "t1Cut");
 		addCellDataWithColor(0, 7, "样式1", "YELLOW","RED");
-		addCellDataWithColor(0, 8, "样式2", "RED","YELLOW");
+		addCellDataWithColor(0, 8, "样式999", "RED","YELLOW");
 		addCellDataWithColor(0, 9, "样式3", "BLACK","RED");
 //		保存生效配置
-		afterExcle();
+		afterExcle2(false);
+		addCellDataWithColor(1, 3, "99", "RED","YELLOW");
+		addCellDataWithColor(1, 2, "样式3", "BLACK","RED");
+		afterExcle2(false);
 	} catch (Exception e) {
 		// TODO: handle exception
 	}

@@ -260,10 +260,38 @@ WebElement EndElement;
 	 * @param  string 输入的字符串
 	 */
 	public void sendKey(WebElement element,String string){	
-		if (element!=null) {
+		if (element!=null)
+		{
 			element.sendKeys(string);
+			TestBase.assertion.verifyEquals(string, element, "测试文本框数据是否输入", androidDriver);
 		}
-		else {
+		else 
+		{
+			Log.logError("WebElement:"+element.toString()+"未被定位无法输入字符串！",GetClassMethodName());
+		}
+	}
+	/**封装sendkey对象
+	 * 
+	 * @param element  Webelement
+	 * @param  row 行号
+	 * @param  ColumnName 列名
+	 */
+	public void sendKeyByExcle(WebElement element,int row,String ColumnName){	
+		if (element!=null)
+		{
+			String inputData="";
+			inputData=TestBase.PageElmentExcle.getCellData(row, ColumnName+"数据");
+			if (inputData !="") 
+			{
+				element.sendKeys(inputData);
+				TestBase.assertion.verifyEquals(inputData, element, "测试文本框数据是否输入", androidDriver);
+			}
+			else {
+				Log.logError("没有获取到excle数据经检查,无法在文本框输入", GetClassMethodName());
+				}
+		}
+		else 
+		{
 			Log.logError("WebElement:"+element.toString()+"未被定位无法输入字符串！",GetClassMethodName());
 		}
 	}
@@ -293,13 +321,14 @@ WebElement EndElement;
 	 */
 
 		
-	public WebElement  swipe(By by,String  direction,int times) {
+	public WebElement  swipe(By by,String  direction,int times ,boolean swipeAgain) {
 		Boolean findElement=false;	
 		Times=times;
 		try {
 			 	EndElement=driver.findElement(by);		
 			 	findElement=true;
 			 	Log.logInfo("action.swip:数据默认存在,无需滑动",GetClassMethodName());
+			 	
 			 	return EndElement;			
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -316,12 +345,15 @@ WebElement EndElement;
 									driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);	
 									driver.swipe((int)(0.5*Width), (int)(0.6*Height), (int)0.5*Width, (int)(0.4*Height), 1500);
 								    EndElement=driver.findElement(by);	
-//								    if (EndElement!=null) {
-//								    	driver.swipe((int)(0.5*Width), (int)(0.6*Height), (int)0.5*Width, (int)(0.4*Height), 1500);
-//								    	 EndElement=driver.findElement(by);	
 //									}
 								    findElement=true;
 									Log.logInfo("第："+i+" 次滑动已找到元素对象！",GetClassMethodName());
+									if (swipeAgain)
+								 	{
+									driver.swipe((int)(0.5*Width), (int)(0.6*Height), (int)0.5*Width, (int)(0.4*Height), 1500);	
+									 EndElement=driver.findElement(by);	
+										Log.logInfo("swipe多滑动一次",GetClassMethodName());
+									}
 									driver.manage().timeouts().implicitlyWait(Config.implicitlyWaitTime, TimeUnit.SECONDS);				
 																
 									break;					

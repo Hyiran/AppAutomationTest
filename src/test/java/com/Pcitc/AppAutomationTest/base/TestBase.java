@@ -59,6 +59,8 @@ public class TestBase  extends  GetClassMethodName
 	protected final String IosDataLocatType="Ios数据定位方式";
 	protected final String IosDataLocatString="Ios数据定位器";
 	
+	protected final String Field="字段";
+	protected final String FieldData="数据";
 	public static  FindWebElement findWebElement=null;
 	
 	public static String caseNo="";
@@ -91,7 +93,7 @@ public class TestBase  extends  GetClassMethodName
 //	读取生成测试数据的-excle文件 全局的初始化执行一次
 	protected static ExcelReader GenDataExcle=null ;
 //	读取页面定位 修改页面 的-excle文件 testcase类中初始化
-	protected 		 ExcelReader PageElmentExcle=null ;
+	public 	static ExcelReader PageElmentExcle=null ;
 //	读取页面定位 修改页面 的-excle文件 testcase类中初始化
 	public static int PageElmentExcleIndex=1 ;
 //	读取测试数据唯一标识文件
@@ -207,7 +209,7 @@ public void beforeMethod(String modeClassName,String modeMethodName)
 	protected void genDatainsertExcleData(String GenData,int row,int column)
 	{
 	
-		eh.updateFile("./ExcelData/测试数据.xls", "./ExcelData/测试数据.xls");
+		eh.updateFile("./File/dataExcles/测试数据.xls", "./File/dataExcles/测试数据.xls");
 		//如果两个参数不一致，执行后会生成一个新文件为参数二，与参数1文件相同；如修改cell值只对新生成的附件起作用
 		if (TestInit.IsTestEnvirectory)
 		{
@@ -221,9 +223,9 @@ public void beforeMethod(String modeClassName,String modeMethodName)
 		
 //		保存生效配置
 	
-				eh.afterExcle();
+		eh.afterExcle();
 			
-		Log.logInfo("安卓-差旅申请生成数据："+GenData+"已存入文件：./ExcelData/测试数据.xls",GetClassMethodName());
+		Log.logInfo("安卓-差旅申请生成数据："+GenData+"已存入文件：./File/dataExcles/测试数据.xls",GetClassMethodName());
 	
 		
 	}
@@ -242,9 +244,9 @@ public void beforeMethod(String modeClassName,String modeMethodName)
 	}
 	protected  void initReportExcle() 
 	{
-		reportExcleExcelHandle.updateFile("./target/surefire-reports/html/测试报告.xls", "./target/surefire-reports/html/测试报告.xls");
-		reportExcleExcelHandle.updateSheet("测试报告");
-		Log.logInfo("Excle报告文件已载入！",GetClassMethodName());
+//		reportExcleExcelHandle.updateFile("./target/surefire-reports/html/测试报告.xls", "./target/surefire-reports/html/测试报告.xls");
+//		reportExcleExcelHandle.updateSheet("测试报告");
+//		Log.logInfo("Excle报告文件已载入！",GetClassMethodName());
 	}
 	/**初始化测试数据excle文件,
 	 * 

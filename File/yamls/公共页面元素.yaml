@@ -12,7 +12,7 @@ EditText_Ptext:
   value: "//android.widget.EditText[starts-with(@text,'%s')]"
 EditText_Pindex:
   type: xpath
-  value: "//android.widget.EditText[(@index='%s')]"
+  value: "//android.widget.EditText['%s']"
 Button_Ptext:
   type: xpath
   value: "//android.widget.Button[starts-with(@text,'%s')]"

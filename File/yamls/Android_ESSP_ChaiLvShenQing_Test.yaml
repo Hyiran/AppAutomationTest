@@ -1,9 +1,3 @@
-jjijid:
-  type: xpath
-  value: "//android.widget.TextView[(@text='%s')]"
-TextView_qualText:
-  type: xpath
-  value: "//android.widget.TextView[(@text='%s')]"
 TextView_Ptext:
   type: xpath
   value: "//android.widget.TextView[starts-with(@text,'%s')]"

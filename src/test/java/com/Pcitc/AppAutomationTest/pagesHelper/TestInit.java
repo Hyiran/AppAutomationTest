@@ -68,7 +68,8 @@ public class TestInit extends TestBase
 	public void closeAppiumServer()
 	{
 
-		TestBase.reportExcleExcelHandle.afterExcle();	
+//		TestBase.reportExcleExcelHandle.afterExcle();	
+//		TestBase.reportExcleExcelHandle.closeRwb();
 		Log.logInfo("测试报告已生成",GetClassMethodName());
 		Log.logInfo("已关闭appium服务",GetClassMethodName());
 	}

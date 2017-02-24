@@ -44,6 +44,15 @@ public class TimeString  extends GetClassMethodName
 		return df.format(new Date());
 	}
 	/**
+	 * 返回当前时间：格式为：yyyyMMdd
+	 * @return
+	 */
+	public static String  getYMD2()
+	{
+		SimpleDateFormat df= new SimpleDateFormat("yyyyMMdd");
+		return df.format(new Date());
+	}
+	/**
 	 * 返回当前时间：格式为：yyyy-MM-dd
 	 * @return
 	 */
@@ -63,9 +72,10 @@ public class TimeString  extends GetClassMethodName
 	{
 //	String aString=	getyMDHMS();
 //	System.out.println(aString);
-	String b=	getYMD();
-	System.out.println("date:"+b.substring(0, 10));
-	System.out.println("year:"+b.substring(0, 4));
-	System.out.println("month:"+b.substring(5, 7));
+	String b=	getYMD2();
+	System.out.println("all"+b);
+//	System.out.println("date:"+b.substring(0, 10));
+//	System.out.println("year:"+b.substring(0, 4));
+//	System.out.println("month:"+b.substring(5, 7));
 	}
 }

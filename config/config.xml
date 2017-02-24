@@ -6,8 +6,8 @@
     <URL>http://127.0.0.1:4723/wd/hub</URL>
 	<Browser>Chrome</Browser>
 	<AppPath>./File/apps/</AppPath>	
-	<ElementWaitTime>10</ElementWaitTime>
-	<implicitlyWaitTime>15</implicitlyWaitTime>
+	<ElementWaitTime>5</ElementWaitTime>
+	<implicitlyWaitTime>2</implicitlyWaitTime>
 	<newCommandTimeout>1000</newCommandTimeout>
 	<ignoreUnimportantViews>true</ignoreUnimportantViews>
 	<!-- android -->
