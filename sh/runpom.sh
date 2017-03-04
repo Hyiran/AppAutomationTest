@@ -1,3 +1,4 @@
+export LANG="en_US.UTF-8"
 #拷贝备份文件到report下，备份文件为空
 echo  拷贝report模版到report目录下
 cp -f  /project/eclipse/AppAutomationTest/File/dataExcles/测试报告.xls /project/eclipse/AppAutomationTest/target/surefire-reports/html/
