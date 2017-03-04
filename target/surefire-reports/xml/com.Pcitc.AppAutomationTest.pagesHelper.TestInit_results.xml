@@ -4,10 +4,10 @@
            failures="0"
            errors="0"
            skipped="0"
-           time="0.001">
+           time="0.002">
   <properties />
   
   
-            <testcase name="autoTest" time="0.001" classname="com.Pcitc.AppAutomationTest.pagesHelper.TestInit" />
+            <testcase name="autoTest" time="0.002" classname="com.Pcitc.AppAutomationTest.pagesHelper.TestInit" />
       
 </testsuite>

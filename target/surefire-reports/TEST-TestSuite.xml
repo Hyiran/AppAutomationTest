@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="3" failures="0" name="TestSuite" time="265.879" errors="0" skipped="0">
+<testsuite tests="1" failures="0" name="TestSuite" time="20.91" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib"/>
@@ -20,7 +20,7 @@
     <property name="basedir" value="/project/eclipse/AppAutomationTest"/>
     <property name="java.endorsed.dirs" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/endorsed"/>
     <property name="os.arch" value="x86_64"/>
-    <property name="surefire.real.class.path" value="/project/eclipse/AppAutomationTest/target/surefire/surefirebooter6121389837333276072.jar"/>
+    <property name="surefire.real.class.path" value="/project/eclipse/AppAutomationTest/target/surefire/surefirebooter3422903464196056876.jar"/>
     <property name="java.io.tmpdir" value="/var/folders/5h/l2sbx1696rg_nyc9h256n1yw0000gn/T/"/>
     <property name="line.separator" value="
 "/>
@@ -46,7 +46,7 @@
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre"/>
-    <property name="sun.java.command" value="/project/eclipse/AppAutomationTest/target/surefire/surefirebooter6121389837333276072.jar /project/eclipse/AppAutomationTest/target/surefire/surefire3428331548683441943tmp /project/eclipse/AppAutomationTest/target/surefire/surefire1077131430292809233tmp"/>
+    <property name="sun.java.command" value="/project/eclipse/AppAutomationTest/target/surefire/surefirebooter3422903464196056876.jar /project/eclipse/AppAutomationTest/target/surefire/surefire1609737836988011618tmp /project/eclipse/AppAutomationTest/target/surefire/surefire8082387149005460157tmp"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="zh"/>
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
@@ -66,6 +66,4 @@
     <property name="sun.cpu.isalist" value=""/>
   </properties>
   <testcase classname="com.Pcitc.AppAutomationTest.pagesHelper.TestInit" name="autoTest" time="0.001"/>
-  <testcase classname="com.Pcitc.AppAutomationTest.testCases.ESSP_ChaiLvShenQing_Test" name="ESSP_ChaiLvShenQing_ListPage" time="34.929"/>
-  <testcase classname="com.Pcitc.AppAutomationTest.testCases.ESSP_ChaiLvShenQing_Test" name="ESSP_ChaiLvShenQing_Details" time="211.739"/>
 </testsuite>
