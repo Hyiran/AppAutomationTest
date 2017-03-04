@@ -31,11 +31,11 @@
 #JHBG_LJBG       { width: 12%; }
 #JHBG_BGCS       { width: 12%; }
 
-#shenpiyijian_BM       { width: 20%; }
-#shenpiyijian_SPR       { width: 20%; }
-#shenpiyijian_ZT        { width: 20%; }
-#shenpiyijian_YJ        { width: 20%; }
-#shenpiyijian_SJ       { width: 20%; }
+#shenpiyijian_BM     { width: 27%; }
+#shenpiyijian_SPR    { width: 21%; }
+#shenpiyijian_YJ     { width: 17%; }
+#shenpiyijian_SJ     { width: 23%; }
+#shenpiyijian_ZT     { width: 12%; }
 
 .singleContent{
     height:100%;

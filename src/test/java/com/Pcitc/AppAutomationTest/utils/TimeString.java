@@ -3,6 +3,8 @@ package com.Pcitc.AppAutomationTest.utils;
 
 
 
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 /**
@@ -12,6 +14,8 @@ import java.util.Date;
  */
 
 import org.testng.annotations.Test;
+
+import sun.util.logging.resources.logging;
 public class TimeString  extends GetClassMethodName
 {
 	private static String valueOfString(String str,int len)
@@ -67,13 +71,43 @@ public class TimeString  extends GetClassMethodName
 	}
 //	获得当前时间 精确放到毫秒
 	
+	public static String  timeMinus(String endTime,String startTime) 
+	{
+	try {
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");   
+		   java.util.Date now = df.parse(endTime);   
+		   java.util.Date date=df.parse(startTime);   
+		   long l=now.getTime()-date.getTime();   
+		   long day=l/(24*60*60*1000);   
+		   long hour=(l/(60*60*1000)-day*24);   
+		   long min=((l/(60*1000))-day*24*60-hour*60);   
+		   long s=(l/1000-day*24*60*60-hour*60*60-min*60);   
+		   Long.toString(day);
+		   Long.toString(hour);
+		   Long.toString(min);
+		   Long.toString(s);   
+//		   System.out.println(""+day+"天"+hour+"小时"+min+"分"+s+"秒");
+		  String minnus=day+"天"+hour+"小时"+min+"分"+s+"秒";
+		   return minnus;
+	} catch (Exception e)
+	{	
+		Log.logWarn("无法做时间减法，原因:"+endTime.toString(), GetClassMethodName(), "");
+		return "";
+	}
+		
+//		   System.out.println(""+day+"天"+hour+"小时"+min+"分"+s+"秒"); 
+	  
+	    
+	}
 	@Test
 	public void  y()
 	{
-//	String aString=	getyMDHMS();
-//	System.out.println(aString);
-	String b=	getYMD2();
-	System.out.println("all"+b);
+	String aString=	timeMinus("2016-02-02 12:08:01", "2015-05-01 10:02:09");
+	System.out.println("时间减法："+aString);
+	
+	
+//	String b=	getYMD2();
+//	System.out.println("chaizhi:"+a);
 //	System.out.println("date:"+b.substring(0, 10));
 //	System.out.println("year:"+b.substring(0, 4));
 //	System.out.println("month:"+b.substring(5, 7));

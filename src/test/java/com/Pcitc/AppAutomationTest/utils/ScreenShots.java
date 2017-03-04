@@ -43,7 +43,7 @@ public class ScreenShots extends GetClassMethodName
 		    	Log.logInfo("截图裁剪完毕",GetClassMethodName()); 
 			}
 			else {
-				Log.logInfo("webelement为null无法精确截图", GetClassMethodName());
+				Log.logWarn("webelement为null无法精确截图", GetClassMethodName(),"");
 			}
 			
 		}

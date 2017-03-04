@@ -7,6 +7,9 @@ import io.appium.java_client.android.AndroidKeyCode;
 
 public  class Location 
 {	 
+	
+	
+	 public  static final String TextView="TextView";
 	/**
 	 * TextView 对象，参数值为text属性
 	 */
@@ -44,7 +47,10 @@ public  class Location
 		 * @par ：TextView属性
 		 * 
 		 */
-	  public  static final String   CheckBox_following_iblingTextView="CheckBox_following-siblingTextView";
+	  public  static final String   TextView_Ptext_following_PindexCheckBox="TextView_Ptext_following_PindexCheckBox";
+	  
+	  
+	  public  static final String   TextView_Ptext_preceding_PindexCheckBox="TextView_Ptext_preceding_PindexCheckBox";
 	  /**
 		 * 使用id属性定位id控件
 		 * 

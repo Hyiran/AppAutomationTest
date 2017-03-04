@@ -1,3 +1,6 @@
+TextView:
+  type: xpath
+  value: "//android.widget.TextView"
 TextView_qualText:
   type: xpath
   value: "//android.widget.TextView[(@text='%s')]"
@@ -55,9 +58,12 @@ ListViewCheckedTextView_Pindex:
 ListViewTextView_Pindex_TextView_Ptext:
   type: xpath
   value: "//android.widget.ListView[%s]//android.widget.TextView[starts-with(@text,'%s')]"
-CheckBox_following-siblingTextView:
+TextView_Ptext_following_PindexCheckBox:
   type: xpath
-  value: "//android.widget.TextView[starts-with(@text,'%s')]/preceding-sibling::android.widget.CheckBox"
+  value: "//android.widget.TextView[starts-with(@text,'%s')]/following-sibling::android.widget.CheckBox[%s]"
+TextView_Ptext_preceding_PindexCheckBox:
+  type: xpath
+  value: "//android.widget.TextView[starts-with(@text,'%s')]/preceding-sibling::android.widget.CheckBox[%s]"
 TextView_Ptext_following-siblingTextView:
   type: xpath
   value: "//android.widget.TextView[starts-with(@text,'%s')]/following-sibling::android.widget.TextView"

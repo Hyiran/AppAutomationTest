@@ -16,11 +16,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.SkipException;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import com.Pcitc.AppAutomationTest.pages.Color;
 import com.Pcitc.AppAutomationTest.pagesHelper.Config;
+import com.Pcitc.AppAutomationTest.pagesHelper.PageFuntion;
 import com.Pcitc.AppAutomationTest.pagesHelper.TestInit;
 import com.Pcitc.AppAutomationTest.utils.Action;
 import com.Pcitc.AppAutomationTest.utils.Assertion;
@@ -34,6 +37,7 @@ import com.Pcitc.AppAutomationTest.utils.GetClassMethodName;
 import com.Pcitc.AppAutomationTest.utils.Log;
 import com.Pcitc.AppAutomationTest.utils.ParseYamlFile;
 import com.Pcitc.AppAutomationTest.utils.ScreenShots;
+import com.Pcitc.AppAutomationTest.utils.TimeString;
 import com.Pcitc.AppAutomationTest.utils.XMLParase;
 
 import io.appium.java_client.AppiumDriver;
@@ -49,120 +53,326 @@ import sun.util.logging.resources.logging;
  */
 public class TestBase  extends  GetClassMethodName
 {
+	public static boolean isGenReport=false;
+//	测试开始时间，beforsuit赋值
+	public static String startTime="";
+//	测试结束时间，aftersuit赋值
+	public static String endTime="";
+//	测试耗时，beforsuit赋值
+	public static String useTime="";
+	
+//	总共的用例数据，在用例方法前执行，调用testbase的beformethod自动赋值
+	public static int totalTestCase=0;
+//	通过的用例数据，在用例方法最后一行执行，调用testbase的afterMethod自动赋值
+	public static int passTestCase=0;
+//	失败的用例数据，在用例方法的cathc执行，以及调用pagefuntion的exceptionLogOutAndroid自动赋值
+	public static int failTestCase=0;
+	
+//	致命错误的个数，执行log类中的logDeadly自动赋值
+	public static int deadlyNo=0;
+//	严重错误的个数，执行log类中的logerror自动赋值
+	public static int seriousNo=0;
+//	断言失败或者找不到对象个数，执行log类中的logwaring自动赋值
+	public static int commonlyNo=0;
+	/**
+	 * 当前模块总用例数
+	 */
+	public static int modelTotal=0;
+	/**
+	 * 当前总断言数
+	 */
+	public static int modelTotalAsser=0;
+	/**
+	 * 当前模块失败用例数
+	 */
+	public static int modelStop=0;
+	/**
+	 * 当前模块断言失败数
+	 */
+	public static int modelAsserFail=0;
+//	是否停止运行
+	public static boolean StopRun =false;
+//	是否停止运行
+	public static  ArrayList<String> ErrorList;
+//	驱动
+	public static AppiumDriver<WebElement> appiumDriver;
+//	获得action
+	public static Action action=null;
+//	测试用例编号
+	public static String caseNo="";
+//	安卓定位相关字符串
 	protected final String AndroidTitleLocatType="Android字段定位方式";
 	protected final String AndroidTitleLocatString="Android字段定位器";
 	protected final String AndroidDataLocatType="Android数据定位方式";
 	protected final String AndroidDataLocatString="Android数据定位器";
 	
+//	ios定位相关字符串
 	protected final String IosTitleLocatType="Ios字段定位方式";
 	protected final String IosTitleLocatString="Ios字段定位器";
 	protected final String IosDataLocatType="Ios数据定位方式";
 	protected final String IosDataLocatString="Ios数据定位器";
-	
+//	断言方法输入日志信息
 	protected final String Field="字段";
 	protected final String FieldData="数据";
-	public static  FindWebElement findWebElement=null;
-	
-	public static String caseNo="";
-//	测试报告文件
-	 public static  ExcelHandle reportExcleExcelHandle=null;
-	 public static  int reportExcleExcelRow=1;
-//	判断当前是否已经获取yaml
-	 public static Boolean isGetyamlpath=false;
-//	截图
-	public static ScreenShots screenShots=null;	
-//	mysal对象
-	public static ConnectMySQL mySql;
-	public ArrayList<String> titleName=null;
-//	xml解析对象数据驱动
-	private static  XMLParase   xmlParase;
-
-//	封装xml文件的数据
-	private Map<String, String> commonMap;
-//	驱动
-	public static AppiumDriver<WebElement> appiumDriver;
-	
-//	获得action
-	public static Action action=null;
-//	获得assrtion
-	public static  Assertion assertion=null ;
-//	封装yaml文件对象
-	protected static   ParseYamlFile parseYamlFile=null;
-//	点击服务按钮
-//	protected static   Screen screen ;
-//	读取生成测试数据的-excle文件 全局的初始化执行一次
-	protected static ExcelReader GenDataExcle=null ;
-//	读取页面定位 修改页面 的-excle文件 testcase类中初始化
-	public 	static ExcelReader PageElmentExcle=null ;
-//	读取页面定位 修改页面 的-excle文件 testcase类中初始化
-	public static int PageElmentExcleIndex=1 ;
+//	excle相关对象
 //	读取测试数据唯一标识文件
 	protected static ExcelHandle eh=null;
-	
+//	插入测试报告文件及索引
+	public static  ExcelHandle reportExcleExcelHandle=null;
+	public static  int reportExcleExcelRow=1;
+//  读取测试生成数据excle文件
+	protected static ExcelReader GenDataExcle=null ;
+//	读取页面定位excle 用于定位元素 断言日志输出 读取测试数据 选择下拉数据等
+	public 	static ExcelReader PageElmentExcle=null ;
+	public static int PageElmentExcleIndex=1 ;
+//	测试用例类获取excle数据索引
+	public static int TestCaseElmentExcleIndex=1 ;
+//	excle文件定位页面元素
+	public static  FindWebElement findWebElement=null;
+//	判断当前是否已经获取yaml
+	public static Boolean isGetyamlpath=false;
+//	封装yaml文件对象
+	protected static   ParseYamlFile parseYamlFile=null;
+//	截图
+	public static ScreenShots screenShots=null;	
+//	获得assrtion
+	public static  Assertion assertion=null ;
+//	xml解析对象数据驱动
+	private static  XMLParase   xmlParase;
 //	读取xml文件
 	protected static XMLParase 	xml=null ;
-	
+//	封装xml文件的数据
+	private Map<String, String> commonMap;
+//	mysal对象
+	public static ConnectMySQL mySql;
+//	点击服务按钮
+	protected static   Screen screen ;
+
 	/**
 	 * 构造函数初始化对象
 	 * @param driveType  
 	 */
  public void  getDriver() 
  { 
+//	 初始化错误信息列表
+	 ErrorList=new ArrayList<String>();
+	 
 //	 获得driver对象
 	 Driver  driver = new 	Driver();
 	 driver.getDriver();
 	 appiumDriver=driver.driver;
+	 
+	 Log.logInfo("appiumDriver获取成功",GetClassMethodName());
 //	 创建action 对象
-	 action=new Action();
+	 action=new Action(appiumDriver);
 	 Log.logInfo("action创建成功",GetClassMethodName());
+	 
 //	 获得截图对象
 	 assertion=new Assertion();
+	 Log.logInfo("assertion创建成功",GetClassMethodName());
+	 
 //	 获得屏幕截图对象
 	 screenShots=new ScreenShots(appiumDriver);
+	 Log.logInfo("screenShots创建成功",GetClassMethodName());
+	 
+//	 excel定位元素
 	 findWebElement=new FindWebElement(appiumDriver);
+	 Log.logInfo("findWebElement创建成功",GetClassMethodName());
+	 
 //	 获得 parseYamlFile对象
-	 parseYamlFile=new ParseYamlFile(appiumDriver);
-	 if (parseYamlFile!=null)
-	 {
-		Log.logInfo("parseYamlFile创建成功",GetClassMethodName());
-	}
+	 parseYamlFile=new ParseYamlFile(appiumDriver);	 
+	 Log.logInfo("parseYamlFile创建成功",GetClassMethodName());
+	
 	 eh=new ExcelHandle();	
 	 initGenDataExcle();
+	 Log.logInfo("测试生成数据初始化成功",GetClassMethodName());
 	 
 	 reportExcleExcelHandle=new ExcelHandle();
-	 initReportExcle();
+	 Log.logInfo("测试报告excle初始化成功",GetClassMethodName());
+	 
+	 screen =new Screen();
+	 Log.logInfo("screen创建成功",GetClassMethodName());
+
 //		 链接数据库
 //		 mySql= new ConnectMySQL();			
 //		 mySql.connect("localhost:3306/XY", "root", "fu~123");
+//		 Log.logInfo("mySql创建成功",GetClassMethodName());
+	 
+}
+ static String nowRunClass="";
+ public static void GenExcleModelReport(int row,String nowClass)
+ {
+//	 判断当前类是否与参数一致，如果一致不生成报告
+	if (nowClass.equals(nowRunClass) ) 
+	{
+		
+	}
+	else 
+	{
+//		为默认时候
+		if (nowRunClass.equals(""))
+		{
+			row=7;
+		}
+		nowRunClass =nowClass;
+		TestBase.reportExcleExcelHandle.updateFile("./target/surefire-reports/html/测试报告.xls", "");
+		
+		TestBase.reportExcleExcelHandle.updateSheet("概要信息");	
+		
+		TestBase.reportExcleExcelHandle.addCellDataWithColor(row, 1,Integer.toString(modelTotal), Color.heise, Color.lvse);
+		TestBase.reportExcleExcelHandle.addCellDataWithColor(row, 2,Integer.toString(modelTotal-modelStop), Color.heise, Color.lvse);
+		TestBase.reportExcleExcelHandle.addCellDataWithColor(row, 3,Integer.toString(modelStop), Color.heise, Color.hongse);
+		TestBase.reportExcleExcelHandle.addCellDataWithColor(row, 4,Integer.toString(modelAsserFail), Color.heise, Color.huangse);
+		TestBase.reportExcleExcelHandle.addCellDataWithColor(row, 5,Integer.toString(modelTotalAsser), Color.heise, Color.lvse);
+		TestBase.reportExcleExcelHandle.afterExcle();
+		Log.logInfo("当前测试类结果已经插入excleReport中", GetClassMethodName());
+//		重置
+		modelTotal=0;
+		modelTotalAsser=0;
+		modelStop=0;
+		modelAsserFail=0;
+	}
+		
+ }
+ public static void GenExcleDetailsReport()
+ {
+	 if (TestInit.IsAndroid)
+	 {
+//			获得测试结束时间及耗时
+			endTime=TimeString.getyMDHMS();
+			useTime=TimeString.timeMinus(endTime,startTime);
+			TestBase.reportExcleExcelHandle.updateFile("./target/surefire-reports/html/测试报告.xls", "");
+			TestBase.reportExcleExcelHandle.updateSheet("概要信息");	
+//			信息列插入开始时间
+			TestBase.reportExcleExcelHandle.addCellDataWithColor(0, 1,startTime, Color.heise, Color.lvse);
+//			信息列插入结束时间
+			TestBase.reportExcleExcelHandle.addCellDataWithColor(0, 3,endTime, Color.heise, Color.lvse);
+//			信息列插入耗时
+			TestBase.reportExcleExcelHandle.addCellDataWithColor(0, 5,useTime, Color.heise, Color.lvse);
+
+//			用例执个数
+			TestBase.reportExcleExcelHandle.addCellDataWithColor(1, 1,Integer.toString(totalTestCase), Color.heise, Color.lvse);
+//			成功数
+			TestBase.reportExcleExcelHandle.addCellDataWithColor(1, 3, Integer.toString(totalTestCase-failTestCase), Color.heise, Color.lvse);
+//			失败数
+			TestBase.reportExcleExcelHandle.addCellDataWithColor(1, 5, Integer.toString(failTestCase), Color.heise, Color.hongse);
+
+//			致命错误数
+			TestBase.reportExcleExcelHandle.addCellDataWithColor(2, 1, Integer.toString(deadlyNo), Color.heise, Color.shenhongse);
+//			严重错误数
+			TestBase.reportExcleExcelHandle.addCellDataWithColor(2, 3, Integer.toString(seriousNo), Color.heise, Color.hongse);
+//			断言失败错误数
+			TestBase.reportExcleExcelHandle.addCellDataWithColor(2, 5, Integer.toString(commonlyNo), Color.heise, Color.huangse);
+
+			TestBase.reportExcleExcelHandle.afterExcle();
+			
+			Log.logInfo("自动化报告生成",GetClassMethodName());
+			
+			appiumDriver.quit();
+			appiumDriver=null;
+			isGenReport=true;
+	}
+else {
+//	获得测试结束时间及耗时
+	endTime=TimeString.getyMDHMS();
+	useTime=TimeString.timeMinus(endTime,startTime);
+	TestBase.reportExcleExcelHandle.updateFile("./target/surefire-reports/html/测试报告.xls", "");
+	TestBase.reportExcleExcelHandle.updateSheet("概要信息");	
+//	信息列插入开始时间
+	TestBase.reportExcleExcelHandle.addCellDataWithColor(3, 1,startTime, Color.heise, Color.lvse);
+//	信息列插入结束时间
+	TestBase.reportExcleExcelHandle.addCellDataWithColor(3, 3,endTime, Color.heise, Color.lvse);
+//	信息列插入耗时
+	TestBase.reportExcleExcelHandle.addCellDataWithColor(3, 5,useTime, Color.heise, Color.lvse);
+
+//	用例执个数
+	TestBase.reportExcleExcelHandle.addCellDataWithColor(4, 1,Integer.toString(totalTestCase), Color.heise, Color.lvse);
+//	成功数
+	TestBase.reportExcleExcelHandle.addCellDataWithColor(4, 3, Integer.toString(totalTestCase-failTestCase), Color.heise, Color.lvse);
+//	失败数
+	TestBase.reportExcleExcelHandle.addCellDataWithColor(4, 5, Integer.toString(failTestCase), Color.heise, Color.hongse);
+
+//	致命错误数
+	TestBase.reportExcleExcelHandle.addCellDataWithColor(5, 1, Integer.toString(deadlyNo), Color.heise, Color.shenhongse);
+//	严重错误数
+	TestBase.reportExcleExcelHandle.addCellDataWithColor(5, 3, Integer.toString(seriousNo), Color.heise, Color.hongse);
+//	断言失败错误数
+	TestBase.reportExcleExcelHandle.addCellDataWithColor(5, 5, Integer.toString(commonlyNo), Color.heise, Color.huangse);
+
+	TestBase.reportExcleExcelHandle.afterExcle();
+	
+	Log.logInfo("自动化报告生成",GetClassMethodName());
+	appiumDriver.quit();
+	appiumDriver=null;
+}
+}
+ /**
+  * 初始化定位器yaml文件
+  * @param modeClassName
+  */
+public void beforeClass()
+ {
+//	获得默认yaml
+	getBeforeElement("公共页面元素");
+	Log.logInfo("yaml文件:公共页面元素,已加载",GetClassMethodName());
+ }
+/**
+ * 生成模块测试报告
+ * @param row
+ */
+public void afterClass(int row,String className)
+{
+GenExcleModelReport(row ,className);
 }
 
-public void beforeClass(String modeClassName)
- {
-//	根据平台，获得定位文件
-//	if (TestInit.IsAndroid)
-//	{
-//		getBeforeElement("Android_"+modeClassName);
-//	}
-//	else {
-//		getBeforeElement("Ios_"+modeClassName);
-//		 }
-	getBeforeElement("公共页面元素");
-	Log.logInfo("yaml文件已加载"+modeClassName,GetClassMethodName());
- }
- 
+/**
+ * testcase使用，获得页面定位 断言 及数据的excle对象
+ * @param modeClassName
+ * @param modeMethodName
+ */
+String nowMethod="";
 public void beforeMethod(String modeClassName,String modeMethodName)
+{
+modelTotal++;
+totalTestCase++;
+if (modeClassName!="") 
 {
 	PageElmentExcle = getExcle(modeClassName, modeMethodName);
 	Log.logInfo("PageElmentExcle初始化完毕！file:"+modeClassName+"xls,sheet:"+MethodeName, GetClassMethodName());
 }
-   
+
+}
+//用例类方法后执行， 增加成功
+protected void afterMethod(int row,String className)
+{
+
+	if (StopRun) 
+	{
+	GenExcleModelReport(row,className);
+	GenExcleDetailsReport();	
+	Log.logInfo("发生致命错误，自动化报告生成,停止自动化测试",GetClassMethodName());
+	appiumDriver.quit();
+	appiumDriver=null;
+	}
+}
+/**
+ * 页面类在定位前执行
+ * @param yamlname  yaml文件名称
+ */
+protected  static void getBeforeElement (String yamlname) 
+{
+	 getYamlFile(getYamlPath(yamlname));
+}
+
+
+
+
 	/**
 	 * 获得登陆用户名
 	 * @param modeName 模块名，如“gongshi”
 	 * @param leavle 第几级审批人如“1”
 	 * @return
 	 */
-	//获得用户名
 	protected String getUserName(String modeName,String leavle)
 	{
 //		读取AppUser.xml 文件的配置用户名 密码
@@ -179,6 +389,7 @@ public void beforeMethod(String modeClassName,String modeMethodName)
 		Log.logInfo("登陆用户名为："+useNameString,GetClassMethodName());
 		return useNameString;
 	}
+	
 	/**
 	 * 获得登陆用户密码
 	 * @param modeName 模块名，如“gongshi”
@@ -200,10 +411,11 @@ public void beforeMethod(String modeClassName,String modeMethodName)
 			return passWord;
 					
 		}
+	
 	/**
 	 * 移动端生成的数据存入文件中
 	 * @param GenData 要存的数据
-	 * @param row 行号 
+	 * @param row 行号 （从 0开始）
 	 * @param column 列号
 	 */
 	protected void genDatainsertExcleData(String GenData,int row,int column)
@@ -230,6 +442,7 @@ public void beforeMethod(String modeClassName,String modeMethodName)
 		
 	}
 
+	
 	/**
 	 * 获得生成测试数据文件中的指定数据
 	 * @param row 行号 如1
@@ -238,26 +451,19 @@ public void beforeMethod(String modeClassName,String modeMethodName)
 	 */
 	protected  String getGenDataExcleData(int row,String columnName ) 
 	{
-
 //		返回测试数据
 		return GenDataExcle.getCellData(row, columnName);
 	}
-	protected  void initReportExcle() 
-	{
-//		reportExcleExcelHandle.updateFile("./target/surefire-reports/html/测试报告.xls", "./target/surefire-reports/html/测试报告.xls");
-//		reportExcleExcelHandle.updateSheet("测试报告");
-//		Log.logInfo("Excle报告文件已载入！",GetClassMethodName());
-	}
+
 	/**初始化测试数据excle文件,
 	 * 
 	 */
 	protected  void initGenDataExcle() 
 	{
-
 		Log.logInfo("拷贝pc生成数据到："+Config.excleLib+"测试数据.xls",GetClassMethodName());
 		eh.updateFile("/project/eclipse/WebTest/ExcelData/PC端生成的数据.xls", Config.excleLib+"测试数据.xls");
 		eh.afterExcle();
-		Log.logInfo("最新测试数据已覆盖完成！",GetClassMethodName());
+		//Log.logInfo("最新测试数据已覆盖到："+Config.excleLib+"测试数据.xls",GetClassMethodName());
 		
 //		判断环境指定sheetname
 		if (TestInit.IsTestEnvirectory) 
@@ -271,29 +477,32 @@ public void beforeMethod(String modeClassName,String modeMethodName)
 		}
 	
 	}
+
 	/**
 	 * 更改页面元素显示等待时间为默认
 	 */
+	
 	protected static  void changWaitTimeToDefault()
 	{
 		ParseYamlFile.waitTime=Config.ElementWaitTime;
+		Config.ElementWaitTime=5;
 	}
+
 	/**
 	 * 更改页面元素显示等待时间
 	 */
 	protected static  void changWaitTimeToVar(int time)
 	{
 		ParseYamlFile.waitTime=time;
+		Config.ElementWaitTime=time;
 	}
-	 public void  getScreen() 
-	 {
-		 
-//		 screen =new Screen();
-
-	 }
+	
 	 
-		
-//	 得到sql查询结果
+/**
+ * 得到sql查询结果
+ * @param selectSql
+ * @return
+ */
 	 public  static  List<HashMap<String, String>> getSqlSelect (String selectSql)
 	 {
 		 List<HashMap<String, String>>  res= ConnectMySQL.getSqlResault(selectSql, true);
@@ -304,19 +513,23 @@ public void beforeMethod(String modeClassName,String modeMethodName)
 	 {
 		mySql.getSqlResault(selectSql, false);	
 	 }
-		/**
+	
+	 	/**
 		 * 得到Excle对象
 		 * @param fileName  文件名称（没有扩展名）
 		 * @param sheetName sheet名
 		 *  @return Excle对象
 		 */
-		public  static  ExcelReader getExcle (String fileName , String sheetName)
+		
+public  static  ExcelReader getExcle (String fileName , String sheetName)
 		 {
 		
 			ExcelReader excle= new ExcelReader(fileName,sheetName);
 			return excle;
 		 }
-		/**
+		
+
+/**
 		 * 获得xml对象
 		 * @param fileName 文件名（只是文件名）
 		 * @return
@@ -331,14 +544,7 @@ public void beforeMethod(String modeClassName,String modeMethodName)
 			
 		 }
 	
-		 /**
-		  * 页面类在定位前执行
-		  * @param yamlname  yaml文件名称
-		  */
-		 protected  static void getBeforeElement (String yamlname) 
-		 {
-			 getYamlFile(getYamlPath(yamlname));
-		 }
+		
 			/**
 			 * 得到yaml文件的据对路径
 			 * @param fileName  文件名称（没有扩展名）
@@ -373,7 +579,14 @@ public void beforeMethod(String modeClassName,String modeMethodName)
 		}
 	}
 	 
-	
+	/**
+	 * 使用 excle文件获取对象
+	 * @param ex excle对想
+	 * @param wait 是否等待元素出现
+	 * @param byTypeColumn 定位方式
+	 * @param locatStringcolumn 定位器
+	 * @return
+	 */
 		protected static    WebElement  getElemntByExcle(ExcelReader ex,boolean wait,String byTypeColumn,String locatStringcolumn)
 		{
 			if (wait) 
@@ -386,7 +599,8 @@ public void beforeMethod(String modeClassName,String modeMethodName)
 			}
 
 		}
-/**
+
+		/**
  	* 得到页面WebElement元素
  * @param element：yaml文件元素名称
  * @param wait 是否要等待
@@ -421,14 +635,15 @@ public void beforeMethod(String modeClassName,String modeMethodName)
 				}
 			}
 		}
+	
 	/**
 	 * 得到WebElements 对象
 	 * @param elementName  定位器名称
 	 * @param a 替换参数1
 	 * @param b  替换参数2
 	 * @return
-	 */
-	protected static   List<WebElement> getElemnts (String elementName,String a,String b)
+	 */	
+	protected static   List<WebElement> getElementsByYaml (String elementName,String a,String b)
 	{
 		return parseYamlFile.getElemens(elementName,a,b);
 	}
@@ -621,8 +836,8 @@ public void beforeMethod(String modeClassName,String modeMethodName)
 		String excelpath="";		
 	  public  void excelInt()
 		{
-//				获得excel文件
-					 excelpath=this.getClass().getSimpleName();			
+//			获得excel文件
+			excelpath=this.getClass().getSimpleName();			
 				
 			
 		}

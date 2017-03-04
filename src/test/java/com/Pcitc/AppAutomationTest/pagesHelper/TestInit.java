@@ -1,6 +1,9 @@
 package com.Pcitc.AppAutomationTest.pagesHelper;
 
+import java.text.BreakIterator;
+
 import org.testng.Reporter;
+import org.testng.SkipException;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
@@ -9,8 +12,10 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.Pcitc.AppAutomationTest.base.TestBase;
+import com.Pcitc.AppAutomationTest.pages.Color;
 import com.Pcitc.AppAutomationTest.utils.ExcelHandle;
 import com.Pcitc.AppAutomationTest.utils.Log;
+import com.Pcitc.AppAutomationTest.utils.TimeString;
 import com.Pcitc.AppAutomationTest.utils.XMLParase;
 
 import jxl.write.WriteException;
@@ -18,28 +23,28 @@ import sun.util.logging.resources.logging;
 
 public class TestInit extends TestBase
 {
+
+	
+	
 //	设置图片路径
 	private   final String  PictureLib="./FileLibrary/Picture/"; 
 
 //	获得移动端平台
-
-	
 	public static boolean  IsAndroid=true;
 	public static boolean  IsTestEnvirectory=true;
+	
 	@Parameters({"isAndroid","isTestEnvirectory"})
-
-	
 	@BeforeSuite(groups="AppPlatform",description="获得平台类型")
-	public void  AppPlatform (Boolean isAndroid,Boolean isTestEnvirectory) 
-		{
 	
+public void  AppPlatform (Boolean isAndroid,Boolean isTestEnvirectory) 
+		{
+//		获得运行开始时间
+		TestBase.startTime=TimeString.getyMDHMS();
 //		获得测试环境
 //		获得测试平台
 		IsAndroid=isAndroid;
 		IsTestEnvirectory=isTestEnvirectory;
 		Log.logInfo("当前是否为安卓测试："+IsAndroid+"当前是否为测试环境："+IsTestEnvirectory,GetClassMethodName());
-	
-
 		
 //		获得screen 对象
 //		getScreen();
@@ -67,10 +72,12 @@ public class TestInit extends TestBase
 	@AfterSuite
 	public void closeAppiumServer()
 	{
-
-//		TestBase.reportExcleExcelHandle.afterExcle();	
-//		TestBase.reportExcleExcelHandle.closeRwb();
-		Log.logInfo("测试报告已生成",GetClassMethodName());
+	if (isGenReport!=true) {
+		appiumDriver.quit();
+		appiumDriver=null;
+	}
+		
+		Log.logInfo("已释放appiumDriver服务",GetClassMethodName());
 		Log.logInfo("已关闭appium服务",GetClassMethodName());
 	}
 //	初始化action driver等对象
@@ -78,20 +85,34 @@ public class TestInit extends TestBase
 	public void getAppiumDriver()
 	{
 		getDriver();
-		Log.logInfo("测试初始化成功",GetClassMethodName());
+		Log.logInfo("测试初始化完毕",GetClassMethodName());
 	}
-//	关闭driver
+//	生成报告
 	@AfterTest
 	public void closeDriver()
 	{
-		appiumDriver.quit();
-		appiumDriver=null;
-		Log.logInfo("driver 释放成功",GetClassMethodName());
+		if (isGenReport!=true) 
+		{
+			GenExcleDetailsReport();
+		}
+		
 	}
-	@Test(description="开始执行测试")
+	@Test(description="是否达到执行条件")
 	public void autoTest()
 	{
-		Log.logInfo("小盈办公-开始自动化测试",GetClassMethodName());
+		if (StopRun) 
+		{
+			Log.logDeadly("初始化失败导致自动化测试中断,原因： "+ErrorList, GetClassMethodName());
+			appiumDriver.quit();
+			appiumDriver=null;
+			Log.logInfo("driver 释放成功",GetClassMethodName());
+			throw new SkipException("Already Stop Test！");		  
+		}
+		else 
+		{
+			Log.logInfo("初始化成功-小盈办公-开始自动化测试",GetClassMethodName());
+		}
+	
 
 		
 	}

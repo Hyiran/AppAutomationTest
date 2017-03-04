@@ -4,10 +4,12 @@ package com.Pcitc.AppAutomationTest.utils;
 
 import org.testng.annotations.Test;
 
+import com.Pcitc.AppAutomationTest.pages.Color;
 import com.Pcitc.AppAutomationTest.pagesHelper.Config;
 import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
 
-import jxl.*;   
+import jxl.*;
+import jxl.format.Colour;
 import jxl.format.UnderlineStyle;   
 import jxl.write.*;   
 import jxl.write.Number;
@@ -96,15 +98,31 @@ Log.logError("ExcelHandle-sheet新建错误错误：--"+e.toString(),GetClassMet
  */
 public static void updateFile(String oldFilePath,String newFilePath)   
 { 
-	try {
-		fileBefore =new File(oldFilePath);
-		fileAfter =new File(newFilePath);
-		rwb = Workbook.getWorkbook(fileBefore); 
-	    wwb = Workbook.createWorkbook(fileAfter,rwb);//copy  复制文件
-	} catch (Exception e) {
-		Log.logError(e.toString(), GetClassMethodName());
-		// TODO: handle exception
-	}	
+	if (newFilePath.equals("")) 
+	{
+		try {
+			fileBefore =new File(oldFilePath);
+			rwb = Workbook.getWorkbook(fileBefore); 
+		    wwb = Workbook.createWorkbook(fileBefore,rwb);//copy  复制文件
+		} catch (Exception e) 
+		{
+			Log.logError(e.toString(), GetClassMethodName());
+		}
+		
+	}
+	else {
+		try {
+			
+			fileBefore =new File(oldFilePath);
+			fileAfter =new File(newFilePath);
+			rwb = Workbook.getWorkbook(fileBefore); 
+		    wwb = Workbook.createWorkbook(fileAfter,rwb);//copy  复制文件
+		} catch (Exception e) {
+			Log.logError(e.toString(), GetClassMethodName());
+			// TODO: handle exception
+		}	
+	}
+	
 }
 /**
  * 跟新文件的sheet名字在updateFile执行后执行
@@ -121,17 +139,19 @@ public static void updateSheet(String sheetName)
 	}
 }
 
- /**
-  * 修改字体颜色
-  * @param x
-  * @param y
-  * @param Data 修改的数据
-  */
+/**
+ * 修改字体及背景颜色
+ * @param x 行号
+ * @param y 列号
+ * @param Data 输入的字符串
+ * @param Wordcolor  字体颜色
+ * @param backGroundColor  单元格背景颜色
+ */
 public static void addCellDataWithColor(int x,int y,String Data,String Wordcolor,String backGroundColor)   
 {  	//添加带有字体颜色的Formatting对象   
 	WritableFont wfc =null;
 	try {
-		  //给第二行设置背景、字体颜色、对齐方式等等;  
+		  //设置字体颜色、
         WritableFont font2 = new WritableFont(WritableFont.ARIAL,12,WritableFont.NO_BOLD,false,UnderlineStyle.NO_UNDERLINE,Colour.BLUE2);  
         WritableCellFormat cellFormat2 = new WritableCellFormat(font2);  
   
@@ -149,6 +169,7 @@ public static void addCellDataWithColor(int x,int y,String Data,String Wordcolor
 		}
 
 	WritableCellFormat wcfFC = new WritableCellFormat(wfc);  
+	  //设置背景颜色、
 	if(backGroundColor.equals("YELLOW"))
 	{
 		wcfFC.setBackground(Colour.YELLOW);
@@ -156,6 +177,14 @@ public static void addCellDataWithColor(int x,int y,String Data,String Wordcolor
 	else if (backGroundColor.equals("RED"))
 	{
 		wcfFC.setBackground(Colour.RED);
+	}
+	else if (backGroundColor.equals("DARK_RED"))
+	{
+		wcfFC.setBackground(Colour.DARK_RED);
+	}
+	else if (backGroundColor.equals("GREEN"))
+	{
+		wcfFC.setBackground(Colour.BRIGHT_GREEN);
 	}
 	else 
 	{
@@ -389,21 +418,17 @@ public void testUpdateExcle()
 {
 	try {
 		
-		updateFile(Config.excleLib+"首页.xls", Config.excleLib+"首页.xls");
+		updateFile(Config.excleLib+"首页.xls", "");
 		//如果两个参数不一致，执行后会生成一个新文件为参数二，与参数1文件相同；如修改cell值只对新生成的附件起作用
 		updateSheet("首页");
 		addCellData(0,1, "新增1");
 		addCellData(0,2, "新增2");
 		addCellDataWithLink(0, 5,  "t1");
 		addCellDataWithLink(0, 6, "t1Cut");
-		addCellDataWithColor(0, 7, "样式1", "YELLOW","RED");
-		addCellDataWithColor(0, 8, "样式999", "RED","YELLOW");
-		addCellDataWithColor(0, 9, "样式3", "BLACK","RED");
-//		保存生效配置
-		afterExcle2(false);
-		addCellDataWithColor(1, 3, "99", "RED","YELLOW");
-		addCellDataWithColor(1, 2, "样式3", "BLACK","RED");
-		afterExcle2(false);
+		addCellDataWithColor(0,1, "hong1", Color.heise,Color.lvse);
+		addCellDataWithColor(0,2, "lvse1", Color.huangse,Color.shenhongse);
+	
+		afterExcle();
 	} catch (Exception e) {
 		// TODO: handle exception
 	}

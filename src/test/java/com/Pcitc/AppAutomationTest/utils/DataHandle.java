@@ -57,6 +57,19 @@ public class DataHandle extends GetClassMethodName
 			}
 			return  Long.parseLong(sb.toString());
 		}
+//		长整型转整形
+		public  static int getInt(long long1)
+		{
+			int i=(int) long1;
+		   return	i;
+		}
+		
+//		长整型转整形
+		public  static int getInt(double double1)
+		{
+			int i=(int) double1;
+		   return	i;
+		}
 //		字符串转换整形
 		public  static int getInt(String string)
 		{

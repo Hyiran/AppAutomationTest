@@ -1,5 +1,3 @@
-
-
 var setNomalRowDivDataWriteByPTag = function(rowDivId,dataParamter){
     var rowDivElement = document.getElementById(rowDivId);
     var oDd = rowDivElement.getElementsByTagName("i");
@@ -27,7 +25,18 @@ var setNomalTableDivData = function(tableDivId,dataParamter){
     }
 }
 
-
+var setNomalTableData = function(tableId,dataParamter){
+    var tb = document.getElementById(tableId);
+    var row = tb.insertRow();
+    row.className = "tableRow";
+    var getArr = dataParamter.split("|");
+    for(var i = 0;i < getArr.length;i ++){
+        var val =  getArr[i];
+        var cell = row.insertCell();
+        cell.className = "tableCell";
+        cell.innerHTML = val;
+    }
+}
 
 var setTwoTableChage = function(leftTabelControlId,rightTableControlId,leftTabelId,rightTableId) {
 	var Tabchange1 = document.getElementById(leftTabelControlId);

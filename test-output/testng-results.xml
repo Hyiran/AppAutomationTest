@@ -2,12 +2,12 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="345" started-at="2017-02-23T12:14:45Z" finished-at="2017-02-23T12:14:45Z">
+  <suite name="Default suite" duration-ms="402" started-at="2017-02-25T13:12:26Z" finished-at="2017-02-25T13:12:27Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="345" started-at="2017-02-23T12:14:45Z" finished-at="2017-02-23T12:14:45Z">
+    <test name="Default test" duration-ms="402" started-at="2017-02-25T13:12:26Z" finished-at="2017-02-25T13:12:27Z">
       <class name="com.Pcitc.AppAutomationTest.utils.ExcelHandle">
-        <test-method status="PASS" signature="testUpdateExcle()[pri:0, instance:com.Pcitc.AppAutomationTest.utils.ExcelHandle@1e397ed7]" name="testUpdateExcle" duration-ms="329" started-at="2017-02-23T20:14:45Z" description="测试更新数据" finished-at="2017-02-23T20:14:45Z">
+        <test-method status="PASS" signature="testUpdateExcle()[pri:0, instance:com.Pcitc.AppAutomationTest.utils.ExcelHandle@1e397ed7]" name="testUpdateExcle" duration-ms="376" started-at="2017-02-25T21:12:26Z" description="测试更新数据" finished-at="2017-02-25T21:12:27Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testUpdateExcle -->

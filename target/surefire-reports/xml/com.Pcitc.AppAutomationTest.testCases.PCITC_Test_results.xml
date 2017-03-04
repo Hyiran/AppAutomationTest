@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.Pcitc.AppAutomationTest.pagesHelper.TestInit"
+           tests="1"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="32.522">
+  <properties />
+  
+  
+            <testcase name="ESSP_ChaiLvShenQing_ListPage" time="32.522" classname="com.Pcitc.AppAutomationTest.testCases.PCITC_Test" />
+      
+</testsuite>

@@ -3,11 +3,12 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.Pcitc.AppAutomationTest.utils.ExcelHandle">
+      <class name="com.Pcitc.AppAutomationTest.Test.StopTestng">
         <methods>
-          <include name="testUpdateExcle"/>
+          <include name="runTest1"/>
+          <include name="runTest2"/>
         </methods>
-      </class> <!-- com.Pcitc.AppAutomationTest.utils.ExcelHandle -->
+      </class> <!-- com.Pcitc.AppAutomationTest.Test.StopTestng -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -3,6 +3,7 @@ package com.Pcitc.AppAutomationTest.pagesHelper;
 
 
 import com.Pcitc.AppAutomationTest.utils.GetClassMethodName;
+import com.Pcitc.AppAutomationTest.utils.Log;
 import com.Pcitc.AppAutomationTest.utils.XMLParase;
 
 
@@ -55,7 +56,10 @@ public class Config  extends GetClassMethodName
 	static 
 		{
 		 configFilePath="./config/";
-		 xm =new XMLParase(configFilePath+"config.xml");
+		
+			 xm =new XMLParase(configFilePath+"config.xml");
+		
+		
 //		Public
 		
 		xmlLib="./File/dataXmls/";

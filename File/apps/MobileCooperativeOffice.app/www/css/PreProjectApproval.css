@@ -1,0 +1,94 @@
+
+.money
+{
+    float: right;
+    margin-right: 20px;
+    font-size: 14px;
+    font-family: "微软雅黑";
+}
+@media screen and (max-width: 2000px) { 
+#table1 {display: none;} 
+#table2 {display: table;}
+}
+@media screen and (max-width: 415px) { 
+#table1 {display: table;} 
+#table2 {display: none;}
+}
+#JHBG_XMJD       { width: 13%; }
+#JHBG_JDMC       { width: 17%; }
+#JHBG_BGQ        { width: 17%; }
+#JHBG_BGH        { width: 17%; }
+#JHBG_BGQK       { width: 12%; }
+#JHBG_LJBG       { width: 12%; }
+#JHBG_BGCS       { width: 12%; }
+
+#shenpiyijian_BM     { width: 27%; }
+#shenpiyijian_SPR    { width: 21%; }
+#shenpiyijian_YJ     { width: 17%; }
+#shenpiyijian_SJ     { width: 23%; }
+#shenpiyijian_ZT     { width: 12%; }
+
+.singleContent{
+    height:100%;
+    /*      line-height: 20px;*/
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: left;
+    color:#999;
+    font-size:15px;
+}
+.zixiangmu{
+    text-align: left;
+    color:#999;
+    font-size:15px;
+    display: table;
+    width: 100%;
+}
+
+.jiantouLan {
+    display: inline-block;
+    width: 10px;
+    height: 19px;
+    background: url(../img/blueArrow.png) no-repeat;
+    background-size: contain;    
+}
+.zixiangmuText{
+    width: 90%;
+    height: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 10px;
+    display: table-cell;
+
+}
+.zxmImg{
+    width: 10%;
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+    padding-right: 20px;
+}
+#projectInfo{
+    background-color: #FFB973;
+    color:#FFF;
+    padding-left:20px;
+    padding-top:15px;
+    padding-right:20px;
+    padding-bottom:8px;
+    font-size: 12px;
+    overflow:hidden;
+}
+#sawtooth{
+    background-image:url('../img/黄bgxiao.png');
+    background-repeat: repeat-x;
+    background-size: contain;
+    height: 7px;
+    margin-top: -1px;
+
+}
+
+
+

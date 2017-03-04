@@ -10,6 +10,7 @@ import org.openqa.selenium.WebElement;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import com.Pcitc.AppAutomationTest.base.TestBase;
 import com.Pcitc.AppAutomationTest.pagesHelper.Config;
 import com.Pcitc.AppAutomationTest.pagesHelper.TestInit;
 
@@ -27,12 +28,9 @@ public  class Driver extends GetClassMethodName
 	public static  AppiumDriver<WebElement>  driver=null;
 	public static  DesiredCapabilities capabilities=null ;
 
-
-	
 	 public  void getDriver() 
 	 {
 		 initDriver();
-//		 installApp();
 	 }
 
 	
@@ -59,7 +57,8 @@ public  class Driver extends GetClassMethodName
 					} 
 				catch (MalformedURLException e) 
 				{
-					Log.logError("Driver-initDriver:创建driver读取配置文件错误，请检查！" +e.toString(),GetClassMethodName());
+					TestBase.ErrorList.add(e.toString());
+					Log.logDeadly( e.toString(),GetClassMethodName());
 				}
 //				判断当前应用是否安装
 				Boolean isInstall=driver.isAppInstalled(Config.appPackage);
@@ -72,8 +71,9 @@ public  class Driver extends GetClassMethodName
 							Log.logInfo("xy.apk安装成功",GetClassMethodName());
 							} catch (Exception e) 
 							{
-								// TODO: handle exception
-								Log.logError("xy.apk无法安装应用，请检查安装文件路径！",GetClassMethodName());
+								TestBase.ErrorList.add(e.toString());
+								Log.logDeadly( e.toString(),GetClassMethodName());
+								Log.logInfo("xy.apk无法安装应用，请检查安装文件路径！",GetClassMethodName());
 							}
 	
 					}
@@ -107,16 +107,16 @@ public  class Driver extends GetClassMethodName
 		    	driver = new IOSDriver(new URL(Config.URL),capabilities);
 		    	  Log.logInfo("创建iosDriver成功", GetClassMethodName());
 			} catch (Exception e) {
-				  Log.logInfo("创建iosDriver失败，失败原因:"+e.toString(), GetClassMethodName());
-				// TODO: handle exception
+				
+				TestBase.ErrorList.add(e.toString());
+				Log.logDeadly( e.toString(),GetClassMethodName());
+				Log.logInfo("创建iosDriver失败，失败原因:"+e.toString(), GetClassMethodName());
 			}
 		
 		  
 	 }
       
-
 //	设置隐式等待
-	
 	driver.manage().timeouts().implicitlyWait(Config.implicitlyWaitTime, TimeUnit.SECONDS);
 
 	}
