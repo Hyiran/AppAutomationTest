@@ -33,17 +33,32 @@ public class TestInit extends TestBase
 	public static boolean  IsAndroid=true;
 	public static boolean  IsTestEnvirectory=true;
 	
-	@Parameters({"isAndroid","isTestEnvirectory"})
+	@Parameters({"plantForm","isTestEnvirectory"})
 	@BeforeSuite(groups="AppPlatform",description="获得平台类型")
 	
-public void  AppPlatform (Boolean isAndroid,Boolean isTestEnvirectory) 
+public void  AppPlatform (String plantForm,String isTestEnvirectory) 
 		{
+		
+		System.out.print("------------"+plantForm);
 //		获得运行开始时间
 		TestBase.startTime=TimeString.getyMDHMS();
 //		获得测试环境
 //		获得测试平台
-		IsAndroid=isAndroid;
-		IsTestEnvirectory=isTestEnvirectory;
+		 if (plantForm.equals("Android")) 
+		 {
+			 IsAndroid=true;
+		 }
+		 else {
+			 IsAndroid=false;
+		}
+		 if (plantForm.equals("true")) 
+		 {
+			 IsTestEnvirectory=true;
+		 }
+		 else {
+			 IsTestEnvirectory=false;
+		}
+	
 		Log.logInfo("当前是否为安卓测试："+IsAndroid+"当前是否为测试环境："+IsTestEnvirectory,GetClassMethodName());
 		
 //		获得screen 对象

@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="com.Pcitc.AppAutomationTest.pagesHelper.TestInit" verbose="1" parallel="false" thread-count="1">
+<suite name="com.Pcitc.AppAutomationTest.pagesHelper.TestInit" verbose="1" parallel="false" thread-count="1">    <!-- 配置创建浏览器的类型，将在类中beforsuit使用 -->
     <!-- 配置创建浏览器的类型，将在类中beforsuit使用 -->
-     <parameter name="isAndroid" value="true"/>
-     <parameter name="isTestEnvirectory" value="true"/>
+    <!--测试平台 如果安卓就是Android 其他均为ios--> 
+     <parameter name="plantForm" value="Android"/>
+     <!-- 测试环境就传 true -->
+     <parameter name="isTestEnvirectory" value="false"/>
 	<test name="com.Pcitc.AppAutomationTest.pagesHelper.TestInit" preserve-order="true">
 	<!-- 配置需要访问的url，将在类中befortest使用 -->
 	 <parameter name="url" value="Chorme" />

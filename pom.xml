@@ -209,8 +209,14 @@
                             <value>org.uncommons.reportng.HTMLReporter, org.uncommons.reportng.JUnitXMLReporter</value>
                         </property>
                     </properties>
+                     <!-- 环境变量 -->
+                    <systemPropertyVariables>
+		                    <!-- 测试平台 -->
+		                    	<testEnvironment>${plantForm}</testEnvironment>
+                    </systemPropertyVariables>
+                    <!-- 测试文件 -->
                     <suiteXmlFiles>
-        				<suiteXmlFile>.\runTestCaseXML\初始化测试.xml</suiteXmlFile>
+        				<suiteXmlFile>${xmlFile}</suiteXmlFile>
       				</suiteXmlFiles>
                 <forkMode>once</forkMode> 
                 <argLine>-Dfile.encoding=UTF-8</argLine> 
