@@ -7,7 +7,6 @@
 	<!-- 配置需要访问的url，将在类中befortest使用 -->
 	 <parameter name="url" value="Chorme" />
 			<classes>		
-			    
 			      <parameter name="username" value="12020" />
 				  <parameter name="password" value="123456" />
 				<!-- 获得appiumdriver -->	
