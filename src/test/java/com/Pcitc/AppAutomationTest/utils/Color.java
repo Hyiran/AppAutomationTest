@@ -1,6 +1,4 @@
-package com.Pcitc.AppAutomationTest.pages;
-
-import jxl.format.Colour;
+package com.Pcitc.AppAutomationTest.utils;
 
 public class Color
 {

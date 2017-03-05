@@ -6,7 +6,7 @@ import org.apache.log4j.PropertyConfigurator;
 import org.testng.SkipException;
 
 import com.Pcitc.AppAutomationTest.base.TestBase;
-import com.Pcitc.AppAutomationTest.pages.Color;
+
 import com.Pcitc.AppAutomationTest.pagesHelper.PageFuntion;
 import com.Pcitc.AppAutomationTest.pagesHelper.TestInit;
 

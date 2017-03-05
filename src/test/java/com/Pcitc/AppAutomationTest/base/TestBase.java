@@ -21,12 +21,13 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import com.Pcitc.AppAutomationTest.pages.Color;
+
 import com.Pcitc.AppAutomationTest.pagesHelper.Config;
 import com.Pcitc.AppAutomationTest.pagesHelper.PageFuntion;
 import com.Pcitc.AppAutomationTest.pagesHelper.TestInit;
 import com.Pcitc.AppAutomationTest.utils.Action;
 import com.Pcitc.AppAutomationTest.utils.Assertion;
+import com.Pcitc.AppAutomationTest.utils.Color;
 import com.Pcitc.AppAutomationTest.utils.ConnectMySQL;
 import com.Pcitc.AppAutomationTest.utils.Driver;
 import com.Pcitc.AppAutomationTest.utils.Log;

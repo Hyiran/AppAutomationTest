@@ -4,7 +4,6 @@ package com.Pcitc.AppAutomationTest.utils;
 
 import org.testng.annotations.Test;
 
-import com.Pcitc.AppAutomationTest.pages.Color;
 import com.Pcitc.AppAutomationTest.pagesHelper.Config;
 import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
 

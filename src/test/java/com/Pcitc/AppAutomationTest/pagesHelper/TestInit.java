@@ -12,7 +12,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.Pcitc.AppAutomationTest.base.TestBase;
-import com.Pcitc.AppAutomationTest.pages.Color;
+
 import com.Pcitc.AppAutomationTest.utils.ExcelHandle;
 import com.Pcitc.AppAutomationTest.utils.Log;
 import com.Pcitc.AppAutomationTest.utils.TimeString;
