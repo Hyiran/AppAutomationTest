@@ -161,7 +161,7 @@ public void  ESSP_GongShiTestLingDaoTongGuo()
 	
 }
 
-@Test(priority='4',description="工时-部门秘书-审批拒绝")
+//@Test(priority='4',description="工时-部门秘书-审批拒绝")
 public void  ESSP_GongShiTestMiShuJuJue()
 {
 	try {
