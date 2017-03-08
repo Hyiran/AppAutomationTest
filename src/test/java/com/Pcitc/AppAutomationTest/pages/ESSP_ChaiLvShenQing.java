@@ -26,6 +26,12 @@ public class ESSP_ChaiLvShenQing  extends TestBase
 	{
 		Log.logInfo("读取excel文件："+PageElmentExcle.getCellData(1, 1), classMethodeName);
 		
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		PageElmentExcleIndex=1;
 //		点击差旅申请进入列表页面
 		LIchailvshenqinglinkDE=getElemntByExcle(PageElmentExcle, true, AndroidTitleLocatType, AndroidTitleLocatString);PageElmentExcleIndex++;

@@ -100,7 +100,7 @@ public class TestBase  extends  GetClassMethodName
 //	获得action
 	public static Action action=null;
 //	测试用例编号
-	public static String caseNo="";
+	public static String testCaseNo="";
 //	安卓定位相关字符串
 	protected final String AndroidTitleLocatType="Android字段定位方式";
 	protected final String AndroidTitleLocatString="Android字段定位器";
@@ -201,6 +201,7 @@ public class TestBase  extends  GetClassMethodName
 	 
 }
  static String nowRunClass="";
+ 
  public static void GenExcleModelReport(int row,String nowClass)
  {
 //	 判断当前类是否与参数一致，如果一致不生成报告
@@ -213,8 +214,10 @@ public class TestBase  extends  GetClassMethodName
 //		为默认时候
 		if (nowRunClass.equals(""))
 		{
+			Log.logInfo("init通过，插入测试报告", GetClassMethodName());
 			row=7;
 		}
+		Log.logInfo("当前模块执行完毕，插入测试报告", GetClassMethodName());
 		nowRunClass =nowClass;
 		TestBase.reportExcleExcelHandle.updateFile("./target/surefire-reports/html/测试报告.xls", "");
 		
@@ -349,6 +352,7 @@ protected void afterMethod(int row,String className)
 
 	if (StopRun) 
 	{
+	Log.logInfo("发生严重错误，当前用例执行后通知测试", GetClassMethodName());
 	GenExcleModelReport(row,className);
 	GenExcleDetailsReport();	
 	Log.logInfo("发生致命错误，自动化报告生成,停止自动化测试",GetClassMethodName());
@@ -461,9 +465,9 @@ protected  static void getBeforeElement (String yamlname)
 	 */
 	protected  void initGenDataExcle() 
 	{
-		Log.logInfo("拷贝pc生成数据到："+Config.excleLib+"测试数据.xls",GetClassMethodName());
-		eh.updateFile("/project/eclipse/WebTest/ExcelData/PC端生成的数据.xls", Config.excleLib+"测试数据.xls");
-		eh.afterExcle();
+//		Log.logInfo("拷贝pc生成数据到："+Config.excleLib+"测试数据.xls",GetClassMethodName());
+//		eh.updateFile("/project/eclipse/WebTest/ExcelData/PC端生成的数据.xls", Config.excleLib+"测试数据.xls");
+//		eh.afterExcle();
 		//Log.logInfo("最新测试数据已覆盖到："+Config.excleLib+"测试数据.xls",GetClassMethodName());
 		
 //		判断环境指定sheetname

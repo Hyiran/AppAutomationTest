@@ -35,6 +35,7 @@ public class ScreenShots extends GetClassMethodName
 		
 		try{
 			String fileObPath=Config.SnapshotLib+screenFileName+".png";
+			System.out.println("takeScreenshots获得截图文件名"+screenFileName+".png");
 			File screenshotFile =((TakesScreenshot)nsdriver).getScreenshotAs(OutputType.FILE);
 			FileUtils.copyFile(screenshotFile, new File(fileObPath));
 			if (element!=null) 

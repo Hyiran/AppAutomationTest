@@ -155,7 +155,7 @@ public  class  PageFuntion extends TestBase
 	 * @param caseNo  用例编号
 	 * @param e 	批审数据的excle对象
 	 * @param e 	批审数据的excle对象
-	 * @param usecheck   是否要单独勾选附选框 
+	 * @param usecheck    勾选框在参数对象 后面传true 否则传否
 	 * @param size  批审数据的个数
 	 */
 public   static void piShen_Android(String caseNo,Boolean usecheck,ExcelReader e,String col,int size) 
@@ -163,7 +163,7 @@ public   static void piShen_Android(String caseNo,Boolean usecheck,ExcelReader e
 //	获得批审按钮
 	 manyApp=getElemntByYaml(manyAppLocalType, true, true, manyAppLocalData,"");
 //	断言批审按钮是否存在
-	TestBase.assertion.webElementIsNotNull( manyApp,"批审按钮是否存在", appiumDriver);
+	TestBase.assertion.webElementIsNotNull("安卓-批审", manyApp,"批审按钮是否存在", appiumDriver);
 
 //如果批审被定位点击按钮
 if (manyApp!=null)
@@ -208,16 +208,17 @@ if (manyApp!=null)
 					if (usecheck) 
 					{
 						 data=getElemntByYaml(Location.TextView_Ptext_following_PindexCheckBox, true, true, e.getCellData(i, col), "1");
+					
 					}
 					else {
-						 data=getElemntByYaml(Location.TextView_Ptext, true, true, e.getCellData(i, col), "");
+						 data=getElemntByYaml(Location.TextView_Ptext_preceding_PindexCheckBox, true, true, e.getCellData(i, col), "1");
 					}		
 					action.tap(data, 1000);
-					Log.logInfo(caseNo+"批审-第"+i+"条数据:"+DataHandle.getElementText(Data)+"已经被选中",GetClassMethodName());
+					Log.logInfo(caseNo+"批审-第"+i+"条数据:已经被选中",GetClassMethodName());
 					}
 				catch (Exception e3) 
 					{
-					Log.logError(caseNo+"批审时找不到数据，数据为:"+DataHandle.getElementText(Data)+"截图："+caseNo+DataHandle.getElementText(Data),GetClassMethodName());	
+					Log.logError(caseNo+"批审时找不到数据，截图："+caseNo+DataHandle.getElementText(Data),GetClassMethodName());	
 //					screenShots.takeScreenshot(caseNo+DataHandle.getElementText(Data));
 					}
 		}
@@ -272,10 +273,10 @@ public static void  shenPiGongshiAndroid(String caseNo,boolean isAgree,String op
 		// TODO: handle exception
 	}
 		
-		 TestBase.assertion.webElementIsNotNull( agree, "审批-同意按钮是否存在", appiumDriver);
-		 TestBase.assertion.webElementIsNotNull( disAgree, "审批-拒绝按钮是否存在", appiumDriver);
-		 TestBase.assertion.webElementIsNotNull( submit, "审批-默认意见是否为空", appiumDriver);
-		 TestBase.assertion.webElementIsNotNull( defaultOptions, "审批-提交按钮是否存在", appiumDriver);
+		 TestBase.assertion.webElementIsNotNull( "安卓-批审",agree, "审批-同意按钮是否存在", appiumDriver);
+		 TestBase.assertion.webElementIsNotNull(  "安卓-批审",disAgree, "审批-拒绝按钮是否存在", appiumDriver);
+		 TestBase.assertion.webElementIsNotNull(  "安卓-批审",submit, "审批-默认意见是否为空", appiumDriver);
+		 TestBase.assertion.webElementIsNotNull(  "安卓-批审",defaultOptions, "审批-提交按钮是否存在", appiumDriver);
 		 
 //		 判断是否要拒绝
 		 if (isAgree!=true) 
@@ -308,7 +309,7 @@ public static void yiBanChaKan(String caseNo,String Data,String appMan,String st
 		action.tap(alreadyApp, 1000);
 		Log.logInfo(caseNo+"：已进入已办列表",GetClassMethodName());
 		
-	} catch (Exception e) 
+		} catch (Exception e) 
 	{		
 		Log.logError(caseNo+":找不到已办按钮",GetClassMethodName());
 				
@@ -318,9 +319,9 @@ public static void yiBanChaKan(String caseNo,String Data,String appMan,String st
 	Log.logInfo("需要滑动找到的数据为："+Data+",采取的定位器："+DataHandle.getBy(Location.TextView_Ptext, Data, ""),GetClassMethodName());
 	
 	WebElement  getData=action.swipe(by, "up", 10,false);
-	if (getData==null)
+	if (getData.equals(null))
 	{
-		Log.logError(caseNo+":在已办中找不到数据！返回到主页",GetClassMethodName());
+		Log.logInfo(caseNo+":在已办中找不到数据！返回到主页",GetClassMethodName());
 		fanHui();
 		
 	}
@@ -335,31 +336,32 @@ public static void yiBanChaKan(String caseNo,String Data,String appMan,String st
 	 by =By.xpath(DataHandle.getBy(Location.TextView_Ptext, appMan, ""));
 	Log.logInfo("需要滑动找到的数据为："+appMan+",采取的定位器："+DataHandle.getBy(Location.TextView_Ptext, appMan, ""),GetClassMethodName());
 	WebElement  getDataAppMan=action.swipe(by, "up", 10,false);
-	if (getDataAppMan==null) 
+	if (getDataAppMan.equals(null)) 
 	{
 		Log.logError(caseNo+":在已办-数据详情中找不到审批人！请检查参数！返回到主页",GetClassMethodName());
-		fanHui();
-		fanHui();
+	
 	}
 	else 
 	{
 		
 		   List<WebElement>	appStatus=getElementsByYaml(Location.TextView_Ptext_following_sibling_TextView, appMan, "");
-		   if (appStatus==null) 
+		   if (appStatus.equals(null)) 
 		   {
-			   Log.logError(caseNo+":在已办-数据详情中找不到审批的相关审批信息，请检查定位方式！返回到主页",GetClassMethodName());
-			   fanHui();
-			   fanHui();
+			   Log.logError(caseNo+":在已办-数据详情中找不到审批人相关审批信息，请检查定位方式！返回到主页",GetClassMethodName());
+			  
 		   }
 		   ArrayList<String> appInfor=new ArrayList<String>();
 		  
 		   try {
+//			   便利审理人相关审批信息
 			   for (int i = 0; i <5; i++)
 			   {
+				   Log.logInfo("获得第"+i+"条审批信息:"+DataHandle.getElementText(appStatus.get(i)), GetClassMethodName());
 				   appInfor.add(DataHandle.getElementText(appStatus.get(i)));
 			   }
 			  
-		} catch (Exception e)
+		} 
+		   catch (Exception e)
 		  {
 			Log.logInfo(caseNo+"已获取审批人的审批信息",GetClassMethodName());
 		  }
@@ -423,7 +425,7 @@ public void  riQiXuanZe(String  No,String date) throws InterruptedException{
 //		获得缺省的日期
 		WebElement title  =appiumDriver.findElement(By.id("android:id/alertTitle"));			
 		String textTitle=title.getText();	
-		TestBase.assertion.webElementIsNotNull(title ,"判断日期控件标题是否为空",this.appiumDriver);
+		TestBase.assertion.webElementIsNotNull( "安卓-日期选择",title ,"判断日期控件标题是否为空",this.appiumDriver);
 //		Log.logInfo("默认日期控件的标题为"+textTitle);
 		
 //		获得当前的日期的年月日  分别存储在三个变量中
@@ -563,10 +565,10 @@ public  static void  xialLaKuang_Android(String caseNo,int dataNo,ExcelReader ex
 //	Log.logInfo(dataList.get(0)+"下拉列表数据需要数据的个数为："+dataList.size(),GetClassMethodName());	
 //	   获得标题
 	WebElement 	title=getElemntByYaml(Location.TextView_Ptext, true, true, dataList.get(0),"");
-	assertion.verifyEquals(dataList.get(0), title, "测试"+selectName+"title是否正确", appiumDriver);	
+	assertion.verifyEquals( "安卓-下拉框",dataList.get(0), title, "测试"+selectName+"title是否正确", appiumDriver);	
 //	   获得确定按钮
 	WebElement  sure=getElemntByYaml(Location.Button_Ptext, true, true, "确定","");
-	assertion.webElementIsNotNull(sure, "测试确认按钮是否存在", appiumDriver);
+	assertion.webElementIsNotNull("安卓-下拉框",sure, "测试确认按钮是否存在", appiumDriver);
 	if (sure.equals(null))
 	{
 		Log.logError("下拉列表没有确定按钮，已关闭页面", GetClassMethodName());
@@ -576,7 +578,7 @@ public  static void  xialLaKuang_Android(String caseNo,int dataNo,ExcelReader ex
 	{
 //		  获得取消按钮
 		WebElement  cancle=getElemntByYaml(Location.Button_Ptext, true, true, "取消","");
-		assertion.webElementIsNotNull(cancle, "测试取消按钮是否存在", appiumDriver);
+		assertion.webElementIsNotNull("安卓-下拉框",cancle, "测试取消按钮是否存在", appiumDriver);
 
 		//得到下拉列表数据列表
 		elements	= getElementsByYaml(Location.ListViewCheckedTextViews_Pindex,"1","");
@@ -588,7 +590,7 @@ public  static void  xialLaKuang_Android(String caseNo,int dataNo,ExcelReader ex
 
 				for (int i = 1; i <dataList.size(); i++) 
 				{
-					assertion.verifyEquals(excle.getCellData(i+1, selectName), elements.get(i-1), "测试"+selectName+"下拉列表第"+i+"个数据是否正确", appiumDriver);			
+					assertion.verifyEquals("安卓-下拉框",excle.getCellData(i+1, selectName), elements.get(i-1), "测试"+selectName+"下拉列表第"+i+"个数据是否正确", appiumDriver);			
 			 	}
 			} catch (Exception e2) 
 			{
@@ -620,7 +622,7 @@ public  static void  xialLaKuang_Android(String caseNo,int dataNo,ExcelReader ex
 
 	seletData=null;
 	seletData =  appiumDriver.findElement(By.xpath("//android.widget.TextView[starts-with(@text,'"+excle.getCellData(selectNo, selectName+"选择")+"')]"));
-	assertion.webElementIsNotNull(seletData, "下拉列表选择是否成功", appiumDriver);
+	assertion.webElementIsNotNull("安卓-下拉框",seletData, "下拉列表选择是否成功", appiumDriver);
 }
 
 /**
@@ -645,7 +647,7 @@ public  static void  xialLaKuang_AndroidNoSure(String caseNo,int dataNo,ExcelRea
 //	Log.logInfo(dataList.get(0)+"下拉列表数据需要数据的个数为："+dataList.size(),GetClassMethodName());	
 //	   获得标题
 	WebElement 	title=getElemntByYaml(Location.TextView_Ptext, true, true, dataList.get(0),"");
-	assertion.verifyEquals(dataList.get(0), title, "测试"+selectName+"title是否正确", appiumDriver);	
+	assertion.verifyEquals("安卓-无确认按钮下拉框",dataList.get(0), title, "测试"+selectName+"title是否正确", appiumDriver);	
 
 
 	//得到下拉列表数据列表
@@ -658,7 +660,7 @@ public  static void  xialLaKuang_AndroidNoSure(String caseNo,int dataNo,ExcelRea
 
 				for (int i = 1; i <dataList.size(); i++) 
 				{
-					assertion.verifyEquals(excle.getCellData(i+1, selectName), elements.get(i), "测试"+selectName+"下拉列表第"+i+"个数据是否正确", appiumDriver);			
+					assertion.verifyEquals("安卓-无确认按钮下拉框",excle.getCellData(i+1, selectName), elements.get(i), "测试"+selectName+"下拉列表第"+i+"个数据是否正确", appiumDriver);			
 			 	}
 			} catch (Exception e2) 
 			{
@@ -683,7 +685,7 @@ public  static void  xialLaKuang_AndroidNoSure(String caseNo,int dataNo,ExcelRea
 
 	seletData=null;
 	seletData =  appiumDriver.findElement(By.xpath("//android.widget.TextView[starts-with(@text,'"+excle.getCellData(selectNo, selectName+"选择")+"')]"));
-	assertion.webElementIsNotNull(seletData, "下拉列表选择数据后是否在页面显示", appiumDriver);
+	assertion.webElementIsNotNull("安卓-无确认按钮下拉框",seletData, "下拉列表选择数据后是否在页面显示", appiumDriver);
 }
 public  static void  xialLaKuang_AndroidWithWanCheng(String AfterSelect)
 {	
@@ -691,7 +693,7 @@ public  static void  xialLaKuang_AndroidWithWanCheng(String AfterSelect)
 	action.tap(wanchengElement, 800);
 	wanchengElement=null;
 	wanchengElement=getElemntByYaml(Location.TextView_Ptext, true, true, AfterSelect, "");
-	assertion.webElementIsNotNull(wanchengElement, "判断有完成按钮的下拉框，点击完成后页面是有预期数据", appiumDriver);
+	assertion.webElementIsNotNull("安卓-无确认按钮下拉框",wanchengElement, "判断有完成按钮的下拉框，点击完成后页面是有预期数据", appiumDriver);
 }
 /**
  * 处理筛选列表控件－差旅申请－分配编号
@@ -749,7 +751,7 @@ public  static void shuRuChaXun(String caseNo ,String inputData,String expetData
 		e.printStackTrace();
 	}
 	WebElement outResaust=getElemntByYaml(Location.TextView_Ptext, true, true, expetData,"");	
-	assertion.verifyEquals(expetData, outResaust, "判断下拉筛选是否成功选择数据", appiumDriver);
+	assertion.verifyEquals("安卓-无确认按钮下拉框",expetData, outResaust, "判断下拉筛选是否成功选择数据", appiumDriver);
 }
 
 
@@ -772,7 +774,7 @@ WebElement title=super.getElemntByYaml(Location.TextView_Ptext, true, true, Obje
 WebElement agree=super.getElemntByYaml(Location.TextView_Ptext, true, true, Object.get(1),"");
 WebElement agreeImage=super.getElemntByYaml(Location.TextView_Ptext, true, true, "4","");
 //TestBase.assertion.verifyEquals(NO,Object.get(1), agree.getText(), "判断"+selectName+"：同意按钮标题－", appiumDriver);
-TestBase.assertion.webElementIsNotNull( agreeImage, "同意按钮图标", appiumDriver);
+TestBase.assertion.webElementIsNotNull( "安卓-弹窗",agreeImage, "同意按钮图标", appiumDriver);
 
 WebElement disAgree=super.getElemntByYaml(Location.TextView_Ptext, true, true, Object.get(2),"");
 WebElement disagreeImage=super.getElemntByYaml(Location.TextView_Ptext, true, true, "6","");
@@ -814,10 +816,10 @@ else
 	WebElement sure=getElemntByYaml(Location.Button_Ptext, true, true, "确定", "");
 	WebElement cancle=getElemntByYaml(Location.Button_Ptext, true, true, "取消", "");
 	
-	TestBase.assertion.webElementIsNotNull( title, "判断退回弹窗标题存在", appiumDriver);
-	TestBase.assertion.webElementIsNotNull( options, "判断退回原因存在", appiumDriver);
-	TestBase.assertion.webElementIsNotNull( sure, "判断确定按钮是否存在", appiumDriver);
-	TestBase.assertion.webElementIsNotNull( cancle, "判断取消按钮是否存在", appiumDriver);
+	TestBase.assertion.webElementIsNotNull( "审批",title, "判断退回弹窗标题存在", appiumDriver);
+	TestBase.assertion.webElementIsNotNull( "审批",options, "判断退回原因存在", appiumDriver);
+	TestBase.assertion.webElementIsNotNull( "审批",sure, "判断确定按钮是否存在", appiumDriver);
+	TestBase.assertion.webElementIsNotNull( "审批",cancle, "判断取消按钮是否存在", appiumDriver);
 	
 	action.sendKey(options, message);
 	action.tap(sure, 1000);

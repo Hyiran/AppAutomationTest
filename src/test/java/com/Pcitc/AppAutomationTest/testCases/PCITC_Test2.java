@@ -27,11 +27,11 @@ public class PCITC_Test2 extends PCITC_TestPage
 	{
 	try {	
 	beforeMethod(clasName, "ESSP_ChaiLvShenQing_ListPage");
-	caseNo="ceshi3";	
+	String caseNo="ceshi3";	
 	Log.logInfo("执行用例数："+TestInit.totalTestCase,"");
 	Log.logInfo("-------------------"+caseNo, classMethodeName);
 	WebElement element=getElemntByYaml(Location.TextView_Ptext, true, true, "账号",  "");
-	assertion.verifyEquals("zhanghao", element, "duanyanshibai", appiumDriver);
+	assertion.verifyEquals(caseNo,"zhanghao", element, "duanyanshibai", appiumDriver);
 	PageFuntion.logIn(getUserName("chailvshenqing", "1"), getUserPassWord("chailvshenqing", "1"));
 	getOB();
 	action.tap(element, 1000);

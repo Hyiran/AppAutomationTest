@@ -261,6 +261,7 @@ private WebElement getLocator(String key ,boolean wait,String a,String b)
 		if(a!=null)
 		{
 			value=this.getLocaterString(value, a,b);
+			Log.logInfo("页面元素定位方式为："+type+"定位器："+value, GetClassMethodName());
 		}
 		By by=this.getBy(type, value);
 		
@@ -313,6 +314,7 @@ private List<WebElement>  getLocators(String key ,String a,String b)
 		if(a!=null)
 		{
 			value=this.getLocaterString(value, a,b);
+			Log.logInfo("页面元素定位方式为："+type+"定位器："+value, GetClassMethodName());
 		}
 		By by=this.getBy(type, value);
 		try {

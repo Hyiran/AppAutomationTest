@@ -34,7 +34,9 @@ public class Assertion extends GetClassMethodName
  
     private String  getOutputStr(String message ) 
     {
-    	 outPutinfor="测试用例："+TestBase.caseNo+"-步骤:"+step+"-测试"+message+"是否正确";
+//    	获得编号
+    	 getNewCaseNo();
+    	 outPutinfor="测试用例："+assCaseNo+"-步骤:"+step+"-测试"+message+"是否正确";
     	 return outPutinfor;
 	}
     /**
@@ -44,15 +46,20 @@ public class Assertion extends GetClassMethodName
      */
     private String  getSnapFileName(boolean pinString) 
     {
-    	if (pinString) {
-    		snapShootFileName="；截图文件："+TestBase.caseNo+"-步骤"+step;
+    
+    	if (pinString)
+    	{	
+    		snapShootFileName="；截图文件："+assCaseNo+"-步骤:"+step;
+    		
         	return snapShootFileName;
 		}
     	else {
-    		snapShootFileName= TestBase.caseNo+"-步骤"+step;
+    		
+    		
+    		snapShootFileName= assCaseNo+"-步骤:"+step;
         	return snapShootFileName;
 		}
-    
+    	
 	}
 
     /**
@@ -81,14 +88,14 @@ public class Assertion extends GetClassMethodName
     private void  getNewCaseNo()
     {
 //	  如果类中的用例编号与TestBase的一致，增加步骤不改用例编号
-  	   if (assCaseNo.equals(TestBase.caseNo))
+  	   if (assCaseNo.equals(TestBase.testCaseNo))
   	   {
          	step++;	
   	   }
          else {
 //      	   获得当前编号，重置步骤
-         	assCaseNo=TestBase.caseNo;
-         	step=0;
+        	 TestBase.testCaseNo=assCaseNo;
+         	step=1;
          }	
     }
     /**判断元素的预期结果与实际结果是否一致
@@ -98,11 +105,11 @@ public class Assertion extends GetClassMethodName
      * @param message 判断内容
      * @param dw webdriver 对象
      */
-    public  void verifyEquals(Object  expectedObject, WebElement actualWebElement,String message,WebDriver driver){
+    public  void verifyEquals(String caseNo,Object  expectedObject, WebElement actualWebElement,String message,WebDriver driver){
         try{
+        	assCaseNo=caseNo;
+//        断言计数加1
         	TestBase.modelTotalAsser++;
-//        	获得编号
-        	getNewCaseNo();
 //        	进行断言
             Assert.assertEquals(expectedObject, DataHandle.getElementText(actualWebElement));
 //            断言成功日志输出
@@ -116,28 +123,29 @@ public class Assertion extends GetClassMethodName
 //        	失败操作
             errors.add(e);
         	flag = false; 
+        	String snapShootName= getSnapFileName(false);
 //			执行截图操作			
-			TestBase.screenShots.takeScreenshots(actualWebElement, getSnapFileName(false));			
+			TestBase.screenShots.takeScreenshots(actualWebElement, snapShootName);			
 //			使用log写入report及log文件中：
-			Log.logWarn(getOutputStr(message)+getRes(false, expectedObject, actualWebElement), GetClassMethodName(), getSnapFileName(false));
+			Log.logWarn(getOutputStr(message)+getRes(false, expectedObject, actualWebElement), GetClassMethodName(), snapShootName);
 		
         }
     }
     
     /**
      * 测试2个对象是否不相同
-     * @param mycaseNo  测试用例编号
+     * @param mytestCaseNo  测试用例编号
      * @param expected   预期结果
      * @param actual   实际结果
      * @param message   打印到log信息
      * @param driver   驱动
      */
-    public  void verifyNotEquals(Object expectedObject, WebElement actualWebElement,String message,WebDriver driver){
+    public  void verifyNotEquals(String caseNo, Object expectedObject, WebElement actualWebElement,String message,WebDriver driver){
         
         try{
+        	assCaseNo=caseNo;
         	TestBase.modelTotalAsser++;
-//        	获得编号
-        	getNewCaseNo();
+
 //        	进行断言
             Assert.assertNotEquals(expectedObject, DataHandle.getElementText(actualWebElement));
 //            断言成功日志输出
@@ -150,10 +158,11 @@ public class Assertion extends GetClassMethodName
 //        	失败操作
             errors.add(e);
         	flag = false; 
+        	String snapShootName= getSnapFileName(false);
 //			执行截图操作			
-			TestBase.screenShots.takeScreenshots(actualWebElement, getSnapFileName(false));			
+			TestBase.screenShots.takeScreenshots(actualWebElement, snapShootName);			
 //			使用log写入report及log文件中：
-			Log.logWarn(getOutputStr(message)+getRes(false, expectedObject, actualWebElement), GetClassMethodName(), getSnapFileName(false));
+			Log.logWarn(getOutputStr(message)+getRes(false, expectedObject, actualWebElement), GetClassMethodName(), snapShootName);
 		
         }
     } 
@@ -165,11 +174,11 @@ public class Assertion extends GetClassMethodName
   * @param message 输出语句
   * @param driver weblement
   */
-    public  void webElementIsNotNull(WebElement webElement,String message,WebDriver driver){
+    public  void webElementIsNotNull(String caseNo, WebElement webElement,String message,WebDriver driver){
         try{
+        	assCaseNo=caseNo;
         	TestBase.modelTotalAsser++;
-//        	获得编号
-        	getNewCaseNo();
+
 //        	进行断言
             Assert.assertNotNull(webElement);
            
@@ -178,10 +187,11 @@ public class Assertion extends GetClassMethodName
         {
         	TestBase.commonlyNo++;
         	TestBase.modelAsserFail++;
-//			     	失败操作
+        	String snapShootName= getSnapFileName(false);
+//			    	失败操作
             errors.add(e);
         	flag = false; 
-         	Log.logWarn(getOutputStr(message)+"；测试结果:测试失败!元素未被定位！", GetClassMethodName(), getSnapFileName(false));		
+         	Log.logWarn(getOutputStr(message)+"；测试结果:测试失败!元素未被定位！", GetClassMethodName(), snapShootName);		
         }
     }
     /**
@@ -190,12 +200,12 @@ public class Assertion extends GetClassMethodName
      * @param message 输出语句
      * @param driver weblement
      */
-    public  void webElementIsNull(WebElement webElement,String message,WebDriver driver){
+    public  void webElementIsNull(String caseNo,WebElement webElement,String message,WebDriver driver){
     
             try{
+            	assCaseNo=caseNo;
             	TestBase.modelTotalAsser++;
-//            	获得编号
-            	getNewCaseNo();
+
 //            	进行断言
                 Assert.assertNull(webElement);
                
@@ -205,35 +215,36 @@ public class Assertion extends GetClassMethodName
             	TestBase.commonlyNo++;
             	TestBase.modelAsserFail++;
 //    			     	失败操作
+            	String snapShootName= getSnapFileName(false);
                 errors.add(e);
             	flag = false; 
 //            	执行截图操作			
-    			TestBase.screenShots.takeScreenshots(webElement, getSnapFileName(false));			
+    			TestBase.screenShots.takeScreenshots(webElement,snapShootName);			
 //    			使用log写入report及log文件中：
-    			Log.logWarn(getOutputStr(message)+"；测试结果:测试失败!元素还在页面上！", GetClassMethodName(), getSnapFileName(false));
+    			Log.logWarn(getOutputStr(message)+"；测试结果:测试失败!元素还在页面上！", GetClassMethodName(), snapShootName);
             }
 
     }  
     
 //	判断按钮是否可以点击
-	public  void buttonisDisplayed(String mycaseNo,WebElement element ,String message,WebDriver driver){
+	public  void buttonisDisplayed(String mytestCaseNo,WebElement element ,String message,WebDriver driver){
 		boolean isDisplayed = false;
 		try{		
 			TestBase.modelTotalAsser++;
-			 if (TestBase.caseNo.equals(mycaseNo))
+			 if (TestBase.testCaseNo.equals(mytestCaseNo))
 	      	   {
 //	      		   如果传入的用例编号与当前一致，增加步骤不改用例编号
-//	      		   TestBase.caseNo=mycaseNo;
+//	      		   TestBase.testCaseNo=mytestCaseNo;
 	             	step++;	
 	      	   }
 	             else {
 //	          	   获得当前编号，重置步骤
-	          	   TestBase.caseNo=mycaseNo;
+	          	   TestBase.testCaseNo=mytestCaseNo;
 	              	step=0;
 	 			}
 			isDisplayed = element.isDisplayed();
 			Assert.assertTrue(isDisplayed);
-			Log.logInfo("测试用例："+TestBase.caseNo+"步骤:"+step+"-"+message+"；测试结果:测试成功！按钮可点击！", GetClassMethodName());	
+			Log.logInfo("测试用例："+TestBase.testCaseNo+"步骤:"+step+"-"+message+"；测试结果:测试成功！按钮可点击！", GetClassMethodName());	
 		}catch(Error e){
 			TestBase.commonlyNo++;
 			TestBase.modelAsserFail++;
@@ -246,24 +257,24 @@ public class Assertion extends GetClassMethodName
 		
 	}	
 	
-	public  void buttonNotDisplayed(String mycaseNo,WebElement element ,String message,WebDriver driver){
+	public  void buttonNotDisplayed(String mytestCaseNo,WebElement element ,String message,WebDriver driver){
 		boolean isDisplayed = false;
 		try{		
 			TestBase.modelTotalAsser++;
-			 if (TestBase.caseNo.equals(mycaseNo))
+			 if (TestBase.testCaseNo.equals(mytestCaseNo))
 	      	   {
 //	      		   如果传入的用例编号与当前一致，增加步骤不改用例编号
-//	      		   TestBase.caseNo=mycaseNo;
+//	      		   TestBase.testCaseNo=mytestCaseNo;
 	             	step++;	
 	      	   }
 	             else {
 //	          	   获得当前编号，重置步骤
-	          	   TestBase.caseNo=mycaseNo;
+	          	   TestBase.testCaseNo=mytestCaseNo;
 	              	step=0;
 	 			}
 			isDisplayed = element.isDisplayed();
 			Assert.assertFalse(isDisplayed);
-			Log.logInfo("测试用例："+TestBase.caseNo+"步骤:"+step+"-"+message+"；测试结果:测试成功！按钮无法点击！", GetClassMethodName());	
+			Log.logInfo("测试用例："+TestBase.testCaseNo+"步骤:"+step+"-"+message+"；测试结果:测试成功！按钮无法点击！", GetClassMethodName());	
 		}catch(Error e){
 			TestBase.commonlyNo++;
 			TestBase.modelAsserFail++;
@@ -274,24 +285,24 @@ public class Assertion extends GetClassMethodName
 		}	
 	}
 //	判断按钮是否可以点击
-	public  void isTrue(String caseNo,Boolean object ,String message,WebDriver driver){
+	public  void isTrue(String testCaseNo,Boolean object ,String message,WebDriver driver){
 		boolean isDisplayed = false;
 		try{		
 			TestBase.modelTotalAsser++;
-			 if (TestBase.caseNo.equals(caseNo))
+			 if (TestBase.testCaseNo.equals(testCaseNo))
 	      	   {
 //	      		   如果传入的用例编号与当前一致，增加步骤不改用例编号
-//	      		   TestBase.caseNo=mycaseNo;
+//	      		   TestBase.testCaseNo=mytestCaseNo;
 	             	step++;	
 	      	   }
 	             else {
 //	          	   获得当前编号，重置步骤
-	          	   TestBase.caseNo=caseNo;
+	          	   TestBase.testCaseNo=testCaseNo;
 	              	step=0;
 	 			}
 			
 			Assert.assertTrue(object);
-			Log.logInfo("测试用例："+TestBase.caseNo+"步骤:"+step+"-"+message+"；测试结果:测试成功！对象为真！", GetClassMethodName());	
+			Log.logInfo("测试用例："+TestBase.testCaseNo+"步骤:"+step+"-"+message+"；测试结果:测试成功！对象为真！", GetClassMethodName());	
 		}catch(Error e){
 			TestBase.commonlyNo++;
 			TestBase.modelAsserFail++;
@@ -301,9 +312,9 @@ public class Assertion extends GetClassMethodName
 //				创建截图对象实例
 				ScreenShots myScreenShots=new ScreenShots(driver);		
 //			执行截图操作。得到截图文件名
-//				screenShotsfileName="测试用例编号："+TestBase.caseNo+":"+myScreenShots.takeScreenshot(TestBase.caseNo+":"+step);	
+//				screenShotsfileName="测试用例编号："+TestBase.testCaseNo+":"+myScreenShots.takeScreenshot(TestBase.testCaseNo+":"+step);	
 //				使用log体系输出:预期结果+实际结果+文件名称
-//			 ErrorLog.logError("测试用例："+TestBase.caseNo+"步骤:"+step+"-"+message+"；测试结果:测试失败！对象为假！失败截图名："+screenShotsfileName, GetClassMethodName()); 
+//			 ErrorLog.logError("测试用例："+TestBase.testCaseNo+"步骤:"+step+"-"+message+"；测试结果:测试失败！对象为假！失败截图名："+screenShotsfileName, GetClassMethodName()); 
 			 flag = false;
 		}
 		

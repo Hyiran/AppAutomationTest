@@ -25,21 +25,22 @@ public class CRM_KeHuGuanLiTest  extends CRM_KeHuGuanLi
 {
 try {
 	
+	
 	beforeMethod(clasName, "CRM_KeHuGuanLiTest_ListPage");
-	caseNo="客户信息申报-列表页-测试";
+	String caseNo="客户信息申报-列表页-测试";
 	Log.logInfo(caseNo, GetClassMethodName());	
 	PageFuntion.logIn(getUserName("kehuguanli", "1"), getUserPassWord("kehuguanli", "1"));
 	
 //	进入列表页
 	CRM_KeHuGuanLi_ListPage();
 	int i=2;
-	assertion.verifyEquals(PageElmentExcle.getCellData(i, Field), LIkehuguanlititleDE, Field, appiumDriver);
+	assertion.verifyEquals(caseNo,PageElmentExcle.getCellData(i, Field), LIkehuguanlititleDE, Field, appiumDriver);
 	i++;
-	assertion.webElementIsNotNull(LIkehuguanlitianjiaDE, "判断添加按钮是否存在", appiumDriver);
+	assertion.webElementIsNotNull(caseNo,LIkehuguanlitianjiaDE, "判断添加按钮是否存在", appiumDriver);
 	i++;
-	assertion.verifyEquals(PageElmentExcle.getCellData(i, Field), LIkehuguanlidaibanDE,  Field, appiumDriver);
+	assertion.verifyEquals(caseNo,PageElmentExcle.getCellData(i, Field), LIkehuguanlidaibanDE,  Field, appiumDriver);
 	i++;
-	assertion.verifyEquals(PageElmentExcle.getCellData(i, Field), LIkehuguanlichakanDE,  Field, appiumDriver);
+	assertion.verifyEquals(caseNo,PageElmentExcle.getCellData(i, Field), LIkehuguanlichakanDE,  Field, appiumDriver);
 	i++;
 	
 	action.pressKeyCode(KeyEvent.fanHui);
@@ -58,7 +59,7 @@ PageFuntion.exceptionLogOutAndroid(endTime.toString());
 		try
 {	
 			PageElmentExcleIndex=1;
-			caseNo="客户信息申报-详情页-新增数据";
+			String caseNo="客户信息申报-详情页-新增数据";
 			Log.logInfo(caseNo, GetClassMethodName());	
 			PageFuntion.logIn(getUserName("kehuguanli", "1"), getUserPassWord("kehuguanli", "1"));
 			//			进入列表页
@@ -71,31 +72,31 @@ PageFuntion.exceptionLogOutAndroid(endTime.toString());
 int i=1;
 
 
-assertion.verifyEquals(PageElmentExcle.getCellData(i, Field), INkehuxinxishenbaoDE, Field, appiumDriver);i++;
-assertion.verifyEquals(PageElmentExcle.getCellData(i, Field), INkehuxinxiDE,  Field, appiumDriver);i++;
-assertion.verifyEquals(PageElmentExcle.getCellData(i, Field), INkehuquanchengDE,  Field, appiumDriver);i++;
-assertion.verifyEquals(PageElmentExcle.getCellData(i, Field), INjituankehuDE,  Field, appiumDriver);i++;
-assertion.verifyEquals(PageElmentExcle.getCellData(i, Field), INshangjidanweiDE,  Field, appiumDriver);i++;
-assertion.verifyEquals(PageElmentExcle.getCellData(i, Field), INdakehujingliDE,  Field, appiumDriver);i++;
-assertion.verifyEquals(PageElmentExcle.getCellData(i, Field), INsuozaibumenDE, Field, appiumDriver);i++;
-assertion.verifyEquals(PageElmentExcle.getCellData(i, Field), INkehubeijingDE,  Field, appiumDriver);i++;
-assertion.verifyEquals(PageElmentExcle.getCellData(i, Field), INguojiaDE,  Field, appiumDriver);i++;
-assertion.verifyEquals(PageElmentExcle.getCellData(i, Field), INdiquDE,  Field, appiumDriver);i++;
-assertion.verifyEquals(PageElmentExcle.getCellData(i, Field), INhangyeDE, Field, appiumDriver);i++;
-assertion.verifyEquals(PageElmentExcle.getCellData(i, Field), INdizhiDE, Field, appiumDriver);i++;
-assertion.verifyEquals(PageElmentExcle.getCellData(i, Field), INnianyingyeshouruDE, Field, appiumDriver);i++;
+assertion.verifyEquals(caseNo,PageElmentExcle.getCellData(i, Field), INkehuxinxishenbaoDE, Field, appiumDriver);i++;
+assertion.verifyEquals(caseNo,PageElmentExcle.getCellData(i, Field), INkehuxinxiDE,  Field, appiumDriver);i++;
+assertion.verifyEquals(caseNo,PageElmentExcle.getCellData(i, Field), INkehuquanchengDE,  Field, appiumDriver);i++;
+assertion.verifyEquals(caseNo,PageElmentExcle.getCellData(i, Field), INjituankehuDE,  Field, appiumDriver);i++;
+assertion.verifyEquals(caseNo,PageElmentExcle.getCellData(i, Field), INshangjidanweiDE,  Field, appiumDriver);i++;
+assertion.verifyEquals(caseNo,PageElmentExcle.getCellData(i, Field), INdakehujingliDE,  Field, appiumDriver);i++;
+assertion.verifyEquals(caseNo,PageElmentExcle.getCellData(i, Field), INsuozaibumenDE, Field, appiumDriver);i++;
+assertion.verifyEquals(caseNo,PageElmentExcle.getCellData(i, Field), INkehubeijingDE,  Field, appiumDriver);i++;
+assertion.verifyEquals(caseNo,PageElmentExcle.getCellData(i, Field), INguojiaDE,  Field, appiumDriver);i++;
+assertion.verifyEquals(caseNo,PageElmentExcle.getCellData(i, Field), INdiquDE,  Field, appiumDriver);i++;
+assertion.verifyEquals(caseNo,PageElmentExcle.getCellData(i, Field), INhangyeDE, Field, appiumDriver);i++;
+assertion.verifyEquals(caseNo,PageElmentExcle.getCellData(i, Field), INdizhiDE, Field, appiumDriver);i++;
+assertion.verifyEquals(caseNo,PageElmentExcle.getCellData(i, Field), INnianyingyeshouruDE, Field, appiumDriver);i++;
 
-assertion.webElementIsNotNull(INkehuquanchengDA, FieldData, appiumDriver);
-assertion.webElementIsNotNull(INjituankehuDA, FieldData, appiumDriver);
-assertion.webElementIsNotNull(INshangjidanweiDA, FieldData, appiumDriver);
-assertion.webElementIsNotNull(INdakehujingliDA, FieldData, appiumDriver);
-assertion.webElementIsNotNull(INsuozaibumenDA, FieldData, appiumDriver);
-assertion.webElementIsNotNull(INkehubeijingDA, FieldData, appiumDriver);
-assertion.webElementIsNotNull(INguojiaDA, FieldData, appiumDriver);
-assertion.webElementIsNotNull(INdiquDA, FieldData, appiumDriver);
-assertion.webElementIsNotNull(INhangyeDA, FieldData, appiumDriver);
-assertion.webElementIsNotNull(INdizhiDA, FieldData, appiumDriver);
-assertion.webElementIsNotNull(INnianyingyeshouruDA, FieldData, appiumDriver);
+assertion.webElementIsNotNull(caseNo,INkehuquanchengDA, FieldData, appiumDriver);
+assertion.webElementIsNotNull(caseNo,INjituankehuDA, FieldData, appiumDriver);
+assertion.webElementIsNotNull(caseNo,INshangjidanweiDA, FieldData, appiumDriver);
+assertion.webElementIsNotNull(caseNo,INdakehujingliDA, FieldData, appiumDriver);
+assertion.webElementIsNotNull(caseNo,INsuozaibumenDA, FieldData, appiumDriver);
+assertion.webElementIsNotNull(caseNo,INkehubeijingDA, FieldData, appiumDriver);
+assertion.webElementIsNotNull(caseNo,INguojiaDA, FieldData, appiumDriver);
+assertion.webElementIsNotNull(caseNo,INdiquDA, FieldData, appiumDriver);
+assertion.webElementIsNotNull(caseNo,INhangyeDA, FieldData, appiumDriver);
+assertion.webElementIsNotNull(caseNo,INdizhiDA, FieldData, appiumDriver);
+assertion.webElementIsNotNull(caseNo,INnianyingyeshouruDA, FieldData, appiumDriver);
 
 
 if (TestInit.IsAndroid) 
@@ -122,26 +123,26 @@ action.sendKey(INdizhiDA, "北京东四十条南新仓12层");
 action.sendKey(INnianyingyeshouruDA, "888");
 
 CRM_KeHuGuanLi_DetailsPage2();
-assertion.verifyEquals(PageElmentExcle.getCellData(i, Field), INshichangleibieDE, Field, appiumDriver);i++;
-assertion.verifyEquals(PageElmentExcle.getCellData(i, Field), INzhongyaoxingDE, Field, appiumDriver);i++;
-assertion.verifyEquals(PageElmentExcle.getCellData(i, Field), INqianzaixuqiuDE, Field, appiumDriver);i++;
-assertion.verifyEquals(PageElmentExcle.getCellData(i, Field), INlianxirenxingxiDE, Field, appiumDriver);i++;
-assertion.verifyEquals(PageElmentExcle.getCellData(i, Field), INxingmingDE, Field, appiumDriver);i++;
-assertion.verifyEquals(PageElmentExcle.getCellData(i, Field), INbumenDE, Field, appiumDriver);i++;
-assertion.verifyEquals(PageElmentExcle.getCellData(i, Field), INzhiwuDE, Field, appiumDriver);i++;
-assertion.verifyEquals(PageElmentExcle.getCellData(i, Field), INyoujianDE, Field, appiumDriver);i++;
-assertion.verifyEquals(PageElmentExcle.getCellData(i, Field), INdianhuaDE, Field, appiumDriver);i++;
-assertion.verifyEquals(PageElmentExcle.getCellData(i, Field), INshoujiDE, Field, appiumDriver);i++;
+assertion.verifyEquals(caseNo,PageElmentExcle.getCellData(i, Field), INshichangleibieDE, Field, appiumDriver);i++;
+assertion.verifyEquals(caseNo,PageElmentExcle.getCellData(i, Field), INzhongyaoxingDE, Field, appiumDriver);i++;
+assertion.verifyEquals(caseNo,PageElmentExcle.getCellData(i, Field), INqianzaixuqiuDE, Field, appiumDriver);i++;
+assertion.verifyEquals(caseNo,PageElmentExcle.getCellData(i, Field), INlianxirenxingxiDE, Field, appiumDriver);i++;
+assertion.verifyEquals(caseNo,PageElmentExcle.getCellData(i, Field), INxingmingDE, Field, appiumDriver);i++;
+assertion.verifyEquals(caseNo,PageElmentExcle.getCellData(i, Field), INbumenDE, Field, appiumDriver);i++;
+assertion.verifyEquals(caseNo,PageElmentExcle.getCellData(i, Field), INzhiwuDE, Field, appiumDriver);i++;
+assertion.verifyEquals(caseNo,PageElmentExcle.getCellData(i, Field), INyoujianDE, Field, appiumDriver);i++;
+assertion.verifyEquals(caseNo,PageElmentExcle.getCellData(i, Field), INdianhuaDE, Field, appiumDriver);i++;
+assertion.verifyEquals(caseNo,PageElmentExcle.getCellData(i, Field), INshoujiDE, Field, appiumDriver);i++;
 
-assertion.webElementIsNotNull(INshichangleibieDA, FieldData, appiumDriver);
-assertion.webElementIsNotNull(INzhongyaoxingDA, FieldData, appiumDriver);
-assertion.webElementIsNotNull(INqianzaixuqiuDA, FieldData, appiumDriver);
-assertion.webElementIsNotNull(INxingmingDA, FieldData, appiumDriver);
-assertion.webElementIsNotNull(INbumenDA, FieldData, appiumDriver);
-assertion.webElementIsNotNull(INzhiwuDA, FieldData, appiumDriver);
-assertion.webElementIsNotNull(INyoujianDA, FieldData, appiumDriver);
-assertion.webElementIsNotNull(INdianhuaDA, FieldData, appiumDriver);
-assertion.webElementIsNotNull(INshoujiDA, FieldData, appiumDriver);
+assertion.webElementIsNotNull(caseNo,INshichangleibieDA, FieldData, appiumDriver);
+assertion.webElementIsNotNull(caseNo,INzhongyaoxingDA, FieldData, appiumDriver);
+assertion.webElementIsNotNull(caseNo,INqianzaixuqiuDA, FieldData, appiumDriver);
+assertion.webElementIsNotNull(caseNo,INxingmingDA, FieldData, appiumDriver);
+assertion.webElementIsNotNull(caseNo,INbumenDA, FieldData, appiumDriver);
+assertion.webElementIsNotNull(caseNo,INzhiwuDA, FieldData, appiumDriver);
+assertion.webElementIsNotNull(caseNo,INyoujianDA, FieldData, appiumDriver);
+assertion.webElementIsNotNull(caseNo,INdianhuaDA, FieldData, appiumDriver);
+assertion.webElementIsNotNull(caseNo,INshoujiDA, FieldData, appiumDriver);
 
 action.tap(INshichangleibieDA, 800);
 PageFuntion.xialLaKuang_AndroidWithWanCheng("中石化市场");

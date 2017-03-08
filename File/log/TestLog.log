@@ -1,23 +1,3 @@
-2017-03-05 14:45:33 TestLog :Infor:Log.getPropertyFile.35:testlog.log 创建成功
-2017-03-05 14:45:33 TestLog :Infor:TestInit.AppPlatform.62:当前是否为安卓测试：true当前是否为测试环境：false
-2017-03-05 14:45:33 TestLog :Infor:TestInit.AppPlatform.79:已启动appium服务
-2017-03-05 14:45:33 TestLog :Infor:Driver.initDriver.45:开始创建androiddriver
-2017-03-05 14:45:39 TestLog :Infor:Driver.initDriver.56:创建androidDriver成功
-2017-03-05 14:45:39 TestLog :Infor:Driver.initDriver.83:应用已存在，无需安装
-2017-03-05 14:45:39 TestLog :Infor:TestBase.getDriver.166:appiumDriver获取成功
-2017-03-05 14:45:39 TestLog :Infor:Action.<init>.55:测试环境为Android，转化为AndroidDriver
-2017-03-05 14:45:40 TestLog :Infor:Action.<init>.69:获取屏幕宽高成功,高：1920宽：1080
-2017-03-05 14:45:40 TestLog :Infor:TestBase.getDriver.169:action创建成功
-2017-03-05 14:45:40 TestLog :Infor:TestBase.getDriver.173:assertion创建成功
-2017-03-05 14:45:40 TestLog :Infor:TestBase.getDriver.177:screenShots创建成功
-2017-03-05 14:45:40 TestLog :Infor:TestBase.getDriver.181:findWebElement创建成功
-2017-03-05 14:45:40 TestLog :Infor:TestBase.getDriver.185:parseYamlFile创建成功
-2017-03-05 14:45:40 TestLog :Infor:TestBase.initGenDataExcle.464:拷贝pc生成数据到：./File/dataExcles/测试数据.xls
-2017-03-05 14:45:41 TestLog :Infor:TestBase.getDriver.189:测试生成数据初始化成功
-2017-03-05 14:45:41 TestLog :Infor:TestBase.getDriver.192:测试报告excle初始化成功
-2017-03-05 14:45:42 TestLog :Infor:TestBase.getDriver.195:screen创建成功
-2017-03-05 14:45:42 TestLog :Infor:TestInit.getAppiumDriver.103:测试初始化完毕
-2017-03-05 14:45:42 TestLog :Infor:TestInit.autoTest.128:初始化成功-小盈办公-开始自动化测试
-2017-03-05 14:45:42 TestLog :Infor:TestBase.GenExcleDetailsReport.270:自动化报告生成
-2017-03-05 14:45:44 TestLog :Infor:TestInit.closeAppiumServer.95:已释放appiumDriver服务
-2017-03-05 14:45:44 TestLog :Infor:TestInit.closeAppiumServer.96:已关闭appium服务
+2017-03-08 13:19:12 TestLog :Infor:Log.getPropertyFile.35:testlog.log 创建成功
+2017-03-08 13:19:12 TestLog :Infor:TestInit.AppPlatform.61:当前是否为安卓测试：true当前是否为测试环境：true
+2017-03-08 13:19:12 TestLog :Infor:Driver.initDriver.45:开始创建androiddriver

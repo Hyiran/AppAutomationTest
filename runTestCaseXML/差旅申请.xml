@@ -5,7 +5,7 @@
     <!--测试平台 如果安卓就是Android 其他均为ios--> 
      <parameter name="plantForm" value="Android"/>
      <!-- 测试环境就传 true -->
-     <parameter name="isTestEnvirectory" value="false"/>
+     <parameter name="isTestEnvirectory" value="true"/>
      
 	<test name="com.Pcitc.AppAutomationTest.pagesHelper.TestInit" preserve-order="true">
 	<!-- 配置需要访问的url，将在类中befortest使用 -->

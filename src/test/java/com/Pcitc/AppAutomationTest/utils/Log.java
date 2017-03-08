@@ -82,6 +82,7 @@ public class Log   extends GetClassMethodName
 	if (snapShootName!="")
 	{
 //		第三列 截图列
+//		System.out.println("log链接截图文件名"+snapShootName);
 		TestBase.reportExcleExcelHandle.addCellDataWithLink(TestBase.reportExcleExcelRow, 2, snapShootName);
 //		第四列 精确定位对象
 		TestBase.reportExcleExcelHandle.addCellDataWithLink(TestBase.reportExcleExcelRow, 3, snapShootName+"Cut");

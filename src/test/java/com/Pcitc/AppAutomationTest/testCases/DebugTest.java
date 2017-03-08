@@ -22,14 +22,15 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 
 public class DebugTest
-{public  static  DesiredCapabilities capabilities =null;
+{	public  static  DesiredCapabilities capabilities =null;
 	public static AppiumDriver  wd=null;
 	public static Action action=null;
-	public static String plantForm="Ios";
+	public static String plantForm="Io";
 	public static void main(String[] args) throws MalformedURLException {
 		
 		if (plantForm.equals("Ios"))
 		{
+			System.out.print("333");
 			 capabilities = new DesiredCapabilities();
 //			capabilities.setCapability("locationServicesEnabled", Config.locationServicesEnabled);//	这个capability主要用于是否启用定位服务，这个只用于模拟器上，真机无效。	
 			capabilities.setCapability("nativeInstrumentsLib", Config.calendarFormat);//设置这个capability可以使用本地instrumentsLib，设置代码：
@@ -46,6 +47,7 @@ public class DebugTest
 		    
 		}
 		else {
+			System.out.print("安卓环境");
 			DesiredCapabilities capabilities = new DesiredCapabilities();
 			capabilities.setCapability("appium-version", "1.0");
 			capabilities.setCapability("platformName", "Android");
@@ -71,21 +73,23 @@ public class DebugTest
 //				找到指定模块并进入
 				WebElement mode=wd.findElement(By.xpath("//android.widget.TextView[starts-with(@text,'客户管理')]"));	
 				action.tap(mode, 800);
+			
+			
+				select();
 		}
 	
 	}
 	public static  void select()
 	{
-		WebElement mode=wd.findElement(By.id("cn.cooperative:id/business_add"));	
+		WebElement add=wd.findElement(By.id("cn.cooperative:id/business_add"));	
+		action.tap(add, 800);
+		
+		WebElement mode=wd.findElement(By.id("cn.cooperative:id/tv_IsGroup"));	
 		action.tap(mode, 800);
 		
-		WebElement sel=wd.findElement(By.xpath("//android.widget.TextView[starts-with(@text,'否')]"));	
-		action.tap(sel, 800);
+		wd.switchTo().alert().accept();
+	
 		
-//		By by=By.id("cn.cooperative:id/tv_chooseMarket");
-// 		action.swipe(by, "up", 20, false);
-		Log.logInfo("kaishi--", "");
-// 		点击完成
- 		action.tap(DataHandle.getInt(action.Width/2+15), DataHandle.getInt(action.Height*0.7), 800);
+
 	}
 }

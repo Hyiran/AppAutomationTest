@@ -35,11 +35,10 @@ public class TestInit extends TestBase
 	
 	@Parameters({"plantForm","isTestEnvirectory"})
 	@BeforeSuite(groups="AppPlatform",description="获得平台类型")
-	
-public void  AppPlatform (String plantForm,String isTestEnvirectory) 
+	public void  AppPlatform (String plantForm,String isTestEnvirectory) 
 		{
 		
-		System.out.print("------------"+plantForm);
+		System.out.println("------------平台"+plantForm+"------------环境:"+isTestEnvirectory);
 //		获得运行开始时间
 		TestBase.startTime=TimeString.getyMDHMS();
 //		获得测试环境
@@ -51,7 +50,7 @@ public void  AppPlatform (String plantForm,String isTestEnvirectory)
 		 else {
 			 IsAndroid=false;
 		}
-		 if (plantForm.equals("true")) 
+		 if (isTestEnvirectory.equals("true")) 
 		 {
 			 IsTestEnvirectory=true;
 		 }
@@ -60,28 +59,6 @@ public void  AppPlatform (String plantForm,String isTestEnvirectory)
 		}
 	
 		Log.logInfo("当前是否为安卓测试："+IsAndroid+"当前是否为测试环境："+IsTestEnvirectory,GetClassMethodName());
-		
-//		获得screen 对象
-//		getScreen();
-
-//		启动appium 
-		try {
-//			点击appium 图标
-
-//			screen.wait(PictureLib+"appium2.png",8);
-
-//			screen.click();
-//			Log.logInfo("appium 图标已被点击");
-	
-//			TestBase.	screen.wait(PictureLib+"begin.png",5);
-//			TestBase.	screen.click();
-//			Thread.sleep(3000);
-			Log.logInfo("已启动appium服务",GetClassMethodName());
-		} catch (Exception e) {
-			
-		Log.logError("启动appiun服务异常",GetClassMethodName());
-		}
-		
 		}
 //	关闭appium服务
 	@AfterSuite
@@ -128,7 +105,7 @@ public void  AppPlatform (String plantForm,String isTestEnvirectory)
 			Log.logInfo("初始化成功-小盈办公-开始自动化测试",GetClassMethodName());
 		}
 	
-
+		afterClass(7, "测试开始");
 		
 	}
 	

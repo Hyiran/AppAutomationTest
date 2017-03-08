@@ -50,21 +50,21 @@ public class DengLuTest extends  DengLu
 		{
 	     
 
-		 caseNo="登陆-正确用户名密码";
+		String caseNo="登陆-正确用户名密码";
 		Log.logInfo("测试用例："+caseNo,GetClassMethodName()); 
-		assertion.verifyEquals("ww", INusernameDA, "dasdasd", appiumDriver);
+		assertion.verifyEquals(caseNo,"ww", INusernameDA, "dasdasd", appiumDriver);
 //		action.sendKey(INusernameDA,FixDataExcle.getCellData(dataIndex, FixDataExcle.getCellData(1, 1)));
 //		action.sendKey(INpassswordDA,FixDataExcle.getCellData(dataIndex, FixDataExcle.getCellData(1, 2)));
 		dataIndex++;
 		action.tap(INsubmitDE, 1000);
 //		expetData=getElemnt("expetData", true, true, "荆影", "");
-		assertion.webElementIsNotNull(expetData, "是否登陆成功", appiumDriver);
+		assertion.webElementIsNotNull(caseNo,expetData, "是否登陆成功", appiumDriver);
 		PageFuntion.logOut();
 		}
 	@Test(priority='2',description="用户名大写")
 	public void logIn_Biguser()
 	{
-		 caseNo="登陆-用户名大写";
+		String  caseNo="登陆-用户名大写";
 		Log.logInfo("测试用例："+caseNo,GetClassMethodName()); 
 //		action.sendKey(INusernameDA,FixDataExcle.getCellData(dataIndex, FixDataExcle.getCellData(1, 1)));
 //		action.sendKey(INpassswordDA,FixDataExcle.getCellData(dataIndex, FixDataExcle.getCellData(1, 2)));
@@ -72,13 +72,13 @@ public class DengLuTest extends  DengLu
 		action.tap(INsubmitDE, 1000);
 		expetData=null;
 //		expetData=getElemnt("expetData", true, true, "荆影", "");
-		assertion.webElementIsNotNull( expetData, "是否登陆成功", appiumDriver);
+		assertion.webElementIsNotNull( caseNo,expetData, "是否登陆成功", appiumDriver);
 		PageFuntion.logOut();
 	}
 	@Test(priority='3',description="密码大写")
 	public void logIn_PassWordBig()
 	{
-		 caseNo="登陆-密码大写";
+		String caseNo="登陆-密码大写";
 		Log.logInfo("测试用例："+caseNo,GetClassMethodName()); 
 //		action.sendKey(INusernameDA,FixDataExcle.getCellData(dataIndex, FixDataExcle.getCellData(1, 1)));
 //		action.sendKey(INpassswordDA,FixDataExcle.getCellData(dataIndex, FixDataExcle.getCellData(1, 2)));
@@ -87,13 +87,13 @@ public class DengLuTest extends  DengLu
 		expetData=null;
 		parseYamlFile.needFound=false;
 //		expetData=getElemnt("expetData", true, true, "荆影", "");
-		assertion.webElementIsNull( expetData, "是否登陆成功", appiumDriver);
+		assertion.webElementIsNull(caseNo, expetData, "是否登陆成功", appiumDriver);
 	
 	}
 	@Test(priority='4',description="用户名为空")
 	public void logIn_userNameNull()
 	{
-		 caseNo="登陆-用户名为空";
+		String caseNo="登陆-用户名为空";
 		Log.logInfo("测试用例："+caseNo,GetClassMethodName()); 
 		action.clearInputTextbox(INusernameDA);
 //		action.sendKey(INpassswordDA,FixDataExcle.getCellData(dataIndex, FixDataExcle.getCellData(1, 2)));
@@ -101,12 +101,12 @@ public class DengLuTest extends  DengLu
 		action.tap(INsubmitDE, 1000);
 		expetData=null;
 //		expetData=getElemnt("expetData", true, true, "荆影", "");
-		assertion.webElementIsNull( expetData, "是否登陆成功", appiumDriver);
+		assertion.webElementIsNull( caseNo,expetData, "是否登陆成功", appiumDriver);
 	}
 	@Test(priority='5',description="密码为空")
 	public void noPassWordLogin()
 	{
-		 caseNo="登陆-密码为空";
+		String 	 caseNo="登陆-密码为空";
 		Log.logInfo("测试用例："+caseNo,GetClassMethodName()); 
 //		action.sendKey(INusernameDA,FixDataExcle.getCellData(dataIndex, FixDataExcle.getCellData(1, 1)));
 		dataIndex++;
@@ -114,7 +114,7 @@ public class DengLuTest extends  DengLu
 		action.tap(INsubmitDE, 1000);
 		expetData=null;
 //		expetData=getElemnt("expetData", true, true, "荆影", "");
-		assertion.webElementIsNull( expetData, "是否登陆成功", appiumDriver);
+		assertion.webElementIsNull( caseNo,expetData, "是否登陆成功", appiumDriver);
 		parseYamlFile.needFound=true;
 	}
 

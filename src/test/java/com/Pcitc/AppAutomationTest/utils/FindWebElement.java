@@ -182,7 +182,7 @@ private WebElement getLocator(ExcelReader e ,boolean wait,String ByTypeColumn,St
 		
 		ByType=excelReader.getCellData(TestBase.PageElmentExcleIndex, ByTypeColumn);
 		locatString=excelReader.getCellData(TestBase.PageElmentExcleIndex, locatStringColumn);	
-		if (ByType!="" && locatString!="")
+		if (ByType!=null && locatString!=null)
 		{
 			Log.logInfo("对象："+WebElementName+";定位方式："+ByType+";定位器："+locatString, GetClassMethodName());
 			By by=this.getBy(ByType, locatString);	

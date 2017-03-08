@@ -241,7 +241,7 @@ WebElement EndElement;
 		if (element!=null)
 		{
 			element.sendKeys(string);
-			TestBase.assertion.verifyEquals(string, element, "测试文本框数据是否输入成功", androidDriver);
+			TestBase.assertion.verifyEquals("向文本框输入字符串",string, element, "测试文本框数据是否输入成功", androidDriver);
 		}
 		else 
 		{
@@ -262,7 +262,7 @@ WebElement EndElement;
 			if (inputData !="") 
 			{
 				element.sendKeys(inputData);
-				TestBase.assertion.verifyEquals(inputData, element, "测试文本框数据是否输入", androidDriver);
+				TestBase.assertion.verifyEquals("测试文本框数据是否输入",inputData, element, "测试文本框数据是否输入", androidDriver);
 			}
 			else {
 				Log.logWarn("没有获取到excle数据请检查文件,无法在文本框输入", GetClassMethodName(),"");

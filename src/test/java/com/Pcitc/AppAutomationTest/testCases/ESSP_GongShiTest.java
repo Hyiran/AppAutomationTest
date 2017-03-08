@@ -29,12 +29,12 @@ public void  ESSP_GongShiTesXiaoZuPiShen() throws InterruptedException
 { 
 		beforeMethod("", "");
 		PageFuntion.logIn(getUserName("gongshi", "1"), getUserPassWord("gongshi","1"));
-		caseNo="工时-项目组长-批审";
+		String 	caseNo="工时-项目组长-批审";
 		ESSP_GongShiListPage();
 		int i=2;
-		assertion.verifyEquals(PageElmentExcle.getCellData(i, Field), LIgongshishenpitiDE,  Field, appiumDriver);i++;
-		assertion.verifyEquals("项目小组长", LIxingzhiDE,  Field, appiumDriver);i++;
-		assertion.verifyEquals("正式员工", LIleixingDE,  Field, appiumDriver);i++;
+		assertion.verifyEquals(caseNo,PageElmentExcle.getCellData(i, Field), LIgongshishenpitiDE,  Field, appiumDriver);i++;
+		assertion.verifyEquals(caseNo,"项目小组长", LIxingzhiDE,  Field, appiumDriver);i++;
+		assertion.verifyEquals(caseNo,"正式员工", LIleixingDE,  Field, appiumDriver);i++;
 
 		if (TestInit.IsAndroid) 
 		{	action.tap(LIxingzhiDE, 1000);
@@ -69,7 +69,7 @@ public void  ESSP_GongShiTestJingLiTongGuo() throws InterruptedException
 	try {
 		beforeMethod("", "");
 		PageFuntion.logIn(getUserName("gongshi", "2"), getUserPassWord("gongshi","2"));
-		caseNo="工时-项目经理单条-审批通过";
+		String caseNo="工时-项目经理单条-审批通过";
 		ESSP_GongShiListPage();
 
 		if (TestInit.IsAndroid) 
@@ -119,7 +119,7 @@ public void  ESSP_GongShiTestLingDaoTongGuo()
 	try {
 		beforeMethod("", "");
 		PageFuntion.logIn(getUserName("gongshi", "3"), getUserPassWord("gongshi","3"));
-		caseNo="工时-项目领导单条-审批通过";
+		String caseNo="工时-项目领导单条-审批通过";
 		ESSP_GongShiListPage();
 		
 		
@@ -155,6 +155,7 @@ public void  ESSP_GongShiTestLingDaoTongGuo()
 		action.pressKeyCode(KeyEvent.fanHui);
 		PageFuntion.logOut();
 		afterMethod(12, clasName);
+		afterMethod(12, clasName);
 	} catch (Exception e) {
 	PageFuntion.exceptionLogOutAndroid(e.toString());
 	}
@@ -167,7 +168,7 @@ public void  ESSP_GongShiTestMiShuJuJue()
 	try {
 		beforeMethod("", "");
 		PageFuntion.logIn(getUserName("gongshi", "4"), getUserPassWord("gongshi","4"));
-		caseNo="工时-部门秘书-审批拒绝";
+		String caseNo="工时-部门秘书-审批拒绝";
 		ESSP_GongShiListPage();
 		
 		
