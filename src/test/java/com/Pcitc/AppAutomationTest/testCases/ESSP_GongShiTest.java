@@ -51,7 +51,7 @@ public void  ESSP_GongShiTesXiaoZuPiShen() throws InterruptedException
 			}
 		PageFuntion.piShen_Android(caseNo,true, GenDataExcle, "工时", 2);
 		
-		Thread.sleep(4000);
+		Thread.sleep(5000);
 		
 		action.pressKeyCode(KeyEvent.fanHui);
 		PageFuntion.logOut();
@@ -155,7 +155,7 @@ public void  ESSP_GongShiTestLingDaoTongGuo()
 		action.pressKeyCode(KeyEvent.fanHui);
 		PageFuntion.logOut();
 		afterMethod(12, clasName);
-		afterMethod(12, clasName);
+		afterClass(12, clasName);
 	} catch (Exception e) {
 	PageFuntion.exceptionLogOutAndroid(e.toString());
 	}

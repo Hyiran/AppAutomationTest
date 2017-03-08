@@ -86,8 +86,10 @@ public  class  PageFuntion extends TestBase
 	  * @param useName  登录用户名
 	  * @param Password 登录用户密码
 	  */
+	 static boolean click=true;
 	 public static void logIn (String  useName,String Password) 
 	 { 
+		 
 		 if (TestInit.IsAndroid)
 		 {
 			 WebElement Text_useNamae= appiumDriver.findElement(By.id("cn.cooperative:id/username"));
@@ -105,6 +107,12 @@ public  class  PageFuntion extends TestBase
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			if(click)
+			{
+				action.tap(500, 500, 500);
+				click=false;
+			}
+			
 		}
 		else
 		{

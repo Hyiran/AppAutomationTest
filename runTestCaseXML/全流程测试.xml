@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="com.Pcitc.AppAutomationTest.pagesHelper.TestInit" verbose="1" parallel="false" thread-count="1">
+  
+    <!-- 配置创建浏览器的类型，将在类中beforsuit使用 -->
+    <!--测试平台 如果安卓就是Android 其他均为ios--> 
+     <parameter name="plantForm" value="Android"/>
+     <!-- 测试环境就传 true -->
+     <parameter name="isTestEnvirectory" value="true"/>
+     
+	<test name="com.Pcitc.AppAutomationTest.pagesHelper.TestInit" preserve-order="true">
+	<!-- 配置需要访问的url，将在类中befortest使用 -->
+	 <parameter name="url" value="Chorme" />
+			<classes>		
+			      <parameter name="username" value="12020" />
+				  <parameter name="password" value="123456" />
+				<!-- 获得appiumdriver -->	
+			<class name="com.Pcitc.AppAutomationTest.pagesHelper.TestInit" preserve-order="true"> </class>	
+			<class name="com.Pcitc.AppAutomationTest.testCases.ESSP_ChaiLvShenQing_Test" preserve-order="true"> </class>	
+			<class name="com.Pcitc.AppAutomationTest.testCases.ESSP_FeiYongBaoXiaoTest" preserve-order="true"> </class>	
+			<class name="com.Pcitc.AppAutomationTest.testCases.ESSP_GongShiTest" preserve-order="true"> </class>			
+			</classes>
+	</test>
+		
+	
+</suite>
