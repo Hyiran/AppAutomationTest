@@ -286,18 +286,18 @@ public class ESSP_FeiYongBaoXiaoTest extends ESSP_FeiYongBaoXiao
 		}		
 }
 	
-	@Test(priority='6',description="差旅申请-项目领导拒绝")
+	@Test(priority='6',description="差旅申请-项目经理拒绝")
 	public void ESSP_FeiYongBaoXiaoTest_LeaderRefause2() throws IOException
 {
 		try 
 		{
 			
 			
-			String  caseNo="费用报销-项目领导拒绝";
+			String  caseNo="差旅申请-项目经理拒绝";
 			beforeMethod(clasName, "listPage");
 				
 			Log.logInfo(caseNo, GetClassMethodName());	
-			PageFuntion.logIn(getUserName("feiyongbaoxiao", "2"), getUserPassWord("feiyongbaoxiao", "2"));
+			PageFuntion.logIn(getUserName("feiyongbaoxiao", "1"), getUserPassWord("feiyongbaoxiao", "1"));
 				
 //				进入列表页
 		ESSP_FeiYongBaoXiaoListPage();	
@@ -313,7 +313,7 @@ public class ESSP_FeiYongBaoXiaoTest extends ESSP_FeiYongBaoXiao
 			}
 		
 		PageFuntion.shenPiTongYong(caseNo, false, "自动化测试拒绝");
-		PageFuntion.yiBanChaKan(caseNo, data, "研究院:赵雯", "拒绝");
+		PageFuntion.yiBanChaKan(caseNo, data, "研究院:程玉超", "拒绝");
 		
 		PageFuntion.logOut();
 		afterMethod(10,clasName);
