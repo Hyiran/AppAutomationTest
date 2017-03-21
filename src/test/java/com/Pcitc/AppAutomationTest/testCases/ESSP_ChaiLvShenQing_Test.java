@@ -179,10 +179,27 @@ afterMethod(8,clasName);
 		action.tap(LIshenqingqingdanDE, 1000);
 		WebElement data=getElemntByYaml(Location.TextView_Ptext, true, true, "1016-"+TimeString.getYMD2(), "1");
 	    String genDataNo=DataHandle.getElementText(data);
+	    
+	    Log.logInfo("差旅申请生成的单号："+genDataNo, GetClassMethodName());
 	    assertion.webElementIsNotNull(caseNo,data, "判断 差旅申请单号是否获取成功", appiumDriver);
 	    if (genDataNo!="无法定位元素") 
 	    {
-	      genDatainsertExcleData(genDataNo, 3, 1);
+	     if (TestInit.IsAndroid) 
+	     {
+//			安卓存储行号 5
+	    	 mysql.getSqlResault("update data set ESSP_FeiYongBaoXiaoTest='"+genDataNo+"' where datano=5",false); 
+	    	 rs=mysql.getSqlResault("SELECT *  from data  ",true);
+	    	 String sqldata=rs.get(4).get("ESSP_FeiYongBaoXiaoTest");
+	    	 Log.logInfo("android生成的测试数据存入数据库为："+sqldata, GetClassMethodName());
+		}
+	     else {
+//				ios 6
+	       	 mysql.getSqlResault("update data set ESSP_FeiYongBaoXiaoTest='"+genDataNo+"' where datano=6",false);
+	       	rs=mysql.getSqlResault("SELECT *  from data  ",true);
+	    	 String sqldata=rs.get(5).get("ESSP_FeiYongBaoXiaoTest");
+	    	 Log.logInfo("ios生成的测试数据存入数据库为："+sqldata, GetClassMethodName());
+	     
+	     }
 	    }
 	    PageFuntion.fanHui();
 	    Thread.sleep(2000);

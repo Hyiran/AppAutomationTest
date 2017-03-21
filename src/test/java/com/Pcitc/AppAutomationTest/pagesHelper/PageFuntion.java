@@ -166,7 +166,7 @@ public  class  PageFuntion extends TestBase
 	 * @param usecheck    勾选框在参数对象 后面传true 否则传否
 	 * @param size  批审数据的个数
 	 */
-public   static void piShen_Android(String caseNo,Boolean usecheck,ExcelReader e,String col,int size) 
+public   static void piShen_Android(String caseNo,Boolean usecheck,ArrayList<String> dataList) 
 	{
 //	获得批审按钮
 	 manyApp=getElemntByYaml(manyAppLocalType, true, true, manyAppLocalData,"");
@@ -180,25 +180,26 @@ if (manyApp!=null)
 	Log.logInfo(caseNo+"批审按钮已经点击",GetClassMethodName());
 	WebElement data=null;
 //	如果批审的数据只有一条，那么就只处理一个,点击它
+	int size =dataList.size();
 	if (size==1)
 	{
-		Log.logInfo("批审-当前需要选择数据"+ e.getCellData(1, col), GetClassMethodName());
+		Log.logInfo("批审-当前需要选择数据"+ dataList.get(0), GetClassMethodName());
 			try 
 			{
 //				处理所在数据列的第一条数据
 				if (usecheck) 
 				{
-					 data=getElemntByYaml(Location.TextView_Ptext_following_PindexCheckBox, true, true, e.getCellData(1, col), "1");
+					 data=getElemntByYaml(Location.TextView_Ptext_following_PindexCheckBox, true, true,dataList.get(0), "1");
 				}
 				else {
-					 data=getElemntByYaml(Location.TextView_Ptext, true, true, e.getCellData(1, col), "");
+					 data=getElemntByYaml(Location.TextView_Ptext, true, true, dataList.get(0), "");
 				}
 			
 				action.tap(data, 1000);
-				Log.logInfo(caseNo+"批审1条数据:"+e.getCellData(1, col)+"已经被选中",GetClassMethodName());
+				Log.logInfo(caseNo+"批审1条数据:"+dataList.get(0)+"已经被选中",GetClassMethodName());
 			} catch (Exception e1) 
 			{
-				Log.logError(caseNo+"批审1条数据，数据无法定位，数据为:"+e.getCellData(1, col),GetClassMethodName());		
+				Log.logError(caseNo+"批审1条数据，数据无法定位，数据为:"+dataList.get(0),GetClassMethodName());		
 			}
 		
 	}
@@ -206,20 +207,20 @@ if (manyApp!=null)
 	else
 	{
 
-		for (int i = 1; i <=size; i++) 
+		for (int i = 0; i <size; i++) 
 		{
 			Log.logInfo(caseNo+"需要批审"+size+"条数据",GetClassMethodName());
 			
 				try {
 				//勾选数据
-					Log.logInfo("批审-当前需要选择数据"+ e.getCellData(i, col), GetClassMethodName());
+					Log.logInfo("批审-当前需要选择数据"+ dataList.get(i), GetClassMethodName());
 					if (usecheck) 
 					{
-						 data=getElemntByYaml(Location.TextView_Ptext_following_PindexCheckBox, true, true, e.getCellData(i, col), "1");
+						 data=getElemntByYaml(Location.TextView_Ptext_following_PindexCheckBox, true, true,dataList.get(i), "1");
 					
 					}
 					else {
-						 data=getElemntByYaml(Location.TextView_Ptext_preceding_PindexCheckBox, true, true, e.getCellData(i, col), "1");
+						 data=getElemntByYaml(Location.TextView_Ptext_preceding_PindexCheckBox, true, true, dataList.get(i), "1");
 					}		
 					action.tap(data, 1000);
 					Log.logInfo(caseNo+"批审-第"+i+"条数据:已经被选中",GetClassMethodName());

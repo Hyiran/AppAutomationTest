@@ -1,6 +1,7 @@
 package com.Pcitc.AppAutomationTest.testCases;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeClass;
@@ -75,10 +76,10 @@ public class ESSP_FeiYongBaoXiaoTest extends ESSP_FeiYongBaoXiao
 //			进入进入详情页	
 			beforeMethod(clasName, "detailsPage");
 			if (TestInit.IsAndroid) {
-				 data=getGenDataExcleData(1, "费用报销");
+				 data=rs.get(0).get(clasName);
 			}
 			else {
-				
+				 data=rs.get(2).get(clasName);
 			}
 			
 			ESSP_FeiYongBaoXiaoDetails1(data);
@@ -193,7 +194,20 @@ public class ESSP_FeiYongBaoXiaoTest extends ESSP_FeiYongBaoXiao
 				
 //				进入列表页
 			ESSP_FeiYongBaoXiaoListPage();	
-			PageFuntion.piShen_Android(caseNo, false, GenDataExcle, "费用报销", 2);
+			ArrayList<String> datas=new ArrayList<String> ();
+			if (TestInit.IsAndroid)
+			{
+				datas.add(rs.get(0).get(clasName));
+				datas.add(rs.get(1).get(clasName));
+			}
+			else {
+				datas.add(rs.get(2).get(clasName));
+				datas.add(rs.get(3).get(clasName));
+			}
+			
+			PageFuntion.piShen_Android(caseNo, false, datas);
+			
+			
 		action.pressKeyCode(KeyEvent.fanHui);
 		PageFuntion.logOut();
 		afterMethod(10,clasName);
@@ -225,7 +239,7 @@ public class ESSP_FeiYongBaoXiaoTest extends ESSP_FeiYongBaoXiao
 		ESSP_FeiYongBaoXiaoListPage();	
 //		 进入数据详情
 		if (TestInit.IsAndroid) {
-			 data=getGenDataExcleData(1, "费用报销");
+			 data=rs.get(0).get(clasName);
 			 WebElement element=getElemntByYaml(Location.TextView_Ptext, true, true, data, "");
 			 action.tap(element, 800);
 
@@ -263,7 +277,7 @@ public class ESSP_FeiYongBaoXiaoTest extends ESSP_FeiYongBaoXiao
 		ESSP_FeiYongBaoXiaoListPage();	
 //		 进入数据详情
 		if (TestInit.IsAndroid) {
-			 data=getGenDataExcleData(2, "费用报销");
+			 data=rs.get(1).get(clasName);
 			 WebElement element=getElemntByYaml(Location.TextView_Ptext, true, true, data, "");
 			 action.tap(element, 800);
 
@@ -303,7 +317,7 @@ public class ESSP_FeiYongBaoXiaoTest extends ESSP_FeiYongBaoXiao
 		ESSP_FeiYongBaoXiaoListPage();	
 //		 进入数据详情
 		if (TestInit.IsAndroid) {
-			 data=getGenDataExcleData(3, "费用报销");
+			 data=rs.get(4).get(clasName);
 			 WebElement element=getElemntByYaml(Location.TextView_Ptext, true, true, data, "");
 			 action.tap(element, 800);
 

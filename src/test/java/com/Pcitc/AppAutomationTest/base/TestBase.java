@@ -148,11 +148,9 @@ public class TestBase  extends  GetClassMethodName
 	public static ConnectMySQL mySql;
 //	点击服务按钮
 	protected static   Screen screen ;
-
-	/**
-	 * 构造函数初始化对象
-	 * @param driveType  
-	 */
+//	查询数据库结果
+	protected static List<HashMap<String, String>> rs=null;
+	
  public void  getDriver() 
  { 
 //	 初始化错误信息列表
@@ -195,9 +193,11 @@ public class TestBase  extends  GetClassMethodName
 	 Log.logInfo("screen创建成功",GetClassMethodName());
 
 //		 链接数据库
-//		 mySql= new ConnectMySQL();			
-//		 mySql.connect("localhost:3306/XY", "root", "fu~123");
-//		 Log.logInfo("mySql创建成功",GetClassMethodName());
+		 mySql= new ConnectMySQL();			
+		 mySql.connect("localhost:3306/xiaoying", "root", "root");
+
+		 rs =mysql.getSqlResault("SELECT *  from data  ",true);
+		 Log.logInfo("mySql创建成功",GetClassMethodName());
 	 
 }
  static String nowRunClass="";
@@ -784,8 +784,8 @@ public  static  ExcelReader getExcle (String fileName , String sheetName)
 //					System.out.println(DataBase+UserName+PassWord);
 			 mysql= new ConnectMySQL();		
 			 mysql.connect(DataBase, UserName, PassWord);
-			 Object a[][]=ConnectMySQL.getObjectData(Sql);
-			 	return a;
+
+			 	return null;
 //			 List<HashMap<String, String>> rs = ConnectMySQL.query(Sql);
 //			 System.out.println(rs.get(0));
 		 }
