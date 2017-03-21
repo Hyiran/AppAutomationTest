@@ -16,8 +16,7 @@
 				<!-- 获得appiumdriver -->	
 			<class name="com.Pcitc.AppAutomationTest.pagesHelper.TestInit" preserve-order="true"> </class>	
 			<class name="com.Pcitc.AppAutomationTest.testCases.ESSP_ChaiLvShenQing_Test" preserve-order="true"> </class>	
-			<class name="com.Pcitc.AppAutomationTest.testCases.ESSP_FeiYongBaoXiaoTest" preserve-order="true"> </class>	
-			<class name="com.Pcitc.AppAutomationTest.testCases.ESSP_GongShiTest" preserve-order="true"> </class>			
+			<class name="com.Pcitc.AppAutomationTest.testCases.ESSP_FeiYongBaoXiaoTest" preserve-order="true"> </class>			
 			</classes>
 	</test>
 		
