@@ -54,6 +54,7 @@ import sun.util.logging.resources.logging;
  */
 public class TestBase  extends  GetClassMethodName
 {
+//	是否生成报告
 	public static boolean isGenReport=false;
 //	测试开始时间，beforsuit赋值
 	public static String startTime="";
@@ -91,9 +92,10 @@ public class TestBase  extends  GetClassMethodName
 	 * 当前模块断言失败数
 	 */
 	public static int modelAsserFail=0;
+	
 //	是否停止运行
 	public static boolean StopRun =false;
-//	是否停止运行
+//	严重问题集合
 	public static  ArrayList<String> ErrorList;
 //	驱动
 	public static AppiumDriver<WebElement> appiumDriver;
@@ -112,24 +114,36 @@ public class TestBase  extends  GetClassMethodName
 	protected final String IosTitleLocatString="Ios字段定位器";
 	protected final String IosDataLocatType="Ios数据定位方式";
 	protected final String IosDataLocatString="Ios数据定位器";
+	
 //	断言方法输入日志信息
 	protected final String Field="字段";
 	protected final String FieldData="数据";
-//	excle相关对象
-//	读取测试数据唯一标识文件
-	protected static ExcelHandle eh=null;
-//	插入测试报告文件及索引
+	
+/**
+ * excle 相关对象
+ */
+//	对excel测试报告操作对象
 	public static  ExcelHandle reportExcleExcelHandle=null;
+//	对excel测试报告 索引
 	public static  int reportExcleExcelRow=1;
-//  读取测试生成数据excle文件
-	protected static ExcelReader GenDataExcle=null ;
+	
 //	读取页面定位excle 用于定位元素 断言日志输出 读取测试数据 选择下拉数据等
 	public 	static ExcelReader PageElmentExcle=null ;
-	public static int PageElmentExcleIndex=1 ;
+//	测试页面类获取excle数据索引
+	public  static int PageElmentExcleIndex=1 ;
 //	测试用例类获取excle数据索引
 	public static int TestCaseElmentExcleIndex=1 ;
-//	excle文件定位页面元素
+	
+	
+//	读取测试数据唯一标识文件
+//	protected static ExcelHandle eh=null;
+//  读取测试生成数据excle文件
+//	protected static ExcelReader GenDataExcle=null ;
+	
+	
+//	excle文件定位页面元素对象
 	public static  FindWebElement findWebElement=null;
+		
 //	判断当前是否已经获取yaml
 	public static Boolean isGetyamlpath=false;
 //	封装yaml文件对象
@@ -182,8 +196,6 @@ public class TestBase  extends  GetClassMethodName
 	 parseYamlFile=new ParseYamlFile(appiumDriver);	 
 	 Log.logInfo("parseYamlFile创建成功",GetClassMethodName());
 	
-	 eh=new ExcelHandle();	
-	 initGenDataExcle();
 	 Log.logInfo("测试生成数据初始化成功",GetClassMethodName());
 	 
 	 reportExcleExcelHandle=new ExcelHandle();
@@ -417,71 +429,6 @@ protected  static void getBeforeElement (String yamlname)
 					
 		}
 	
-	/**
-	 * 移动端生成的数据存入文件中
-	 * @param GenData 要存的数据
-	 * @param row 行号 （从 0开始）
-	 * @param column 列号
-	 */
-	protected void genDatainsertExcleData(String GenData,int row,int column)
-	{
-	
-		eh.updateFile("./File/dataExcles/测试数据.xls", "./File/dataExcles/测试数据.xls");
-		//如果两个参数不一致，执行后会生成一个新文件为参数二，与参数1文件相同；如修改cell值只对新生成的附件起作用
-		if (TestInit.IsTestEnvirectory)
-		{
-			eh.updateSheet("测试环境");
-		}
-		else {
-			eh.updateSheet("正式环境");
-			}
-	
-		eh.addCellData(row, column, GenData);
-		
-//		保存生效配置
-	
-		eh.afterExcle();
-			
-		Log.logInfo("安卓-差旅申请生成数据："+GenData+"已存入文件：./File/dataExcles/测试数据.xls",GetClassMethodName());
-	
-		
-	}
-
-	
-	/**
-	 * 获得生成测试数据文件中的指定数据
-	 * @param row 行号 如1
-	 * @param columnName 列名 如“费用报销”
-	 * @return
-	 */
-	protected  String getGenDataExcleData(int row,String columnName ) 
-	{
-//		返回测试数据
-		return GenDataExcle.getCellData(row, columnName);
-	}
-
-	/**初始化测试数据excle文件,
-	 * 
-	 */
-	protected  void initGenDataExcle() 
-	{
-//		Log.logInfo("拷贝pc生成数据到："+Config.excleLib+"测试数据.xls",GetClassMethodName());
-//		eh.updateFile("/project/eclipse/WebTest/ExcelData/PC端生成的数据.xls", Config.excleLib+"测试数据.xls");
-//		eh.afterExcle();
-		//Log.logInfo("最新测试数据已覆盖到："+Config.excleLib+"测试数据.xls",GetClassMethodName());
-		
-//		判断环境指定sheetname
-		if (TestInit.IsTestEnvirectory) 
-		{
-			GenDataExcle =getExcle("测试数据", "测试环境");
-	
-		}
-		else {
-			GenDataExcle =getExcle("测试数据", "正式环境");
-			
-		}
-	
-	}
 
 	/**
 	 * 更改页面元素显示等待时间为默认

@@ -12,19 +12,18 @@ public class SqlTest {
 
 	public static void main(String[] args) {
 	
+//		创建链接
 			 ConnectMySQL mysql=new ConnectMySQL();
 			 mysql.connect("localhost:3306/xiaoying", "root", "root");
 	
-			 String  genDataNo="33333";
-	    	 mysql.getSqlResault("update data set ESSP_ChaiLvShenQing_Test='"+genDataNo+"' where datano=5",false); 
-	    	 List<HashMap<String, String>>   rs1=mysql.getSqlResault("SELECT *  from data  ",true);
-	    	 String sqldata=rs1.get(4).get("ESSP_ChaiLvShenQing_Test");
-	    	 System.out.println("value："+sqldata);
-			 
+			
+//			 执行查询
 			 List<HashMap<String, String>> rs =mysql.getSqlResault("SELECT *  from data  ",true);
 			 String data=rs.get(0).get("ESSP_FeiYongBaoXiaoTest");
 			 System.out.println("当前值："+data);
 	
+			 
+//			 执行 增删改
 			 mysql.getSqlResault("update data set ESSP_FeiYongBaoXiaoTest='2j' where datano=1",false);  
 			 rs =mysql.getSqlResault("SELECT *  from data  ",true);
 			 data=rs.get(0).get("ESSP_FeiYongBaoXiaoTest");
