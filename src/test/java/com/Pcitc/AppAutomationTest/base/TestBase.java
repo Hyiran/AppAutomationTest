@@ -214,6 +214,9 @@ public class TestBase  extends  GetClassMethodName
 }
  static String nowRunClass="";
  
+ /**
+  * 生成测试类对应的报告
+  */
  public static void GenExcleModelReport(int row,String nowClass)
  {
 //	 判断当前类是否与参数一致，如果一致不生成报告
@@ -250,6 +253,9 @@ public class TestBase  extends  GetClassMethodName
 	}
 		
  }
+ /**
+  * 生成概要报告总计
+  */
  public static void GenExcleDetailsReport()
  {
 	 if (TestInit.IsAndroid)
@@ -267,7 +273,7 @@ public class TestBase  extends  GetClassMethodName
 			TestBase.reportExcleExcelHandle.addCellDataWithColor(0, 5,useTime, Color.heise, Color.lvse);
 
 //			用例执个数
-			TestBase.reportExcleExcelHandle.addCellDataWithColor(1, 1,Integer.toString(totalTestCase), Color.heise, Color.lvse);
+			TestBase.reportExcleExcelHandle.addCellDataWithColor(1, 1,Integer.toString(totalTestCase-1), Color.heise, Color.lvse);
 //			成功数
 			TestBase.reportExcleExcelHandle.addCellDataWithColor(1, 3, Integer.toString(totalTestCase-failTestCase), Color.heise, Color.lvse);
 //			失败数
@@ -278,7 +284,7 @@ public class TestBase  extends  GetClassMethodName
 //			严重错误数
 			TestBase.reportExcleExcelHandle.addCellDataWithColor(2, 3, Integer.toString(seriousNo), Color.heise, Color.hongse);
 //			断言失败错误数
-			TestBase.reportExcleExcelHandle.addCellDataWithColor(2, 5, Integer.toString(commonlyNo), Color.heise, Color.huangse);
+			TestBase.reportExcleExcelHandle.addCellDataWithColor(2, 5, Integer.toString(commonlyNo-1), Color.heise, Color.huangse);
 
 			TestBase.reportExcleExcelHandle.afterExcle();
 			

@@ -185,12 +185,15 @@ public class Assertion extends GetClassMethodName
         	Log.logInfo(getOutputStr(message)+"；测试结果:测试成功!元素已被定位！", GetClassMethodName());				
         }catch(Error e)
         {
+        
         	TestBase.commonlyNo++;
         	TestBase.modelAsserFail++;
         	String snapShootName= getSnapFileName(false);
 //			    	失败操作
             errors.add(e);
         	flag = false; 
+//			执行截图操作			
+			TestBase.screenShots.takeScreenshots(webElement, snapShootName);		
          	Log.logWarn(getOutputStr(message)+"；测试结果:测试失败!元素未被定位！", GetClassMethodName(), snapShootName);		
         }
     }

@@ -67,8 +67,10 @@ public class Log   extends GetClassMethodName
 	{	
 	Log.getFlag();
 	looger1.info("Warn:"+classMethodeName+message);	
+	
 	TestBase.reportExcleExcelHandle.updateFile("./target/surefire-reports/html/测试报告.xls","");
-	if (TestInit.IsAndroid) {
+	if (TestInit.IsAndroid)
+	{
 		TestBase.reportExcleExcelHandle.updateSheet("Android");
 	}
 	else {

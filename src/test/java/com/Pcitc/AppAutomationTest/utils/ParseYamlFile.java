@@ -16,6 +16,7 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
+import com.Pcitc.AppAutomationTest.base.TestBase;
 import com.Pcitc.AppAutomationTest.pagesHelper.Config;
 
 import io.appium.java_client.android.AndroidDriver;
@@ -49,7 +50,7 @@ public class ParseYamlFile extends GetClassMethodName
 	private HashMap<String, HashMap<String,String>> hashMap;
 //	元素等待时间
 	public static int waitTime=Config.ElementWaitTime;
-//元素是否能被找到，用于区别正常场景找不到元素 不报错的时候
+//	元素是否能被找到，用于区别正常场景找不到元素 不报错的时候
 	public static boolean needFound=true;
 	//构造函数参数,初始化webdriver对象
 /**
@@ -142,8 +143,9 @@ public WebElement waitForElement(final By by)
 			if (needFound) 
 			{
 //				Log.logInfo("需要定位元素",GetClassMethodName());
-					       
-				Log.logWarn("页面元素"+WebElementName+",无法用定位方式："+by.toString()+ "找到!超时时间:"+waitTime,GetClassMethodName(),"");
+//				String filename=TimeString.getyMDHMS();
+//				TestBase.screenShots.takeScreenshots(element, filename);      
+				Log.logWarn("页面元素"+WebElementName+",无法用定位方式："+by.toString()+ "找到!超时时间:"+Config.ElementWaitTime,GetClassMethodName(),"");
 				
 			}
 			else {

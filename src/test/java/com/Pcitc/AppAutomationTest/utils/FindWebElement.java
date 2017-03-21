@@ -89,10 +89,11 @@ public WebElement waitForElement(final By by)
 		
 		{
 			if (needFound) 
-			{
-				Log.logInfo("需要定位元素",GetClassMethodName());
-					       
-				Log.logWarn("页面元素"+WebElementName+",无法用定位方式："+by.toString()+ "找到!超时时间:"+Config.ElementWaitTime,GetClassMethodName(),"");
+			{	
+//				Log.logInfo("需要定位元素",GetClassMethodName());
+				
+//				TestBase.screenShots.takeScreenshots(element, WebElementName);      
+				Log.logWarn("页面元素"+WebElementName+",无法用定位方式："+by.toString()+ "找到!超时时间:"+Config.ElementWaitTime,GetClassMethodName(),WebElementName);
 				
 			}
 			else {

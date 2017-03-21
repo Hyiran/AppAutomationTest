@@ -49,7 +49,7 @@ public void  ESSP_GongShiTesXiaoZuPiShen() throws InterruptedException
 		
 //			ios
 			}
-		PageFuntion.piShen_Android(caseNo,true, GenDataExcle, "工时", 2);
+//		PageFuntion.piShen_Android(caseNo,true, GenDataExcle, "工时", 2);
 		
 		Thread.sleep(5000);
 		
@@ -83,12 +83,12 @@ public void  ESSP_GongShiTestJingLiTongGuo() throws InterruptedException
 			WebElement waixie=getElemntByYaml(Location.TextView_Ptext, true, true, "外协员工", "");
 			action.tap(waixie, 1000);
 			
-			WebElement data1=getElemntByYaml(Location.TextView_Ptext, true, true, GenDataExcle.getCellData(1, "工时"), "");
-			action.tap(data1, 1000);
+//			WebElement data1=getElemntByYaml(Location.TextView_Ptext, true, true, GenDataExcle.getCellData(1, "工时"), "");
+//			action.tap(data1, 1000);
 			PageFuntion.shenPiGongshiAndroid(caseNo, true, caseNo);
 			
-			WebElement data2=getElemntByYaml(Location.TextView_Ptext, true, true, GenDataExcle.getCellData(2, "工时"), "");
-			action.tap(data2, 1000);
+//			WebElement data2=getElemntByYaml(Location.TextView_Ptext, true, true, GenDataExcle.getCellData(2, "工时"), "");
+//			action.tap(data2, 1000);
 			PageFuntion.shenPiGongshiAndroid(caseNo, true, caseNo);
 		}
 		else {
@@ -132,13 +132,13 @@ public void  ESSP_GongShiTestLingDaoTongGuo()
 			WebElement waixie=getElemntByYaml(Location.TextView_Ptext, true, true, "外协员工", "");
 			action.tap(waixie, 1000);
 			
-			WebElement data1=getElemntByYaml(Location.TextView_Ptext, true, true, GenDataExcle.getCellData(1, "工时"), "");
-			action.tap(data1, 1000);
-			PageFuntion.shenPiGongshiAndroid(caseNo, true, caseNo);
-			
-			WebElement data2=getElemntByYaml(Location.TextView_Ptext, true, true, GenDataExcle.getCellData(2, "工时"), "");
-			action.tap(data2, 1000);
-			PageFuntion.shenPiGongshiAndroid(caseNo, true, caseNo);
+//			WebElement data1=getElemntByYaml(Location.TextView_Ptext, true, true, GenDataExcle.getCellData(1, "工时"), "");
+////			action.tap(data1, 1000);
+//			PageFuntion.shenPiGongshiAndroid(caseNo, true, caseNo);
+//			
+////			WebElement data2=getElemntByYaml(Location.TextView_Ptext, true, true, GenDataExcle.getCellData(2, "工时"), "");
+//			action.tap(data2, 1000);
+//			PageFuntion.shenPiGongshiAndroid(caseNo, true, caseNo);
 		}
 		else {
 		
@@ -180,14 +180,14 @@ public void  ESSP_GongShiTestMiShuJuJue()
 			action.tap(LIleixingDE, 1000);
 			WebElement waixie=getElemntByYaml(Location.TextView_Ptext, true, true, "外协员工", "");
 			action.tap(waixie, 1000);
-			
-			WebElement data1=getElemntByYaml(Location.TextView_Ptext, true, true, GenDataExcle.getCellData(1, "工时"), "");
-			action.tap(data1, 1000);
-			PageFuntion.shenPiGongshiAndroid(caseNo, false, caseNo);
-			
-			WebElement data2=getElemntByYaml(Location.TextView_Ptext, true, true, GenDataExcle.getCellData(2, "工时"), "");
-			action.tap(data2, 1000);
-			PageFuntion.shenPiGongshiAndroid(caseNo, false, caseNo);
+//			
+//			WebElement data1=getElemntByYaml(Location.TextView_Ptext, true, true, GenDataExcle.getCellData(1, "工时"), "");
+//			action.tap(data1, 1000);
+//			PageFuntion.shenPiGongshiAndroid(caseNo, false, caseNo);
+//			
+//			WebElement data2=getElemntByYaml(Location.TextView_Ptext, true, true, GenDataExcle.getCellData(2, "工时"), "");
+//			action.tap(data2, 1000);
+//			PageFuntion.shenPiGongshiAndroid(caseNo, false, caseNo);
 		}                                           
 		else {
 		

@@ -29,6 +29,11 @@ public class ScreenShots extends GetClassMethodName
 		 this.nsdriver=driver;
 		 oi=new OperateImage();
 		}
+	/**
+	 * 
+	 * @param element  页面元素
+	 * @param screenFileName  截图名称
+	 */
 //	被调用截图方法
 	public  void takeScreenshots (WebElement element,String screenFileName) 
 	{
@@ -38,19 +43,20 @@ public class ScreenShots extends GetClassMethodName
 			System.out.println("takeScreenshots获得截图文件名"+screenFileName+".png");
 			File screenshotFile =((TakesScreenshot)nsdriver).getScreenshotAs(OutputType.FILE);
 			FileUtils.copyFile(screenshotFile, new File(fileObPath));
+			
 			if (element!=null) 
-			{
+			{			
 				oi.cropImage(fileObPath,fileObPath.replace(".png", "Cut.png"), 0,element.getLocation().getY() , TestBase.action.Width, 100,"png","png");//剪切图片
 		    	Log.logInfo("截图裁剪完毕",GetClassMethodName()); 
 			}
 			else {
-				Log.logWarn("webelement为null无法精确截图", GetClassMethodName(),"");
-			}
+				Log.logInfo("元素未被定位，无法精确截图", GetClassMethodName());
+				}
 			
 		}
 		catch(Exception e)
 		{	
-		Log.logError(e.toString(),GetClassMethodName());
+		Log.logInfo("截图发生异常！"+e.toString(),GetClassMethodName());
 		}
 	}
 //	屏幕截图方法å
