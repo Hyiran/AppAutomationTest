@@ -310,7 +310,7 @@ else {
 //	用例执个数
 	TestBase.reportExcleExcelHandle.addCellDataWithColor(4, 1,Integer.toString(totalTestCase), Color.heise, Color.lvse);
 //	成功数
-	TestBase.reportExcleExcelHandle.addCellDataWithColor(4, 3, Integer.toString(totalTestCase-failTestCase), Color.heise, Color.lvse);
+	TestBase.reportExcleExcelHandle.addCellDataWithColor(4, 3, Integer.toString(totalTestCase-failTestCase-1), Color.heise, Color.lvse);
 //	失败数
 	TestBase.reportExcleExcelHandle.addCellDataWithColor(4, 5, Integer.toString(failTestCase), Color.heise, Color.hongse);
 
