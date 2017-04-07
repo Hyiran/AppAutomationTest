@@ -275,7 +275,7 @@ public class TestBase  extends  GetClassMethodName
 //			用例执个数
 			TestBase.reportExcleExcelHandle.addCellDataWithColor(1, 1,Integer.toString(totalTestCase-1), Color.heise, Color.lvse);
 //			成功数
-			TestBase.reportExcleExcelHandle.addCellDataWithColor(1, 3, Integer.toString(totalTestCase-failTestCase), Color.heise, Color.lvse);
+			TestBase.reportExcleExcelHandle.addCellDataWithColor(1, 3, Integer.toString(totalTestCase-failTestCase-1), Color.heise, Color.lvse);
 //			失败数
 			TestBase.reportExcleExcelHandle.addCellDataWithColor(1, 5, Integer.toString(failTestCase), Color.heise, Color.hongse);
 
